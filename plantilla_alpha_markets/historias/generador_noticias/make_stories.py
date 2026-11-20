@@ -82,9 +82,17 @@ def logos_html(lg):
     if not lg: return ''
     if isinstance(lg, str): lg = [lg]
     if len(lg) == 1: return one_logo(lg[0], 250, 800, 325)
-    return one_logo(lg[0], 190, 830, 290) + one_logo(lg[1], 190, 830, 500)
+    return one_logo(lg[0], 170, 840, 290) + one_logo(lg[1], 170, 840, 475)
+
+def _fecha():
+    import datetime as dt
+    from zoneinfo import ZoneInfo
+    d = dt.datetime.now(ZoneInfo('Europe/Madrid'))
+    m = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'][d.month-1]
+    return f'{d.day} {m} {d.year}'
 
 def build(st):
+    FECHA = st.get('fecha') or _fecha()
     lg = st.get('logo')
     logohtml = logos_html(lg)
     TITCSS = '#tit{right:290px !important}' if lg else ''
@@ -115,7 +123,7 @@ for(let i=0;i<22;i++){{const x=20+i*49+r()*14,top=r()>.5,h=top?30+r()*70:8+r()*1
 <canvas id="bgc" width="1080" height="1920"></canvas>
 <div id="globo"></div>
 <div id="head"><div id="marca"></div>
- <div id="fecha"><svg viewBox="0 0 24 24" fill="none" stroke="#34F5B0" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>20 NOV 2026</div></div>
+ <div id="fecha"><svg viewBox="0 0 24 24" fill="none" stroke="#34F5B0" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>{FECHA}</div></div>
 <div id="tit"><span class="a" id="t1">{E(st['t1'])}</span><span class="b" id="t2">{E(st['t2'])}</span></div>
 {logohtml}
 <div id="sub">{st['sub']}</div>

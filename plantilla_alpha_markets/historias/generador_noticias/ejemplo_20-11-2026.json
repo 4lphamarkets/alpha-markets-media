@@ -77,7 +77,8 @@
    "res": "Longs liquidados: <b>$110.6M</b> de <b>$135.8M</b> en 24 h"
   },
   "pie": "Fuentes: CoinStats · Coinbird · The Crypto Desk · Caleb & Brown · datos del 20 nov",
-  "logo": "btc"
+  "logo": "btc",
+  "fecha": "20 NOV 2026"
  },
  {
   "slug": "h02_etf_salidas",
@@ -142,7 +143,8 @@
    "res": "Bitfinex: quien compró cerca de <b>$80K</b> en T3 pierde casi <b>20%</b>"
   },
   "pie": "Fuentes: Cointelegraph · CoinStats · Bitfinex · otra fuente eleva noviembre a $3.47B",
-  "logo": "btc"
+  "logo": "btc",
+  "fecha": "20 NOV 2026"
  },
  {
   "slug": "h03_anthropic_opv",
@@ -192,7 +194,8 @@
    "res": "Ondo lanza <b>ANT tokenizado</b> el día de la OPV"
   },
   "pie": "Fuentes: KuCoin · Cointelegraph · CoinDesk · The Block · datos del 19-20 nov",
-  "logo": "ant"
+  "logo": "ant",
+  "fecha": "20 NOV 2026"
  },
  {
   "slug": "h04_fed_dic",
@@ -244,7 +247,8 @@
    "res": "Wall Street también cede pese a la <b>OPV de Anthropic</b>"
   },
   "pie": "Fuentes: KuCoin · Coinbird · CoinDesk · declaraciones del 19-20 nov",
-  "logo": "🏦"
+  "logo": "🏦",
+  "fecha": "20 NOV 2026"
  },
  {
   "slug": "h05_eth_1750",
@@ -316,7 +320,8 @@
    "res": "Desde $2,000 a $1,750: <b style='color:#FF4A5C'>-12.5%</b> en 8 días"
   },
   "pie": "Fuentes: KuCoin · CryptoActu · datos del 12, 19 y 20 nov",
-  "logo": "eth"
+  "logo": "eth",
+  "fecha": "20 NOV 2026"
  },
  {
   "slug": "h06_cruz_muerte",
@@ -368,7 +373,8 @@
    "res": "Las señales técnicas no son garantía: <b>gestiona el riesgo</b>"
   },
   "pie": "Fuentes: análisis de precio 20 nov · U.Today · Gtokentool",
-  "logo": "btc"
+  "logo": "btc",
+  "fecha": "20 NOV 2026"
  },
  {
   "slug": "h07_ballena_hyperliquid",
@@ -421,7 +427,8 @@
    "res": "Datos on-chain del <b>20 NOV</b> a las 07:40 UTC"
   },
   "pie": "Fuente: Liqwall · movimientos on-chain en Hyperliquid · 20 nov",
-  "logo": "🐋"
+  "logo": "🐋",
+  "fecha": "20 NOV 2026"
  },
  {
   "slug": "h08_sec_colorado",
@@ -472,7 +479,8 @@
    "res": "Comprueba siempre <b>registro y reputación</b> antes de depositar"
   },
   "pie": "Fuente: Bitcoin Magazine · SEC · 19-20 nov",
-  "logo": "⚖️"
+  "logo": "⚖️",
+  "fecha": "20 NOV 2026"
  },
  {
   "slug": "h09_cftc_hyperliquid",
@@ -522,7 +530,8 @@
    "res": "Hyperliquid gana <b>acceso, volumen y legitimidad</b>"
   },
   "pie": "Fuentes: The Block · CoinPaprika · 5-19 nov",
-  "logo": "hl"
+  "logo": "hl",
+  "fecha": "20 NOV 2026"
  },
  {
   "slug": "h10_clarity_act",
@@ -573,6 +582,7 @@
    "res": "CFTC: separar <b>mercados de predicción</b> del juego"
   },
   "pie": "Fuente: The Block · 19 nov",
-  "logo": "🏛️"
+  "logo": "🏛️",
+  "fecha": "20 NOV 2026"
  }
 ]

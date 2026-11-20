@@ -20,7 +20,7 @@ Formato: ver `historias/generador_noticias/ejemplo_20-11-2026.json` (lista de ob
 - `slug` (`h01_tema`), `t1` (blanco, 1-2 palabras, MAYÚSCULAS), `t2` (verde cursiva, el golpe, corto), `sub` (línea bajo el titular, admite `<b>…</b>` en menta).
 - `rows`: **exactamente 4 filas** `{ic: up|dn|sq|neu, n: nombre, s: subtítulo, p: valor, c: cambio, cc: v|r}`; `ic` up=verde, dn=rojo, neu=punto verde, sq=cuadrado rojo. Textos cortos y en MAYÚSCULAS; si una fila queda apretada, bajar `nfs`/`pfs`. Rojo solo para caídas/riesgo; verde para subidas.
 - `block`: `{type: line|bars|text, title, ... , res}`. `line` = `pts:[[etiqueta,"texto",valor,color]…]`; `bars` = `items:[[etiqueta,valor,"texto",color]…]`; `text` = `big` (frase con `<span style='color:#34F5B0'>`), `fs`. `res` = frase final con `<b>` en menta.
-- `pie`: «Fuentes: … · fecha». `logo`: ver abajo. La fecha de la cabecera es siempre la de HOY (edítala en el generador si cambia: busca `20 NOV 2026` y sustitúyela por la fecha del día en MAYÚSCULAS, p. ej. `21 NOV 2026`).
+- `pie`: «Fuentes: … · fecha». `logo`: ver abajo. La fecha de la cabecera se pone sola (hoy, hora de Madrid).
 - Datos exactos y con su unidad. Sin consejos de inversión; tono claro y fácil de entender.
 
 ### Logos (`logo`: texto o lista de máximo 2)
