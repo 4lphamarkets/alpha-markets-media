@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- Portada B · arquetipo "terminal": pantalla de terminal de bolsa (ámbar sobre negro) con la tabla de accionistas de PURR. -->
+<link rel="stylesheet" href="portadas/kit.css">
+<style>
+body{background:#000}
+#p{background:radial-gradient(ellipse 900px 1300px at 50% 45%,#1a1206 0%,#060402 70%,#000 100%);font-family:var(--f-mono);color:#FFB000}
+#scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.38) 0 2px,transparent 2px 5px);z-index:20;pointer-events:none}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(0,0,0,.85) 100%);z-index:21;pointer-events:none}
+.glow{text-shadow:0 0 6px rgba(255,176,0,.9),0 0 22px rgba(255,140,0,.45)}
+#bar{position:absolute;left:0;right:0;top:250px;height:76px;background:#FFB000;color:#000;display:flex;align-items:center;gap:26px;padding:0 34px;font-weight:700;font-size:36px}
+#bar .go{margin-left:auto;background:#000;color:#FFB000;padding:4px 16px}
+#cmd{position:absolute;left:44px;top:352px;font-size:30px;opacity:.85}
+#tit{position:absolute;left:44px;right:44px;top:400px;font-weight:700;line-height:1}
+#tit div{white-space:nowrap}
+#tit .b{color:#fff;text-shadow:0 0 8px rgba(255,255,255,.7),0 0 30px rgba(255,176,0,.5)}
+#tit .h{color:var(--menta);text-shadow:0 0 10px rgba(52,245,176,.9),0 0 40px rgba(52,245,176,.6);display:flex;align-items:center;gap:30px}
+#tit .h img{height:.9em;width:.9em;border-radius:50%;box-shadow:0 0 30px rgba(52,245,176,.8)}
+#tab{position:absolute;left:44px;right:44px;border:3px solid #FFB000;box-shadow:0 0 18px rgba(255,176,0,.35),inset 0 0 18px rgba(255,176,0,.15)}
+.hd{display:grid;grid-template-columns:70px 1fr 230px 150px;padding:12px 22px;font-size:26px;font-weight:700;background:rgba(255,176,0,.16);border-bottom:2px solid #FFB000;letter-spacing:.06em}
+.r{display:grid;grid-template-columns:70px 1fr 230px 150px;align-items:center;padding:0 22px;height:72px;font-size:36px;border-bottom:1px dashed rgba(255,176,0,.35)}
+.r:last-child{border-bottom:0}
+.r .n{text-align:right}.hd .n{text-align:right}
+.r.top{background:var(--menta);color:#001a10;font-weight:700;height:100px;font-size:48px;box-shadow:0 0 40px rgba(52,245,176,.55);position:relative}
+.r.top::after{content:"◄ Nº1";position:absolute;right:18px;bottom:-30px;z-index:3;background:#FF3B4F;color:#fff;font-size:30px;padding:2px 14px;transform:rotate(4deg)}
+.cens{display:inline-block;height:.62em;width:5.2em;background:repeating-linear-gradient(90deg,rgba(255,176,0,.75) 0 10px,rgba(255,176,0,.35) 10px 14px);vertical-align:middle;filter:blur(1px)}
+.cens.s{width:2.4em}
+#kpi{position:absolute;left:44px;right:44px;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.k{border:3px solid #FFB000;padding:12px 24px}
+.k small{display:block;font-size:24px;letter-spacing:.08em;opacity:.85}
+.k b{display:block;font-size:68px;color:#fff;text-shadow:0 0 10px rgba(255,255,255,.6)}
+#cur{display:inline-block;width:.55em;height:.9em;background:#FFB000;vertical-align:-.1em;box-shadow:0 0 14px #FFB000}
+.tape{position:absolute;left:-20px;white-space:nowrap;font-size:34px;letter-spacing:.06em;opacity:.6;border-top:1px solid rgba(255,176,0,.3);border-bottom:1px solid rgba(255,176,0,.3);padding:6px 0;width:1200px;overflow:hidden}
+#marca{position:absolute;left:44px;top:1600px;display:flex;align-items:center;gap:20px;font-size:28px;opacity:.9}
+</style></head><body>
+<div id="p">
+ <div class="tape glow" style="top:120px">PURR ▲ · HYPE ▲ · 13F · BLACKROCK 5,2% · INVESCO 7,12M · 29,3M HYPE · PURR ▲ · HYPE ▲ · 13F</div>
+ <div class="tape glow" style="top:178px;opacity:.35">SYS OK · NASDAQ CONECTADO · FILINGS SEC ACTUALIZADOS · SYS OK · NASDAQ CONECTADO</div>
+ <div class="tape glow" style="top:1730px;opacity:.35">&gt; ¿LLEGAN TARDE LAS INSTITUCIONES? _ &gt; ¿LLEGAN TARDE LAS INSTITUCIONES? _</div>
+ <div class="tape glow" style="top:1790px">HYPE ▲ · PURR ▲ · BLACKROCK Nº1 · 182 M$ · HYPE ▲ · PURR ▲ · BLACKROCK Nº1</div>
+ <div id="bar"><span>PURR US Equity</span><span style="font-weight:400">HDS · Accionistas</span><span class="go">&lt;GO&gt;</span></div>
+ <div id="cmd" class="glow">&gt; FILTRAR 13F --empresa "HYPERLIQUID STRATEGIES"</div>
+ <div id="tit">
+  <div class="glow" id="t0">WALL STREET YA</div>
+  <div class="b" id="t1">COMPRA</div>
+  <div class="h" id="t2"><span id="t2s">HYPE</span><img src="img/logos/hyperliquid.png"></div>
+ </div>
+ <div id="tab" class="glow">
+  <div class="hd"><span>#</span><span>TENEDOR</span><span class="n">ACCIONES</span><span class="n">%</span></div>
+  <div class="r top"><span>1</span><span>BLACKROCK</span><span class="n">14,85M</span><span class="n">5,2%</span></div>
+  <div class="r"><span>2</span><span>MORGAN STANLEY</span><span class="n"><i class="cens s"></i></span><span class="n"><i class="cens s" style="width:1.6em"></i></span></div>
+  <div class="r"><span>3</span><span>STATE STREET</span><span class="n"><i class="cens s"></i></span><span class="n"><i class="cens s" style="width:1.6em"></i></span></div>
+  <div class="r"><span>4</span><span>INVESCO</span><span class="n">7,12M</span><span class="n"><i class="cens s" style="width:1.6em"></i></span></div>
+  <div class="r"><span>5</span><span>VANGUARD</span><span class="n"><i class="cens s"></i></span><span class="n"><i class="cens s" style="width:1.6em"></i></span></div>
+ </div>
+ <div id="kpi" class="glow">
+  <div class="k"><small>POSICIÓN BLACKROCK</small><b>182 M$</b></div>
+  <div class="k"><small>HYPE EN TESORERÍA</small><b>29,3 M</b></div>
+ </div>
+ <div id="marca" class="glow"></div>
+ <div id="scan"></div><div id="vig"></div>
+</div>
+<script src="portadas/kit.js"></script>
+<script>
+window.fit = () => {
+  const $ = s => document.querySelector(s), W = 992;
+  ajustar('#t0', W, 120, 60); ajustar('#t1', W, 200, 100); ajustar('#t2', W, 190, 100);
+  let y = $('#tit').offsetTop + $('#tit').offsetHeight + 50;
+  $('#tab').style.top = y + 'px'; y += $('#tab').offsetHeight + 34;
+  $('#kpi').style.top = y + 'px'; y += $('#kpi').offsetHeight + 28;
+  const m = $('#marca'); m.innerHTML = marca('linea', 34) + '<span>EN DIRECTO <span id="cur"></span></span>'; m.style.top = y + 'px';
+  return parseInt($('#t1').style.fontSize);
+};
+document.fonts.ready.then(window.fit);
+</script>
+</body></html>

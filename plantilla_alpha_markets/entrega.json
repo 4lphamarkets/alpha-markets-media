@@ -1,0 +1,19 @@
+{
+  "slug": "oro_plata_caida",
+  "titulo_seo": "Oro y plata se hunden: mínimos de 14 meses por el dólar",
+  "descripcion": "🚨 El oro cae por debajo de 3.750 $ y la plata de 45 $: mínimos de 14 meses con el dólar disparado\n\nEl oro encadena tres días de caídas y toca su nivel más bajo desde septiembre de 2025. Desde sus máximos de enero pierde más de un 30 % y la plata casi un 60 %. El dólar está en su nivel más alto desde abril de 2025.\n\nLa Reserva Federal añade presión: Musalem pide varias subidas de tipos antes de la primavera y Waller plantea subir medio punto en diciembre. Con tipos altos y dólar fuerte, el oro, que no paga intereses, sufre. Va camino de su peor año desde 2015.\n\n¿Oportunidad o cuchillo cayendo? Cuéntamelo en comentarios 👇\n\n👉 Sígueme en @4lphamarkets para no perderte nada de los mercados financieros.\n\n⚠️ Esto no es consejo financiero.",
+  "hashtags": ["oro", "plata", "dolar", "reservafederal", "metalespreciosos", "tiposdeinteres", "inversiones", "finanzas", "bolsa", "mercadosfinancieros", "economia", "4lphamarkets"],
+  "palabras_clave": ["precio del oro hoy", "oro cae", "plata cae", "dólar máximos", "Reserva Federal subida de tipos", "oro mínimos 14 meses"],
+  "portada": {
+    "titulo": ["ORO", "*DESPLOMA*"],
+    "fecha_sede": "18 NOV 2026 · METALES",
+    "etiqueta": "ORO Y PLATA",
+    "logos": [{"archivo": "oro", "color": "#F5C542"}, {"archivo": "plata", "color": "#C9D3D8"}],
+    "union": "",
+    "skyline": true,
+    "disenos": [
+      {"html": "portadas/estilos/foto_epica.html", "arquetipo": "foto_epica", "concepto": "Monedas gigantes de oro y plata con brillo sobre globo verde y titular ORO DESPLOMA", "tipografia": "Montserrat Black Italic", "paleta": "negro / menta"},
+      {"html": "portadas/disenos/oro_plata_caida_b.html", "arquetipo": "grafica_gigante", "concepto": "Cascada de velas rojas con línea dorada que cae y ORO -30 % / PLATA -60 % apoyados en ella", "tipografia": "Anton", "paleta": "negro / rojo / oro"}
+    ]
+  }
+}

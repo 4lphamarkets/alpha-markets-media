@@ -1,0 +1,1 @@
+﻿Aqui van los clips e imagenes generados con las skills para cada video (ver insertos_ejemplo.json y LEEME.md).

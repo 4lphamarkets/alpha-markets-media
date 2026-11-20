@@ -1,0 +1,26 @@
+{
+  "slug": "hackeo_binance",
+  "titulo_seo": "Hackeo a Binance: el mayor robo cripto de la historia (6.300 millones $)",
+  "descripcion": "Hackeo a Binance: 6.300 millones de dólares robados en el mayor robo cripto de la historia 🚨\n\nTodo empezó con una falsa entrevista de trabajo y un malware en los equipos de sus ingenieros. El FBI apunta a TraderTraitor, hackers de Corea del Norte. Binance cubrió las pérdidas con 6.340 millones propios y solo hay unos 3.000 millones congelados.\n\nEse día bitcoin cayó por debajo de los 77.000 dólares y se liquidaron 1.550 millones en el mercado cripto. ¿Están seguros tus fondos en un exchange? Te leo en comentarios 👇\n\n👉 Sígueme en @4lphamarkets para no perderte nada de los mercados financieros.\n\n⚠️ Esto no es consejo financiero.",
+  "hashtags": ["binance", "hackeo", "criptomonedas", "bitcoin", "noticiascripto", "ciberseguridad", "coreadelnorte", "mercadosfinancieros", "inversiones", "finanzas", "trading", "4lphamarkets"],
+  "palabras_clave": ["hackeo Binance", "robo cripto", "Binance hack", "TraderTraitor", "Corea del Norte hackers", "bitcoin caída", "exchange seguridad"],
+  "portada": {
+    "titulo": ["El mayor", "*robo cripto*", "de la historia"],
+    "etiqueta": "HACKEO BINANCE",
+    "cifra": "6.300M $",
+    "cifra_etiqueta": "ROBADO",
+    "cifra_nombre": "BINANCE",
+    "icono": "binance",
+    "icono_color": "#F0B90B",
+    "persona": {"nombre": "CZ"},
+    "logos": [{"archivo": "binance", "color": "#F0B90B"}, {"archivo": "bitcoin", "color": "#F7931A"}],
+    "disenos": [
+      {"html": "portadas/disenos/hackeo_binance_a.html", "arquetipo": "se_busca",
+       "concepto": "Cartel de SE BUSCA del oeste con los hackers de Corea del Norte y recompensa de 6.300M $",
+       "tipografia": "bloque Impact + serif", "paleta": "papel viejo / sepia / rojo"},
+      {"html": "portadas/disenos/hackeo_binance_b.html", "arquetipo": "notificacion",
+       "concepto": "Pantalla de bloqueo de un móvil con una alerta de Binance: retirada de 6.300M $",
+       "tipografia": "Inter", "paleta": "azul noche / amarillo Binance"}
+    ]
+  }
+}

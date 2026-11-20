@@ -1,0 +1,38 @@
+/* KIT DE PORTADAS v10 — solo piezas sueltas (fuentes, colores, marca). NO es una maqueta.
+   Cada portada se diseña desde cero en su propio HTML (portadas/disenos/<slug>_a.html / _b.html)
+   y enlaza este archivo con  <link rel="stylesheet" href="portadas/kit.css">  (rutas relativas a la raíz de la plantilla). */
+
+/* ---------- fuentes de la plantilla (OFL / Apache) ---------- */
+@font-face{font-family:Mont;src:url(../fonts/montserrat-latin-wght-italic.woff2);font-weight:100 900;font-style:italic}
+@font-face{font-family:Mont;src:url(../fonts/montserrat-latin-wght-normal.woff2);font-weight:100 900}
+@font-face{font-family:Anton;src:url(../fonts/anton-latin-400-normal.woff2)}
+@font-face{font-family:Marker;src:url(../fonts/permanent-marker-latin-400-normal.woff2)}
+@font-face{font-family:Inter;src:url(../fonts/inter-latin-wght-normal.woff2);font-weight:100 900}
+/* fuentes del sistema (Windows) para estilos que las piden: periódico, terminal, documento, póster */
+/*   serif: Georgia, "Times New Roman"   ·   mono: Consolas, "Courier New"   ·   bloque: Impact, "Arial Black"   */
+
+:root{
+  --menta:#34F5B0; --pistacho:#B6E36A; --negro:#050807; --blanco:#fff;
+  --rojo:#FF3B4F; --oro:#F5C542; --crema:#F3EBDD;
+  --f-titular:Mont; --f-cifra:Anton; --f-mano:Marker; --f-texto:Inter;
+  --f-serif:Georgia,"Times New Roman",serif; --f-mono:Consolas,"Courier New",monospace; --f-bloque:Impact,"Arial Black",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden}
+#p{position:relative;width:1080px;height:1920px;overflow:hidden}
+
+/* ---------- marca 4LPHA MARKETS (obligatoria en algún sitio, pero el sitio y la forma los decide cada diseño) ---------- */
+.marca{display:inline-flex;align-items:center;gap:.28em;font-size:44px;color:#fff;line-height:.9}
+.marca img{width:2em;height:2em;border-radius:50%;border:.09em solid var(--menta);object-fit:cover}
+.marca .m1{font-family:Mont;font-style:italic;font-weight:900;font-size:1.05em;display:block}
+.marca .m2{font-family:Marker;color:var(--menta);font-size:.95em;display:block}
+.marca.linea .m1,.marca.linea .m2{display:inline}           /* 4LPHA MARKETS en una línea */
+.marca.sin-avatar img{display:none}
+.marca.tinta{color:#111}.marca.tinta img{border-color:#111}.marca.tinta .m2{color:#0a7d57}  /* sobre fondos claros */
+
+/* v14: logo de letras del canal (PNG transparente) */
+.marca-logo{display:block;filter:drop-shadow(0 0 18px rgba(52,245,176,.45)) drop-shadow(0 6px 10px rgba(0,0,0,.5))}
+
+/* utilidades opcionales */
+.nowrap{white-space:nowrap}
+.guia-segura{position:absolute;left:0;right:0;top:240px;height:1440px;outline:4px dashed rgba(255,0,200,.8);pointer-events:none;z-index:9999}

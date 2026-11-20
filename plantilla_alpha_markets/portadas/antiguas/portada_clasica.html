@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- PORTADA VERTICAL PARA REELS (1080x1920). La genera scripts/entrega.py: no se edita a mano,
+     se rellena con los datos de entrega.json (bloque "portada"). Fondo = fotograma del vídeo sin subtítulos. -->
+<style>
+@font-face{font-family:Mont;src:url(fonts/montserrat-latin-wght-normal.woff2);font-weight:100 900}
+@font-face{font-family:Mont;src:url(fonts/montserrat-latin-wght-italic.woff2);font-weight:100 900;font-style:italic}
+@font-face{font-family:Marker;src:url(fonts/permanent-marker-latin-400-normal.woff2)}
+@font-face{font-family:Anton;src:url(fonts/anton-latin-400-normal.woff2)}
+@font-face{font-family:Inter;src:url(fonts/inter-latin-wght-normal.woff2);font-weight:100 900}
+:root{--bg:#040706;--ink:#F4FFF9;--mint:#34F5B0;--pist:#B6E36A;--red:#FF5A5F}
+*{box-sizing:border-box}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#p{position:relative;width:1080px;height:1920px;overflow:hidden;color:var(--ink);font-family:Inter,sans-serif}
+#bgimg{position:absolute;inset:-30px;width:1140px;height:1980px;object-fit:cover;filter:blur(5px) brightness(.5) saturate(1.15)}
+#shade{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(4,7,6,.92) 0%,rgba(4,7,6,.25) 22%,rgba(4,7,6,.15) 50%,rgba(4,7,6,.35) 70%,rgba(4,7,6,.95) 100%),
+  radial-gradient(ellipse 85% 45% at 50% 50%,rgba(52,245,176,.16),transparent 70%)}
+#grid{position:absolute;left:-540px;right:-540px;top:1350px;height:1200px;transform-origin:50% 0;transform:perspective(700px) rotateX(62deg);
+ background-image:linear-gradient(rgba(52,245,176,.4) 2px,transparent 2px),linear-gradient(90deg,rgba(52,245,176,.4) 2px,transparent 2px);background-size:120px 120px;opacity:.18;
+ -webkit-mask:linear-gradient(#000,transparent 80%)}
+/* zona segura: la cuadrícula del perfil recorta al centro 1080x1440 (y 240..1680) → todo lo importante va dentro */
+#brand{position:absolute;left:0;right:0;top:290px;display:flex;justify-content:center;align-items:center;gap:22px}
+#av{width:110px;height:110px;border-radius:50%;object-fit:cover;border:4px solid var(--mint);box-shadow:0 0 34px rgba(52,245,176,.75)}
+.wm1{font-family:Mont;font-weight:900;font-style:italic;font-size:52px;letter-spacing:.02em;line-height:.9}
+.wm2{font-family:Marker;font-size:44px;color:var(--mint);line-height:1;text-shadow:0 0 20px rgba(52,245,176,.6)}
+#tag{position:absolute;left:0;right:0;top:450px;display:flex;justify-content:center}
+#tag span{display:flex;align-items:center;gap:14px;padding:14px 30px;border-radius:999px;border:3px solid rgba(255,90,95,.7);background:rgba(60,8,10,.7);color:#FF8A8D;font-family:Mont;font-weight:900;font-size:36px;letter-spacing:.12em}
+#tag i{width:18px;height:18px;border-radius:50%;background:var(--red);box-shadow:0 0 16px var(--red)}
+#mid{position:absolute;left:60px;right:60px;top:560px;height:1040px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px}
+#icon{width:230px;height:230px;filter:drop-shadow(0 0 40px currentColor)}
+#icon:empty{display:none}
+#tit{width:100%;text-align:center;font-family:Anton;text-transform:uppercase;line-height:.98;letter-spacing:.01em}
+#tit .l{display:block;-webkit-text-stroke:12px #000;paint-order:stroke fill;text-shadow:0 10px 0 rgba(0,0,0,.6)}
+#tit .k{color:var(--mint);text-shadow:0 10px 0 rgba(0,0,0,.6),0 0 46px rgba(52,245,176,.55)}
+#cifra{font-family:Anton;color:var(--pist);font-size:170px;line-height:1;-webkit-text-stroke:10px #000;paint-order:stroke fill;text-shadow:0 0 50px rgba(182,227,106,.5)}
+#cifra:empty{display:none}
+#foot{position:absolute;left:0;right:0;top:1610px;text-align:center;font-family:Mont;font-weight:800;font-size:34px;letter-spacing:.2em;color:rgba(244,255,249,.8)}
+</style></head><body>
+<div id="p">
+ <img id="bgimg" src="tmp/portada_bg.png">
+ <div id="shade"></div><div id="grid"></div>
+ <div id="brand"><img id="av" src="img/avatar.jpg"><div><div class="wm1">4LPHA</div><div class="wm2">MARKETS</div></div></div>
+ <div id="tag"><span><i></i><b id="tagt"></b></span></div>
+ <div id="mid"><div id="icon"></div><div id="tit"></div><div id="cifra"></div></div>
+ <div id="foot"></div>
+</div>
+<script>
+const D = {{DATA}};
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+// *palabra* = verde menta
+const fmt = s => esc(s).replace(/\*([^*]+)\*/g, '<span class="k">$1</span>');
+document.getElementById('tagt').textContent = D.etiqueta || '';
+if (!D.etiqueta) document.getElementById('tag').style.display = 'none';
+document.getElementById('foot').textContent = D.pie || '';
+document.getElementById('cifra').textContent = D.cifra || '';
+if (D.icono_svg) { const ic = document.getElementById('icon'); ic.innerHTML = D.icono_svg; ic.style.color = D.icono_color || '#34F5B0'; }
+const tit = document.getElementById('tit');
+tit.innerHTML = (D.titulo || []).map(l => `<span class="l">${fmt(l)}</span>`).join('');
+// autoajuste: el texto más grande posible que quepa en el ancho y en la zona central
+window.fit = () => {
+  const mid = document.getElementById('mid');
+  let fs = 230;
+  const fits = () => { tit.style.fontSize = fs + 'px';
+    const over = [...tit.children].some(l => { l.style.display='inline-block'; const w=l.scrollWidth; l.style.display='block'; return w > tit.clientWidth; });
+    return !over && mid.scrollHeight <= mid.clientHeight; };
+  while (fs > 70 && !fits()) fs -= 4;
+  return fs;
+};
+</script>
+</body></html>

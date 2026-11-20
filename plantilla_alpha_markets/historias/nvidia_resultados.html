@@ -1,0 +1,88 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../portadas/kit.css"><script src="../portadas/kit.js"></script>
+<style>
+body{background:#07261b}
+#p{background:radial-gradient(ellipse 120% 28% at 50% 0%,#14674a 0%,rgba(10,60,43,0) 100%),radial-gradient(ellipse 120% 30% at 50% 100%,#14674a 0%,rgba(10,60,43,0) 100%),radial-gradient(ellipse 100% 55% at 50% 38%,#0d3b2b 0%,#06190f 70%,#04120b 100%)}
+canvas#bgc{position:absolute;inset:0}
+#globo{position:absolute;left:120px;top:250px;width:840px;height:840px;border-radius:50%;opacity:.8;
+ background:radial-gradient(circle at 50% 45%,rgba(52,245,176,.12),rgba(0,0,0,0) 62%);
+ box-shadow:0 0 0 2px rgba(52,245,176,.35),0 0 80px rgba(52,245,176,.35),inset 0 0 90px rgba(52,245,176,.2)}
+#head{position:absolute;left:50px;right:50px;top:50px;height:196px;display:flex;align-items:center;justify-content:space-between;z-index:5}
+#fecha{display:flex;align-items:center;gap:18px;padding:0 26px;height:92px;border-radius:26px;background:rgba(0,0,0,.45);font-family:Mont;font-weight:800;font-size:42px;color:#fff;border-left:3px solid rgba(52,245,176,.4)}
+#fecha svg{width:50px;height:50px}
+#tit{position:absolute;left:0;right:0;top:300px;text-align:center;z-index:5;line-height:.9}
+#tit .a{display:block;font-family:Mont;font-weight:900;color:#fff;letter-spacing:-.02em;text-shadow:0 8px 0 rgba(0,0,0,.55),0 0 40px rgba(0,0,0,.7);white-space:nowrap}
+#tit .b{display:block;font-family:Mont;font-weight:900;font-style:italic;white-space:nowrap;margin-top:8px;
+ background:linear-gradient(180deg,#9bffd6,#34F5B0 55%,#12b97f);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 26px rgba(52,245,176,.7)) drop-shadow(0 7px 0 rgba(0,0,0,.55))}
+#sub{position:absolute;left:0;right:0;top:670px;text-align:center;z-index:5;font-family:Mont;font-weight:700;font-size:34px;letter-spacing:.06em;color:#bfeede;text-transform:uppercase}
+#sub b{color:#34F5B0}
+.fila{position:absolute;left:36px;right:36px;height:174px;z-index:5;border-radius:30px;border:2px solid rgba(52,245,176,.45);
+ background:linear-gradient(180deg,rgba(10,52,38,.78),rgba(3,18,12,.88));box-shadow:0 0 28px rgba(52,245,176,.18),inset 0 0 24px rgba(52,245,176,.08);
+ display:flex;align-items:center;padding:0 30px}
+.ic{width:104px;height:104px;border-radius:50%;display:grid;place-items:center;flex:none;border:4px solid}
+.ic svg{width:52px;height:52px}
+.ic.v{background:rgba(52,245,176,.12);border-color:#34F5B0}.ic.r{background:rgba(255,59,79,.12);border-color:#FF3B4F}
+.sep{width:3px;height:98px;background:rgba(52,245,176,.35);margin:0 28px;flex:none}
+.nom{flex:1;min-width:0}
+.nom b{display:block;white-space:nowrap;font-family:Mont;font-weight:900;font-size:54px;color:#fff;line-height:1}
+.nom i{display:block;font-style:normal;font-family:Mont;font-weight:700;font-size:28px;color:#9fd9c4;letter-spacing:.03em;margin-top:8px}
+.pr{font-family:Mont;font-weight:900;font-size:60px;color:#fff;margin-right:28px;text-align:right}
+.ch{font-family:Mont;font-weight:900;font-size:62px;min-width:230px;text-align:right}
+.ch.v{color:#34F5B0;text-shadow:0 0 20px rgba(52,245,176,.35)}.ch.r{color:#FF4A5C;text-shadow:0 0 20px rgba(255,59,79,.3)}
+#bloque{position:absolute;left:36px;right:36px;top:1526px;height:318px;z-index:5;border-radius:36px;border:2px solid rgba(52,245,176,.5);overflow:hidden;
+ background:radial-gradient(ellipse 80% 90% at 50% 40%,rgba(10,70,50,.75),rgba(3,18,12,.95));box-shadow:0 0 40px rgba(52,245,176,.2),inset 0 0 40px rgba(52,245,176,.1)}
+#bloque .animal{position:absolute;top:14px;height:280px;width:255px;opacity:.8;
+ -webkit-mask-image:radial-gradient(ellipse 50% 52% at 50% 50%,#000 40%,transparent 100%);mask-image:radial-gradient(ellipse 50% 52% at 50% 50%,#000 40%,transparent 100%)}
+#bloque .oso{left:-70px}#bloque .toro{right:-70px}
+#bt{position:absolute;left:0;right:0;top:16px;text-align:center;font-family:Mont;font-weight:900;font-size:40px;letter-spacing:.04em;color:#fff;text-transform:uppercase}
+#chart{position:absolute;left:150px;right:150px;top:62px;height:192px}
+#res{position:absolute;left:0;right:0;bottom:16px;text-align:center;font-family:Mont;font-weight:800;font-size:29px;color:#d9fff0;letter-spacing:.01em}
+#res b{color:#34F5B0}
+#pie{position:absolute;left:0;right:0;top:1862px;z-index:5;display:flex;align-items:center;gap:22px;padding:0 20px}
+#pie:before,#pie:after{content:"";height:2px;flex:1;background:rgba(52,245,176,.5)}
+#pie span{font-family:Inter;font-style:italic;font-size:23px;color:#cfe9df;white-space:nowrap}
+</style></head><body><div id="p">
+<canvas id="bgc" width="1080" height="1920"></canvas>
+<div id="globo"></div>
+<div id="head"><div id="marca"></div>
+ <div id="fecha"><svg viewBox="0 0 24 24" fill="none" stroke="#34F5B0" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>18 NOV 2026</div></div>
+<div id="tit"><span class="a" id="t1">NVIDIA</span><span class="b" id="t2">MONTAÑA RUSA</span></div>
+<div id="sub">Tras resultados del <b>17 NOV</b> · Q3 FY27</div>
+
+<div class="fila" style="top:752px"><div class="ic r"><svg viewBox="0 0 24 24" fill="#FF4A5C"><rect x="5" y="5" width="14" height="14" rx="3"/></svg></div><div class="sep"></div>
+ <div class="nom"><b>CIERRE</b><i>NVDA · 17 NOV</i></div><div class="pr">$155.46</div><div class="ch r">-0.44%</div></div>
+<div class="fila" style="top:944px"><div class="ic v"><svg viewBox="0 0 24 24" fill="#34F5B0"><path d="M12 4l9 15H3z"/></svg></div><div class="sep"></div>
+ <div class="nom"><b>MÁXIMO</b><i>AFTER-HOURS</i></div><div class="pr">≈$163</div><div class="ch v">+5%</div></div>
+<div class="fila" style="top:1136px"><div class="ic r"><svg viewBox="0 0 24 24" fill="#FF4A5C"><path d="M12 20L3 5h18z"/></svg></div><div class="sep"></div>
+ <div class="nom"><b>GIRO</b><i>AFTER-HOURS</i></div><div class="pr">≈$155</div><div class="ch r">-0.5%</div></div>
+<div class="fila" style="top:1328px"><div class="ic v"><svg viewBox="0 0 24 24" fill="#34F5B0"><path d="M12 4l9 15H3z"/></svg></div><div class="sep"></div>
+ <div class="nom"><b style="font-size:46px">PRE-MARKET</b><i>18 NOV · 5:53 ET</i></div><div class="pr">≈$161</div><div class="ch v">+3.7%</div></div>
+
+<div id="bloque">
+ <img class="animal oso" src="assets/oso.png"><img class="animal toro" src="assets/toro.png">
+ <div id="bt">MOVIMIENTO VS CIERRE</div>
+ <svg id="chart" viewBox="0 0 600 230"></svg>
+ <div id="res">Ingresos <b>$115.8B</b> (+103%) · BPA <b>$2.68</b> · Guía Q4 <b>$130B</b></div>
+</div>
+<div id="pie"><span>Fuentes: CNBC · Reuters · Benzinga · after-hours y pre-market 18 nov (5:53 ET)</span></div>
+<script>
+document.getElementById('marca').innerHTML=marca('',82);
+document.querySelectorAll('#marca img').forEach(i=>i.src='../img/logo_alpha_wordmark.png');
+document.fonts.ready.then(()=>{ajustar(document.getElementById('t1'),900,270,80); ajustar(document.getElementById('t2'),900,170,60);});
+// fondo: puntos tipo mapa + velas, reproducibles
+const c=document.getElementById('bgc').getContext('2d'), r=azar('nvidia-historia');
+for(let i=0;i<900;i++){const x=r()*1080,y=r()*1920,d=Math.hypot(x-540,y-640);const a=d<460?.22:.07;c.fillStyle=`rgba(52,245,176,${a*r()*1.6})`;c.fillRect(x,y,2.2,2.2);}
+for(let k=0;k<2;k++){let x=k?900:60;for(let i=0;i<5;i++){const h=40+r()*120,y=(k?330:300)+r()*160,up=r()>.35;c.fillStyle=up?'rgba(52,245,176,.75)':'rgba(255,74,92,.5)';c.fillRect(x+(k?1:-1)*i*34,y,12,h);c.fillRect(x+(k?1:-1)*i*34+5,y-24,2,h+48);}}
+for(let y0 of [0,1920]){const g=c.createLinearGradient(0,y0,0,y0?1700:220);g.addColorStop(0,'rgba(52,245,176,.22)');g.addColorStop(1,'rgba(52,245,176,0)');c.fillStyle=g;c.fillRect(0,y0?1700:0,1080,220);}
+for(let i=0;i<22;i++){const x=20+i*49+r()*14,top=r()>.5,h=top?30+r()*70:8+r()*14,up=r()>.35;c.fillStyle=up?'rgba(52,245,176,.35)':'rgba(255,74,92,.28)';c.fillRect(x,top?0:1920-h,10,h);}
+// gráfico: movimiento vs cierre (puntos reales, no a escala temporal)
+const P=[['CIERRE','0%',0,'#cfe9df'],['MÁXIMO','+5%',5,'#34F5B0'],['GIRO','-0.5%',-0.5,'#FF4A5C'],['PRE-MKT','+3.7%',3.7,'#34F5B0']];
+const W=600,x0=50,dx=165,yb=150,ESC=15;const pts=P.map((p,i)=>[x0+i*dx,yb-p[2]*ESC]);
+let s=`<line x1="0" y1="${yb}" x2="${W}" y2="${yb}" stroke="rgba(255,255,255,.25)" stroke-dasharray="6 8"/>`;
+s+=`<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#34F5B0" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" style="filter:drop-shadow(0 0 10px rgba(52,245,176,.8))"/>`;
+P.forEach((p,i)=>{const [x,y]=pts[i];const up=p[2]>=0;
+ s+=`<circle cx="${x}" cy="${y}" r="11" fill="${p[3]}" stroke="#021008" stroke-width="3"/>`;
+ s+=`<text x="${x}" y="${up&&p[2]>0?y-22:y+40}" text-anchor="middle" font-family="Mont" font-weight="900" font-size="34" fill="${p[3]}">${p[1]}</text>`;
+ s+=`<text x="${x}" y="228" text-anchor="middle" font-family="Mont" font-weight="700" font-size="22" fill="#9fd9c4">${p[0]}</text>`;});
+document.getElementById('chart').innerHTML=s;
+</script></div></body></html>

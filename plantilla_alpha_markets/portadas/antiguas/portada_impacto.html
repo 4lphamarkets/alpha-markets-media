@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- PORTADA 2 · ESTILO "IMPACTO" (v8). La genera scripts/entrega.py (bloque "portada" + "portada2" de entrega.json). No se edita a mano.
+     Totalmente distinta de la portada 1: titular en Anton con SELLO rojo, fondo partido por una grieta,
+     protagonista (persona o logos) en el centro y abajo un DUELO de cifras (izq vs der) o una cifra gigante. -->
+<style>
+@font-face{font-family:Mont;src:url(fonts/montserrat-latin-wght-italic.woff2);font-weight:100 900;font-style:italic}
+@font-face{font-family:Mont;src:url(fonts/montserrat-latin-wght-normal.woff2);font-weight:100 900}
+@font-face{font-family:Anton;src:url(fonts/anton-latin-400-normal.woff2)}
+@font-face{font-family:Marker;src:url(fonts/permanent-marker-latin-400-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+#p{position:relative;width:1080px;height:1920px;overflow:hidden;color:#fff}
+.half{position:absolute;inset:0}
+#A{clip-path:polygon(0 0,640px 0,440px 1920px,0 1920px)}
+#B{clip-path:polygon(640px 0,1080px 0,1080px 1920px,440px 1920px)}
+svg.full{position:absolute;inset:0}
+#brand{position:absolute;left:0;right:0;top:250px;display:flex;justify-content:center;align-items:center;gap:18px}
+#brand img{width:88px;height:88px;border-radius:50%;border:4px solid #34F5B0;box-shadow:0 0 24px rgba(52,245,176,.8)}
+.wm1{font-family:Mont;font-style:italic;font-weight:900;font-size:48px;line-height:.9;text-shadow:0 4px 12px #000}
+.wm2{font-family:Marker;font-size:42px;color:#34F5B0;line-height:1}
+#tit{position:absolute;left:20px;right:20px;top:368px;text-align:center;font-family:Anton;text-transform:uppercase}
+#tit .l{display:block;white-space:nowrap;line-height:1.06;text-shadow:0 10px 0 rgba(0,0,0,.6),0 0 40px rgba(0,0,0,.8)}
+#tit .st{display:inline-block;background:#E8102A;padding:0 .16em .04em;margin:0 .06em;transform:rotate(-4deg);border:.05em solid #fff;
+ box-shadow:0 0 50px rgba(255,30,60,.9),0 14px 0 rgba(0,0,0,.5);text-shadow:none}
+#hero{position:absolute;inset:0}
+.halo{position:absolute;border-radius:50%}
+.lg{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#0b0b0b;border:10px solid #fff}
+.lg img{width:70%;height:70%;object-fit:contain}
+.lg.moneda img,.lg.libre img{width:100%;height:100%;object-fit:cover}
+.lg.libre{background:none;border:0}
+.lg.blanco{background:#fff}
+#ph{position:absolute;border-radius:50%;overflow:hidden;border:12px solid #fff;box-shadow:0 0 0 8px rgba(0,0,0,.6),0 30px 60px rgba(0,0,0,.7)}
+#ph img{width:100%;height:100%;object-fit:cover}
+#pname{position:absolute;transform:translateX(-50%) rotate(-3deg);white-space:nowrap;background:#fff;color:#000;font-family:Anton;font-size:56px;padding:0 28px;
+ text-transform:uppercase;box-shadow:0 12px 0 rgba(0,0,0,.5)}
+.side{position:absolute;width:540px;text-align:center}
+.lab{font-family:Mont;font-style:italic;font-weight:900;font-size:60px;letter-spacing:4px;text-transform:uppercase;white-space:nowrap}
+.num{font-family:Anton;line-height:1.02;white-space:nowrap;color:#fff;text-shadow:0 12px 0 rgba(0,0,0,.55)}
+#vs{position:absolute;width:140px;height:140px;border-radius:50%;background:#000;border:6px solid #fff;display:flex;align-items:center;justify-content:center;
+ font-family:Anton;font-size:68px;box-shadow:0 0 40px rgba(255,255,255,.6)}
+#big{position:absolute;left:0;right:0;text-align:center}
+#big small{display:block;font-family:Mont;font-style:italic;font-weight:900;font-size:52px;letter-spacing:5px;color:#fff;text-transform:uppercase;text-shadow:0 0 20px rgba(0,0,0,.9)}
+#big b{display:block;font-family:Anton;font-weight:400;line-height:1.02;color:#B6E36A;white-space:nowrap;text-shadow:0 12px 0 rgba(0,0,0,.55);filter:drop-shadow(0 0 30px rgba(182,227,106,.7))}
+#foot{position:absolute;left:0;right:0;top:1615px;text-align:center;font-family:Mont;font-weight:800;font-size:30px;letter-spacing:.3em;color:rgba(255,255,255,.8);text-transform:uppercase}
+</style></head><body>
+<div id="p">
+ <div class="half" id="A"></div><div class="half" id="B"></div>
+ <svg class="full" id="deco" viewBox="0 0 1080 1920"></svg>
+ <svg class="full" id="crack" viewBox="0 0 1080 1920"><path d="M640 0 L600 380 L622 520 L566 760 L590 900 L520 1150 L548 1300 L470 1700 L440 1920" fill="none" stroke="#fff" stroke-width="7"
+  style="filter:drop-shadow(0 0 10px #fff) drop-shadow(0 0 30px #ffd27a)"/></svg>
+ <div id="hero"></div>
+ <div id="brand"><img src="img/avatar.jpg"><div><div class="wm1">4LPHA</div><div class="wm2">MARKETS</div></div></div>
+ <div id="tit"></div>
+ <div id="bottom"></div>
+ <div id="foot"></div>
+</div>
+<script>
+const D = {{DATA}};
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const rgba = (hex, a) => { const h = (hex || '#34F5B0').replace('#', ''); const n = parseInt(h.length === 3 ? h.replace(/./g, '$&$&') : h, 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; };
+const PERS = D.persona || null, LOGOS = D.logos || [], DU = D.duelo || null;
+const tono = D.tono || (LOGOS[0] && LOGOS[0].color) || '#34F5B0';
+const cI = (DU && DU.izq && DU.izq.color) || '#FF3B4F', cD = (DU && DU.der && DU.der.color) || '#34F5B0';
+function add(parent, tag, cls, css, html) { const e = document.createElement(tag); if (cls) e.className = cls; Object.assign(e.style, css || {}); if (html != null) e.innerHTML = html; parent.appendChild(e); return e; }
+function layout() {
+  // --- fondo partido: duelo = rojo vs verde; si no, oscuro vs color del protagonista ---
+  const colA = DU ? cI : '#2a2a2a', colB = DU ? cD : tono;
+  $('A').style.background = `radial-gradient(ellipse 700px 900px at 10% 80%, ${rgba(colA, DU ? .55 : .35)}, transparent 70%), linear-gradient(180deg, #0b0203, ${DU ? rgba(colA, .22) : '#121212'} 60%, #050101)`;
+  $('B').style.background = `radial-gradient(ellipse 700px 900px at 90% 75%, ${rgba(colB, .5)}, transparent 70%), linear-gradient(180deg, #020a06, ${rgba(colB, .22)} 60%, #020604)`;
+  const deco = $('deco'); deco.innerHTML = '';
+  if (DU) deco.innerHTML = `<polyline points="-10,820 60,860 110,840 170,930 220,910 270,1010 330,990 380,1120 430,1160" fill="none" stroke="${cI}" stroke-width="10" stroke-linejoin="round" opacity=".45"/>
+    <polyline points="650,1160 700,1110 750,1130 800,1020 860,1040 910,930 960,950 1020,830 1090,800" fill="none" stroke="${cD}" stroke-width="10" stroke-linejoin="round" opacity=".45"/>
+    <g fill="#fff" opacity=".07" font-family="Anton" font-size="420"><text x="-40" y="1880">${DU.izq.flecha === 'arriba' ? '▲' : '▼'}</text><text x="700" y="1880">${DU.der.flecha === 'abajo' ? '▼' : '▲'}</text></g>`;
+  else { let s = ''; for (let i = 0; i < 26; i++) s += `<line x1="${-200 + i * 70}" y1="1920" x2="${300 + i * 70}" y2="0" stroke="#fff" stroke-opacity=".035" stroke-width="18"/>`; deco.innerHTML = s; }
+  // --- titular Anton: *texto* = sello rojo ---
+  const tit = $('tit');
+  tit.innerHTML = (D.titulo || []).map(l => `<span class="l">${esc(l).replace(/\*([^*]+)\*/g, '<span class="st">$1</span>')}</span>`).join('');
+  [...tit.children].forEach(l => { let fs = 150; l.style.fontSize = fs + 'px'; l.style.display = 'inline-block';
+    while (l.scrollWidth > 1010 && fs > 50) { fs -= 2; l.style.fontSize = fs + 'px'; } l.style.display = 'block'; });
+  const y = tit.offsetTop + tit.offsetHeight + 30;
+  // --- zona de abajo: duelo / cifra gigante ---
+  const bot = $('bottom'); bot.innerHTML = ''; let bTop = 1650;
+  if (DU) {
+    bTop = 1230;
+    const mk = (S, side, col) => { const e = add(bot, 'div', 'side', {top: bTop + 'px', [side]: '0px'});
+      const fl = S.flecha === 'arriba' ? '▲' : S.flecha === 'abajo' ? '▼' : '';
+      const lab = side === 'left' ? (fl ? fl + ' ' : '') + esc(S.etiqueta || '') : esc(S.etiqueta || '') + (fl ? ' ' + fl : '');
+      add(e, 'div', 'lab', {color: col, textShadow: `0 0 24px ${rgba(col, .9)}`}, lab);
+      const n = add(e, 'div', 'num', {filter: `drop-shadow(0 0 30px ${rgba(col, .85)})`}, esc(S.cifra || ''));
+      let fs = 250; n.style.fontSize = fs + 'px'; n.style.display = 'inline-block'; while (n.scrollWidth > 440 && fs > 90) { fs -= 4; n.style.fontSize = fs + 'px'; }
+    };
+    mk(DU.izq, 'left', cI); mk(DU.der, 'right', cD);
+    add(bot, 'div', '', {left: '470px', top: (bTop + 105) + 'px'}, esc(DU.union || 'VS')).id = 'vs';
+  } else if (D.cifra) {
+    bTop = 1300;
+    const b = add(bot, 'div', '', {top: bTop + 'px'}, `<small>${esc(D.cifra_etiqueta || D.cifra_nombre || '')}</small><b>${esc(D.cifra)}</b>`); b.id = 'big';
+    const n = b.querySelector('b'); let fs = 260; n.style.fontSize = fs + 'px'; n.style.display = 'inline-block'; while (n.scrollWidth > 1000 && fs > 90) { fs -= 4; n.style.fontSize = fs + 'px'; }
+  }
+  // --- protagonista ---
+  const H = $('hero'); H.innerHTML = '';
+  const nameH = PERS && PERS.nombre ? 60 : 0;   // la píldora del nombre no debe pisar el duelo
+  const room = bTop - y - 20 - nameH, cy = y + room / 2;
+  const halo = (cx, cy, r, c) => add(H, 'div', 'halo', {left: (cx - r) + 'px', top: (cy - r) + 'px', width: 2 * r + 'px', height: 2 * r + 'px', background: `radial-gradient(circle, ${rgba(c, .75)} 0%, ${rgba(c, .25)} 45%, transparent 70%)`});
+  const badge = (L, cx, cy, sz, clip, tr) => { const e = add(H, 'div', 'lg ' + (L.modo || 'insignia'), {left: (cx - sz/2) + 'px', top: (cy - sz/2) + 'px', width: sz + 'px', height: sz + 'px'}, `<img src="${L.src}">`);
+    if (clip) e.style.clipPath = clip; if (tr) e.style.transform = tr; return e; };
+  if (PERS) {
+    const sz = Math.max(280, Math.min(560, room - 50)); halo(540, cy, sz * .62, DU ? '#ffffff' : tono);
+    const ph = add(H, 'div', '', {left: (540 - sz/2) + 'px', top: (cy - sz/2) + 'px', width: sz + 'px', height: sz + 'px'}, `<img src="${PERS.src}" style="object-position:${PERS.encuadre || '50% 30%'}">`); ph.id = 'ph';
+    if (PERS.nombre) { const p = add(H, 'div', '', {left: '540px', top: (cy + sz/2 - 40) + 'px'}); p.id = 'pname'; p.textContent = PERS.nombre; }
+    const ls = Math.round(sz * .34);
+    LOGOS.slice(0, 2).forEach((L, i) => badge(L, i ? 540 + sz * .5 : 540 - sz * .5, cy - sz * .28, ls));
+  } else if (LOGOS.length === 1) {
+    const L = LOGOS[0], sz = Math.max(260, Math.min(440, room - 40)); halo(540, cy, sz * .7, L.color);
+    // la grieta parte el logo en dos (siguiendo la línea del fondo)
+    const k = s => 640 - 200 * s / 1920, x0 = 540 - sz/2, top = cy - sz/2, xa = k(top) - x0, xb = k(top + sz) - x0;
+    badge(L, 540, cy, sz, `polygon(0 0,${xa}px 0,${xb}px 100%,0 100%)`, 'translate(-34px,14px) rotate(-7deg)');
+    badge(L, 540, cy, sz, `polygon(${xa}px 0,100% 0,100% 100%,${xb}px 100%)`, 'translate(34px,-14px) rotate(7deg)');
+  } else if (LOGOS.length) {
+    const n = Math.min(LOGOS.length, 3), sz = Math.max(220, Math.min(n === 2 ? 380 : 300, room - 40));
+    const xs = n === 2 ? [290, 790] : [210, 540, 870];
+    LOGOS.slice(0, n).forEach((L, i) => { halo(xs[i], cy, sz * .65, L.color); badge(L, xs[i], cy + (n === 3 && i === 1 ? -30 : 0), sz, null, `rotate(${i % 2 ? 6 : -6}deg)`); });
+  }
+  $('foot').textContent = D.pie || '';
+}
+window.fit = () => { layout(); return parseInt($('tit').children[0] ? $('tit').children[0].style.fontSize : 0); };
+document.fonts.ready.then(layout);
+</script>
+</body></html>

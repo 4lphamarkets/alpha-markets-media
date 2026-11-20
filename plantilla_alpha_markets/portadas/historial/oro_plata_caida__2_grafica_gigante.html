@@ -1,0 +1,53 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<!-- Portada B · "grafica_gigante": una caída de velas rojas enorme que rompe el marco; ORO −30 % y PLATA −60 % apoyados en ella.
+     Paleta negro / rojo / oro-plata, tipografía Anton. Zona segura y 240-1680. -->
+<link rel="stylesheet" href="portadas/kit.css"><script src="portadas/kit.js"></script>
+<style>
+body{background:#060304}
+#p{background:radial-gradient(ellipse 120% 60% at 50% 100%,#4a0a12 0%,#1a0509 45%,#060304 100%)}
+canvas#c{position:absolute;inset:0}
+#brand{position:absolute;left:0;right:0;top:250px;text-align:center;z-index:6;filter:drop-shadow(0 0 22px rgba(52,245,176,.4))}
+#top{position:absolute;left:0;right:0;top:470px;text-align:center;z-index:6}
+#top span{display:inline-block;font-family:Mont;font-weight:900;font-style:italic;font-size:54px;letter-spacing:.14em;color:#fff;padding:10px 34px;border:4px solid #FF3B4F;border-radius:14px;background:rgba(255,59,79,.18);box-shadow:0 0 40px rgba(255,59,79,.5)}
+.row{position:absolute;left:0;right:0;z-index:6;display:flex;justify-content:center;align-items:flex-end;gap:34px;white-space:nowrap;font-family:Anton;line-height:.95}
+
+#r1{top:600px}#r2{top:900px}
+.oro{background:linear-gradient(180deg,#FFF3B0,#F5C542 55%,#B8841C);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 8px 0 rgba(0,0,0,.6)) drop-shadow(0 0 26px rgba(245,197,66,.5))}
+.plata{background:linear-gradient(180deg,#FFFFFF,#CDD6DB 55%,#7E8D95);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 8px 0 rgba(0,0,0,.6)) drop-shadow(0 0 26px rgba(210,225,232,.45))}
+.rojo{color:#FF3B4F;text-shadow:0 8px 0 rgba(0,0,0,.65),0 0 40px rgba(255,59,79,.75)}
+#sub{position:absolute;left:0;right:0;top:1240px;text-align:center;z-index:6;font-family:Mont;font-weight:900;font-style:italic;font-size:92px;color:#fff;line-height:1;text-shadow:0 6px 0 rgba(0,0,0,.7),0 0 30px rgba(0,0,0,.8)}
+#sub b{color:#FF3B4F}
+#date{position:absolute;left:110px;right:110px;top:1500px;height:104px;z-index:6;border-radius:26px;border:3px solid #FF3B4F;background:rgba(20,4,8,.9);box-shadow:0 0 36px rgba(255,59,79,.5);display:flex;align-items:center;justify-content:center;font-family:Mont;font-weight:900;font-style:italic;font-size:44px;color:#fff;white-space:nowrap;gap:18px}
+#date b{color:#F5C542}
+</style></head><body><div id="p">
+<canvas id="c" width="1080" height="1920"></canvas>
+<div id="brand"></div>
+<div id="top"><span>ALERTA · METALES</span></div>
+<div class="row" id="r1"><div class="oro n" id="a1">ORO</div><div class="rojo n" id="b1">−30 %</div></div>
+<div class="row" id="r2"><div class="plata n" id="a2">PLATA</div><div class="rojo n" id="b2">−60 %</div></div>
+<div id="sub">CAÍDA <b>LIBRE</b></div>
+<div id="date"><span>18 NOV 2026</span><span>·</span><b>MÍNIMO 14 MESES</b></div>
+<script>
+const r=azar('oro_plata_caida');
+(function(){const c=document.getElementById('c').getContext('2d');
+ // rejilla tenue
+ c.strokeStyle='rgba(255,255,255,.05)';c.lineWidth=2;for(let y=300;y<1900;y+=130){c.beginPath();c.moveTo(0,y);c.lineTo(1080,y);c.stroke()}
+ // velas rojas descendentes gigantes (rompen el marco por abajo)
+ let y=560;const N=9;
+ for(let i=0;i<N;i++){const x=-20+i*125,body=90+r()*150,wick=40+r()*70,down=i%4!==2;const top=y,h=down?body:body*.5;
+  const col=down?'255,59,79':'255,120,130';
+  c.shadowColor='rgba(255,59,79,.8)';c.shadowBlur=30;c.fillStyle=`rgba(${col},${down?.55:.3})`;c.strokeStyle=`rgba(${col},.8)`;c.lineWidth=6;
+  c.beginPath();c.moveTo(x+50,top-wick);c.lineTo(x+50,top+h+wick);c.stroke();c.fillRect(x+10,top,80,h);c.strokeRect(x+10,top,80,h);
+  y+=down?h*.85+40:-h*.4+60}
+ c.shadowBlur=0;
+ // línea de tendencia dorada que se desploma
+ c.strokeStyle='#F5C542';c.lineWidth=10;c.shadowColor='#F5C542';c.shadowBlur=24;c.beginPath();c.moveTo(-20,560);c.bezierCurveTo(300,560,640,820,1100,1750);c.stroke();c.shadowBlur=0;
+ // flecha roja gigante
+ c.fillStyle='rgba(255,59,79,.9)';c.shadowColor='#FF3B4F';c.shadowBlur=40;c.beginPath();c.moveTo(1010,1790);c.lineTo(900,1620);c.lineTo(1000,1650);c.lineTo(1040,1540);c.closePath();c.fill();c.shadowBlur=0;
+ // polvo
+ for(let i=0;i<260;i++){c.fillStyle=`rgba(255,${100+r()*100|0},${100+r()*60|0},${r()*.4})`;c.beginPath();c.arc(r()*1080,r()*1920,.8+r()*2,0,7);c.fill()}
+})();
+document.getElementById('brand').innerHTML=marca('',64);
+window.fit=()=>{for(const [a,b,fs] of [['a1','b1',300],['a2','b2',250]]){let s=fs;for(;s>110;s-=4){document.getElementById(a).style.fontSize=s+'px';document.getElementById(b).style.fontSize=s+'px';const w=document.getElementById(a).offsetWidth+document.getElementById(b).offsetWidth+34;if(w<=980)break}}
+ ajustar(document.getElementById('sub'),980,92,50);return 1};fit();
+</script></div></body></html>

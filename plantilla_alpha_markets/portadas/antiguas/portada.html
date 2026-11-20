@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- PORTADA VERTICAL PARA REELS (1080x1920) · ESTILO "PLANTILLA" (v7).
+     La genera scripts/entrega.py con los datos de entrega.json (bloque "portada"). No se edita a mano.
+     Fondo propio (globo con red + velas + tarjetas con brillo). El fotograma del vídeo ya no se usa, salvo "estilo":"clasico" (portada_clasica.html).
+     v8: protagonistas = foto de la persona (círculo o recortada) + logos (cripto, DEX, empresas) en #hero. -->
+
+<style>
+@font-face{font-family:Mont;src:url(fonts/montserrat-latin-wght-normal.woff2);font-weight:100 900}
+@font-face{font-family:Mont;src:url(fonts/montserrat-latin-wght-italic.woff2);font-weight:100 900;font-style:italic}
+@font-face{font-family:Marker;src:url(fonts/permanent-marker-latin-400-normal.woff2)}
+@font-face{font-family:Inter;src:url(fonts/inter-latin-wght-normal.woff2);font-weight:100 900}
+:root{--bg:#040706;--ink:#F4FFF9;--mint:#34F5B0;--pist:#B6E36A;--red:#FF5A5F;--grey:#8FA39A}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#p{position:relative;width:1080px;height:1920px;overflow:hidden;color:var(--ink);font-family:Inter,sans-serif}
+#bg{position:absolute;inset:0;background:
+ radial-gradient(ellipse 700px 600px at 70% 22%,rgba(20,200,140,.30),transparent 70%),
+ radial-gradient(ellipse 900px 500px at 30% 85%,rgba(10,120,80,.26),transparent 70%),
+ linear-gradient(180deg,#03150f 0%,#020a07 55%,#010504 100%)}
+#fx{position:absolute;inset:0}
+/* zona segura: la cuadrícula del perfil recorta al centro (y 240..1680) → todo lo importante va dentro */
+#brand{position:absolute;left:60px;top:262px;display:flex;align-items:center;gap:22px}
+#av{width:104px;height:104px;border-radius:50%;object-fit:cover;border:4px solid var(--mint);box-shadow:0 0 28px rgba(52,245,176,.8)}
+.wm1{font-family:Mont;font-weight:900;font-style:italic;font-size:58px;line-height:.9;letter-spacing:-1px;text-shadow:0 4px 14px #000}
+.wm2{font-family:Marker;font-size:52px;color:var(--mint);line-height:1;text-shadow:0 0 22px rgba(52,245,176,.7)}
+#tag{position:absolute;right:60px;top:278px;height:72px;padding:0 32px;border-radius:22px;display:flex;align-items:center;gap:16px;
+ background:rgba(0,0,0,.45);border:2px solid rgba(60,255,180,.35);box-shadow:0 0 30px rgba(30,230,150,.2);
+ font-family:Mont;font-weight:800;font-style:italic;font-size:34px}
+#tag i{width:18px;height:18px;border-radius:50%;background:var(--red);box-shadow:0 0 16px var(--red)}
+#sep{position:absolute;left:0;right:0;top:392px;height:2px;background:linear-gradient(90deg,transparent,rgba(52,245,176,.6),transparent)}
+#tit{position:absolute;left:30px;right:30px;top:420px;text-align:center;font-family:Mont;font-style:italic;font-weight:900;text-transform:uppercase;letter-spacing:-.03em}
+#tit .l{display:block;white-space:nowrap;line-height:1.0;color:var(--ink);text-shadow:0 8px 0 rgba(0,0,0,.5),0 0 40px rgba(0,0,0,.6)}
+#tit .k{background:linear-gradient(180deg,#7dffd0,#12e08c 60%,#0aa66a);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;
+ filter:drop-shadow(0 0 28px rgba(30,240,150,.65)) drop-shadow(0 8px 0 rgba(0,0,0,.4))}
+#tit .s{font-weight:800;letter-spacing:-.01em;margin-top:18px}
+#card{position:absolute;left:60px;right:60px;height:168px;display:flex;align-items:center;gap:30px;padding:0 44px;border-radius:34px;
+ border:3px solid rgba(60,255,180,.55);background:linear-gradient(180deg,rgba(14,70,52,.75),rgba(3,22,16,.9));
+ box-shadow:0 0 40px rgba(30,230,150,.3),inset 0 0 40px rgba(40,255,170,.08)}
+#card .ic{width:96px;height:96px;flex:none;filter:drop-shadow(0 0 10px currentColor)}
+#card .tx{flex:none;white-space:nowrap;border-left:3px solid rgba(60,255,180,.4);padding-left:30px}
+#cifra{margin-left:auto}
+#card .tx small{display:block;font-family:Mont;font-weight:600;font-style:italic;font-size:28px;color:#9fd9c3;letter-spacing:.04em;text-transform:uppercase}
+#card .tx b{font-family:Mont;font-weight:900;font-style:italic;font-size:46px;text-transform:uppercase}
+#cifra{font-family:Mont;font-weight:900;font-style:italic;color:var(--pist);letter-spacing:-.03em;white-space:nowrap;text-shadow:0 0 30px rgba(182,227,106,.55)}
+#big{position:absolute;left:340px;width:400px;height:400px;filter:drop-shadow(0 0 40px currentColor)}
+/* v8: protagonistas de la portada = foto de la persona + logos (cripto, DEX, empresas) */
+#hero{position:absolute;inset:0;pointer-events:none}
+#halo{position:absolute;border-radius:50%;filter:blur(30px);opacity:.55}
+.ring{position:absolute;border-radius:50%;border:3px dashed rgba(52,245,176,.35)}
+#ph{position:absolute;overflow:hidden;border-radius:50%;border:9px solid var(--mint);background:#06140f;
+ box-shadow:0 0 0 6px rgba(0,0,0,.55),0 0 60px rgba(52,245,176,.7),0 30px 60px rgba(0,0,0,.6)}
+#ph img{width:100%;height:100%;object-fit:cover;display:block}
+#cut{position:absolute;object-fit:contain;object-position:bottom center;
+ filter:drop-shadow(0 0 3px rgba(125,255,208,.9)) drop-shadow(0 0 40px rgba(52,245,176,.55)) drop-shadow(0 20px 30px rgba(0,0,0,.6));
+ -webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,#000 82%,transparent 100%)}
+#pname{position:absolute;transform:translateX(-50%);white-space:nowrap;padding:10px 38px 12px;border-radius:999px;
+ background:linear-gradient(180deg,#7dffd0,#12e08c);color:#03150f;font-family:Mont;font-weight:900;font-style:italic;font-size:44px;
+ text-transform:uppercase;letter-spacing:-.01em;box-shadow:0 0 30px rgba(52,245,176,.7),0 10px 20px rgba(0,0,0,.6)}
+.lg{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;
+ background:radial-gradient(circle at 35% 30%,#183a2f,#050d0a 75%);border:6px solid var(--c);
+ box-shadow:0 0 0 5px rgba(0,0,0,.6),0 0 46px var(--c),0 18px 30px rgba(0,0,0,.6)}
+.lg.blanco{background:#fff}
+.lg img{width:68%;height:68%;object-fit:contain;display:block}
+.lg.moneda img{width:100%;height:100%;object-fit:cover}
+.lg.libre{background:none;border:0;box-shadow:none;overflow:visible}
+.lg.libre img{width:100%;height:100%;filter:drop-shadow(0 0 30px var(--c)) drop-shadow(0 14px 20px rgba(0,0,0,.6))}
+.vs{position:absolute;transform:translate(-50%,-50%);font-family:Mont;font-weight:900;font-style:italic;font-size:96px;color:var(--ink);
+ text-shadow:0 0 30px rgba(52,245,176,.9),0 8px 0 rgba(0,0,0,.5)}
+#foot{position:absolute;left:0;right:0;top:1610px;text-align:center;font-family:Mont;font-weight:700;font-style:italic;font-size:30px;color:rgba(244,255,249,.7)}
+</style></head><body>
+<div id="p">
+ <div id="bg"></div>
+ <svg id="fx" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs><radialGradient id="g" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#0c3a2c" stop-opacity="0"/><stop offset=".9" stop-color="#26e8a8" stop-opacity=".35"/><stop offset="1" stop-color="#7dffd0" stop-opacity=".9"/></radialGradient></defs>
+  <circle id="globe" cx="560" cy="1400" r="760" fill="url(#g)" opacity=".55"/>
+  <g id="net" stroke="#35f0b0" stroke-opacity=".35" fill="#7dffd0"></g>
+  <g id="candles"></g>
+  <g id="alt"></g>
+ </svg>
+ <div id="brand"><img id="av" src="img/avatar.jpg"><div><div class="wm1">4LPHA</div><div class="wm2">MARKETS</div></div></div>
+ <div id="tag"><i></i><b id="tagt"></b></div>
+ <div id="sep"></div>
+ <div id="tit"></div>
+ <div id="card"><div class="ic" id="cic"></div><div class="tx"><small id="clab"></small><b id="cnom"></b></div><div id="cifra"></div></div>
+ <div id="big"></div>
+ <div id="hero"></div>
+ <div id="foot"></div>
+</div>
+<script>
+const D = {{DATA}};
+const NS='http://www.w3.org/2000/svg', $=id=>document.getElementById(id);
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+// *palabra* = verde menta (línea destacada: grande, con degradado)
+const color = D.icono_color || '#34F5B0';
+// --- cabecera ---
+$('tagt').textContent = D.etiqueta || ''; if (!D.etiqueta) $('tag').style.display = 'none';
+$('foot').textContent = D.pie || '';
+const tit = $('tit');
+// v8: persona = {src, nombre, recorte, encuadre} · logos = [{src, color, modo}] (los prepara entrega.py)
+const PERS = D.persona || null, LOGOS = D.logos || [], BOTTOM = 1655;
+function el(tag, cls, css, html) { const e = document.createElement(tag); if (cls) e.className = cls; Object.assign(e.style, css || {}); if (html) e.innerHTML = html; $('hero').appendChild(e); return e; }
+function logo(L, cx, cy, sz) {
+  const e = el('div', 'lg ' + (L.modo || 'insignia'), {left: (cx - sz/2) + 'px', top: (cy - sz/2) + 'px', width: sz + 'px', height: sz + 'px'});
+  e.style.setProperty('--c', L.color || '#34F5B0'); e.innerHTML = `<img src="${L.src}">`; return e;
+}
+function hero(y) {
+  $('hero').innerHTML = '';
+  const room = BOTTOM - y, n = LOGOS.length, main = (LOGOS[0] && LOGOS[0].color) || '#34F5B0';
+  const halo = (cx, cy, r, c) => el('div', '', {left: (cx - r) + 'px', top: (cy - r) + 'px', width: 2*r + 'px', height: 2*r + 'px', background: `radial-gradient(circle, ${c} 0%, transparent 68%)`}).id = 'halo';
+  if (PERS) {
+    const hasName = !!PERS.nombre, nameH = hasName ? 70 : 0;
+    if (PERS.recorte) {
+      // foto recortada (PNG con transparencia): grande, apoyada abajo, con contorno luminoso
+      const h = Math.min(900, room - 10), w = 1000, top = BOTTOM - h, cx = 540;
+      halo(cx, top + h * .45, Math.min(460, h * .6), 'rgba(52,245,176,.55)');
+      const im = el('img', '', {left: (cx - w/2) + 'px', top: top + 'px', width: w + 'px', height: h + 'px'}); im.id = 'cut'; im.src = PERS.src;
+      if (hasName) { const p = el('div', '', {left: cx + 'px', top: (BOTTOM - 96) + 'px'}, ''); p.id = 'pname'; p.textContent = PERS.nombre; }
+      const ls = Math.min(210, room * .3);
+      const slots = [[150, top + h * .42], [930, top + h * .42], [170, top + h * .78], [910, top + h * .78]];
+      LOGOS.slice(0, 4).forEach((L, i) => logo(L, slots[i][0], slots[i][1], ls));
+    } else {
+      // foto normal: círculo con aro menta, logos orbitando alrededor
+      const sz = Math.max(300, Math.min(660, room - nameH - 50)), cx = 540, cy = y + (room - nameH) / 2 + 4;
+      halo(cx, cy, sz * .85, 'rgba(52,245,176,.45)');
+      el('div', 'ring', {left: (cx - sz*.62) + 'px', top: (cy - sz*.62) + 'px', width: sz*1.24 + 'px', height: sz*1.24 + 'px'});
+      const ph = el('div', '', {left: (cx - sz/2) + 'px', top: (cy - sz/2) + 'px', width: sz + 'px', height: sz + 'px'}, `<img src="${PERS.src}" style="object-position:${PERS.encuadre || '50% 30%'}">`); ph.id = 'ph';
+      if (hasName) { const p = el('div', '', {left: cx + 'px', top: (cy + sz/2 - 34) + 'px'}); p.id = 'pname'; p.textContent = PERS.nombre; }
+      const ls = Math.round(Math.min(220, sz * .38)), R = sz * .5 + ls * .12;
+      const ang = [150, 30, 210, 330];   // abajo-izq, abajo-der, arriba-izq, arriba-der (grados, y hacia abajo)
+      LOGOS.slice(0, 4).forEach((L, i) => { const a = ang[i] * Math.PI / 180; logo(L, cx + Math.cos(a) * R * 1.02, cy + Math.sin(a) * R * .95 - (i < 2 ? 10 : 0), ls); });
+    }
+    return;
+  }
+  // solo logos: 1 grande · 2 enfrentados (VS / ×) · 3-4 en fila
+  const cy = y + room / 2 - 10;
+  if (n === 1) { const sz = Math.max(260, Math.min(470, room - 70)); halo(540, cy, sz * .9, main); logo(LOGOS[0], 540, cy, sz); }
+  else if (n === 2) {
+    const sz = Math.max(220, Math.min(360, room - 80));
+    halo(290, cy, sz * .75, LOGOS[0].color); halo(790, cy, sz * .75, LOGOS[1].color);
+    logo(LOGOS[0], 290, cy, sz); logo(LOGOS[1], 790, cy, sz);
+    if (D.union !== '') { const v = el('div', 'vs', {left: '540px', top: cy + 'px'}); v.textContent = D.union || 'VS'; }
+  } else {
+    const k = Math.min(n, 4), sz = k === 3 ? Math.min(290, room - 80) : Math.min(225, room - 80), gap = (1000 - k * sz) / (k - 1);
+    halo(540, cy, 420, main);
+    LOGOS.slice(0, k).forEach((L, i) => logo(L, 40 + sz/2 + i * (sz + gap), cy + (k === 3 && i === 1 ? -40 : 0), sz * (k === 3 && i === 1 ? 1.12 : 1)));
+  }
+}
+const SEED = [...(D.semilla || D.titulo.join(''))].reduce((a, c) => (a * 31 + c.charCodeAt(0)) % 2147483647, 7) || 7;
+function layout() {
+let s = SEED; const r = () => (s = (s * 16807) % 2147483647) / 2147483647;
+// --- titular: líneas normales / línea *destacada* / líneas posteriores = subtítulo ---
+let seenKey = false;
+tit.innerHTML = (D.titulo || []).map(l => {
+  const key = /\*[^*]+\*/.test(l); const cls = key ? 'k' : (seenKey ? 's' : ''); if (key) seenKey = true;
+  return `<span class="l ${cls}">${esc(l).replace(/\*/g, '')}</span>`;
+}).join('');
+const MAX = {'':122, k:196, s:86};
+[...tit.children].forEach(l => {
+  const t = l.classList.contains('k') ? 'k' : l.classList.contains('s') ? 's' : '';
+  let fs = MAX[t]; l.style.fontSize = fs + 'px'; l.style.display = 'inline-block';
+  while (l.scrollWidth > 1000 && fs > 40) { fs -= 2; l.style.fontSize = fs + 'px'; }
+  l.style.display = 'block';
+});
+const titBottom = tit.offsetTop + tit.offsetHeight;
+// --- tarjeta de cifra (opcional) ---
+const hasCard = !!D.cifra; let y = titBottom + 36;
+if (hasCard) {
+  const c = $('card'); c.style.top = y + 'px';
+  $('cifra').textContent = D.cifra; $('clab').textContent = D.cifra_etiqueta || ''; $('cnom').textContent = D.cifra_nombre || '';
+  if (!D.cifra_etiqueta && !D.cifra_nombre) c.querySelector('.tx').style.display = 'none';
+  if (D.icono_svg) { $('cic').innerHTML = D.icono_svg; $('cic').style.color = color; }
+  else if (LOGOS.length) { $('cic').innerHTML = `<img src="${LOGOS[0].src}" style="width:100%;height:100%;object-fit:contain">`; $('cic').style.color = LOGOS[0].color; }
+  else $('cic').style.display = 'none';
+  let fs = 92; const cf = $('cifra'); cf.style.fontSize = fs + 'px';
+  const tx = c.querySelector('.tx');
+  // si el texto de la izquierda es muy largo, se encoge antes de robar sitio a la cifra
+  if (tx.style.display !== 'none') { let ts = 1; while (tx.scrollWidth > 380 && ts > .6) { ts -= .05; tx.style.fontSize = ts + 'em'; tx.querySelectorAll('small,b').forEach(e => e.style.zoom = ts); } }
+  const room = () => c.clientWidth - 88 - ($('cic').style.display==='none'?0:126) - (tx.style.display==='none'?0:tx.offsetWidth + 30);
+  while (cf.scrollWidth > room() && fs > 40) { fs -= 2; cf.style.fontSize = fs + 'px'; }
+  y += 168 + 40;
+} else $('card').style.display = 'none';
+// --- icono grande sobre el globo ---
+const big = $('big');
+if (PERS || LOGOS.length) { big.style.display = 'none'; hero(y); }
+else if (D.icono_svg) { big.innerHTML = D.icono_svg; big.style.color = color; const room = 1650 - y; const sz = Math.max(220, Math.min(420, room - 60)); big.style.width = big.style.height = sz + 'px'; big.style.left = (540 - sz/2) + 'px'; big.style.top = (y + (room - sz)/2 - 20) + 'px'; }
+else big.style.display = 'none';
+// --- fondo procedural (semilla por vídeo). v8: varios fondos + tinte con el color del protagonista ---
+const FONDOS = ['globo', 'rayos', 'grafica', 'rejilla'];
+const fondo = FONDOS.includes(D.fondo) ? D.fondo : FONDOS[SEED % FONDOS.length];
+const tono = D.tono || (LOGOS[0] && LOGOS[0].color) || D.icono_color || '#34F5B0';
+const rgba = (hex, a) => { const h = hex.replace('#', ''); const n = parseInt(h.length === 3 ? h.replace(/./g, '$&$&') : h, 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; };
+const HCY = y + (BOTTOM - y) / 2;   // centro del protagonista
+$('bg').style.background = `radial-gradient(ellipse 760px 620px at 50% ${HCY}px, ${rgba(tono, .30)}, transparent 70%),
+ radial-gradient(ellipse 700px 500px at 75% 18%, rgba(20,200,140,.22), transparent 70%),
+ linear-gradient(180deg,#03150f 0%,#020a07 55%,#010504 100%)`;
+const alt = $('alt'); alt.innerHTML = '';
+const show = fondo === 'globo'; $('globe').style.display = $('net').style.display = $('candles').style.display = show ? '' : 'none';
+const svg = s => alt.insertAdjacentHTML('beforeend', s);
+if (fondo === 'rayos') {
+  // rayos de sol saliendo del protagonista + motas
+  let s2 = ''; const N = 28;
+  for (let i = 0; i < N; i++) { const a0 = i / N * Math.PI * 2, a1 = a0 + Math.PI / N; s2 += `<path d="M540 ${HCY} L${540 + Math.cos(a0) * 1600} ${HCY + Math.sin(a0) * 1600} L${540 + Math.cos(a1) * 1600} ${HCY + Math.sin(a1) * 1600}Z"/>`; }
+  svg(`<defs><radialGradient id="rf" cx="540" cy="${HCY}" r="900" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="${tono}" stop-opacity=".38"/><stop offset=".45" stop-color="#34F5B0" stop-opacity=".12"/><stop offset="1" stop-color="#34F5B0" stop-opacity="0"/></radialGradient></defs><g fill="url(#rf)">${s2}</g>`);
+  for (let i = 0; i < 90; i++) svg(`<circle cx="${r() * 1080}" cy="${380 + r() * 1400}" r="${1 + r() * 3.5}" fill="${r() > .5 ? tono : '#7dffd0'}" opacity="${.25 + r() * .6}"/>`);
+} else if (fondo === 'grafica') {
+  // gran gráfica de precio con área degradada, rejilla de niveles y etiquetas
+  const top = y + 40, bot = 1700; let pts = [], v = .55;
+  for (let i = 0; i <= 60; i++) { v = Math.min(.95, Math.max(.05, v + (r() - .47) * .16)); pts.push([i * 18, top + (1 - v) * (bot - top)]); }
+  const d = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ');
+  svg(`<defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${tono}" stop-opacity=".35"/><stop offset="1" stop-color="${tono}" stop-opacity="0"/></linearGradient></defs>`);
+  for (let k = 0; k < 7; k++) { const yy = top + k * (bot - top) / 6; svg(`<line x1="0" x2="1080" y1="${yy}" y2="${yy}" stroke="#34F5B0" stroke-opacity=".12" stroke-dasharray="6 10" stroke-width="2"/>`); }
+  for (let k = 0; k < 9; k++) svg(`<line y1="${top}" y2="${bot}" x1="${k * 135}" x2="${k * 135}" stroke="#34F5B0" stroke-opacity=".06" stroke-width="2"/>`);
+  svg(`<path d="${d} L1080 1920 L0 1920Z" fill="url(#ga)" opacity=".8"/><path d="${d}" fill="none" stroke="${tono}" stroke-width="7" stroke-linejoin="round" opacity=".55" style="filter:drop-shadow(0 0 14px ${tono})"/>`);
+  const last = pts[pts.length - 1]; svg(`<circle cx="${last[0]}" cy="${last[1]}" r="14" fill="${tono}" opacity=".8" style="filter:drop-shadow(0 0 16px ${tono})"/>`);
+} else if (fondo === 'rejilla') {
+  // suelo de rejilla en perspectiva con horizonte brillante (synthwave en menta)
+  const hz = Math.min(1500, HCY + 120), vx = 540;
+  svg(`<defs><linearGradient id="hzg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${tono}" stop-opacity="0"/><stop offset=".85" stop-color="${tono}" stop-opacity=".30"/><stop offset="1" stop-color="#7dffd0" stop-opacity=".7"/></linearGradient></defs>
+   <rect x="0" y="${hz - 520}" width="1080" height="520" fill="url(#hzg)"/><line x1="0" x2="1080" y1="${hz}" y2="${hz}" stroke="#7dffd0" stroke-width="4" style="filter:drop-shadow(0 0 12px #34F5B0)"/>`);
+  for (let k = -14; k <= 14; k++) svg(`<line x1="${vx}" y1="${hz}" x2="${vx + k * 170}" y2="1920" stroke="#34F5B0" stroke-opacity=".38" stroke-width="2.5"/>`);
+  for (let k = 1; k < 14; k++) { const yy = hz + Math.pow(k / 13, 2.2) * (1920 - hz); svg(`<line x1="0" x2="1080" y1="${yy}" y2="${yy}" stroke="#34F5B0" stroke-opacity=".38" stroke-width="2.5"/>`); }
+  for (let i = 0; i < 70; i++) svg(`<circle cx="${r() * 1080}" cy="${380 + r() * (hz - 420)}" r="${1 + r() * 2.5}" fill="#c9ffe9" opacity="${.2 + r() * .6}"/>`);
+}
+const cy = Math.max(1250, y + 260);
+$('globe').setAttribute('cy', cy);
+const net = $('net'), pts = []; net.innerHTML = ''; $('candles').innerHTML = '';
+for (let i = 0; i < 260; i++) { const a = r() * Math.PI, rad = 200 + r() * 560; pts.push([560 + Math.cos(a + Math.PI) * rad, cy + 100 - Math.sin(a) * rad * .9 + r() * 30]); }
+for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) if (Math.hypot(pts[i][0]-pts[j][0], pts[i][1]-pts[j][1]) < 110) {
+  const l = document.createElementNS(NS, 'line'); l.setAttribute('x1', pts[i][0]); l.setAttribute('y1', pts[i][1]); l.setAttribute('x2', pts[j][0]); l.setAttribute('y2', pts[j][1]); net.appendChild(l); }
+pts.forEach(p => { const c = document.createElementNS(NS, 'circle'); c.setAttribute('cx', p[0]); c.setAttribute('cy', p[1]); c.setAttribute('r', 2 + r() * 3); net.appendChild(c); });
+const cd = $('candles'); let x = 640; const base = 1640;
+for (let i = 0; i < 16; i++) { const h = 40 + r() * 120, yy = base - i * 12 - h * .6 - r() * 40, g = document.createElementNS(NS, 'g'), col = r() > .2 ? '#2cf5a8' : '#ff4b55';
+  g.innerHTML = `<line x1="${x+12}" x2="${x+12}" y1="${yy-30}" y2="${yy+h+30}" stroke="${col}" stroke-width="3" opacity=".8"/><rect x="${x}" y="${yy}" width="24" height="${h}" fill="${col}" opacity=".75" style="filter:drop-shadow(0 0 8px ${col})"/>`; cd.appendChild(g); x += 26; }
+
+}
+// render.js llama a fit() tras document.fonts.ready: aquí se maqueta con las fuentes ya cargadas
+window.fit = () => { layout(); return parseInt(tit.children[0] ? tit.children[0].style.fontSize : 0); };
+document.fonts.ready.then(layout);
+</script>
+</body></html>

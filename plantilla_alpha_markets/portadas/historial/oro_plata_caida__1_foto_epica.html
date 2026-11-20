@@ -1,0 +1,106 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<!-- ESTILO FIJO "foto_epica" (v11) — miniatura tipo noticia de impacto: protagonistas a sangre sobre sus banderas,
+     globo verde con mapa de puntos y velas, titular blanco + palabra clave menta tipo pincel, píldora de fecha·sede y skyline.
+     Referencia visual: portadas/referencias/foto_epica_referencia.png
+     Datos (window.D, de entrega.json → portada):
+       titulo        ["TENSIÓN", "*EXTREMA*"]     líneas; la que lleva *asteriscos* sale en menta (pincel). 2 líneas recomendado
+       fecha_sede    "19 NOV 2026 · SHENZHEN"     texto de la píldora (lo que va tras el "·" sale en menta)
+       protagonistas 1-3 en total, lo que cuente el vídeo: personas (fotos) y/o activos (logos de cripto/empresa en monedas gigantes con brillo de su color;
+                     con 2 logos aparece un "VS" entre ellos, o D.union "×"/"" para cambiarlo/quitarlo). NO hace falta que sean 3: 1 persona, 2 personas, 2 activos...
+       personas      [{"nombre":"Trump"}, ...]   fotos (entrega.py las busca en img/personas/ y las pasa como src)
+       logos         ["bitcoin", {"archivo":"hyperliquid","color":"#34F5B0"}]   (img/logos/, ver scripts/logos.py)
+       banderas      ["us","cn","ru"]            OPCIONAL, solo si el tema son países: us ru cn ua ir eu jp, detrás de cada protagonista (sin banderas → solo globo y brillo)
+       skyline       true|false                   siluetas de ciudad abajo (defecto true)
+       semilla       texto para que el mapa de puntos/velas/ciudad cambien en cada vídeo
+     Zona segura 3:4 del perfil: marca y píldora dentro de y 240-1680. -->
+<link rel="stylesheet" href="portadas/kit.css"><script src="portadas/kit.js"></script>
+<style>
+body{background:#020805}
+#p{background:radial-gradient(ellipse 90% 45% at 50% 28%,#0e3a2b 0%,#06180f 55%,#020805 100%)}
+canvas#bgc{position:absolute;inset:0}
+#globo{position:absolute;left:70px;top:300px;width:940px;height:940px;border-radius:50%;
+ background:radial-gradient(circle at 50% 45%,rgba(52,245,176,.10),rgba(0,0,0,0) 62%);
+ box-shadow:0 0 0 3px rgba(52,245,176,.55),0 0 70px rgba(52,245,176,.55),inset 0 0 90px rgba(52,245,176,.25)}
+.bd{position:absolute;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.6);z-index:2}
+.bd svg{display:block;width:100%;height:100%}
+.per{position:absolute;overflow:hidden;z-index:3;-webkit-mask-image:linear-gradient(#000 78%,transparent 100%);mask-image:linear-gradient(#000 78%,transparent 100%)}
+.per img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;display:block;filter:drop-shadow(0 0 16px rgba(52,245,176,.55))}
+.med{position:absolute;z-index:3;border-radius:50%;overflow:hidden;border:12px solid #34F5B0;box-shadow:0 0 60px rgba(52,245,176,.6),0 24px 40px rgba(0,0,0,.6)}
+.med svg{display:block;width:100%;height:100%}
+#people .act{position:absolute;z-index:3;border-radius:50%;border:14px solid #34F5B0;display:grid;place-items:center;overflow:hidden}
+.un{position:absolute;z-index:5;left:470px;top:735px;width:140px;height:140px;border-radius:50%;background:#fff;color:#06120d;border:8px solid #34F5B0;display:grid;place-items:center;font-family:Mont;font-weight:900;font-style:italic;font-size:62px;box-shadow:0 0 50px rgba(52,245,176,.8);transform:rotate(-8deg)}
+#brand{position:absolute;left:0;right:0;top:250px;text-align:center;z-index:6;filter:drop-shadow(0 0 22px rgba(52,245,176,.45))}
+#tit{position:absolute;left:0;right:0;top:1040px;text-align:center;z-index:6;line-height:.92}
+#tit div{display:block;font-family:Mont;font-weight:900;font-style:italic;white-space:nowrap;text-transform:uppercase}
+#tit .w{color:#fff;text-shadow:0 8px 0 rgba(0,0,0,.65),0 0 40px rgba(0,0,0,.8);letter-spacing:-.01em}
+#tit .k{background:linear-gradient(180deg,#9bffd6,#34F5B0 55%,#12b97f);-webkit-background-clip:text;background-clip:text;color:transparent;
+ filter:url(#pincel) drop-shadow(0 0 26px rgba(52,245,176,.75)) drop-shadow(0 8px 0 rgba(0,0,0,.6));transform:skewX(-4deg)}
+#pill{position:absolute;left:110px;right:110px;top:1450px;height:112px;z-index:6;border-radius:28px;border:3px solid #34F5B0;
+ background:linear-gradient(180deg,rgba(6,40,28,.92),rgba(2,14,10,.92));box-shadow:0 0 36px rgba(52,245,176,.55),inset 0 0 26px rgba(52,245,176,.18);
+ display:flex;align-items:center;justify-content:center;gap:26px;font-family:Mont;font-weight:900;font-style:italic;font-size:62px;color:#fff;white-space:nowrap}
+#pill b{color:#34F5B0;font-weight:900}
+#city{position:absolute;left:0;top:1540px;width:1080px;height:380px;z-index:1}
+</style></head><body><div id="p">
+<svg width="0" height="0" style="position:absolute"><filter id="pincel" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.035 0.22" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="16" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
+<canvas id="bgc" width="1080" height="1920"></canvas>
+<div id="globo"></div>
+<div id="flags"></div><div id="people"></div>
+<div id="brand"></div><div id="tit"></div><div id="pill"></div>
+<svg id="city" viewBox="0 0 1080 380"></svg>
+<script>
+const SEM=D.semilla||'alpha', r=azar(SEM);
+/* ---- fondo: mapa de puntos dentro del globo + velas ---- */
+(function(){const c=document.getElementById('bgc').getContext('2d');
+ for(let i=0;i<2600;i++){const a=r()*7,rad=Math.sqrt(r())*470,x=540+Math.cos(a)*rad,y=770+Math.sin(a)*rad;
+  const n=Math.sin(x*.011)+Math.sin(y*.013+1)+Math.sin((x+y)*.007);if(n<.2)continue;c.fillStyle=`rgba(52,245,176,${.12+r()*.5})`;c.beginPath();c.arc(x,y,1.2+r()*2.2,0,7);c.fill()}
+ for(let i=0;i<500;i++){const x=r()*1080,y=r()*1920;if((x-540)**2+(y-770)**2<470**2)continue;c.fillStyle=`rgba(52,245,176,${r()*.35})`;c.beginPath();c.arc(x,y,.8+r()*1.8,0,7);c.fill()}
+ function velas(x0,y0,n,dir){let y=y0;for(let i=0;i<n;i++){const h=40+r()*90,x=x0+i*46,up=r()<.75;c.strokeStyle=c.fillStyle=up?'rgba(52,245,176,.85)':'rgba(255,90,95,.8)';c.shadowColor='#34F5B0';c.shadowBlur=18;
+   c.lineWidth=4;c.beginPath();c.moveTo(x+11,y-h*.4-18);c.lineTo(x+11,y+h*.6+18);c.stroke();c.fillRect(x,y-h*.4,22,h);y+=dir*(up?-22:14)}c.shadowBlur=0}
+ velas(800,470,6,1);velas(30,330,4,1);velas(870,1735,4,1)})();
+/* ---- banderas (SVG) ---- */
+function st(cx,cy,R,rr,rot){let p=[];for(let i=0;i<10;i++){const a=rot+i*Math.PI/5,q=i%2?rr:R;p.push((cx+q*Math.cos(a)).toFixed(1)+','+(cy+q*Math.sin(a)).toFixed(1))}return p.join(' ')}
+function flag(t){let s='';
+ if(t==='us'){for(let i=0;i<13;i++)s+=`<rect y="${i*280/13}" width="560" height="${280/13+1}" fill="${i%2?'#fff':'#B22234'}"/>`;s+='<rect width="224" height="151" fill="#3C3B6E"/>';for(let k=0;k<9;k++){const n=k%2?5:6;for(let j=0;j<n;j++)s+=`<polygon fill="#fff" points="${st((k%2?37:19)+j*36,14+k*15.5,6.5,2.6,-Math.PI/2)}"/>`}}
+ else if(t==='ru')s='<rect width="560" height="94" fill="#fff"/><rect y="93" width="560" height="94" fill="#0039A6"/><rect y="186" width="560" height="94" fill="#D52B1E"/>';
+ else if(t==='cn'){s='<rect width="560" height="280" fill="#DE2910"/>'+`<polygon fill="#FFDE00" points="${st(110,90,58,23,-Math.PI/2)}"/>`;[[210,32],[248,72],[248,124],[210,164]].forEach(([x,y])=>s+=`<polygon fill="#FFDE00" points="${st(x,y,18,7.2,Math.atan2(90-y,110-x))}"/>`)}
+ else if(t==='ua')s='<rect width="560" height="140" fill="#0057B7"/><rect y="140" width="560" height="140" fill="#FFD700"/>';
+ else if(t==='ir')s='<rect width="560" height="94" fill="#239F40"/><rect y="93" width="560" height="94" fill="#fff"/><rect y="186" width="560" height="94" fill="#DA0000"/><circle cx="280" cy="140" r="26" fill="none" stroke="#DA0000" stroke-width="9"/>';
+ else if(t==='eu'){s='<rect width="560" height="280" fill="#003399"/>';for(let i=0;i<12;i++){const a=i*Math.PI/6;s+=`<polygon fill="#FFCC00" points="${st(280+88*Math.cos(a),140+88*Math.sin(a),15,6,-Math.PI/2)}"/>`}}
+ else if(t==='jp')s='<rect width="560" height="280" fill="#fff"/><circle cx="280" cy="140" r="84" fill="#BC002D"/>';
+ return `<svg viewBox="0 0 560 280" preserveAspectRatio="xMidYMid slice">${s}</svg>`}
+const B=D.banderas||[];
+const PE=(D.personas&&D.personas.length?D.personas:(D.persona?[D.persona]:[])).map(q=>({t:'p',src:q.src}));
+const LG=(D.logos||[]).map(l=>({t:'l',src:l.src,color:l.color||'#34F5B0',modo:l.modo||'insignia'}));
+const Q=[...PE,...LG].slice(0,3);            /* protagonistas: personas y/o activos (logos), de 1 a 3 */
+const n=Math.max(1,Math.min(3,Q.length||B.length));
+/* posiciones según nº de protagonistas: banderas [x,y,w,h,rot] · personas [x,y,w,h] · activos [centroX,centroY,diámetro] */
+const LAY={3:{f:[[-250,560,640,380,-6],[220,480,640,400,0],[690,560,640,380,6]],p:[[-60,560,540,700],[560,560,540,700],[270,450,540,780]],a:[[200,800,340],[880,800,340],[540,720,380]]},
+ 2:{f:[[-150,520,720,420,-5],[510,520,720,420,5]],p:[[0,500,540,760],[540,500,540,760]],a:[[290,780,420],[790,780,420]]},
+ 1:{f:[[140,470,800,480,0]],p:[[190,440,700,830]],a:[[540,780,560]]}}[n];
+const fl=document.getElementById('flags'),pe=document.getElementById('people');
+for(let i=0;i<Math.min(n,B.length);i++){const [x,y,w,h,ro]=LAY.f[i];const d=document.createElement('div');d.className='bd';d.style.cssText=`left:${x}px;top:${y}px;width:${w}px;height:${h}px;transform:rotate(${ro}deg) skewY(${ro?-ro/2:0}deg);z-index:2`;
+ d.innerHTML=flag(B[i])+`<div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,0,0,.35),rgba(255,255,255,.14) 45%,rgba(0,0,0,.4))"></div>`;fl.appendChild(d)}
+if(Q.length){Q.forEach((q,i)=>{
+  if(q.t==='p'){const [x,y,w,h]=LAY.p[i];const d=document.createElement('div');d.className='per';d.style.cssText=`left:${x}px;top:${y}px;width:${w}px;height:${h}px;z-index:${i===Q.length-1&&Q.length===3?4:3}`;d.innerHTML=`<img src="${q.src}">`;pe.appendChild(d)}
+  else{const [cx,cy,dm]=LAY.a[i];const d=document.createElement('div');d.className='act';const c=q.color;
+   d.style.cssText=`left:${cx-dm/2}px;top:${cy-dm/2}px;width:${dm}px;height:${dm}px;border-color:${c};box-shadow:0 0 0 10px rgba(0,0,0,.5),0 0 90px ${rgba(c,.8)},inset 0 0 70px ${rgba(c,.35)};background:radial-gradient(circle at 35% 30%,${rgba(c,.35)},#06120d 70%)`;
+   d.innerHTML=q.modo==='moneda'?`<img src="${q.src}" style="width:100%;height:100%;object-fit:cover">`:`<img src="${q.src}" style="width:62%;height:62%;object-fit:contain;filter:drop-shadow(0 0 22px ${rgba(c,.9)})">`;pe.appendChild(d)}});
+ if(Q.length===2&&LG.length&&D.union!==''){const u=document.createElement('div');u.className='un';u.textContent=D.union||'VS';pe.appendChild(u)}}
+else{const pos=n===3?[[60,620],[690,620],[380,760]]:n===2?[[130,640],[610,640]]:[[330,640]],dm=n===1?420:330;
+ for(let i=0;i<Math.min(n,B.length);i++){const d=document.createElement('div');d.className='med';d.style.cssText=`left:${pos[i][0]}px;top:${pos[i][1]}px;width:${dm}px;height:${dm}px`;d.innerHTML=flag(B[i]);pe.appendChild(d)}}
+/* ---- marca, titular, píldora ---- */
+document.getElementById('brand').innerHTML=marca('',64);
+const T=D.titulo||['TITULAR','*CLAVE*'];const tit=document.getElementById('tit');
+T.forEach((l,i)=>{const k=l.includes('*');const e=document.createElement('div');e.className=k?'k':'w';e.textContent=l.replace(/\*/g,'');e.style.fontSize=(k?250:190)+'px';tit.appendChild(e)});
+const fs=(D.fecha_sede||'FECHA · SEDE').split('·').map(s=>s.trim());
+document.getElementById('pill').innerHTML=fs.map((s,i)=>i?`<span>·</span><b>${esc(s)}</b>`:`<span>${esc(s)}</span>`).join('');
+/* ---- skyline ---- */
+(function(){const c=document.getElementById('city');if(D.skyline===false){c.remove();return}let h='<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(52,245,176,.0)"/><stop offset="1" stop-color="rgba(52,245,176,.5)"/></linearGradient></defs>';
+ h+='<ellipse cx="540" cy="200" rx="620" ry="190" fill="none" stroke="rgba(52,245,176,.7)" stroke-width="5" style="filter:drop-shadow(0 0 16px #34F5B0)"/>';
+ let x=-10;const base=200;const torre=Math.floor(r()*6)+14;let i=0;
+ while(x<1090){const w=24+r()*44,t=i===torre,ht=t?220:30+r()*110;
+  h+=`<rect x="${x}" y="${base-ht}" width="${w}" height="${ht}" fill="#04140d" stroke="rgba(52,245,176,${t?.95:.55})" stroke-width="${t?3:2}" style="filter:drop-shadow(0 0 ${t?14:6}px #34F5B0)"/>`;
+  for(let k=0;k<ht/16;k++)if(r()<.55)h+=`<rect x="${x+5+r()*(w-14)}" y="${base-ht+6+k*14}" width="3" height="4" fill="rgba(180,255,225,${.35+r()*.5})"/>`;x+=w+2+r()*5;i++}
+ h+=`<rect x="0" y="${base}" width="1080" height="180" fill="url(#ag)"/><rect x="0" y="${base}" width="1080" height="3" fill="#34F5B0" style="filter:drop-shadow(0 0 8px #34F5B0)"/>`;c.innerHTML=h})();
+window.fit=()=>{const t=document.getElementById('tit');[...t.children].forEach(e=>{e.style.display='inline-block';ajustar(e,980,e.className==='k'?250:190,70)});return 1};fit();
+</script></div></body></html>

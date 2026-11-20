@@ -1,0 +1,198 @@
+{
+ "whoosh_1": {
+  "file": "whoosh_1.wav",
+  "cat": "whoosh",
+  "hit": 0.38,
+  "dur": 1.045,
+  "desc": "whoosh medio, elementos que entran volando"
+ },
+ "whoosh_2": {
+  "file": "whoosh_2.wav",
+  "cat": "whoosh",
+  "hit": 0.37,
+  "dur": 0.9,
+  "desc": "whoosh grave y rápido"
+ },
+ "whoosh_3": {
+  "file": "whoosh_3.wav",
+  "cat": "whoosh",
+  "hit": 0.14,
+  "dur": 0.65,
+  "desc": "whoosh corto y grueso"
+ },
+ "whoosh_in_1": {
+  "file": "whoosh_in_1.wav",
+  "cat": "whoosh_in",
+  "hit": 0.69,
+  "dur": 0.9,
+  "desc": "whoosh que crece hasta el golpe (anticipación)"
+ },
+ "whoosh_in_2": {
+  "file": "whoosh_in_2.wav",
+  "cat": "whoosh_in",
+  "hit": 0.53,
+  "dur": 0.72,
+  "desc": "whoosh ascendente corto"
+ },
+ "transition_1": {
+  "file": "transition_1.wav",
+  "cat": "transition",
+  "hit": 0.41,
+  "dur": 1.35,
+  "desc": "transición entre escenas"
+ },
+ "transition_2": {
+  "file": "transition_2.wav",
+  "cat": "transition",
+  "hit": 0.45,
+  "dur": 1.85,
+  "desc": "swoosh de transición amplio"
+ },
+ "riser_1": {
+  "file": "riser_1.wav",
+  "cat": "riser",
+  "hit": 1.79,
+  "dur": 1.82,
+  "desc": "subida de tensión antes de un dato clave"
+ },
+ "riser_2": {
+  "file": "riser_2.wav",
+  "cat": "riser",
+  "hit": 0.65,
+  "dur": 0.68,
+  "desc": "reverse corto que desemboca en el corte"
+ },
+ "riser_metal": {
+  "file": "riser_metal.wav",
+  "cat": "riser",
+  "hit": 1.24,
+  "dur": 1.27,
+  "desc": "subida metálica"
+ },
+ "riser_long": {
+  "file": "riser_long.wav",
+  "cat": "riser_long",
+  "hit": 2.777,
+  "dur": 2.807,
+  "desc": "tono que sube 2,8 s (suspense largo)"
+ },
+ "shimmer": {
+  "file": "shimmer.wav",
+  "cat": "shimmer",
+  "hit": 0.12,
+  "dur": 3.8,
+  "desc": "brillo/ping suave con cola larga"
+ },
+ "tech": {
+  "file": "tech.wav",
+  "cat": "tech",
+  "hit": 0.04,
+  "dur": 1.447,
+  "desc": "onda mecánica/tecnológica (glitch, datos)"
+ },
+ "impact_1": {
+  "file": "impact_1.wav",
+  "cat": "impact",
+  "hit": 0.08,
+  "dur": 3.1,
+  "desc": "impacto cinematográfico grande"
+ },
+ "impact_2": {
+  "file": "impact_2.wav",
+  "cat": "impact",
+  "hit": 0.15,
+  "dur": 3.35,
+  "desc": "golpe grave con cola"
+ },
+ "bass_drop": {
+  "file": "bass_drop.wav",
+  "cat": "bass",
+  "hit": 0.01,
+  "dur": 1.4,
+  "desc": "caída de graves (revelación fuerte)"
+ },
+ "click": {
+  "file": "click.wav",
+  "cat": "click",
+  "hit": 0.05,
+  "dur": 0.27,
+  "desc": "clic de ratón (UI, botones)"
+ },
+ "shutter_1": {
+  "file": "shutter_1.wav",
+  "cat": "shutter",
+  "hit": 0.02,
+  "dur": 0.427,
+  "desc": "obturador de cámara"
+ },
+ "shutter_2": {
+  "file": "shutter_2.wav",
+  "cat": "shutter",
+  "hit": 0.01,
+  "dur": 0.38,
+  "desc": "obturador doble"
+ },
+ "shutter_3": {
+  "file": "shutter_3.wav",
+  "cat": "shutter",
+  "hit": 0.02,
+  "dur": 0.42,
+  "desc": "obturador Sony (sello, captura)"
+ },
+ "beep": {
+  "file": "beep.wav",
+  "cat": "beep",
+  "hit": 0.06,
+  "dur": 0.3,
+  "desc": "bip digital (enfoque, confirmación)"
+ },
+ "coin": {
+  "file": "coin.wav",
+  "cat": "coin",
+  "hit": 0.06,
+  "dur": 1.15,
+  "desc": "moneda (dinero, ingresos, beneficios)"
+ },
+ "metal_1": {
+  "file": "metal_1.wav",
+  "cat": "metal",
+  "hit": 0.05,
+  "dur": 1.13,
+  "desc": "golpe metálico largo"
+ },
+ "metal_2": {
+  "file": "metal_2.wav",
+  "cat": "metal",
+  "hit": 0.01,
+  "dur": 0.7,
+  "desc": "metálico medio"
+ },
+ "metal_3": {
+  "file": "metal_3.wav",
+  "cat": "metal",
+  "hit": 0.01,
+  "dur": 0.576,
+  "desc": "metálico corto"
+ },
+ "metal_4": {
+  "file": "metal_4.wav",
+  "cat": "metal",
+  "hit": 0.05,
+  "dur": 0.398,
+  "desc": "metálico suave"
+ },
+ "flash": {
+  "file": "flash.wav",
+  "cat": "flash",
+  "hit": 0.04,
+  "dur": 1.45,
+  "desc": "carga de flash + disparo (revelar foto/logo)"
+ },
+ "pop": {
+  "file": "pop.wav",
+  "cat": "pop",
+  "hit": 0.09,
+  "dur": 0.45,
+  "desc": "pop corto"
+ }
+}

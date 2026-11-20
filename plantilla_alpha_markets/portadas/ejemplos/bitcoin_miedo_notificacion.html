@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- EJEMPLO · arquetipo "notificacion": pantalla de bloqueo de un móvil con alertas apiladas. -->
+<link rel="stylesheet" href="portadas/kit.css">
+<style>
+body{background:#000}
+#p{background:radial-gradient(ellipse 900px 700px at 30% 20%,#3a0a14 0%,transparent 70%),radial-gradient(ellipse 900px 900px at 80% 90%,#2b0610,transparent 70%),linear-gradient(170deg,#12060a,#050203);font-family:var(--f-texto);color:#fff}
+#tel{position:absolute;left:90px;top:200px;width:900px;height:1560px;border-radius:120px;border:14px solid #1d1d22;background:
+ radial-gradient(ellipse at 50% 0%,rgba(255,59,79,.35),transparent 60%),linear-gradient(180deg,#1a0b10,#08040a);
+ box-shadow:0 0 0 4px #3a3a42,0 60px 120px rgba(0,0,0,.8),0 0 160px rgba(255,59,79,.25);overflow:hidden}
+#isla{position:absolute;left:50%;top:26px;width:250px;height:70px;border-radius:40px;background:#000;transform:translateX(-50%)}
+#fecha{position:absolute;top:120px;width:100%;text-align:center;font-weight:600;font-size:38px;opacity:.85}
+#hora{position:absolute;top:150px;width:100%;text-align:center;font-weight:800;font-size:250px;letter-spacing:-8px;line-height:1.1;
+ background:linear-gradient(180deg,#fff,#ffc3cb);-webkit-background-clip:text;color:transparent}
+.n{position:absolute;left:40px;right:40px;border-radius:44px;background:rgba(40,28,34,.82);backdrop-filter:blur(20px);padding:26px 30px;
+ display:grid;grid-template-columns:96px 1fr;gap:6px 24px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.n img{width:96px;height:96px;border-radius:24px;grid-row:span 3}
+.n .ap{font-size:28px;font-weight:600;opacity:.7;display:flex;justify-content:space-between}
+.n .t{font-size:40px;font-weight:800;line-height:1.1}
+.n .c{font-size:32px;font-weight:500;opacity:.85;line-height:1.25}
+#n1{top:470px;transform:scale(1.04);background:rgba(255,59,79,.22);border:3px solid rgba(255,59,79,.85);box-shadow:0 0 60px rgba(255,59,79,.45),0 20px 50px rgba(0,0,0,.5)}
+#n1 .t{font-size:58px;color:#FF3B4F;text-transform:uppercase;letter-spacing:-1px}
+#n2{top:735px;opacity:.9}#n3{top:930px;opacity:.65;transform:scale(.96)}
+#ic{width:96px;height:96px;border-radius:24px;background:#FF3B4F;display:flex;align-items:center;justify-content:center;font-size:62px;grid-row:span 3}
+#tit{position:absolute;left:0;right:0;top:1150px;text-align:center;font-family:var(--f-titular);font-style:italic;font-weight:900;line-height:.95;text-transform:uppercase}
+#tit .a{font-size:92px}
+#tit .b{font-size:150px;color:#FF3B4F;text-shadow:0 0 40px rgba(255,59,79,.7)}
+#marca{position:absolute;bottom:60px;width:100%;text-align:center}
+#barra{position:absolute;bottom:24px;left:50%;width:300px;height:10px;border-radius:6px;background:#fff;transform:translateX(-50%);opacity:.8}
+</style></head><body>
+<div id="p">
+ <div id="tel">
+  <div id="isla"></div>
+  <div id="fecha">miércoles, 18 de noviembre</div>
+  <div id="hora">9:41</div>
+  <div class="n" id="n1"><div id="ic">😱</div><div class="ap"><span>MIEDO Y CODICIA</span><span>ahora</span></div><div class="t">Miedo extremo</div><div class="c">El sentimiento del mercado cripto toca mínimos</div></div>
+  <div class="n" id="n2"><img src="img/logos/bitcoin.svg" style="background:#F7931A;padding:14px"><div class="ap"><span>BITCOIN</span><span>hace 2 min</span></div><div class="t">BTC en rojo 📉</div><div class="c">Caída fuerte en las últimas 24 h</div></div>
+  <div class="n" id="n3"><img src="img/avatar.jpg"><div class="ap"><span>4LPHA MARKETS</span><span>hace 5 min</span></div><div class="t">¿Pánico u oportunidad?</div><div class="c">Te lo explico en 30 segundos 👇</div></div>
+  <div id="tit"><div class="a">¿Comprar</div><div class="b">o huir?</div></div>
+  <div id="marca"></div><div id="barra"></div>
+ </div>
+</div>
+<script src="portadas/kit.js"></script>
+<script>document.getElementById('marca').innerHTML = marca('linea', 40);</script>
+</body></html>

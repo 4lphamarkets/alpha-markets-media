@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- EJEMPLO · arquetipo "minimal_blanco": fondo claro, un único objeto (arcos del rainbow chart) y una pregunta. -->
+<link rel="stylesheet" href="portadas/kit.css">
+<style>
+#p{background:#F5F2EC;color:#111;font-family:var(--f-titular)}
+#marca{position:absolute;top:250px;left:70px}
+#arcos{position:absolute;left:0;top:560px}
+#btc{position:absolute;left:50%;top:1010px;width:220px;height:220px;margin-left:-110px;border-radius:50%;background:#F7931A;padding:34px;box-shadow:0 30px 60px rgba(0,0,0,.25),0 0 0 14px #F5F2EC}
+#btc img{width:100%;height:100%}
+#flecha{position:absolute;left:600px;top:930px;font-family:var(--f-mano);font-size:46px;color:#d1203a;transform:rotate(-6deg)}
+#tit{position:absolute;left:70px;right:70px;top:1260px;font-weight:900;font-style:italic;font-size:110px;line-height:.92;letter-spacing:-3px;text-transform:uppercase}
+#tit em{font-style:italic;background:linear-gradient(90deg,#3d5afe,#00b8a9,#7cc242,#f5c400,#ff8a00,#e53935);-webkit-background-clip:text;color:transparent}
+#sub{position:absolute;left:70px;top:1625px;font-family:var(--f-texto);font-weight:600;font-size:38px;color:#555}
+</style></head><body>
+<div id="p">
+ <div id="marca"></div>
+ <svg id="arcos" width="1080" height="700" viewBox="0 0 1080 700"></svg>
+ <div id="flecha">¿estamos aquí? ↙</div>
+ <div id="btc"><img src="img/logos/bitcoin.svg"></div>
+ <div id="tit">¿En qué<br><em>color</em> está<br>bitcoin?</div>
+ <div id="sub">El rainbow chart, explicado en 30 s</div>
+</div>
+<script src="portadas/kit.js"></script>
+<script>
+document.getElementById('marca').innerHTML = marca('tinta linea', 40);
+const cols = ['#3d5afe','#2196f3','#00b8a9','#7cc242','#c6d92b','#f5c400','#ff8a00','#ff5722','#e53935'];
+let s = ''; cols.forEach((c, i) => { const r = 500 - i * 46; s += `<path d="M${540 - r} 640 A${r} ${r} 0 0 1 ${540 + r} 640" fill="none" stroke="${c}" stroke-width="40" stroke-linecap="round"/>`; });
+document.getElementById('arcos').innerHTML = s;
+</script>
+</body></html>

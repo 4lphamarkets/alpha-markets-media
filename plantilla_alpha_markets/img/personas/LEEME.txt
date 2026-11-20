@@ -1,0 +1,1 @@
+﻿Fotos de personas para las portadas: <nombre_en_minusculas>.jpg (círculo) o .png recortado sin fondo (busto grande). Si falta, Claude te la pide.

@@ -1,0 +1,50 @@
+[
+ {
+  "fecha": "2026-11-18T09:32:56",
+  "slug": "hyperliquid_blackrock_purr",
+  "arquetipo": "periodico",
+  "concepto": "Portada de diario 'El Diario 4LPHA' sobre una mesa: titular serif, foto semitono del logo y sello rojo 5,2%",
+  "tipografia": "serif Georgia",
+  "paleta": "papel crema / negro / rojo"
+ },
+ {
+  "fecha": "2026-11-18T09:32:56",
+  "slug": "hyperliquid_blackrock_purr",
+  "arquetipo": "terminal",
+  "concepto": "Terminal de bolsa ámbar con la tabla 13F de accionistas de PURR y BlackRock resaltado como Nº1",
+  "tipografia": "mono Consolas",
+  "paleta": "negro / ámbar / menta"
+ },
+ {
+  "fecha": "2026-11-18T12:16:17",
+  "slug": "cumbre_eeuu_rusia_china",
+  "arquetipo": "cartel_combate",
+  "concepto": "Cartel de combate con EEUU, Rusia y China como contendientes con VS y banda amarilla de fecha y sede",
+  "tipografia": "Anton condensada",
+  "paleta": "negro / rojo / amarillo"
+ },
+ {
+  "fecha": "2026-11-18T12:16:17",
+  "slug": "cumbre_eeuu_rusia_china",
+  "arquetipo": "pizarra",
+  "concepto": "Pizarra de tiza: 3 potencias + 1 mesa = ¿0 pactos? con banderas dibujadas a tiza",
+  "tipografia": "Permanent Marker",
+  "paleta": "verde pizarra / tiza / amarillo"
+ },
+ {
+  "fecha": "2026-11-19T00:31:15",
+  "slug": "oro_plata_caida",
+  "arquetipo": "foto_epica",
+  "concepto": "Monedas gigantes de oro y plata con brillo sobre globo verde y titular ORO DESPLOMA",
+  "tipografia": "Montserrat Black Italic",
+  "paleta": "negro / menta"
+ },
+ {
+  "fecha": "2026-11-19T00:31:15",
+  "slug": "oro_plata_caida",
+  "arquetipo": "grafica_gigante",
+  "concepto": "Cascada de velas rojas con línea dorada que cae y ORO -30 % / PLATA -60 % apoyados en ella",
+  "tipografia": "Anton",
+  "paleta": "negro / rojo / oro"
+ }
+]

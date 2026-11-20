@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- EJEMPLO · arquetipo "ticket": ticket térmico larguísimo sobre fondo amarillo Binance. Datos del entrega_ejemplo.json. -->
+<link rel="stylesheet" href="portadas/kit.css">
+<style>
+#p{background:repeating-linear-gradient(135deg,#F0B90B 0 60px,#e2ac00 60px 120px);font-family:var(--f-mono);color:#1a1a1a}
+#tit{position:absolute;top:240px;left:0;right:0;text-align:center;font-family:var(--f-cifra);font-size:150px;line-height:.95;color:#111;text-transform:uppercase;text-shadow:6px 6px 0 #fff}
+#tk{position:absolute;left:150px;top:600px;width:780px;height:1180px;background:#fbfaf6;transform:rotate(3deg);padding:44px 54px;
+ box-shadow:0 40px 80px rgba(0,0,0,.35);-webkit-mask:radial-gradient(circle 16px at 50% 0,transparent 98%,#000) 0 0/40px 100% repeat-x;font-size:32px;line-height:1.5}
+#tk::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 70%,rgba(0,0,0,.06));pointer-events:none}
+.c{text-align:center}.sep{border-top:4px dashed #999;margin:18px 0}
+.f{display:flex;justify-content:space-between}
+#logo{width:110px;height:110px;margin:0 auto 10px;display:block}
+#total{font-size:46px;font-weight:700}
+#total b{font-family:var(--f-cifra);font-weight:400;font-size:120px;color:#d1203a;display:block;text-align:right;line-height:1}
+#sello{position:absolute;right:24px;top:40px;border:8px solid #d1203a;color:#d1203a;font-family:var(--f-bloque);font-size:66px;padding:0 24px;transform:rotate(-14deg);opacity:.85}
+#barras{height:90px;background:repeating-linear-gradient(90deg,#111 0 4px,transparent 4px 7px,#111 7px 9px,transparent 9px 15px);margin-top:16px}
+</style></head><body>
+<div id="p">
+ <div id="tit">El ticket del<br>mayor robo</div>
+ <div id="tk">
+  <img id="logo" src="img/logos/binance.svg" style="filter:invert(60%) sepia(90%) saturate(800%) hue-rotate(5deg)">
+  <div class="c"><b>BINANCE EXCHANGE</b><br>*** COMPROBANTE DE SALIDA ***</div>
+  <div class="sep"></div>
+  <div class="f"><span>Entrevista falsa</span><span>1</span></div>
+  <div class="f"><span>Malware en equipos</span><span>1</span></div>
+  <div class="f"><span>Cliente: TraderTraitor</span><span>KP</span></div>
+  <div class="f"><span>Fondos congelados</span><span>-3.000M</span></div>
+  <div class="sep"></div>
+  <div id="total">TOTAL ROBADO<b>6.300M $</b></div>
+  <div class="sep"></div>
+  <div class="c">GRACIAS POR SU VISITA<br>(no vuelva)</div>
+  <div id="barras"></div>
+  <div class="c" style="margin-top:22px" id="marca"></div>
+  <div id="sello">HACKEO</div>
+ </div>
+</div>
+<script src="portadas/kit.js"></script>
+<script>document.getElementById('marca').innerHTML = marca('tinta linea', 36);</script>
+</body></html>

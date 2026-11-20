@@ -1,0 +1,88 @@
+# FLUJO DE TRABAJO ALPHA MARKETS (v17)
+
+Este es el flujo acordado con el usuario para cada vídeo. Claude lo sigue **de principio a fin sin pedir permiso entre pasos**; las únicas paradas son las que se indican abajo (foto que falta, OK final).
+Los detalles técnicos de cada paso (render, sonidos, portadas, insertos) están en `LEEME.md`.
+
+
+> ⚠️ **REGLA v17 (el usuario la reclamó): LA CARPETA EN EL ESCRITORIO NO ES OPCIONAL.** Al terminar cada vídeo, ANTES de escribir el mensaje final, Claude debe haber dejado `~/Desktop/<slug>/` con los 4 archivos (vídeo editado, descripción .txt, portada 1 y portada 2). El orden es siempre: (1) `SendUserFile` de los 4 archivos → (2) `get_device_info` / `device_request_folder_access` sobre `~/Desktop` si no está conectado → (3) `device_commit_files` con los 4 `file_uuid`. El mensaje final solo se escribe cuando el commit devuelve `written` con los 4 archivos, y dice textualmente «Carpeta `<slug>` en tu Escritorio». Si el ordenador no responde: reintentar una vez, y si sigue sin responder decir claramente «NO he podido dejar la carpeta en el Escritorio» (no dar el vídeo por entregado) y repetir en cuanto vuelva a estar conectado. Nunca cerrar la entrega con solo los archivos sueltos en el chat.
+
+## Resumen
+
+| # | Paso | Quién | Resultado |
+|---|------|-------|-----------|
+| 1 | Recibir el tema | Usuario | Imagen (captura, noticia, gráfico) **o** petición de un tema en texto |
+| 2 | Escribir el guion | Claude | Texto de **40 s a 1 min 20 s** |
+| 3 | Generar el audio | Claude | Voz de Jaime en ElevenLabs, **[en tono juguetón]** |
+| 4 | Montar el vídeo | Claude | Vídeo 9:16 editado con la plantilla |
+| 5 | Preparar la entrega | Claude | Carpeta con descripción, vídeo editado y miniaturas |
+| 5b | **Dejar la carpeta en el Escritorio (OBLIGATORIO, v17)** | Claude | `~/Desktop/<slug>/` con los 4 archivos, sin que lo pida y antes del mensaje final |
+| 6 | Publicar (solo con el «OK» del usuario) | Claude | Reel en Instagram y Short en YouTube vía Metricool |
+
+---
+
+## 1. El usuario manda el tema
+Dos formas, las dos válidas:
+- **Imagen**: captura de una noticia, tuit, gráfico, titular… Claude lee la imagen, identifica el tema y busca en la web los datos actuales y verificables antes de escribir (cifras, fechas, protagonistas, fuentes).
+- **Texto**: «hazme un guion sobre X» o «dame un tema». Si pide un tema, Claude propone **uno** (el más fuerte y actual que encuentre, con una línea de por qué) y arranca con él sin esperar; si el usuario prefiere otro, se cambia.
+
+Nada de preguntas previas si el tema está claro. Si el vídeo trata de **una persona** y falta su foto en `img/personas/`, se la pide ya (para la portada); es la única pausa del flujo antes del audio. Los logos que falten se descargan con `python scripts/logos.py <nombre>`.
+
+## 2. Guion (40 s – 1 min 20 s)
+- **Duración: entre 40 segundos y 1 minuto 20.** Esto sustituye al antiguo límite de 30–45 s. Orientación de palabras a ritmo hablado: ~100–110 palabras para 40 s, ~210–230 palabras para 1:20. Si el usuario pide otra duración concreta, manda la suya.
+- Estructura: **gancho** en los 2 primeros segundos (dato o pregunta que enganche) → contexto → datos clave (cifras que se puedan mostrar en contadores) → consecuencia para el mercado/inversor → **cierre**.
+- Tono: cercano, claro, dinámico y con chispa (la voz va en tono juguetón). Frases cortas, nada de relleno.
+- Cierre fijo en los guiones de cripto: **«Sígueme para no perderte nada de los mercados financieros, esto es... ALFA MARKETS!!»**
+- En el texto de audio la marca se escribe **«Alfa Markets»** (pronunciación). En pantalla es siempre **4LPHA MARKETS**.
+- Sin música de fondo en ningún vídeo.
+- Claude le enseña el guion en el chat (breve) y **sigue con el audio sin esperar aprobación**, salvo que el usuario haya pedido revisarlo antes.
+
+## 3. Audio con Jaime en ElevenLabs
+- Herramienta: ElevenLabs, **texto a voz**, locutor **«Jaime - Confident, Clear and Warm»**.
+- **Al texto se le añade siempre al principio la etiqueta `[en tono juguetón]`.**
+- **Una sola generación** por audio (no se hacen 2 tomas).
+- Se genera desde el conector de ElevenLabs (herramienta `creative_generate_speech` / `creative_list_voices` para localizar a Jaime). Se guarda el audio como `tmp/voz.mp3` (o `.wav`) de la plantilla y de ahí sigue el montaje (`asr_run.py` → `prep4.py`).
+- Si el conector no estuviera disponible, Claude lo dice en una línea y pide al usuario el audio generado a mano con esos mismos ajustes.
+
+## 4. Montaje del vídeo
+Con el audio y esta plantilla, se sigue la sección «Flujo» de `LEEME.md` (pasos 2–7): transcribir → escenas en `template.html` con el motor de dinamismo → render PNG sin pérdida → efectos de sonido → mezcla final.
+Reglas fijas del canal (todas en `LEEME.md`): 1080×1920, máxima calidad (H.264 slow CRF 12, AAC 320), subtítulos en mayúsculas y blancos (Montserrat Black y/o Awesome Serif Italic Bold ExtraTall, variando según lo que mejor quede), logos de las empresas citadas, banderas y animaciones divertidas, contadores con sonido distinto cada uno, 1–3 momentos dibujados (más en vídeos largos), efectos de sonido con la voz siempre por delante, tarjeta de perfil con botón Seguir al final (@4lphamarkets), cabecera con el logo de letras.
+Para vídeos de más de 45 s se escalan los insertos y los momentos dibujados (2–3 como mínimo) y se reparte más el dinamismo para que no decaiga a mitad del vídeo.
+
+## 5. Entrega: una carpeta por vídeo
+Claude **genera sin que se lo pidan** la carpeta del vídeo con todo dentro:
+
+```
+<slug>/
+  <slug>_video.mp4          ← vídeo editado final
+  <slug>_descripcion.txt    ← título · descripción · hashtags (texto limpio, sin rótulos)
+  <slug>_portada_1.jpg      ← miniatura 1 (estilo foto épica)
+  <slug>_portada_2.jpg      ← miniatura 2 (concepto nuevo desde cero)
+```
+
+- Se genera con `python scripts/entrega.py` (ver «ENTREGA AUTOMÁTICA TRAS EL RENDER» y las reglas de portadas v10/v11 en `LEEME.md`): descripción SEO, 2 portadas distintas, historial anti-repetición.
+- **Entrega sin comprimir** (el usuario no tiene WinRAR): se mandan con SendUserFile el vídeo, las 2 miniaturas y el .txt por separado, y se pega en el chat el texto limpio (título, descripción y hashtags). Si hay carpetas del PC conectadas, se deja también la carpeta del vídeo allí. El .zip es opcional.
+- Cierre del mensaje de entrega: una línea con el resultado y la pregunta de si todo está bien para publicar.
+
+### 5b. Dejar la carpeta en el Escritorio (v16, obligatorio y automático)
+En cuanto termina el montaje y la entrega (paso 5), Claude **deja la carpeta del vídeo en el Escritorio del usuario**, sin que lo pida y sin preguntar:
+1. Enviar los 4 archivos con `SendUserFile` (vídeo, 2 miniaturas, descripción); cada envío devuelve un `file_uuid`.
+2. Si el Escritorio no está conectado (`get_device_info` → `connectedFolders`), pedir acceso **una sola vez** con `device_request_folder_access` sobre `~/Desktop` (razón: «Guardar la carpeta <slug> en tu Escritorio»).
+3. `device_commit_files` con cada `fileUuid` → `~/Desktop/<slug>/<slug>_video.mp4`, `<slug>_portada_1.jpg`, `<slug>_portada_2.jpg`, `<slug>_descripcion.txt` (se crea la carpeta `<slug>` sola).
+4. En el mensaje de entrega decir en una línea que la carpeta `<slug>` está en el Escritorio. Si el ordenador no responde (apagado, app cerrada), decirlo y dejar los archivos enviados por el chat; no repetir escrituras que pudieran haberse hecho.
+Esto va **además** del envío por el chat (que sigue siendo sin comprimir, sin .zip).
+
+## 6. Publicación (cuando el usuario dice «OK»)
+Con el **OK** del usuario, Claude sube el vídeo solo, sin más preguntas:
+- **Instagram (Reel)** de 4lphamarkets y **YouTube (Short)** a través de Metricool (blogId 8199629, zona Europe/Madrid).
+- Se usa la miniatura que Claude considere **más atractiva y visible** (en Instagram la mejor; si hay 2, la segunda en YouTube). Título de YouTube sacado de la primera línea de la descripción.
+- Procedimiento técnico probado (repo público `4lphamarkets/alpha-markets-media` como almacén temporal, `createScheduledPost`, limpieza del repo después): ver `LEEME.md` → publicación, y la memoria del canal. Al terminar se avisa de que el historial de git conserva el archivo y se ofrece vaciarlo.
+- Si hay varios vídeos pendientes, Claude elige fechas y horas (hasta 3 al día).
+
+---
+
+## Reglas de oro del flujo
+1. **Cero fricción**: el usuario da la idea (imagen o tema) y Claude hace todo hasta tener la carpeta lista; después, con su OK, lo deja publicado.
+2. **Solo se para** para: pedir la foto de una persona que falta, conceder el acceso al Escritorio (primera vez), avisar de un fallo que bloquea (p. ej. ElevenLabs sin acceso) o esperar el OK de publicación.
+3. **Datos siempre verificados** en la web y con fuente; nada inventado en cifras ni citas.
+4. **Esto no es consejo financiero**: va siempre en la última línea de la descripción.
+5. Si el usuario adjunta una plantilla nueva, esa pasa a ser la vigente y Claude actualiza su memoria.

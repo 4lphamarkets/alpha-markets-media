@@ -1,0 +1,8 @@
+{
+  "insertos": [
+    { "clip": "insertos/dibujo1.mp4", "t0": 7.0, "dur": 4.0, "zona": "escena", "fundido": 0.2, "_nota": "MOMENTO DIBUJADO: hecho con scripts/dibujo.py (obligatorio 1-2 por vídeo)" },
+    { "clip": "insertos/grafico_manim.mov", "t0": 19.0, "dur": 3.4, "zona": "escena", "esquinas": 0 },
+    { "clip": "insertos/ilustracion_claude_drawing.png", "t0": 12.5, "dur": 3.0, "zona": "escena", "ajuste": "cubrir", "zoom": true },
+    { "clip": "insertos/timelapse_anidoodle.mp4", "t0": 28.0, "dur": 4.0, "zona": [90, 330, 900, 900], "ajuste": "cubrir", "fundido": 0.2 }
+  ]
+}
