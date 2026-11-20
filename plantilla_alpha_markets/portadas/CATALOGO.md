@@ -10,6 +10,8 @@ e `impacto_v8` (pantalla partida por grieta + sello rojo + duelo de cifras). Tam
 | arquetipo | idea | encaja con |
 |---|---|---|
 | `foto_epica` | ⭐ **ESTILO FIJO (favorito del usuario, v11).** Miniatura de noticia de impacto: 1-3 protagonistas (personas y/o logos de activos en monedas gigantes) con brillo sobre globo verde con mapa de puntos y velas, **frase con punch** (blanco + palabra clave menta tipo pincel), píldora «fecha · sede» y skyline; banderas solo si son países. La referencia con 3 líderes es solo un ejemplo del estilo. Plantilla: `portadas/estilos/foto_epica.html` | cualquier noticia con protagonistas: personas, 2 activos enfrentados, cumbres, caídas, declaraciones |
+| `dos_cifras` | 🆕 **v18.** Tarjetas enmarcadas con dos cifras enfrentadas (antes/después, cuánto/cuánto) sobre fondo oscuro, logo de la empresa arriba y **titular en pregunta** debajo (≤ 6 palabras). Distinto de `impacto_v8`: sin grieta ni sello rojo | resultados, valoraciones, comparativas (p. ej. «¿Cuánto ganan X e Y con Z?») |
+| `cuenta_atras` | 🆕 **v18.** Portada de evento: la **hora o la fecha** es el elemento más grande (bloque amarillo/menta), nombre del activo o empresa en grande y un «esta semana»/«hoy» pequeño | resultados, Fed, salidas a bolsa, datos macro con hora |
 | `periodico` | portada de periódico financiero: cabecera de diario con la marca, titular serif enorme, foto en semitono, columnas | noticias, entradas de instituciones, hitos |
 | `terminal` | pantalla tipo terminal de bolsa: texto mono ámbar/verde, tabla de datos, una fila resaltada | 13F, accionistas, datos, flujos |
 | `documento_filtrado` | documento oficial/SEC/clasificado con tachones negros, sello y subrayado a rotulador | revelaciones, regulación, filtraciones |

@@ -1,4 +1,6 @@
-# FLUJO DE TRABAJO ALPHA MARKETS (v17)
+# FLUJO DE TRABAJO ALPHA MARKETS (v18)
+
+> 🆕 **v18: PLAYBOOK DE COMPETENCIA.** Al elegir tema, escribir el gancho y diseñar portadas se aplica `PLAYBOOK_COMPETENCIA.md` (análisis de cuentas sin cara del nicho, 20-11-2026): eventos con hora exacta primero, gancho con paradoja/pregunta/calendario y un número concreto en la primera frase, portadas `dos_cifras` y `cuenta_atras`, 2 formatos de prueba por semana. Informe: https://claude.ai/artifact/KYBrHbufU4NPBDd2cYjzvy
 
 Este es el flujo acordado con el usuario para cada vídeo. Claude lo sigue **de principio a fin sin pedir permiso entre pasos**; las únicas paradas son las que se indican abajo (foto que falta, OK final).
 Los detalles técnicos de cada paso (render, sonidos, portadas, insertos) están en `LEEME.md`.
@@ -25,11 +27,15 @@ Dos formas, las dos válidas:
 - **Imagen**: captura de una noticia, tuit, gráfico, titular… Claude lee la imagen, identifica el tema y busca en la web los datos actuales y verificables antes de escribir (cifras, fechas, protagonistas, fuentes).
 - **Texto**: «hazme un guion sobre X» o «dame un tema». Si pide un tema, Claude propone **uno** (el más fuerte y actual que encuentre, con una línea de por qué) y arranca con él sin esperar; si el usuario prefiere otro, se cambia.
 
+**Prioridad al proponer tema (v18):** (1) evento de las próximas horas con hora exacta, (2) noticia del día con cifra grande o personaje conocido (Nvidia, Anthropic, Fed, Trump, Musk), (3) cripto con cifra o conflicto concreto; lo atemporal, al final de la cola. Detalle en `PLAYBOOK_COMPETENCIA.md`.
+
 Nada de preguntas previas si el tema está claro. Si el vídeo trata de **una persona** y falta su foto en `img/personas/`, se la pide ya (para la portada); es la única pausa del flujo antes del audio. Los logos que falten se descargan con `python scripts/logos.py <nombre>`.
 
 ## 2. Guion (40 s – 1 min 20 s)
 - **Duración: entre 40 segundos y 1 minuto 20.** Esto sustituye al antiguo límite de 30–45 s. Orientación de palabras a ritmo hablado: ~100–110 palabras para 40 s, ~210–230 palabras para 1:20. Si el usuario pide otra duración concreta, manda la suya.
 - Estructura: **gancho** en los 2 primeros segundos (dato o pregunta que enganche) → contexto → datos clave (cifras que se puedan mostrar en contadores) → consecuencia para el mercado/inversor → **cierre**.
+- **Gancho (v18):** la primera frase lleva siempre **un número concreto** y sigue una de estas fórmulas: **paradoja** («X vale ... y dicen que está más barata que cuando valía ...»), **pregunta con "falta algo"** («¿Por qué no se dispara X? Falta ...») o **calendario** («¿Casualidad o calendario?», «X se juega la semana el martes a las 22:20»). Nada que no se haya comprobado ni fechas límite alarmistas sin fuente sólida.
+- **Formatos de prueba (v18, 2 por semana):** cuenta atrás de evento y meme de inversor con animación propia («Yo cuando ...», «POV: ...»; sin clips de películas ni vídeo de archivo ajeno). Duración: la de siempre (40 s – 1:20) salvo que el usuario pida otra.
 - Tono: cercano, claro, dinámico y con chispa (la voz va en tono juguetón). Frases cortas, nada de relleno.
 - Cierre fijo en los guiones de cripto: **«Sígueme para no perderte nada de los mercados financieros, esto es... ALFA MARKETS!!»**
 - En el texto de audio la marca se escribe **«Alfa Markets»** (pronunciación). En pantalla es siempre **4LPHA MARKETS**.
@@ -59,6 +65,7 @@ Claude **genera sin que se lo pidan** la carpeta del vídeo con todo dentro:
   <slug>_portada_2.jpg      ← miniatura 2 (concepto nuevo desde cero)
 ```
 
+- **Portadas (v18):** si el tema encaja, una de las dos puede ser `dos_cifras` (tarjetas con cifras enfrentadas + titular en pregunta) o, en vídeos de eventos, `cuenta_atras` (la hora o la fecha como elemento más grande); ver `portadas/CATALOGO.md`. Siguen las reglas de portadas muy distintas entre vídeos consecutivos.
 - Se genera con `python scripts/entrega.py` (ver «ENTREGA AUTOMÁTICA TRAS EL RENDER» y las reglas de portadas v10/v11 en `LEEME.md`): descripción SEO, 2 portadas distintas, historial anti-repetición.
 - **Entrega sin comprimir** (el usuario no tiene WinRAR): se mandan con SendUserFile el vídeo, las 2 miniaturas y el .txt por separado, y se pega en el chat el texto limpio (título, descripción y hashtags). Si hay carpetas del PC conectadas, se deja también la carpeta del vídeo allí. El .zip es opcional.
 - Cierre del mensaje de entrega: una línea con el resultado y la pregunta de si todo está bien para publicar.
@@ -86,3 +93,4 @@ Con el **OK** del usuario, Claude sube el vídeo solo, sin más preguntas:
 3. **Datos siempre verificados** en la web y con fuente; nada inventado en cifras ni citas.
 4. **Esto no es consejo financiero**: va siempre en la última línea de la descripción.
 5. Si el usuario adjunta una plantilla nueva, esa pasa a ser la vigente y Claude actualiza su memoria.
+6. **Medir y corregir (v18):** al programar cada vídeo se anota tema, fórmula de gancho, formato y vistas a las 24 h; cada viernes se revisa qué sube y se ajusta `PLAYBOOK_COMPETENCIA.md`.
