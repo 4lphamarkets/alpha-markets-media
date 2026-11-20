@@ -1,0 +1,578 @@
+[
+ {
+  "slug": "h01_btc_62k",
+  "t1": "BITCOIN",
+  "t2": "BAJO 62K",
+  "sub": "Primera vez desde <b>JULIO</b> · 20 NOV",
+  "rows": [
+   {
+    "ic": "dn",
+    "n": "PRECIO",
+    "s": "BTC · HOY",
+    "p": "$61,974",
+    "c": "-1.93%",
+    "cc": "r"
+   },
+   {
+    "ic": "dn",
+    "n": "MÍNIMO",
+    "s": "MÁS BAJO DESDE JULIO",
+    "p": "$61,273",
+    "c": "",
+    "cc": "r",
+    "pfs": 64
+   },
+   {
+    "ic": "sq",
+    "n": "LIQUIDACIONES",
+    "s": "24 HORAS",
+    "p": "$135.8M",
+    "c": "81.5%",
+    "cc": "r",
+    "nfs": 46,
+    "pfs": 54,
+    "cmin": 190
+   },
+   {
+    "ic": "dn",
+    "n": "vs SEMANA PASADA",
+    "s": "CIERRE MIÉ 18 NOV",
+    "p": "$63,068",
+    "c": "-14.8%",
+    "cc": "r",
+    "nfs": 46,
+    "pfs": 54,
+    "cmin": 190
+   }
+  ],
+  "block": {
+   "type": "line",
+   "title": "DE $74.8K A $61.3K",
+   "pts": [
+    [
+     "9 NOV",
+     "$74.8K",
+     74804,
+     "#cfe9df"
+    ],
+    [
+     "15 NOV",
+     "$62.6K",
+     62612,
+     "#FF4A5C"
+    ],
+    [
+     "18 NOV",
+     "$63.1K",
+     63068,
+     "#cfe9df"
+    ],
+    [
+     "HOY",
+     "$61.3K",
+     61273,
+     "#FF4A5C"
+    ]
+   ],
+   "res": "Longs liquidados: <b>$110.6M</b> de <b>$135.8M</b> en 24 h"
+  },
+  "pie": "Fuentes: CoinStats · Coinbird · The Crypto Desk · Caleb & Brown · datos del 20 nov",
+  "logo": "btc"
+ },
+ {
+  "slug": "h02_etf_salidas",
+  "t1": "ETF BITCOIN",
+  "t2": "SANGRÍA",
+  "sub": "Salidas de <b>NOVIEMBRE</b> · EE. UU. SPOT",
+  "rows": [
+   {
+    "ic": "dn",
+    "n": "NOVIEMBRE",
+    "s": "SALIDAS NETAS",
+    "p": "-$2.89B",
+    "c": "",
+    "cc": "r",
+    "pfs": 64
+   },
+   {
+    "ic": "dn",
+    "n": "OCTUBRE",
+    "s": "MES COMPLETO",
+    "p": "-$515.9M",
+    "c": "",
+    "cc": "r",
+    "pfs": 58
+   },
+   {
+    "ic": "dn",
+    "n": "MIÉRCOLES 19",
+    "s": "SALIDA DEL DÍA",
+    "p": "-$306.4M",
+    "c": "",
+    "cc": "r",
+    "pfs": 58
+   },
+   {
+    "ic": "sq",
+    "n": "ACTIVOS",
+    "s": "TOTAL ETF SPOT BTC",
+    "p": "$77.7B",
+    "c": "",
+    "cc": "r",
+    "pfs": 64
+   }
+  ],
+  "block": {
+   "type": "bars",
+   "title": "OCTUBRE VS NOVIEMBRE",
+   "items": [
+    [
+     "OCTUBRE",
+     515.9,
+     "-$0.5B",
+     "#FF4A5C"
+    ],
+    [
+     "NOVIEMBRE",
+     2890,
+     "-$2.9B",
+     "#FF4A5C"
+    ]
+   ],
+   "res": "Bitfinex: quien compró cerca de <b>$80K</b> en T3 pierde casi <b>20%</b>"
+  },
+  "pie": "Fuentes: Cointelegraph · CoinStats · Bitfinex · otra fuente eleva noviembre a $3.47B",
+  "logo": "btc"
+ },
+ {
+  "slug": "h03_anthropic_opv",
+  "t1": "ANTHROPIC",
+  "t2": "OPV RÉCORD",
+  "sub": "La mayor salida a bolsa de <b>EE. UU.</b>",
+  "rows": [
+   {
+    "ic": "up",
+    "n": "PRECIO OPV",
+    "s": "POR ACCIÓN",
+    "p": "$83",
+    "c": "",
+    "pfs": 72
+   },
+   {
+    "ic": "up",
+    "n": "RECAUDADO",
+    "s": "OPV RÉCORD",
+    "p": "$81.3B",
+    "c": "",
+    "pfs": 64
+   },
+   {
+    "ic": "neu",
+    "n": "VALORACIÓN",
+    "s": "DILUIDA APROX.",
+    "p": "≈$1.5T",
+    "c": "",
+    "pfs": 64
+   },
+   {
+    "ic": "dn",
+    "n": "FUTUROS HOY",
+    "s": "APERTURA VIERNES",
+    "p": "≈-5%",
+    "c": "",
+    "cc": "r",
+    "pfs": 64
+   }
+  ],
+  "block": {
+   "type": "text",
+   "title": "CRIPTO TAMBIÉN JUEGA",
+   "big": "Perpetuos de ANT en Hyperliquid: <span style='color:#34F5B0'>$117M</span> en 24 h",
+   "fs": 42,
+   "res": "Ondo lanza <b>ANT tokenizado</b> el día de la OPV"
+  },
+  "pie": "Fuentes: KuCoin · Cointelegraph · CoinDesk · The Block · datos del 19-20 nov",
+  "logo": "ant"
+ },
+ {
+  "slug": "h04_fed_dic",
+  "t1": "LA FED",
+  "t2": "ENDURECE",
+  "sub": "Goolsbee no descarta subida en <b>DICIEMBRE</b>",
+  "rows": [
+   {
+    "ic": "up",
+    "n": "TIPOS DIC",
+    "s": "CHICAGO FED · GOOLSBEE",
+    "p": "SUBIDA",
+    "c": "",
+    "pfs": 58
+   },
+   {
+    "ic": "up",
+    "n": "DÓLAR",
+    "s": "SIGUE FUERTE",
+    "p": "FUERTE",
+    "c": "",
+    "pfs": 58
+   },
+   {
+    "ic": "dn",
+    "n": "ORO",
+    "s": "EXTIENDE LA CAÍDA",
+    "p": "MÍN. SEP 2025",
+    "c": "",
+    "cc": "r",
+    "pfs": 40,
+    "cmin": 0
+   },
+   {
+    "ic": "dn",
+    "n": "BITCOIN",
+    "s": "ACTIVO DE RIESGO",
+    "p": "≈$62K",
+    "c": "",
+    "cc": "r",
+    "pfs": 64
+   }
+  ],
+  "block": {
+   "type": "text",
+   "title": "EL FACTOR MACRO",
+   "big": "Dólar fuerte + oro a la baja + tipos al alza = <span style='color:#FF4A5C'>presión</span> sobre el riesgo",
+   "fs": 38,
+   "res": "Wall Street también cede pese a la <b>OPV de Anthropic</b>"
+  },
+  "pie": "Fuentes: KuCoin · Coinbird · CoinDesk · declaraciones del 19-20 nov",
+  "logo": "🏦"
+ },
+ {
+  "slug": "h05_eth_1750",
+  "t1": "ETHEREUM",
+  "t2": "CAE A $1.750",
+  "sub": "Mineros vendiendo · <b>LIQUIDEZ</b> a la baja",
+  "rows": [
+   {
+    "ic": "dn",
+    "n": "ETH HOY",
+    "s": "20 NOV",
+    "p": "≈$1,750",
+    "c": "",
+    "cc": "r",
+    "pfs": 64
+   },
+   {
+    "ic": "dn",
+    "n": "MIÉ 19 NOV",
+    "s": "BAJO $1,800",
+    "p": "<$1,800",
+    "c": "",
+    "cc": "r",
+    "pfs": 64
+   },
+   {
+    "ic": "dn",
+    "n": "12 NOV",
+    "s": "BAJO $2,000 · 1ª VEZ EN 3 MESES",
+    "p": "<$2,000",
+    "c": "",
+    "cc": "r",
+    "pfs": 58,
+    "nfs": 50
+   },
+   {
+    "ic": "sq",
+    "n": "DEMANDA SPOT",
+    "s": "INSUFICIENTE",
+    "p": "DÉBIL",
+    "c": "",
+    "cc": "r",
+    "pfs": 58
+   }
+  ],
+  "block": {
+   "type": "line",
+   "title": "PERDIENDO UMBRALES",
+   "pts": [
+    [
+     "12 NOV",
+     "$2,000",
+     2000,
+     "#cfe9df"
+    ],
+    [
+     "19 NOV",
+     "$1,800",
+     1800,
+     "#FF4A5C"
+    ],
+    [
+     "20 NOV",
+     "$1,750",
+     1750,
+     "#FF4A5C"
+    ]
+   ],
+   "res": "Desde $2,000 a $1,750: <b style='color:#FF4A5C'>-12.5%</b> en 8 días"
+  },
+  "pie": "Fuentes: KuCoin · CryptoActu · datos del 12, 19 y 20 nov",
+  "logo": "eth"
+ },
+ {
+  "slug": "h06_cruz_muerte",
+  "t1": "CRUZ DE LA",
+  "t2": "MUERTE",
+  "sub": "Señal bajista en <b>BITCOIN</b> · 20 NOV",
+  "rows": [
+   {
+    "ic": "dn",
+    "n": "SEÑAL",
+    "s": "CRUCE DE MEDIAS",
+    "p": "DEATH CROSS",
+    "c": "",
+    "cc": "r",
+    "pfs": 44
+   },
+   {
+    "ic": "dn",
+    "n": "LIQUIDACIONES",
+    "s": "TRAS LA CAÍDA",
+    "p": "$391M",
+    "c": "",
+    "cc": "r",
+    "pfs": 64
+   },
+   {
+    "ic": "neu",
+    "n": "PRECIO",
+    "s": "BTC ≈ ZONA $63K",
+    "p": "≈$63K",
+    "c": "",
+    "pfs": 64
+   },
+   {
+    "ic": "dn",
+    "n": "SENTIMIENTO",
+    "s": "MUY DETERIORADO",
+    "p": "MIEDO",
+    "c": "",
+    "cc": "r",
+    "pfs": 58
+   }
+  ],
+  "block": {
+   "type": "text",
+   "title": "PETER BRANDT AVISA",
+   "big": "El veterano trader ve <span style='color:#FF4A5C'>más caída</span> si BTC pierde sus soportes",
+   "fs": 40,
+   "res": "Las señales técnicas no son garantía: <b>gestiona el riesgo</b>"
+  },
+  "pie": "Fuentes: análisis de precio 20 nov · U.Today · Gtokentool",
+  "logo": "btc"
+ },
+ {
+  "slug": "h07_ballena_hyperliquid",
+  "t1": "BALLENA",
+  "t2": "CIERRA LONG",
+  "sub": "Posición de <b>$87.4M</b> en HYPERLIQUID",
+  "rows": [
+   {
+    "ic": "neu",
+    "n": "ENTRADA",
+    "s": "BTC LONG",
+    "p": "$61,702",
+    "c": "",
+    "pfs": 64
+   },
+   {
+    "ic": "dn",
+    "n": "SALIDA",
+    "s": "ÓRDENES DE MERCADO",
+    "p": "$61,606",
+    "c": "-0.2%",
+    "cc": "r",
+    "pfs": 52,
+    "cmin": 190
+   },
+   {
+    "ic": "neu",
+    "n": "DURACIÓN",
+    "s": "TIEMPO DE CIERRE",
+    "p": "14 MIN",
+    "c": "",
+    "pfs": 64
+   },
+   {
+    "ic": "sq",
+    "n": "OTRO LONG",
+    "s": "$93.5M A 3.0% DE LIQUIDACIÓN",
+    "p": "$93.5M",
+    "c": "",
+    "cc": "r",
+    "pfs": 58,
+    "nfs": 46
+   }
+  ],
+  "block": {
+   "type": "text",
+   "title": "LECTURA RÁPIDA",
+   "big": "Cierre en 14 min con apenas <span style='color:#FF4A5C'>-0.2%</span> frente a la entrada",
+   "fs": 40,
+   "res": "Datos on-chain del <b>20 NOV</b> a las 07:40 UTC"
+  },
+  "pie": "Fuente: Liqwall · movimientos on-chain en Hyperliquid · 20 nov",
+  "logo": "🐋"
+ },
+ {
+  "slug": "h08_sec_colorado",
+  "t1": "SEC",
+  "t2": "CONTRA EL FRAUDE",
+  "sub": "Plataforma cripto falsa en <b>COLORADO</b>",
+  "rows": [
+   {
+    "ic": "dn",
+    "n": "EMPRESAS",
+    "s": "ACUSADAS EL JUEVES",
+    "p": "8",
+    "c": "",
+    "cc": "r",
+    "pfs": 80
+   },
+   {
+    "ic": "dn",
+    "n": "FRAUDE",
+    "s": "PLATAFORMA CRIPTO FALSA",
+    "p": "$37M",
+    "c": "",
+    "cc": "r",
+    "pfs": 72
+   },
+   {
+    "ic": "neu",
+    "n": "ORGANISMO",
+    "s": "COMISIÓN DE VALORES",
+    "p": "SEC",
+    "c": "",
+    "pfs": 72
+   },
+   {
+    "ic": "neu",
+    "n": "FECHA",
+    "s": "JUEVES",
+    "p": "19 NOV",
+    "c": "",
+    "pfs": 60
+   }
+  ],
+  "block": {
+   "type": "text",
+   "title": "CÓMO PROTEGERTE",
+   "big": "Si una plataforma promete <span style='color:#FF4A5C'>rentabilidad segura</span>, desconfía",
+   "fs": 38,
+   "res": "Comprueba siempre <b>registro y reputación</b> antes de depositar"
+  },
+  "pie": "Fuente: Bitcoin Magazine · SEC · 19-20 nov",
+  "logo": "⚖️"
+ },
+ {
+  "slug": "h09_cftc_hyperliquid",
+  "t1": "CFTC",
+  "t2": "ABRE A HYPERLIQUID",
+  "sub": "Cómo entrarían los mercados <b>ONCHAIN</b> en EE. UU.",
+  "rows": [
+   {
+    "ic": "up",
+    "n": "CFTC · SELIG",
+    "s": "VÍAS DE ENTRADA ONCHAIN",
+    "p": "ABRE",
+    "c": "",
+    "pfs": 58
+   },
+   {
+    "ic": "up",
+    "n": "HYPERLIQUID STR.",
+    "s": "PIDE REGISTRO BRÓKER FUTUROS · 5 NOV",
+    "p": "CFTC",
+    "c": "",
+    "pfs": 58,
+    "nfs": 46
+   },
+   {
+    "ic": "up",
+    "n": "BENEFICIO",
+    "s": "ÚLTIMO TRIMESTRE",
+    "p": "$620.6M",
+    "c": "",
+    "pfs": 58
+   },
+   {
+    "ic": "up",
+    "n": "1INCH",
+    "s": "AÑADE PERPETUOS HYPERLIQUID",
+    "p": "19 NOV",
+    "c": "",
+    "pfs": 54
+   }
+  ],
+  "block": {
+   "type": "text",
+   "title": "EL SALTO REGULATORIO",
+   "big": "Los perpetuos onchain buscan <span style='color:#34F5B0'>licencia</span> en EE. UU.",
+   "fs": 40,
+   "res": "Hyperliquid gana <b>acceso, volumen y legitimidad</b>"
+  },
+  "pie": "Fuentes: The Block · CoinPaprika · 5-19 nov",
+  "logo": "hl"
+ },
+ {
+  "slug": "h10_clarity_act",
+  "t1": "CLARITY ACT",
+  "t2": "SIN VENTANA",
+  "sub": "Senado y <b>REGULACIÓN</b> cripto en EE. UU.",
+  "rows": [
+   {
+    "ic": "dn",
+    "n": "CLARITY ACT",
+    "s": "VENTANA DE APROBACIÓN",
+    "p": "PERDIDA",
+    "c": "",
+    "cc": "r",
+    "pfs": 52
+   },
+   {
+    "ic": "neu",
+    "n": "HILL VS MORENO",
+    "s": "DISCREPAN EN EL ALCANCE DE LAS REGLAS",
+    "p": "DEBATE",
+    "c": "",
+    "pfs": 52,
+    "nfs": 46
+   },
+   {
+    "ic": "up",
+    "n": "COINBASE",
+    "s": "APOYA PROPUESTA DE LA CFTC",
+    "p": "APOYA",
+    "c": "",
+    "pfs": 52
+   },
+   {
+    "ic": "up",
+    "n": "RIPPLE",
+    "s": "PIDE REGLAS DURADERAS",
+    "p": "PIDE",
+    "c": "",
+    "pfs": 52
+   }
+  ],
+  "block": {
+   "type": "text",
+   "title": "QUÉ SIGNIFICA",
+   "big": "Sin ley, las <span style='color:#34F5B0'>agencias</span> marcan las reglas",
+   "fs": 42,
+   "res": "CFTC: separar <b>mercados de predicción</b> del juego"
+  },
+  "pie": "Fuente: The Block · 19 nov",
+  "logo": "🏛️"
+ }
+]
