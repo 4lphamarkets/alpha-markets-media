@@ -1,4 +1,17 @@
-# Plantilla ALPHA MARKETS v18 (vídeos verticales 9:16)
+# Plantilla ALPHA MARKETS v22 (vídeos verticales 9:16)
+## ⭐ NOVEDADES v22: MODO ANALISTA + FILTRO DE NOTICIAS (leer `ESTILO_ANALISTA.md` y `FILTRO_NOTICIAS.md`)
+Tras analizar en profundidad @h.analistasoficial y @lacartabursatil (22-11-2026): (1) **`template_analista.html`**: segundo motor de edición, sobrio y de «un elemento cada vez» (píldora con hora → titular → widget → dato rojo; calendario, velas y líneas que se dibujan, cifra gigante, subtítulos discretos). Se usa con `python scripts/prep_analista.py tmp/guion_analista.json` y `python scripts/build.py analista`; ejemplo en `timeline_ejemplo_analista.json`. El modo clásico (`template.html`, v21) sigue intacto (render, sonidos, portadas, entrega, publicación iguales). (2) **Filtro de noticias** con puntuación 0-100 (`scripts/filtro_noticias.py`, ejemplo `filtro_ejemplo.json`). (3) A/B: 3 de 4 vídeos en modo analista y 1 de 4 en clásico durante 2 semanas; KPI = enviados/vistas.
+# Plantilla ALPHA MARKETS v21 (vídeos verticales 9:16)
+
+## 🆕 v21: MÁS WORKERS AUTOMÁTICOS + GPU OPCIONAL
+`node scripts/render.js video` ahora elige solo los workers (mitad de los hilos, entre 4 y 12; Ryzen 9 → hasta 12). Para forzar: `node scripts/render.js video 8`. GPU opcional con la variable `GPU=1` (PowerShell: `$env:GPU=1; node scripts/render.js video`): sin probar todavía, comprobar que los fotogramas salen idénticos antes de dejarlo fijo. La calidad (PNG sin pérdida + H.264 slow CRF 12) no cambia.
+
+## 🆕 v20: RENDER ~2x MÁS RÁPIDO (misma calidad)
+`scripts/render.js` captura cada fotograma con `Page.captureScreenshot` (CDP) y `optimizeForSpeed`: sigue siendo PNG sin pérdida con píxeles idénticos (diferencia máx. 0 medida en 3 fotogramas); H.264 slow CRF 12 y el resto de ajustes NO cambian. Medido con 60 fotogramas y 2 workers en 2 CPU: 36,9 s → 17,5 s.
+
+## 🆕 v19: RECURSOS VISUALES DE EDICIÓN (carpeta `recursos_visuales/`)
+Se añadieron 11 repos de edición de vídeo (earshot, pixelfx, hyperframes, huashu-motion, claude-animated-shorts, lemo-opuscar, rea-video, react-three-rapier, blender-mcp, Wan2.2, LTX-Video). Leer `recursos_visuales/RECURSOS_VISUALES.md` (qué aporta cada uno y cuándo usarlo) y ejecutar `bash recursos_visuales/INSTALAR.sh` al empezar (reclona e instala todo; el sandbox es temporal). En **cada vídeo nuevo** usar 2-3 de estos recursos: SFX variados con earshot, insertos animados con pixelfx/hyperframes, apertura/cierre distintivos, sin romper el flujo v18 ni la legibilidad (la voz manda). Guías de cada repo en `recursos_visuales/guias/`.
+
 ## ⭐ NOVEDADES v18: PLAYBOOK DE COMPETENCIA (leer `PLAYBOOK_COMPETENCIA.md`)
 Tras analizar cuentas de Instagram sin cara del nicho (noticias de bolsa EEUU y cripto en español), se añade un playbook de temas, ganchos, portadas y formatos de prueba. Cambios concretos: (1) orden de prioridad de temas (eventos con hora exacta primero); (2) fórmulas de gancho con número concreto en la primera frase; (3) dos conceptos nuevos de portada, `dos_cifras` y `cuenta_atras`, en `portadas/CATALOGO.md`; (4) dos formatos de prueba por semana (cuenta atrás de evento y meme de inversor con animación propia, sin clips ajenos); (5) medición semanal. No cambia nada del montaje técnico, la marca ni la entrega.
 ## (v17) NOVEDADES v17: CARPETA EN EL ESCRITORIO = PASO OBLIGATORIO (aviso del usuario)

@@ -1,6 +1,11 @@
-# FLUJO DE TRABAJO ALPHA MARKETS (v18)
+# FLUJO DE TRABAJO ALPHA MARKETS (v21)
+
+## 🆕 v19: RECURSOS VISUALES DE EDICIÓN (carpeta `recursos_visuales/`)
+Se añadieron 11 repos de edición de vídeo (earshot, pixelfx, hyperframes, huashu-motion, claude-animated-shorts, lemo-opuscar, rea-video, react-three-rapier, blender-mcp, Wan2.2, LTX-Video). Leer `recursos_visuales/RECURSOS_VISUALES.md` (qué aporta cada uno y cuándo usarlo) y ejecutar `bash recursos_visuales/INSTALAR.sh` al empezar (reclona e instala todo; el sandbox es temporal). En **cada vídeo nuevo** usar 2-3 de estos recursos: SFX variados con earshot, insertos animados con pixelfx/hyperframes, apertura/cierre distintivos, sin romper el flujo v18 ni la legibilidad (la voz manda). Guías de cada repo en `recursos_visuales/guias/`.
+
 
 > 🆕 **v18: PLAYBOOK DE COMPETENCIA.** Al elegir tema, escribir el gancho y diseñar portadas se aplica `PLAYBOOK_COMPETENCIA.md` (análisis de cuentas sin cara del nicho, 20-11-2026): eventos con hora exacta primero, gancho con paradoja/pregunta/calendario y un número concreto en la primera frase, portadas `dos_cifras` y `cuenta_atras`, 2 formatos de prueba por semana. Informe: https://claude.ai/artifact/KYBrHbufU4NPBDd2cYjzvy
+> 🆕 **v22: MODO ANALISTA + FILTRO DE NOTICIAS.** (1) Antes de elegir tema se puntúan las candidatas con `FILTRO_NOTICIAS.md` (`python scripts/filtro_noticias.py`): solo vídeo si ≥ 70 (≥ 60 si hace falta rellenar), máx. 1 por tema. (2) El montaje usa por defecto el **modo analista** (`ESTILO_ANALISTA.md`: `prep_analista.py` → `build.py analista`) en 3 de cada 4 vídeos; 1 de cada 4 sigue en modo clásico (`template.html`) como control A/B durante 2 semanas. Lo demás (audio de Jaime, entrega, carpeta en el Escritorio, publicación) no cambia. (3) Al programar se anota: tema, puntuación, modo, vistas 24 h y enviados/vistas.
 
 Este es el flujo acordado con el usuario para cada vídeo. Claude lo sigue **de principio a fin sin pedir permiso entre pasos**; las únicas paradas son las que se indican abajo (foto que falta, OK final).
 Los detalles técnicos de cada paso (render, sonidos, portadas, insertos) están en `LEEME.md`.

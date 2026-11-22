@@ -1,0 +1,8 @@
+[
+ {"titulo":"Nvidia cierra su peor semana desde 2008 (cierre semanal)","tema":"nvidia","tipo":"noticia","hora_exacta":true,"cifra_historica":true,"cifra_concreta":true,"protagonista":2,"impacto_bolsillo":1,"pregunta_abierta":false,"visual":"grafico","horas":6,"fuentes":3},
+ {"titulo":"La bolsa se juega la semana en 3 días y medio (Acción de Gracias)","tema":"calendario","tipo":"evento","hora_exacta":true,"cifra_historica":true,"cifra_concreta":true,"protagonista":1,"impacto_bolsillo":2,"pregunta_abierta":true,"visual":"calendario","horas":10,"fuentes":2},
+ {"titulo":"Bitcoin a un 6 % de la media móvil que marcó 3 ciclos","tema":"bitcoin","tipo":"patron_actual","hora_exacta":false,"cifra_historica":true,"cifra_concreta":true,"protagonista":2,"impacto_bolsillo":2,"pregunta_abierta":false,"visual":"grafico","horas":20,"fuentes":2},
+ {"titulo":"Serie Fibonacci · parte 1 de 10","tema":"educativo","tipo":"educativo_atemporal","hora_exacta":false,"cifra_historica":false,"cifra_concreta":true,"protagonista":0,"impacto_bolsillo":0,"pregunta_abierta":false,"visual":"grafico","horas":72,"fuentes":2},
+ {"titulo":"Quiénes somos: un equipo de inversores...","tema":"marca","tipo":"marca","hora_exacta":false,"cifra_historica":false,"cifra_concreta":false,"protagonista":0,"impacto_bolsillo":0,"pregunta_abierta":false,"visual":"ninguno","horas":30,"fuentes":2},
+ {"titulo":"Rumor sin confirmar de ETF de X (1 sola fuente)","tema":"cripto","tipo":"noticia","hora_exacta":false,"cifra_historica":false,"cifra_concreta":true,"protagonista":1,"impacto_bolsillo":1,"pregunta_abierta":true,"visual":"ninguno","horas":3,"fuentes":1}
+]

@@ -1,0 +1,35 @@
+{
+"end": 36,
+"kicker_global": "",
+"scenes": [
+{"id":"s1","a":0,"b":10,"kicker":"Wall Street · semana del 23 al 27 nov","bg":"img/rtx4090.jpg","comps":[
+  {"type":"pill","text":"Del 23 al 27 de noviembre","tone":"gold","at":0.2},
+  {"type":"card","text":"La bolsa se juega la semana en solo *3 días y ½*","size":80,"key":"g","at":1.0},
+  {"type":"calendar","cols":5,"days":[{"d":"LUN","n":"23","st":"up"},{"d":"MAR","n":"24","st":"up"},{"d":"MIÉ","n":"25","st":"up"},{"d":"JUE","n":"26","st":"closed","label":"cerrado"},{"d":"VIE","n":"27","st":"half","label":"½ sesión"}],"at":2.6},
+  {"type":"stat","tone":"gold","text":"Viene de caer 7 días seguidos","sub":"no pasaba desde el covid","at":5.2}]},
+{"id":"s2","a":10,"b":20,"kicker":"Nvidia · cierre semanal","kickerTone":"r","comps":[
+  {"type":"tag","text":"PARTE 1","tone":"dark","at":0.1},
+  {"type":"logo","src":"img/logos/nvidia.png","h":150,"at":0.3},
+  {"type":"candles","title":"Nvidia · gráfico semanal","gen":{"n":30,"shape":"caida_final"},"zone":{"from":90,"to":100,"label":"GOLDEN POCKET"},"big":{"text":"-48%","tone":"r"},"at":1.0},
+  {"type":"card","tone":"dark","text":"Nvidia cae al *Golden Pocket*","size":70,"key":"p","at":5.2},
+  {"type":"stat","tone":"red","text":"La peor semana desde 2008","at":7.0}]},
+{"id":"s3","a":20,"b":29,"kicker":"Bitcoin · la media móvil","comps":[
+  {"type":"line","title":"Bitcoin · EMA 365 semanal","pts":[[0,.1],[.1,.35],[.2,.15],[.3,.7],[.4,.45],[.5,.25],[.6,.9],[.7,.55],[.8,.3],[.9,.38],[1,.34]],"ref":[[0,.12],[1,.5]],"marks":[{"x":.2,"y":.15,"label":"2015","sub":"×130"},{"x":.5,"y":.25,"label":"2020","sub":"×18"},{"x":.8,"y":.3,"label":"2022","sub":"×8"}],"at":0.3},
+  {"type":"card","tone":"dark","text":"3 ciclos alcistas,\n*una sola línea*","size":72,"key":"p","at":4.0},
+  {"type":"num","label":"Hoy a un","value":6,"suffix":" %","tone":"p","size":200,"sub":"de esa línea","at":5.6}]},
+{"id":"s4","a":29,"b":36,"kicker":"Quién mueve el precio","comps":[
+  {"type":"bars","items":[["Direcciones <1 BTC",98,"g","98 %"],["Guardan el total",7,"r","7 %"],["Direcciones ≥1 BTC",2,"p","2 % → 93 %"]],"at":0.2},
+  {"type":"follow","at":3.0,"tapAt":1.5},
+  {"type":"disc","at":3.6}]}
+],
+"chunks":[
+{"s":"s1","text":"La bolsa se juega *la semana*","t0":0.5,"t1":2.4},
+{"s":"s1","text":"en solo *tres días y medio*","t0":2.4,"t1":4.6},
+{"s":"s1","text":"y *viene de caer siete días seguidos*","t0":5.2,"t1":8.8},
+{"s":"s2","text":"Nvidia cierra su *peor semana*","t0":10.4,"t1":13.0},
+{"s":"s2","text":"desde 2008,","t0":13.0,"t1":15.0},
+{"s":"s2","text":"un *48 %* por debajo del récord","t0":15.0,"t1":19.0},
+{"s":"s3","text":"Bitcoin tocó la misma línea","t0":20.4,"t1":24.0},
+{"s":"s3","text":"antes de *tres ciclos alcistas*","t0":24.0,"t1":28.5},
+{"s":"s4","text":"Sígueme para no perderte nada","t0":30.0,"t1":34.0}
+]}

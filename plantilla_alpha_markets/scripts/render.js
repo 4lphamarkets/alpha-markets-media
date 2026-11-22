@@ -20,7 +20,9 @@ function launch() {
   const cands = [process.env.CHROME, 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
     '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '/usr/bin/google-chrome'].filter(Boolean);
   const exe = cands.find(p => fs.existsSync(p));
-  return pw.chromium.launch({ ...(exe ? { executablePath: exe } : {}), args: ['--allow-file-access-from-files', '--force-color-profile=srgb'] });
+  return pw.chromium.launch({ ...(exe ? { executablePath: exe } : {}), args: ['--allow-file-access-from-files', '--force-color-profile=srgb',
+    // v21: GPU opcional (set GPU=1): rasterización por GPU en Chrome. Comprobar que el resultado es idéntico antes de usarlo siempre.
+    ...(process.env.GPU ? ['--use-angle=d3d11', '--enable-gpu-rasterization', '--ignore-gpu-blocklist'] : [])] });
 }
 async function openPage(browser) {
   const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
@@ -41,9 +43,11 @@ async function renderRange(browser, f0, f1, out) {
   const ff = spawn('ffmpeg', ['-y', '-v', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'png', '-i', '-', ...ENC, out],
     { stdio: ['pipe', 'inherit', 'inherit'] });
   const done = new Promise((res, rej) => ff.on('exit', c => c === 0 ? res() : rej(new Error('ffmpeg exit ' + c))));
+  // v20: captura PNG sin pérdida vía CDP con optimizeForSpeed (píxeles idénticos a page.screenshot, ~2,5x más rápida)
+  const cdp = await page.context().newCDPSession(page);
   for (let i = f0; i < f1; i++) {
     await page.evaluate(t => seek(t), i / FPS);
-    const buf = await page.screenshot({ type: 'png' });
+    const buf = Buffer.from((await cdp.send('Page.captureScreenshot', { format: 'png', optimizeForSpeed: true })).data, 'base64');
     if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r));
   }
   ff.stdin.end(); await done; await page.close();
@@ -86,7 +90,9 @@ async function renderRange(browser, f0, f1, out) {
     await p2.screenshot({ path: path.join(DIR, 'tmp', 'portada.png'), type: 'png' });
     console.log('portada ok (titular a', fs_, 'px)');
   } else if (mode === 'video') {
-    const N = parseInt(args[0] || '4', 10);
+    // v21: por defecto usa la mitad de los hilos de la CPU (entre 4 y 12 workers); se puede forzar con el número: node scripts/render.js video 8
+const N = parseInt(args[0] || String(Math.min(12, Math.max(4, Math.floor(require('os').cpus().length / 2)))), 10);
+    console.log('workers:', N);
     const page = await openPage(browser);
     const end = await page.evaluate(() => (window.TLEND || SC[SC.length - 1].b));
     await page.close();

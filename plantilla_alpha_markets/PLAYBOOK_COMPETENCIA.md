@@ -1,4 +1,7 @@
-# PLAYBOOK DE COMPETENCIA (v18)
+# PLAYBOOK DE COMPETENCIA (v18 + v22)
+
+> 🆕 **v22 (22-11-2026): análisis en profundidad de @h.analistasoficial y @lacartabursatil.** Nuevo estilo de edición **MODO ANALISTA** (`ESTILO_ANALISTA.md`, `template_analista.html`) y **filtro de noticias con puntuación** (`FILTRO_NOTICIAS.md`, `scripts/filtro_noticias.py`). Se aplican junto con lo de abajo; si algo choca, manda v22 en edición y filtro, y v18 en portadas y cadencia.
+> Lo esencial: (1) el gancho es un **reloj + una rareza** («en 2 horas», «peor semana desde 2008», «no pasa desde el covid»); (2) un solo widget por escena (calendario, gráfico que se dibuja, cifra enorme); (3) subir solo lo que puntúe ≥ 70 en el filtro (≥ 60 si hace falta rellenar), máx. 1 vídeo por tema; (4) KPI de viralidad: **enviados/vistas ≥ 1 %**; (5) A/B 3 de 4 vídeos en modo analista y 1 de 4 en clásico durante 2 semanas.
 
 Origen: análisis del 20-11-2026 de cuentas de Instagram sin cara (hechas con IA/diseño) de noticias de bolsa EEUU y cripto en español. Informe completo con tabla y datos: https://claude.ai/artifact/KYBrHbufU4NPBDd2cYjzvy
 
