@@ -1,5 +1,5 @@
 """FILTRO DE NOTICIAS 4LPHA MARKETS (v22): puntúa candidatas de 0 a 100 y dice qué hacer con cada una.
-uso: python scripts/filtro_noticias.py candidatas.json [--n 3]      (ejemplo: filtro_ejemplo.json)
+uso: python scripts/filtro_noticias.py candidatas.json [--n 2]      (ejemplo: filtro_ejemplo.json)
 
 Cada candidata (lista JSON de objetos). Rellenar tras BUSCAR la noticia (no antes):
  titulo            texto corto
@@ -42,7 +42,7 @@ def decide(s): return 'VÍDEO' if s >= 70 else 'HISTORIA/CARRUSEL' if s >= 55 el
 
 if __name__ == '__main__':
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
-    n = int(sys.argv[sys.argv.index('--n') + 1]) if '--n' in sys.argv else 3
+    n = int(sys.argv[sys.argv.index('--n') + 1]) if '--n' in sys.argv else 2
     if '--n' in sys.argv: args = [a for a in args if a != str(n)]
     cands = json.load(open(args[0], encoding='utf-8'))
     res = []
