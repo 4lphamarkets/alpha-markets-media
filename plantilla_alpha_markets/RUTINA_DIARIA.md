@@ -58,6 +58,7 @@ Mirar **todas** con `Read` (o una hoja de contacto): sin solapes, sin texto cort
    4. `device_commit_files` con los 4 `fileUuid` → `~/Desktop/<slug>/<slug>_video.mp4`, `_portada_1.jpg`, `_portada_2.jpg`, `_descripcion.txt`.
    5. Si falla, reintentar una vez; si sigue sin responder, **no darlo por entregado**: dejar los archivos en el chat y notificar claramente «NO he podido dejar la carpeta en el Escritorio» con el motivo. Los vídeos del día pendientes se entregan en la siguiente ejecución o cuando Antonio abra la sesión.
 6. Los vídeos **no se publican**: Antonio los revisa y los envía a la organización de vídeos.
+7. **HORAS DE SUBIDA DE LOS VÍDEOS (orden de Antonio, 23-11-2026): a las 10:00 y a las 18:00 (Europe/Madrid)**, un vídeo en cada hora (el 1.º a las 10:00, el 2.º a las 18:00). La rutina no los publica por su cuenta: quedan en el Escritorio para que Antonio los revise; cuando dé el OK, se programan en Metricool (blogId 8199629, Reel en Instagram y Short en YouTube) a esas horas, nunca en fechas pasadas (si ya pasó la hora, la siguiente de la lista). Anotar en la descripción de la entrega y en `registro/AAAA-MM-DD.json` la hora prevista de cada vídeo (`hora_subida`).
 
 ## 6. Cierre
 Resumen corto: historias programadas (hora y tema), los 2 vídeos elegidos y su estado, créditos ElevenLabs gastados, y cualquier fallo. Si se puede, enviar también una notificación push.

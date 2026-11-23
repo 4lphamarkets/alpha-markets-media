@@ -90,7 +90,7 @@ Con el **OK** del usuario, Claude sube el vídeo solo, sin más preguntas:
 - **Instagram (Reel)** de 4lphamarkets y **YouTube (Short)** a través de Metricool (blogId 8199629, zona Europe/Madrid).
 - Se usa la miniatura que Claude considere **más atractiva y visible** (en Instagram la mejor; si hay 2, la segunda en YouTube). Título de YouTube sacado de la primera línea de la descripción.
 - Procedimiento técnico probado (repo público `4lphamarkets/alpha-markets-media` como almacén temporal, `createScheduledPost`, limpieza del repo después): ver `LEEME.md` → publicación, y la memoria del canal. Al terminar se avisa de que el historial de git conserva el archivo y se ofrece vaciarlo.
-- Si hay varios vídeos pendientes, Claude elige fechas y horas (hasta 3 al día).
+- **Horas de subida fijas (orden de Antonio, 23-11-2026): 10:00 y 18:00 (Europe/Madrid)**, un vídeo en cada hora, también cuando hay más vídeos pendientes (no más de 2 al día salvo que Antonio diga otra cosa).
 
 ---
 
