@@ -1,6 +1,6 @@
 # RUTINA DIARIA ALPHA MARKETS · noticias → historias de Instagram + 3 vídeos
 
-Carpeta protegida (NO BORRAR). La ejecuta la tarea programada de las 08:30 (Europe/Madrid), a partir del sábado 21-11-2026.
+Carpeta protegida (NO BORRAR). La ejecuta la tarea programada de lunes a viernes a las **05:55 (Europe/Madrid)** (antes 08:30; cambiado el 23-11-2026). **Objetivo de Antonio: cuando se siente al ordenador a las 08:30, los 2 vídeos ya están hechos y en su Escritorio.** Cálculo del margen (23-11): arranque real hasta ~40 min tarde sobre la hora programada; noticias + 10 historias ≈ 15 min; instalar el modelo de transcripción ≈ 5 min; cada vídeo de 40 s ≈ 20 min (guion, audio, transcripción, montaje, render, portadas, Escritorio) → ≈ 40 min; colchón para fallos ≈ 20 min. Total ≈ 2 h 15 min como máximo, normalmente ~1 h 30. Para que llegue al Escritorio, **el ordenador de Antonio debe estar encendido con la app de Claude abierta** a esa hora; si no responde, los archivos quedan en el chat y se notifica.
 Antonio no está delante: no se hacen preguntas; se decide, se hace y se explica al final. Si algo bloquea, se notifica y se sigue con lo demás.
 
 ## 0. Cuántas noticias
