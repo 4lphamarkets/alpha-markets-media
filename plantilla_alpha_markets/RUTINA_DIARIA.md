@@ -51,7 +51,12 @@ Mirar **todas** con `Read` (o una hoja de contacto): sin solapes, sin texto cort
    - Guion de unos 1.100-1.300 caracteres (≈1.060 créditos, ≈0,19 $ por audio; ≈2.100 créditos/día con los 2).
    - Antes de generar: `account_get_usage`; si quedan menos de 2.700 créditos hasta el reinicio, **no generar** y notificar. Hacer `estimate_only` primero y no generar si supera 1.600 créditos.
 4. Montar y entregar según el flujo (vídeo 1080×1920, 2 portadas, descripción). Slug: `AAAA-MM-DD-tema`.
-5. **Entrega: carpeta en el ESCRITORIO** (`~/Desktop/<slug>/` con vídeo, 2 portadas y descripción): `SendUserFile` de los 4 archivos → `device_request_folder_access` sobre `~/Desktop` si no está conectado → `device_commit_files`. Si el ordenador no responde, reintentar una vez; si sigue sin responder, **no darlo por entregado** y notificar claramente «NO he podido dejar la carpeta en el Escritorio» (los archivos quedan enviados al chat).
+5. **Entrega: EL VÍDEO SE DEJA SIEMPRE EN EL ESCRITORIO (OBLIGATORIO, orden de Antonio del 23-11-2026).** Cada vídeo termina en `~/Desktop/<slug>/` con 4 archivos: vídeo, 2 portadas y descripción. No se da por entregado un vídeo que no esté ahí. Pasos:
+   1. `SendUserFile` de los 4 archivos (cada uno devuelve un `file_uuid`).
+   2. Las herramientas del ordenador son diferidas: cargarlas con `ToolSearch` (`select:mcp__remote-devices__get_device_info,mcp__remote-devices__device_request_folder_access,mcp__remote-devices__device_commit_files,mcp__remote-devices__device_bash`) **antes** de dar nada por imposible. El 23-11 no se cargaron a tiempo y la carpeta no se dejó: no repetir ese fallo.
+   3. `get_device_info` → si `~/Desktop` no está en `connectedFolders`, `device_request_folder_access` sobre `~/Desktop` (una sola vez, razón: «Guardar la carpeta <slug> en tu Escritorio»).
+   4. `device_commit_files` con los 4 `fileUuid` → `~/Desktop/<slug>/<slug>_video.mp4`, `_portada_1.jpg`, `_portada_2.jpg`, `_descripcion.txt`.
+   5. Si falla, reintentar una vez; si sigue sin responder, **no darlo por entregado**: dejar los archivos en el chat y notificar claramente «NO he podido dejar la carpeta en el Escritorio» con el motivo. Los vídeos del día pendientes se entregan en la siguiente ejecución o cuando Antonio abra la sesión.
 6. Los vídeos **no se publican**: Antonio los revisa y los envía a la organización de vídeos.
 
 ## 6. Cierre

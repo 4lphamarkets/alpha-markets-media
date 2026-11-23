@@ -75,6 +75,8 @@ Claude **genera sin que se lo pidan** la carpeta del vídeo con todo dentro:
 - **Entrega sin comprimir** (el usuario no tiene WinRAR): se mandan con SendUserFile el vídeo, las 2 miniaturas y el .txt por separado, y se pega en el chat el texto limpio (título, descripción y hashtags). Si hay carpetas del PC conectadas, se deja también la carpeta del vídeo allí. El .zip es opcional.
 - Cierre del mensaje de entrega: una línea con el resultado y la pregunta de si todo está bien para publicar.
 
+> ⚠️ **ORDEN DE ANTONIO (23-11-2026): dejar el vídeo en el Escritorio es siempre obligatorio, también en la rutina diaria automática.** Si las herramientas `mcp__remote-devices__*` aparecen como diferidas, cargarlas con `ToolSearch` (`select:mcp__remote-devices__get_device_info,mcp__remote-devices__device_request_folder_access,mcp__remote-devices__device_commit_files`) antes de concluir que no se puede. Un vídeo sin carpeta en el Escritorio no está entregado.
+
 ### 5b. Dejar la carpeta en el Escritorio (v16, obligatorio y automático)
 En cuanto termina el montaje y la entrega (paso 5), Claude **deja la carpeta del vídeo en el Escritorio del usuario**, sin que lo pida y sin preguntar:
 1. Enviar los 4 archivos con `SendUserFile` (vídeo, 2 miniaturas, descripción); cada envío devuelve un `file_uuid`.
