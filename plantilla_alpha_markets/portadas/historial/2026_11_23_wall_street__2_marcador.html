@@ -1,0 +1,30 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<!-- Portada B · "marcador": tablero de aeropuerto / split-flap con el cierre del viernes. Paleta gris pizarra / ámbar / rojo, tipografía mono. -->
+<link rel="stylesheet" href="portadas/kit.css"><script src="portadas/kit.js"></script>
+<style>
+body{background:#14171c}
+#p{background:repeating-linear-gradient(0deg,#1a1d23 0 6px,#16191e 6px 12px)}
+header{position:absolute;left:70px;top:250px}
+section.tablero{position:absolute;left:60px;right:60px;top:400px}
+section.tablero h2{font-family:Consolas,"Courier New",monospace;font-size:42px;letter-spacing:.14em;color:#F5A524;border-bottom:4px solid #F5A524;padding:0 0 14px 6px;margin-bottom:18px;font-weight:700}
+table{width:100%;border-spacing:0 16px}
+td{height:160px;background:#0a0b0d;font-family:Consolas,"Courier New",monospace;font-weight:700;font-size:78px;color:#fff;letter-spacing:.06em;border-top:3px solid #2a2f38;border-bottom:8px solid #1d2026}
+td:first-child{padding-left:34px;border-left:3px solid #2a2f38;border-radius:14px 0 0 14px}
+td.r{text-align:center;width:390px;color:#FF3B4F;background:#2a0a0f;border-right:3px solid #FF3B4F;border-radius:0 14px 14px 0;text-shadow:0 0 24px rgba(255,59,79,.5)}
+footer{position:absolute;left:0;right:0;top:1300px;text-align:center}
+footer h1{font-family:Anton;font-weight:400;font-size:130px;white-space:nowrap;color:#fff;line-height:1.05;text-shadow:0 8px 0 rgba(0,0,0,.6)}
+footer h1 em{font-style:normal;color:#F5A524}
+footer p{margin-top:22px;font-family:Mont;font-weight:900;font-style:italic;font-size:52px;color:#34F5B0}
+</style></head><body><div id="p">
+<header id="m"></header>
+<section class="tablero"><h2>CIERRE · VIE 20 NOV ▼</h2>
+<table>
+<tr><td>S&amp;P 500</td><td class="r">−3,70%</td></tr>
+<tr><td>NASDAQ</td><td class="r">−5,28%</td></tr>
+<tr><td>DOW</td><td class="r">−1,93%</td></tr>
+<tr><td>VIX</td><td class="r">+26,2%</td></tr>
+</table></section>
+<footer><h1>LA SEMANA <em>NEGRA</em></h1><p>hoy: futuros +3% · ¿aguanta?</p></footer>
+</div>
+<script>document.getElementById('m').innerHTML=marca('',40);</script>
+</body></html>

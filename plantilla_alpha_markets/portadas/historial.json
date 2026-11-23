@@ -46,5 +46,37 @@
   "concepto": "Cascada de velas rojas con línea dorada que cae y ORO -30 % / PLATA -60 % apoyados en ella",
   "tipografia": "Anton",
   "paleta": "negro / rojo / oro"
+ },
+ {
+  "fecha": "2026-11-23T09:29:35",
+  "slug": "2026_11_23_wall_street",
+  "arquetipo": "cuenta_atras",
+  "concepto": "Hora de apertura 15:30 como bloque amarillo gigante con Nasdaq -10% y pregunta rebote o trampa",
+  "tipografia": "Anton + Montserrat",
+  "paleta": "negro / amarillo / rojo"
+ },
+ {
+  "fecha": "2026-11-23T09:29:35",
+  "slug": "2026_11_23_wall_street",
+  "arquetipo": "marcador",
+  "concepto": "Tablero split-flap con el cierre del viernes de S&P 500, Nasdaq, Dow y VIX",
+  "tipografia": "mono Consolas + Anton",
+  "paleta": "gris pizarra / ámbar / rojo"
+ },
+ {
+  "fecha": "2026-11-23T09:34:35",
+  "slug": "2026_11_23_oro",
+  "arquetipo": "foto_epica",
+  "concepto": "Monedas gigantes de oro y plata con brillo sobre globo verde y titular ORO REBOTA",
+  "tipografia": "Montserrat Black Italic",
+  "paleta": "negro / menta / oro"
+ },
+ {
+  "fecha": "2026-11-23T09:34:35",
+  "slug": "2026_11_23_oro",
+  "arquetipo": "dos_cifras",
+  "concepto": "Dos tarjetas enfrentadas: récord de enero 5.586 $ frente a hoy 3.625 $ con pregunta ya hizo suelo",
+  "tipografia": "Anton + Montserrat",
+  "paleta": "negro / oro / menta"
  }
 ]

@@ -1,0 +1,25 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<!-- Portada A · "cuenta_atras": la hora de apertura (15:30) es el elemento más grande. Paleta negro / amarillo / rojo, tipografía Anton. -->
+<link rel="stylesheet" href="portadas/kit.css"><script src="portadas/kit.js"></script>
+<style>
+body{background:#07070a}
+#p{background:radial-gradient(ellipse 100% 50% at 50% 45%,#2a2208 0%,#0d0b05 55%,#050507 100%)}
+#brand{position:absolute;left:0;right:0;top:262px;text-align:center}
+#hoy{position:absolute;left:0;right:0;top:420px;text-align:center}
+#hoy span{display:inline-block;font-family:Mont;font-weight:900;font-style:italic;font-size:54px;letter-spacing:.16em;color:#111;background:#FF3B4F;color:#fff;padding:10px 38px;border-radius:12px;box-shadow:0 0 40px rgba(255,59,79,.55)}
+#hora{position:absolute;left:60px;right:60px;top:560px;height:520px;background:linear-gradient(180deg,#FFE27A,#F5C542 60%,#C79212);border-radius:40px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 90px rgba(245,197,66,.45),0 14px 0 #7a5a0a}
+#hora b{font-family:Anton;font-weight:400;font-size:400px;line-height:1;color:#0b0a06;letter-spacing:.01em}
+#sub1{position:absolute;left:0;right:0;top:1110px;text-align:center;white-space:nowrap;font-family:Mont;font-weight:900;font-style:italic;font-size:48px;color:#fff;letter-spacing:.06em}
+#nas{position:absolute;left:0;right:0;top:1230px;text-align:center;white-space:nowrap;font-family:Anton;font-size:190px;line-height:1;color:#fff;text-shadow:0 8px 0 rgba(0,0,0,.6)}
+#q{position:absolute;left:0;right:0;top:1420px;text-align:center;font-family:Mont;font-weight:900;font-style:italic;font-size:80px;color:#34F5B0;text-shadow:0 0 30px rgba(52,245,176,.5)}
+#q i{color:#FF3B4F;font-style:italic}
+</style></head><body><div id="p">
+<div id="brand"></div>
+<div id="hoy"><span>HOY · APERTURA</span></div>
+<div id="hora"><b>15:30</b></div>
+<div id="sub1">HORA DE ESPAÑA · WALL STREET</div>
+<div id="nas">NASDAQ <span style="color:#FF3B4F">−10%</span></div>
+<div id="q">¿rebote o <i>trampa</i>?</div>
+</div>
+<script>document.getElementById('brand').innerHTML=marca('',40);window.fit=()=>{ajustar('#nas',960,190,100)}</script>
+</body></html>

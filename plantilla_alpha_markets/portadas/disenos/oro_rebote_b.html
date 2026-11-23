@@ -1,0 +1,26 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<!-- Portada B · "dos_cifras": récord de enero frente a hoy. Paleta negro / oro / menta, tipografía Anton + Mont. -->
+<link rel="stylesheet" href="portadas/kit.css"><script src="portadas/kit.js"></script>
+<style>
+body{background:#07080a}
+#p{background:linear-gradient(160deg,#1d1808 0%,#08090b 45%,#071a14 100%)}
+main{position:absolute;inset:250px 80px 240px 80px;display:flex;flex-direction:column;align-items:center;justify-content:space-between}
+.top{display:flex;align-items:center;gap:30px;width:100%;justify-content:space-between}
+.top img.o{height:150px;filter:drop-shadow(0 0 30px rgba(245,197,66,.6))}
+ul{list-style:none;width:100%;display:flex;flex-direction:column;gap:24px;align-items:stretch}
+li{border:5px solid;border-radius:34px;padding:26px 20px 14px;text-align:center;position:relative}
+li span{display:block;font-family:Mont;font-weight:900;font-style:italic;font-size:42px;letter-spacing:.12em}
+li strong{display:block;font-family:Anton;font-weight:400;font-size:176px;line-height:1.05}
+li.a{border-color:#F5C542;color:#F5C542;background:rgba(245,197,66,.10)}
+li.b{border-color:#34F5B0;color:#34F5B0;background:rgba(52,245,176,.09)}
+li.a::after{content:"VS";position:absolute;left:50%;bottom:-62px;transform:translateX(-50%);font-family:Anton;font-size:70px;color:#FF3B4F;z-index:3;text-shadow:0 0 24px rgba(255,59,79,.6);background:#0a0a0a;padding:0 24px;border-radius:12px}
+h3{font-family:Mont;font-weight:900;font-style:italic;font-size:96px;line-height:1;color:#fff;text-align:center;text-shadow:0 6px 0 rgba(0,0,0,.7)}
+h3 i{color:#FF3B4F}
+</style></head><body><div id="p">
+<main>
+<div class="top"><div id="mk"></div><img class="o" src="img/logos/oro.png"></div>
+<ul><li class="a"><span>RÉCORD · 29 ENE</span><strong>5.586 $</strong></li><li class="b"><span>HOY · FUTURO DIC</span><strong>3.625 $</strong></li></ul>
+<h3>¿ya hizo <i>suelo</i>?</h3>
+</main></div>
+<script>document.getElementById('mk').innerHTML=marca('',40);</script>
+</body></html>
