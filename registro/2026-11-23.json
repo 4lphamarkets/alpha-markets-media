@@ -1,0 +1,94 @@
+{
+ "fecha": "2026-11-23",
+ "historias": [
+  {
+   "hora": "10:00",
+   "slug": "h01_futuros_rebote",
+   "titular": "WALL STREET REBOTA",
+   "tema": "bolsa EEUU"
+  },
+  {
+   "hora": "11:00",
+   "slug": "h02_btc_55k",
+   "titular": "BITCOIN TOCA $55K",
+   "tema": "bitcoin"
+  },
+  {
+   "hora": "12:00",
+   "slug": "h03_nvidia_cae",
+   "titular": "NVIDIA -14% EN UN DÍA",
+   "tema": "nvidia"
+  },
+  {
+   "hora": "13:00",
+   "slug": "h04_oro_rebote",
+   "titular": "ORO REBOTA +3%",
+   "tema": "oro"
+  },
+  {
+   "hora": "14:00",
+   "slug": "h05_corea_kospi",
+   "titular": "COREA SE DESPLOMA",
+   "tema": "corea/asia"
+  },
+  {
+   "hora": "15:00",
+   "slug": "h06_fed_subida",
+   "titular": "LA FED ¿SUBIRÁ?",
+   "tema": "fed/macro"
+  },
+  {
+   "hora": "16:00",
+   "slug": "h07_etf_solana",
+   "titular": "ETF SOLANA CORTA RACHA",
+   "tema": "solana ETF"
+  },
+  {
+   "hora": "17:00",
+   "slug": "h08_anthropic_bolsa",
+   "titular": "ANTHROPIC CAE EN BOLSA",
+   "tema": "anthropic/IA"
+  },
+  {
+   "hora": "18:00",
+   "slug": "h09_etf_salidas",
+   "titular": "ETF BTC Y ETH -$1.47B",
+   "tema": "ETF bitcoin-ethereum"
+  },
+  {
+   "hora": "19:00",
+   "slug": "h10_miedo_extremo",
+   "titular": "MIEDO EXTREMO",
+   "tema": "miedo extremo"
+  }
+ ],
+ "videos": [
+  {
+   "slug": "2026-11-23-wall-street",
+   "tema": "bolsa-eeuu",
+   "titular": "Nasdaq -10% semana, futuros +3%, apertura 15:30",
+   "puntuacion_filtro": 100,
+   "modo": "analista",
+   "audio_creditos": 1173,
+   "estado": "entregado en el chat; NO en el Escritorio"
+  },
+  {
+   "slug": "2026-11-23-oro",
+   "tema": "oro",
+   "titular": "Oro -9,5% semana, rebote +3%, lejos del récord",
+   "puntuacion_filtro": 66,
+   "modo": "analista",
+   "audio_creditos": 1108,
+   "estado": "entregado en el chat; NO en el Escritorio"
+  }
+ ],
+ "descartadas_filtro": {
+  "nvidia": 53,
+  "bitcoin": 60,
+  "fed": 60,
+  "corea": 56,
+  "anthropic": 53,
+  "etf": 26
+ },
+ "notas": "Nvidia puntuó 73 solo marcando hora_exacta por la apertura de hoy; sin ese criterio 53, se descartó para no inflar. Dos vídeos hoy en modo analista (no consta nº de vídeo de la cuenta para el control A/B del 4º). Créditos ElevenLabs gastados: 2.281."
+}
