@@ -4,9 +4,9 @@ Carpeta protegida (NO BORRAR). La ejecuta la tarea programada de lunes a viernes
 Antonio no está delante: no se hacen preguntas; se decide, se hace y se explica al final. Si algo bloquea, se notifica y se sigue con lo demás.
 
 ## 0. Cuántas noticias
-- **DOS TANDAS AL DÍA (cambio de Antonio, 23-11-2026; vigente desde el martes 24-11):** las 10 historias diarias se dividen en **5 por la mañana + 5 por la tarde**, y cada tanda busca sus propias noticias en su momento del día (así la tarde recoge lo que ha pasado desde la mañana, p. ej. la apertura de Wall Street a las 15:30).
+- **DOS TANDAS AL DÍA (cambio de Antonio, 23-11-2026; vigente desde el martes 24-11):** las 10 historias diarias se dividen en **5 por la mañana + 5 por la tarde**, y cada tanda busca sus propias noticias en su momento del día (así la tarde recoge lo que ha pasado desde la mañana: solo lo MÁS relevante e importante y las noticias de última hora).
   - **Tanda de la MAÑANA** (la ejecuta la tarea de las 05:55, L-V): **5 noticias**, historias programadas **10:00, 11:00, 12:00, 13:00 y 14:00**.
-  - **Tanda de la TARDE** (la ejecuta otra tarea programada a las **15:30**, L-V; ver sección 7): **5 noticias**, historias programadas **16:00, 17:00, 18:00, 19:00 y 20:00**. Termina antes de las historias fijas de las 21:30.
+  - **Tanda de la TARDE** (la ejecuta otra tarea programada a las **15:00**, L-V; ver sección 7): **5 noticias**, historias programadas **16:00, 17:00, 18:00, 19:00 y 20:00**. Termina antes de las historias fijas de las 21:30.
 - Sábado y domingo: las tareas están pausadas (decisión de Antonio); si se reactivan, 5 noticias el día entero (10:00-14:00).
 - Bolsa de EE. UU. cerrada (fin de semana o festivo): noticias de cripto y de empresas/macro de EE. UU. que sigan siendo noticia, sin inventar cotizaciones.
 - «Buenas noticias» = buenas por interesantes, relevantes y bien contrastadas (no solo alcistas). Mezclar subidas, bajadas, regulación, adopción y empresas.
@@ -66,7 +66,7 @@ Mirar **todas** con `Read` (o una hoja de contacto): sin solapes, sin texto cort
 ## 6. Cierre de la tanda de la mañana
 Resumen corto: historias programadas (hora y tema), los 2 vídeos elegidos y su estado, créditos ElevenLabs gastados, y cualquier fallo. Si se puede, enviar también una notificación push.
 
-## 7. TANDA DE LA TARDE (tarea programada a las 15:30, L-V) · desde el 24-11-2026
+## 7. TANDA DE LA TARDE (tarea programada a las 15:00, L-V) · desde el 24-11-2026
 Tarea independiente de la de la mañana: **solo historias, sin vídeos, sin ElevenLabs y sin Escritorio** (no necesita el ordenador de Antonio).
 1. `add_repo` (push) del repo, un solo clon superficial, `register_repo_root`. Leer esta rutina (secciones 0-4) y seguirla sin preguntar.
 2. Buscar **5 noticias nuevas** (cripto y bolsa de EE. UU., lo ocurrido desde la mañana: apertura de Wall Street a las 15:30, datos macro, movimientos de cripto, anuncios de empresas). Leer antes `registro/AAAA-MM-DD.json` (la mañana de hoy) y los 3 días anteriores para **no repetir nada** y mantener la variedad (Bitcoin como máximo 1-2 en la tarde).
