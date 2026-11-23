@@ -18,7 +18,7 @@ Los detalles técnicos de cada paso (render, sonidos, portadas, insertos) están
 | # | Paso | Quién | Resultado |
 |---|------|-------|-----------|
 | 1 | Recibir el tema | Usuario | Imagen (captura, noticia, gráfico) **o** petición de un tema en texto |
-| 2 | Escribir el guion | Claude | Texto de **40 s a 1 min 20 s** |
+| 2 | Escribir el guion | Claude | Texto de **máx. 40 s** |
 | 3 | Generar el audio | Claude | Voz de Jaime en ElevenLabs, **[en tono juguetón]** |
 | 4 | Montar el vídeo | Claude | Vídeo 9:16 editado con la plantilla |
 | 5 | Preparar la entrega | Claude | Carpeta con descripción, vídeo editado y miniaturas |
@@ -36,8 +36,8 @@ Dos formas, las dos válidas:
 
 Nada de preguntas previas si el tema está claro. Si el vídeo trata de **una persona** y falta su foto en `img/personas/`, se la pide ya (para la portada); es la única pausa del flujo antes del audio. Los logos que falten se descargan con `python scripts/logos.py <nombre>`.
 
-## 2. Guion (40 s – 1 min 20 s)
-- **Duración: entre 40 segundos y 1 minuto 20.** Esto sustituye al antiguo límite de 30–45 s. Orientación de palabras a ritmo hablado: ~100–110 palabras para 40 s, ~210–230 palabras para 1:20. Si el usuario pide otra duración concreta, manda la suya.
+## 2. Guion (MÁXIMO 40 s)
+- **Duración: MÁXIMO 40 SEGUNDOS (orden de Antonio, 23-11-2026; manda sobre cualquier otra cifra de este documento o de LEEME/PLAYBOOK/ESTILO_ANALISTA).** ~100–110 palabras ≈ 600–680 caracteres. Antes de montar, medir el audio con `ffprobe`; si pasa de 40 s, acortar el guion y regenerar solo si aún no se ha gastado la generación (nunca reintentar el audio: recortar el vídeo a mano no vale, hay que acertar con el guion). [Anterior, ya NO vigente:] Esto sustituye al antiguo límite de 30–45 s. Orientación de palabras a ritmo hablado: ~100–110 palabras para 40 s, ~210–230 palabras para 1:20. Si el usuario pide otra duración concreta, manda la suya.
 - Estructura: **gancho** en los 2 primeros segundos (dato o pregunta que enganche) → contexto → datos clave (cifras que se puedan mostrar en contadores) → consecuencia para el mercado/inversor → **cierre**.
 - **Gancho (v18):** la primera frase lleva siempre **un número concreto** y sigue una de estas fórmulas: **paradoja** («X vale ... y dicen que está más barata que cuando valía ...»), **pregunta con "falta algo"** («¿Por qué no se dispara X? Falta ...») o **calendario** («¿Casualidad o calendario?», «X se juega la semana el martes a las 22:20»). Nada que no se haya comprobado ni fechas límite alarmistas sin fuente sólida.
 - **Formatos de prueba (v18, 2 por semana):** cuenta atrás de evento y meme de inversor con animación propia («Yo cuando ...», «POV: ...»; sin clips de películas ni vídeo de archivo ajeno). Duración: la de siempre (40 s – 1:20) salvo que el usuario pida otra.

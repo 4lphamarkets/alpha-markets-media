@@ -28,7 +28,7 @@ Siempre con **un número concreto** en la primera frase. Fórmulas que han funci
 - Siguen mandando las reglas fijas: portadas radicalmente distintas entre vídeos consecutivos, protagonistas reales, logos reales, marca 4LPHA MARKETS, todo dentro de y = 240…1680.
 
 ## 4. Formatos de prueba (2 por semana, comparar con el resto)
-Duración por defecto: **la de siempre (40 s – 1:20)**; solo se acorta si el usuario lo pide.
+Duración: **máximo 40 s** (orden de Antonio, 23-11-2026).
 1. **Cuenta atrás de evento**: hora grande, qué se espera, qué descuentan los mercados.
 2. **Meme de inversor con animación propia**: «Yo cuando ...» / «POV: ...» sobre la noticia del día. **Sin clips de películas ni vídeo de archivo ajeno** (riesgo de derechos de autor); se usa animación propia, logos y personajes de la plantilla.
 

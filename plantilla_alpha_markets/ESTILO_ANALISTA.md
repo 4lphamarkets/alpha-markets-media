@@ -21,7 +21,7 @@ Las causas son hipótesis (Instagram no da tiempo de visionado ni retención de 
 3. **Escena 4 · contexto histórico**: `bars` o `num` («desde 1950, 36 de 46 veces...»).
 4. **Escena 5 · pregunta abierta** («¿el jueves sube o cae? 👇»): invita a comentar.
 5. **Escena final**: `follow` (tarjeta @4lphamarkets con botón Seguir) + `disc` («esto no es consejo financiero»).
-Reglas: **un solo dato grande por escena**; máx. 3 piezas visibles a la vez; 4-6 escenas; la duración la sigue marcando el flujo (40 s – 1:20) salvo que el usuario pida otra. Nuestro cierre fijo de cripto se mantiene en el guion.
+Reglas: **un solo dato grande por escena**; máx. 3 piezas visibles a la vez; 4-6 escenas; la duración máxima es **40 s** (orden de Antonio, 23-11-2026; 3-4 escenas). Nuestro cierre fijo de cripto se mantiene en el guion.
 
 ## 3. Cómo se monta (con el flujo de siempre)
 1. Audio de Jaime → transcribir (`asr_run.py`) como siempre.

@@ -25,7 +25,7 @@ Cuando el vídeo está terminado y entregado, Claude **deja siempre una carpeta 
 ## ⭐ NOVEDADES v15: FLUJO DE TRABAJO INCLUIDO EN LA PLANTILLA (leer primero: `FLUJO_DE_TRABAJO.md`)
 El flujo acordado con el usuario viaja ahora dentro de la plantilla. Resumen (detalle en `FLUJO_DE_TRABAJO.md`):
 1. El usuario manda el **tema**: en **imagen** o pide un tema en **texto** (Claude propone uno y arranca).
-2. Claude escribe el **guion de entre 40 s y 1 min 20** (sustituye al antiguo límite de 30–45 s de este documento; si el usuario pide otra duración, manda la suya). Cierre cripto fijo: «Sígueme para no perderte nada de los mercados financieros, esto es... ALFA MARKETS!!».
+2. Claude escribe el **guion de MÁXIMO 40 s (orden de Antonio, 23-11-2026; manda sobre cualquier otra duración de este documento)** (sustituye al antiguo límite de 30–45 s de este documento; si el usuario pide otra duración, manda la suya). Cierre cripto fijo: «Sígueme para no perderte nada de los mercados financieros, esto es... ALFA MARKETS!!».
 3. Claude genera el **audio con Jaime** («Jaime - Confident, Clear and Warm») en **ElevenLabs** (texto a voz), con la etiqueta **[en tono juguetón]** al principio y **una sola generación**.
 4. Claude **monta el vídeo** con esta plantilla (sección «Flujo» más abajo).
 5. Claude **genera la carpeta de entrega** (sin comprimir): vídeo editado + descripción + 2 miniaturas, y la manda al usuario.
