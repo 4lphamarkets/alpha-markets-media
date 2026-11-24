@@ -1,0 +1,12 @@
+{
+ "fecha": "2026-11-24",
+ "tanda": "tarde",
+ "historias": [
+  {"hora": "16:00", "slug": "h01_doj_usdc", "titular": "DOJ VS HACKERS $1.1B USDC", "tema": "regulación/justicia (hack Binance)"},
+  {"hora": "17:00", "slug": "h02_aranceles", "titular": "ARANCELES OTRA OLA", "tema": "macro EEUU/aranceles"},
+  {"hora": "18:00", "slug": "h03_anthropic_venta", "titular": "ANTHROPIC BAJO SU OPV", "tema": "anthropic/IA"},
+  {"hora": "19:00", "slug": "h04_corea_ico", "titular": "COREA DEL SUR ABRE LAS ICO", "tema": "regulación Corea/stablecoins"},
+  {"hora": "20:00", "slug": "h05_btc_liquidaciones", "titular": "BITCOIN $875M LIQUIDADOS", "tema": "bitcoin"}
+ ],
+ "notas": "Solo historias. Noticias de CoinDesk y U.Today (mañana del 24-nov; sin datos posteriores a ~14:40 Madrid). Cifras de futuros a las 8:39 ET. Largos $402M = 875 - 473 (calculado). No se pudo usar add_repo/register_repo_root (herramientas no disponibles); el repo ya estaba clonado."
+}
