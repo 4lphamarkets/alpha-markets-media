@@ -19,16 +19,29 @@ guion_analista.json:
 import json, os, re, subprocess, sys, wave
 import numpy as np
 A = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
-spec = json.load(open(sys.argv[1] if len(sys.argv) > 1 else A + '/tmp/guion_analista.json', encoding='utf-8'))
+spec = json.load(open(sys.argv[1] if len(sys.argv) > 1 else A + '/tmp/guion_analista.json', encoding='utf-8-sig'))
 TAIL, FPS = 1.2, 30
 fr = lambda v: round(round(v * 30) / 30, 4)
 
 def split_lines(text, maxc=26):
-    words, lines, cur = text.split(), [], ''
-    for w in words:
-        if cur and len(cur.replace('*', '')) + 1 + len(w.replace('*', '')) > maxc: lines.append(cur); cur = w
-        else: cur = (cur + ' ' + w).strip()
-    if cur: lines.append(cur)
+    """Parte la frase en las líneas MÍNIMAS (<= maxc caracteres) y BALANCEADAS: «y viene de caer siete días seguidos» →
+    «y viene de caer» / «siete días seguidos» (v23: antes salía «...siete días» + «SEGUIDOS» suelto, una palabra huérfana en pantalla)."""
+    words = text.split(); plain = lambda ws: len(' '.join(ws).replace('*', ''))
+    n = max(1, -(-plain(words) // maxc))                      # nº mínimo de líneas
+    def mejores(ws, k):                                       # reparto de ws en k líneas minimizando la más larga (y luego el desequilibrio)
+        if k == 1: return (plain(ws), plain(ws) ** 2), [ws]
+        best = None
+        for c in range(1, len(ws) - k + 2):
+            sc, rest = mejores(ws[c:], k - 1)
+            cand = ((max(plain(ws[:c]), sc[0]), plain(ws[:c]) ** 2 + sc[1]), [ws[:c]] + rest)
+            if best is None or cand[0] < best[0]: best = cand
+        return best
+    n = min(n, len(words))
+    sc, parts = mejores(words, n)
+    if sc[0] > maxc and n < len(words):                       # alguna palabra larga no cabe: una línea más
+        sc2, parts2 = mejores(words, n + 1)
+        if sc2[0] < sc[0]: parts = parts2
+    lines = [' '.join(p) for p in parts]
     # el * debe cerrarse dentro de cada línea
     out, open_ = [], False
     for l in lines:
@@ -38,22 +51,25 @@ def split_lines(text, maxc=26):
         out.append(l)
     return out
 
-END = max(b for s in spec['scenes'] for _, b, _ in s['segs']) + TAIL
+END = max([b for s in spec['scenes'] for _, b, _ in s.get('segs', [])] or [0]) + TAIL
 if spec.get('audio') and os.path.exists(os.path.join(A, spec['audio'])):
     R = 44100
     raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', os.path.join(A, spec['audio']), '-ac', '1', '-ar', str(R), '-f', 'f32le', '-'], capture_output=True).stdout
-    x = np.frombuffer(raw, dtype=np.float32); END = len(x) / R + TAIL
+    x = np.frombuffer(raw, dtype=np.float32)
+    if not len(x): sys.exit('No he podido leer el audio (¿ffmpeg instalado y archivo correcto?)')
+    END = len(x) / R + TAIL
     y = np.concatenate([x, np.zeros(int(TAIL * R), np.float32)])
+    os.makedirs(A + '/tmp', exist_ok=True)
     w = wave.open(A + '/tmp/voz_cut.wav', 'wb'); w.setnchannels(1); w.setsampwidth(2); w.setframerate(R)
     w.writeframes((np.clip(y, -1, 1) * 32767).astype(np.int16).tobytes()); w.close()
 
 scenes, chunks = [], []
 for i, s in enumerate(spec['scenes']):
     sc = {k: v for k, v in s.items() if k not in ('segs',)}
-    sc['a'] = fr(s['a']); scenes.append(sc)
+    sc['a'] = 0 if i == 0 else fr(s['a']); scenes.append(sc)   # v23: la 1ª escena siempre en 0 (si no, antes de su inicio se vería la última)
 for i, sc in enumerate(scenes): sc['b'] = fr(END) if i == len(scenes) - 1 else scenes[i + 1]['a']
 for s in spec['scenes']:
-    for a, b, text in s['segs']:
+    for a, b, text in s.get('segs', []):
         ls = split_lines(text); wts = [len(l.replace('*', '')) + 3 for l in ls]; T = sum(wts); u = a
         for l, wi in zip(ls, wts):
             d = wi / T * (b - a); chunks.append({'s': s['id'], 'text': l, 't0': round(u, 3), 't1': round(u + d, 3)}); u += d

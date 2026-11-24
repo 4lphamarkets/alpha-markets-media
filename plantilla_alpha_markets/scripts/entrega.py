@@ -21,6 +21,8 @@ datos = os.path.abspath(sys.argv[2]) if len(sys.argv) > 2 else os.path.join(D, '
 if not os.path.exists(video): sys.exit(f'No existe el vídeo: {video}')
 if not os.path.exists(datos): sys.exit(f'No existe {datos}: créalo primero (ver entrega_ejemplo.json)')
 E = json.load(open(datos, encoding='utf-8-sig'))   # -sig: acepta JSON con o sin BOM
+faltan = [k for k in ('slug', 'titulo_seo', 'descripcion', 'hashtags', 'portada') if not E.get(k)]   # v23: error claro en vez de KeyError
+if faltan: sys.exit(f'{os.path.basename(datos)}: faltan campos obligatorios: {faltan} (ver entrega_ejemplo.json)')
 
 slug = re.sub(r'[^a-z0-9_]+', '_', E['slug'].lower()).strip('_')
 P = E['portada']
@@ -33,7 +35,10 @@ texto_post = desc + '\n\n' + ' '.join(tags)
 avisos = []
 if len(gancho) > 125: avisos.append(f'el gancho (1ª línea) tiene {len(gancho)} caracteres; Instagram corta a ~125')
 if len(texto_post) > 2200: avisos.append(f'descripción + hashtags = {len(texto_post)} caracteres (> 2.200)')
-if not 5 <= len(tags) <= 15: avisos.append(f'{len(tags)} hashtags (recomendado 8-15)')
+if not 8 <= len(tags) <= 15: avisos.append(f'{len(tags)} hashtags (recomendado 8-15)')   # v23: alineado con LEEME (antes avisaba solo fuera de 5-15)
+if len(set(t.lower() for t in tags)) != len(tags): avisos.append('hay hashtags repetidos')
+if not 40 <= len(E['titulo_seo']) <= 75: avisos.append(f'titulo_seo de {len(E["titulo_seo"])} caracteres (recomendado 50-70)')
+if '@4lphamarkets' not in desc: avisos.append('falta el CTA «Sígueme en @4lphamarkets…»')
 if 'consejo financiero' not in desc.lower(): avisos.append('falta el aviso "Esto no es consejo financiero"')
 for a in avisos: print('AVISO:', a)
 
@@ -161,7 +166,9 @@ archivos = (mp4, *portadas, txt)
 with zipfile.ZipFile(zp, 'w', zipfile.ZIP_DEFLATED) as z:
     for p in archivos: z.write(p, f'{slug}_ALPHA_MARKETS/{os.path.basename(p)}')
 
+try: os.remove(os.path.join(D, 'portada_index.html'))   # v23: archivo temporal de 2-3 MB con las imágenes incrustadas; no debe quedarse en la plantilla
+except OSError: pass
 print('ENTREGA LISTA')
 print('  video :', video)
-print('  zip   :', zp)
+print('  zip   :', zp, '(opcional: al usuario se le envían los 4 archivos sueltos, sin comprimir)')
 for p in archivos: print('   -', os.path.basename(p), f'{os.path.getsize(p)/1e6:.2f} MB')

@@ -20,4 +20,6 @@ open(os.path.join(D, 'portada_index.html'), 'w', encoding='utf-8').write(h)
 subprocess.run(['node', os.path.join(D, 'scripts', 'render.js'), 'portada', 'sinfondo'], check=True, cwd=D)
 os.makedirs(os.path.dirname(os.path.abspath(sal)), exist_ok=True)
 Image.open(os.path.join(D, 'tmp', 'portada.png')).convert('RGB').save(sal, 'JPEG', quality=92)
+try: os.remove(os.path.join(D, 'portada_index.html'))   # v23: temporal
+except OSError: pass
 print('preview:', sal)

@@ -1,4 +1,6 @@
-# FLUJO DE TRABAJO ALPHA MARKETS (v21)
+# FLUJO DE TRABAJO ALPHA MARKETS (v23)
+
+> 🆕 **v23: MONTAJE CON UN COMANDO.** `python scripts/montar.py revisar|video analista|clasico tmp/guion_*.json` hace prep → validar → build → (hoja de contacto) → render → insertos → efectos → mezcla −16 LUFS → control de calidad. Antes de renderizar se mira `out/hoja_contacto.jpg` (4 s) y `scripts/validar.py` avisa de errores de guion; el audio se transcribe con `scripts/transcribir.py`. Detalle en `LEEME.md`.
 
 ## 🆕 v19: RECURSOS VISUALES DE EDICIÓN (carpeta `recursos_visuales/`)
 Se añadieron 11 repos de edición de vídeo (earshot, pixelfx, hyperframes, huashu-motion, claude-animated-shorts, lemo-opuscar, rea-video, react-three-rapier, blender-mcp, Wan2.2, LTX-Video). Leer `recursos_visuales/RECURSOS_VISUALES.md` (qué aporta cada uno y cuándo usarlo) y ejecutar `bash recursos_visuales/INSTALAR.sh` al empezar (reclona e instala todo; el sandbox es temporal). En **cada vídeo nuevo** usar 2-3 de estos recursos: SFX variados con earshot, insertos animados con pixelfx/hyperframes, apertura/cierre distintivos, sin romper el flujo v18 ni la legibilidad (la voz manda). Guías de cada repo en `recursos_visuales/guias/`.
@@ -11,6 +13,8 @@ Este es el flujo acordado con el usuario para cada vídeo. Claude lo sigue **de 
 Los detalles técnicos de cada paso (render, sonidos, portadas, insertos) están en `LEEME.md`.
 
 
+> ⚠️ **REGLA v24: SIN PEDIR PERMISO.** La carpeta `<slug>` en el Escritorio lleva **TODO: vídeo, descripción y las 2 portadas** (4 archivos) y se deja **directamente, sin preguntar ni pedir confirmación en el chat** (Antonio: «No me pidas permiso, hazlo»). Si hay que conceder acceso a `~/Desktop`, se lanza `device_request_folder_access` sin avisar antes ni preguntar si se hace.
+
 > ⚠️ **REGLA v17 (el usuario la reclamó): LA CARPETA EN EL ESCRITORIO NO ES OPCIONAL.** Al terminar cada vídeo, ANTES de escribir el mensaje final, Claude debe haber dejado `~/Desktop/<slug>/` con los 4 archivos (vídeo editado, descripción .txt, portada 1 y portada 2). El orden es siempre: (1) `SendUserFile` de los 4 archivos → (2) `get_device_info` / `device_request_folder_access` sobre `~/Desktop` si no está conectado → (3) `device_commit_files` con los 4 `file_uuid`. El mensaje final solo se escribe cuando el commit devuelve `written` con los 4 archivos, y dice textualmente «Carpeta `<slug>` en tu Escritorio». Si el ordenador no responde: reintentar una vez, y si sigue sin responder decir claramente «NO he podido dejar la carpeta en el Escritorio» (no dar el vídeo por entregado) y repetir en cuanto vuelva a estar conectado. Nunca cerrar la entrega con solo los archivos sueltos en el chat.
 
 ## Resumen
@@ -18,7 +22,7 @@ Los detalles técnicos de cada paso (render, sonidos, portadas, insertos) están
 | # | Paso | Quién | Resultado |
 |---|------|-------|-----------|
 | 1 | Recibir el tema | Usuario | Imagen (captura, noticia, gráfico) **o** petición de un tema en texto |
-| 2 | Escribir el guion | Claude | Texto de **máx. 40 s** |
+| 2 | Escribir el guion | Claude | Texto de **40 s como máximo** |
 | 3 | Generar el audio | Claude | Voz de Jaime en ElevenLabs, **[en tono juguetón]** |
 | 4 | Montar el vídeo | Claude | Vídeo 9:16 editado con la plantilla |
 | 5 | Preparar la entrega | Claude | Carpeta con descripción, vídeo editado y miniaturas |
@@ -36,11 +40,11 @@ Dos formas, las dos válidas:
 
 Nada de preguntas previas si el tema está claro. Si el vídeo trata de **una persona** y falta su foto en `img/personas/`, se la pide ya (para la portada); es la única pausa del flujo antes del audio. Los logos que falten se descargan con `python scripts/logos.py <nombre>`.
 
-## 2. Guion (MÁXIMO 40 s)
-- **Duración: MÁXIMO 40 SEGUNDOS (orden de Antonio, 23-11-2026; manda sobre cualquier otra cifra de este documento o de LEEME/PLAYBOOK/ESTILO_ANALISTA).** ~100–110 palabras ≈ 600–680 caracteres. Antes de montar, medir el audio con `ffprobe`; si pasa de 40 s, acortar el guion y regenerar solo si aún no se ha gastado la generación (nunca reintentar el audio: recortar el vídeo a mano no vale, hay que acertar con el guion). [Anterior, ya NO vigente:] Esto sustituye al antiguo límite de 30–45 s. Orientación de palabras a ritmo hablado: ~100–110 palabras para 40 s, ~210–230 palabras para 1:20. Si el usuario pide otra duración concreta, manda la suya.
+## 2. Guion (máximo 40 s)
+- **Duración: 40 segundos como MÁXIMO (v24, decisión de Antonio el 22-11-2026).** Sustituye al antiguo rango de 40 s – 1:20. Orientación a ritmo hablado: **~90–100 palabras (≈550–650 caracteres) para 35–40 s**; nunca más de 100 palabras. El vídeo final no puede pasar de 40 s (`qa_video.py` lo da como error). Si el usuario pide otra duración concreta, manda la suya.
 - Estructura: **gancho** en los 2 primeros segundos (dato o pregunta que enganche) → contexto → datos clave (cifras que se puedan mostrar en contadores) → consecuencia para el mercado/inversor → **cierre**.
 - **Gancho (v18):** la primera frase lleva siempre **un número concreto** y sigue una de estas fórmulas: **paradoja** («X vale ... y dicen que está más barata que cuando valía ...»), **pregunta con "falta algo"** («¿Por qué no se dispara X? Falta ...») o **calendario** («¿Casualidad o calendario?», «X se juega la semana el martes a las 22:20»). Nada que no se haya comprobado ni fechas límite alarmistas sin fuente sólida.
-- **Formatos de prueba (v18, 2 por semana):** cuenta atrás de evento y meme de inversor con animación propia («Yo cuando ...», «POV: ...»; sin clips de películas ni vídeo de archivo ajeno). Duración: la de siempre (40 s – 1:20) salvo que el usuario pida otra.
+- **Formatos de prueba (v18, 2 por semana):** cuenta atrás de evento y meme de inversor con animación propia («Yo cuando ...», «POV: ...»; sin clips de películas ni vídeo de archivo ajeno). Duración: máximo 40 s salvo que el usuario pida otra.
 - Tono: cercano, claro, dinámico y con chispa (la voz va en tono juguetón). Frases cortas, nada de relleno.
 - Cierre fijo en los guiones de cripto: **«Sígueme para no perderte nada de los mercados financieros, esto es... ALFA MARKETS!!»**
 - En el texto de audio la marca se escribe **«Alfa Markets»** (pronunciación). En pantalla es siempre **4LPHA MARKETS**.
@@ -51,13 +55,14 @@ Nada de preguntas previas si el tema está claro. Si el vídeo trata de **una pe
 - Herramienta: ElevenLabs, **texto a voz**, locutor **«Jaime - Confident, Clear and Warm»**.
 - **Al texto se le añade siempre al principio la etiqueta `[en tono juguetón]`.**
 - **Una sola generación** por audio (no se hacen 2 tomas).
-- Se genera desde el conector de ElevenLabs (herramienta `creative_generate_speech` / `creative_list_voices` para localizar a Jaime). Se guarda el audio como `tmp/voz.mp3` (o `.wav`) de la plantilla y de ahí sigue el montaje (`asr_run.py` → `prep4.py`).
+- **Créditos (v24):** con un guion de 40 s (~600 caracteres) el audio cuesta ≈ 600 créditos. **NO se pide el OK para generar el audio mientras el coste estimado sea de 2.000 créditos o menos por audio**: se genera directamente (decir el coste en el mensaje de entrega, sin esperar respuesta). **Solo se pregunta si el audio supera los 2.000 créditos** (decir cuánto cuesta y esperar el OK). Esta regla sustituye a la de «avisar siempre antes de gastar créditos» para ElevenLabs; otras herramientas de pago (p. ej. motion/IA) siguen pidiendo permiso.
+- Se genera desde el conector de ElevenLabs (herramienta `creative_generate_speech` / `creative_list_voices` para localizar a Jaime). Se guarda el audio como `tmp/voz.mp3` (o `.wav`) de la plantilla y de ahí sigue el montaje (`python scripts/transcribir.py tmp/voz.mp3` → tiempos de cada frase → guion de montaje → `montar.py`).
 - Si el conector no estuviera disponible, Claude lo dice en una línea y pide al usuario el audio generado a mano con esos mismos ajustes.
 
 ## 4. Montaje del vídeo
-Con el audio y esta plantilla, se sigue la sección «Flujo» de `LEEME.md` (pasos 2–7): transcribir → escenas en `template.html` con el motor de dinamismo → render PNG sin pérdida → efectos de sonido → mezcla final.
+Con el audio y esta plantilla, se sigue `LEEME.md` §1 (6 pasos con `montar.py`): transcribir → guion de montaje (`tmp/guion_analista.json`; en modo clásico, además, adaptar las escenas de `template.html`) → **hoja de contacto y corrección** → render PNG sin pérdida → efectos de sonido → mezcla final → control de calidad. Detalle técnico en `REFERENCIA_TECNICA.md`.
 Reglas fijas del canal (todas en `LEEME.md`): 1080×1920, máxima calidad (H.264 slow CRF 12, AAC 320), subtítulos en mayúsculas y blancos (Montserrat Black y/o Awesome Serif Italic Bold ExtraTall, variando según lo que mejor quede), logos de las empresas citadas, banderas y animaciones divertidas, contadores con sonido distinto cada uno, 1–3 momentos dibujados (más en vídeos largos), efectos de sonido con la voz siempre por delante, tarjeta de perfil con botón Seguir al final (@4lphamarkets), cabecera con el logo de letras.
-Para vídeos de más de 45 s se escalan los insertos y los momentos dibujados (2–3 como mínimo) y se reparte más el dinamismo para que no decaiga a mitad del vídeo.
+Con vídeos de 40 s como máximo bastan 1–2 momentos dibujados; si el usuario pidiera expresamente un vídeo más largo, se escalan los insertos y los momentos dibujados (2–3).
 
 ## 5. Entrega: una carpeta por vídeo
 Claude **genera sin que se lo pidan** la carpeta del vídeo con todo dentro:
@@ -75,10 +80,8 @@ Claude **genera sin que se lo pidan** la carpeta del vídeo con todo dentro:
 - **Entrega sin comprimir** (el usuario no tiene WinRAR): se mandan con SendUserFile el vídeo, las 2 miniaturas y el .txt por separado, y se pega en el chat el texto limpio (título, descripción y hashtags). Si hay carpetas del PC conectadas, se deja también la carpeta del vídeo allí. El .zip es opcional.
 - Cierre del mensaje de entrega: una línea con el resultado y la pregunta de si todo está bien para publicar.
 
-> ⚠️ **ORDEN DE ANTONIO (23-11-2026): dejar el vídeo en el Escritorio es siempre obligatorio, también en la rutina diaria automática.** Si las herramientas `mcp__remote-devices__*` aparecen como diferidas, cargarlas con `ToolSearch` (`select:mcp__remote-devices__get_device_info,mcp__remote-devices__device_request_folder_access,mcp__remote-devices__device_commit_files`) antes de concluir que no se puede. Un vídeo sin carpeta en el Escritorio no está entregado.
-
 ### 5b. Dejar la carpeta en el Escritorio (v16, obligatorio y automático)
-En cuanto termina el montaje y la entrega (paso 5), Claude **deja la carpeta del vídeo en el Escritorio del usuario**, sin que lo pida y sin preguntar:
+En cuanto termina el montaje y la entrega (paso 5), Claude **deja la carpeta del vídeo (portadas, descripción y vídeo) en el Escritorio del usuario**, sin que lo pida, **sin preguntar y sin pedir permiso (v24)**:
 1. Enviar los 4 archivos con `SendUserFile` (vídeo, 2 miniaturas, descripción); cada envío devuelve un `file_uuid`.
 2. Si el Escritorio no está conectado (`get_device_info` → `connectedFolders`), pedir acceso **una sola vez** con `device_request_folder_access` sobre `~/Desktop` (razón: «Guardar la carpeta <slug> en tu Escritorio»).
 3. `device_commit_files` con cada `fileUuid` → `~/Desktop/<slug>/<slug>_video.mp4`, `<slug>_portada_1.jpg`, `<slug>_portada_2.jpg`, `<slug>_descripcion.txt` (se crea la carpeta `<slug>` sola).
@@ -90,7 +93,7 @@ Con el **OK** del usuario, Claude sube el vídeo solo, sin más preguntas:
 - **Instagram (Reel)** de 4lphamarkets y **YouTube (Short)** a través de Metricool (blogId 8199629, zona Europe/Madrid).
 - Se usa la miniatura que Claude considere **más atractiva y visible** (en Instagram la mejor; si hay 2, la segunda en YouTube). Título de YouTube sacado de la primera línea de la descripción.
 - Procedimiento técnico probado (repo público `4lphamarkets/alpha-markets-media` como almacén temporal, `createScheduledPost`, limpieza del repo después): ver `LEEME.md` → publicación, y la memoria del canal. Al terminar se avisa de que el historial de git conserva el archivo y se ofrece vaciarlo.
-- **Horas de subida fijas (orden de Antonio, 23-11-2026): 10:00 y 18:00 (Europe/Madrid)**, un vídeo en cada hora, también cuando hay más vídeos pendientes (no más de 2 al día salvo que Antonio diga otra cosa).
+- Si hay varios vídeos pendientes, Claude elige fechas y horas (hasta 3 al día).
 
 ---
 

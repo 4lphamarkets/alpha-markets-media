@@ -1,0 +1,66 @@
+{
+  "slug": "nvidia_sangrado",
+  "titulo_seo": "Nvidia se hunde un 33 % en 2 semanas: las 3 causas del desplome",
+  "descripcion": "🚨 Nvidia se desploma un 33 % en 2 semanas... y acaba de duplicar sus ingresos. ¿Por qué cae?\n\nEl viernes 20 de noviembre cayó un 14 % y cerró en 125,53 $. En la semana pierde casi un 23 % y suma siete semanas seguidas en rojo, su peor racha desde 2008.\n\nLas 3 causas:\n1️⃣ El escándalo de su fundador: el 8 de noviembre el consejo abrió una investigación tras saberse que Jensen Huang fue objetivo de una operación de inteligencia extranjera. Admitió una relación con Alice Huang, ejecutiva de Megaspeed a quien funcionarios de EE. UU. señalan como presunta agente china (sin parentesco; Pekín lo niega). Dimitió el 12 de noviembre y Colette Kress es CEO interina. Se esfumaron unos 430.000 M$ en dos sesiones.\n2️⃣ La SEC investiga sus prácticas contables, según Reuters, y California también.\n3️⃣ El miedo a la burbuja de la inteligencia artificial.\n\nY aun así, el 17 de noviembre presentó resultados récord: 115.844 M$ de ingresos (+103 %) y 65.287 M$ de beneficio.\n\n¿Oportunidad o hay más caídas? Cuéntamelo en comentarios 👇\n\n👉 Sígueme en @4lphamarkets para no perderte nada de los mercados financieros.\n\nFuentes: Bloomberg Línea, Reuters, El Financiero, TechCrunch, Boston Globe.\n\n⚠️ Esto no es consejo financiero.",
+  "hashtags": [
+    "nvidia",
+    "nvda",
+    "jensenhuang",
+    "inteligenciaartificial",
+    "bolsa",
+    "wallstreet",
+    "acciones",
+    "inversiones",
+    "finanzas",
+    "mercadosfinancieros",
+    "noticias",
+    "4lphamarkets"
+  ],
+  "palabras_clave": [
+    "Nvidia cae",
+    "por qué cae Nvidia",
+    "Jensen Huang dimite",
+    "SEC Nvidia",
+    "burbuja IA",
+    "acciones Nvidia hoy"
+  ],
+  "portada": {
+    "titulo": [
+      "NVIDIA",
+      "*SANGRA*"
+    ],
+    "fecha_sede": "20 NOV 2026 · NVIDIA",
+    "etiqueta": "NVIDIA EN CAÍDA",
+    "personas": [
+      {
+        "nombre": "JENSEN HUANG",
+        "foto": "img/personas/jensen_huang.png"
+      }
+    ],
+    "logos": [
+      {
+        "archivo": "nvidia",
+        "color": "#76B900",
+        "modo": "moneda"
+      }
+    ],
+    "union": "",
+    "skyline": true,
+    "disenos": [
+      {
+        "html": "portadas/estilos/foto_epica.html",
+        "arquetipo": "foto_epica",
+        "concepto": "Foto del CEO en círculo y logo de NVIDIA como moneda gigante sobre globo verde con titular NVIDIA SANGRA",
+        "tipografia": "Montserrat Black Italic",
+        "paleta": "negro / menta"
+      },
+      {
+        "html": "portadas/disenos/nvidia_sangrado_b.html",
+        "arquetipo": "dos_cifras",
+        "concepto": "Logo de NVIDIA sobre sangre goteando y dos tarjetas enfrentadas -33 % acción vs +103 % ingresos con titular en pregunta",
+        "tipografia": "Anton",
+        "paleta": "negro / rojo sangre / verde nvidia"
+      }
+    ]
+  }
+}

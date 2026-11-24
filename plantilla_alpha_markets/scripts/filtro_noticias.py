@@ -1,5 +1,5 @@
 """FILTRO DE NOTICIAS 4LPHA MARKETS (v22): puntúa candidatas de 0 a 100 y dice qué hacer con cada una.
-uso: python scripts/filtro_noticias.py candidatas.json [--n 2]      (ejemplo: filtro_ejemplo.json)
+uso: python scripts/filtro_noticias.py candidatas.json [--n 2]      (ejemplo: filtro_ejemplo.json; --n = nº de vídeos del día, por defecto 2 desde el 22-11-2026)
 
 Cada candidata (lista JSON de objetos). Rellenar tras BUSCAR la noticia (no antes):
  titulo            texto corto
@@ -26,11 +26,11 @@ def puntua(c):
         if v: p += v; why.append(f'{v:+d} {t}')
     add(20 if c.get('hora_exacta') else 0, 'hora/día exacto')
     add(20 if c.get('cifra_historica') else 0, 'cifra histórica/rara')
-    add({0: 0, 1: 8, 2: 15}[c.get('protagonista', 0)], 'protagonista')
-    add({0: 0, 1: 8, 2: 15}[c.get('impacto_bolsillo', 0)], 'impacto en el bolsillo')
+    add({0: 0, 1: 8, 2: 15}.get(int(c.get('protagonista', 0) or 0), 0), 'protagonista')
+    add({0: 0, 1: 8, 2: 15}.get(int(c.get('impacto_bolsillo', 0) or 0), 0), 'impacto en el bolsillo')
     add(10 if c.get('pregunta_abierta') else 0, 'pregunta abierta')
     add(10 if c.get('visual', 'ninguno') in ('calendario', 'grafico', 'comparacion', 'numero') else 0, 'se visualiza con 1 widget')
-    h = c.get('horas', 99); add(10 if h < 24 else 5 if h < 48 else 0, 'novedad')
+    h = c.get('horas', 99); h = 99 if h is None else h; add(10 if h < 24 else 5 if h < 48 else 0, 'novedad')
     if not c.get('cifra_concreta'): add(-20, 'sin cifra concreta')
     t = c.get('tipo', 'noticia')
     if t == 'educativo_atemporal': add(-15, 'educativo sin gancho de hoy')
@@ -41,19 +41,28 @@ def puntua(c):
 def decide(s): return 'VÍDEO' if s >= 70 else 'HISTORIA/CARRUSEL' if s >= 55 else 'DESCARTAR'
 
 if __name__ == '__main__':
-    args = [a for a in sys.argv[1:] if not a.startswith('--')]
-    n = int(sys.argv[sys.argv.index('--n') + 1]) if '--n' in sys.argv else 2
-    if '--n' in sys.argv: args = [a for a in args if a != str(n)]
-    cands = json.load(open(args[0], encoding='utf-8'))
+    for _s in (sys.stdout, sys.stderr):
+        try: _s.reconfigure(encoding='utf-8', errors='replace')   # consola de Windows (cp1252)
+        except Exception: pass
+    argv = sys.argv[1:]; n = 2                                        # v23: 2 vídeos al día (decisión del 22-11-2026; antes 3)
+    if '--n' in argv:
+        i = argv.index('--n'); n = int(argv[i + 1]); del argv[i:i + 2]
+    args = [a for a in argv if not a.startswith('--')]
+    if not args: sys.exit(__doc__)
+    cands = json.load(open(args[0], encoding='utf-8-sig'))
     res = []
     for c in cands:
         s, why = puntua(c); res.append((s, c, why))
     res.sort(key=lambda x: -x[0])
     print(f'{"PTS":>3}  {"DECISIÓN":<18} TEMA / TÍTULO')
     for s, c, why in res: print(f'{s:>3}  {decide(s):<18} [{c.get("tema","-")}] {c["titulo"]}\n     ' + ' · '.join(why))
-    # selección de los N vídeos: mayor puntuación (>=60), máx. 1 por tema
+    # selección de los N vídeos: mayor puntuación (>=60; las de 60-69 solo como relleno), máx. 1 por tema
     sel, temas = [], set()
     for s, c, _ in res:
-        if s >= 60 and c.get('tema') not in temas: sel.append(c['titulo']); temas.add(c.get('tema'))
+        if s >= 60 and c.get('tema') not in temas:
+            sel.append(f'{c["titulo"]}  ({s} pts{"" if s >= 70 else " · relleno 60-69"})'); temas.add(c.get('tema'))
         if len(sel) == n: break
-    print('\nVÍDEOS DE HOY (máx. 1 por tema):'); [print(' ·', t) for t in sel] or print(' (ninguna llega a 60: hoy mejor menos vídeos pero buenos)')
+    print(f'\nVÍDEOS DE HOY (máx. {n}, 1 por tema):')
+    for t in sel: print(' ·', t)
+    if not sel: print(' (ninguna llega a 60: hoy mejor menos vídeos pero buenos)')
+    elif len(sel) < n: print(f' (solo {len(sel)} de {n} llegan a 60: mejor menos vídeos pero buenos)')

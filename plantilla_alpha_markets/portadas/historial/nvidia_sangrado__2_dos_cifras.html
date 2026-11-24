@@ -1,0 +1,36 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<!-- Portada B · "dos_cifras" con sangre: NVIDIA sobre un fondo que sangra, dos tarjetas enfrentadas (−33 % acción vs +103 % ingresos)
+     y titular en pregunta. Paleta negro / rojo sangre / verde NVIDIA, tipografía Anton. Zona segura y 240-1680. -->
+<link rel="stylesheet" href="portadas/kit.css"><script src="portadas/kit.js"></script>
+<style>
+body{background:#050505}
+#p{background:radial-gradient(ellipse 110% 70% at 50% 30%,#2a0508 0%,#120305 50%,#050505 100%)}
+#brand img{display:block;margin:0 auto;position:static}
+#brand{position:absolute;left:0;right:0;top:246px;z-index:8;filter:drop-shadow(0 0 22px rgba(52,245,176,.4))}
+#blood{position:absolute;left:-30px;top:350px;width:1140px;z-index:2;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);filter:drop-shadow(0 20px 30px rgba(0,0,0,.6))}
+#nv{position:absolute;left:340px;top:420px;width:400px;height:400px;z-index:5;filter:drop-shadow(0 0 60px rgba(118,185,0,.85)) drop-shadow(0 18px 24px rgba(0,0,0,.7))}
+.card{position:absolute;top:960px;width:470px;height:340px;border-radius:34px;z-index:6;text-align:center;background:rgba(10,10,10,.88)}
+#c1{left:50px;border:6px solid #FF2E3F;box-shadow:0 0 50px rgba(255,46,63,.55)}
+#c2{right:50px;border:6px solid #76B900;box-shadow:0 0 50px rgba(118,185,0,.55)}
+.card .lb{margin-top:26px;font-family:Mont;font-weight:900;font-size:34px;letter-spacing:.08em;color:#d9d9d9}
+.card .nm{font-family:Anton;font-size:132px;line-height:1.02;white-space:nowrap}
+#c1 .nm{color:#FF2E3F;text-shadow:0 8px 0 rgba(0,0,0,.7),0 0 40px rgba(255,46,63,.7)}
+#c2 .nm{color:#8EDB00;text-shadow:0 8px 0 rgba(0,0,0,.7),0 0 40px rgba(118,185,0,.7)}
+.card .sb{font-family:Mont;font-weight:800;font-size:30px;color:#9a9a9a;margin-top:-4px}
+#vs{position:absolute;left:0;right:0;top:1085px;text-align:center;z-index:9;font-family:Anton;font-size:84px;color:#fff;text-shadow:0 0 30px #000,0 6px 0 #000}
+#q{position:absolute;left:0;right:0;top:1350px;text-align:center;z-index:6;font-family:Anton;font-size:190px;line-height:1;color:#fff;letter-spacing:.01em;text-shadow:0 10px 0 rgba(0,0,0,.75),0 0 40px rgba(0,0,0,.8)}
+#q b{color:#FF2E3F;font-weight:400;text-shadow:0 10px 0 rgba(0,0,0,.75),0 0 50px rgba(255,46,63,.8)}
+#date{position:absolute;left:150px;right:150px;top:1570px;height:80px;z-index:6;border-radius:20px;background:#76B900;display:flex;align-items:center;justify-content:center;font-family:Mont;font-weight:900;font-style:italic;font-size:38px;color:#0a0a0a;white-space:nowrap}
+</style></head><body><div id="p">
+<div id="brand"></div>
+<img id="blood" src="img/sangre.png">
+<img id="nv" src="img/nvidia_logo.png">
+<div class="card" id="c1"><div class="lb">ACCIÓN</div><div class="nm">−33%</div><div class="sb">en solo 2 semanas</div></div>
+<div class="card" id="c2"><div class="lb">INGRESOS</div><div class="nm">+103%</div><div class="sb">récord: 115.844 M$</div></div>
+<div id="vs">VS</div>
+<div id="q">¿POR QUÉ <b>CAE</b>?</div>
+<div id="date">20 NOV 2026 · WALL STREET</div>
+<script>
+document.getElementById('brand').innerHTML=marca('',64);
+window.fit=()=>{ajustar(document.getElementById('q'),980,190,90);return 1};fit();
+</script></div></body></html>

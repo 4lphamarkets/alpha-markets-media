@@ -28,7 +28,8 @@ cfg = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.path.join(D, 'in
 items = json.load(open(cfg, encoding='utf-8'))['insertos']
 tmp = os.path.join(D, 'tmp'); vid = os.path.join(tmp, 'video.mp4'); orig = os.path.join(tmp, 'video_sin_insertos.mp4')
 if not os.path.exists(orig): shutil.copyfile(vid, orig)
-if not items: shutil.copyfile(orig, vid); sys.exit('sin insertos: vídeo restaurado')
+if not items:
+    shutil.copyfile(orig, vid); print('sin insertos: vídeo restaurado'); sys.exit(0)   # v23: antes salía con código 1
 
 
 def tam(path):

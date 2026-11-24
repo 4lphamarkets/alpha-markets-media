@@ -59,7 +59,7 @@ svg.ic{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;str
  <div id="world">
   <div id="hdr">
    <div id="brand"><img id="av" src="img/logo_alpha_wordmark.png"></div>
-   <div class="tag"><i></i>ORO Y PLATA</div>
+   <div class="tag" id="tagtxt"><i></i><span>ORO Y PLATA</span></div>
   </div>
 
 
@@ -187,7 +187,8 @@ function show(el,lt,a,{d=.5,dx=0,dy=50,s=1,r=0,blur=1}={}){const p=prog(lt,a,d),
  return p}
 function runOdo(cols,t,a,step=.12,d=1.0){cols.forEach((c,i)=>{const q=prog(t,a+i*step,d),p=eio(q);c.col.style.transform=`translateY(${-c.target*c.H*p}px)`;
  const v=q>0&&q<1?(q<.5?12*q*q:12*(1-q)*(1-q)):0;c.col.style.filter=v>.15?`blur(${(v*5).toFixed(1)}px)`:'none'})}
-const S=TL.scenes;S.forEach(s=>{s.el=$(s.id);s.cs=TL.chunks.filter(c=>c.s===s.id)});
+if(TL.tag){const tg=document.querySelector('#tagtxt span');if(tg)tg.textContent=TL.tag}   // v23: etiqueta roja de la cabecera desde timeline.json ("tag")
+const S=TL.scenes;S.forEach(s=>{s.el=$(s.id);if(!s.el)throw new Error('timeline: la escena "'+s.id+'" no existe en template.html');s.cs=TL.chunks.filter(c=>c.s===s.id)});
 const SB=Object.fromEntries(S.map(s=>[s.id,s]));
 const L=(id,i)=>{const s=SB[id];return s.cs[Math.min(i,s.cs.length-1)].t0-s.a};
 const EV=[];const ev=(id,lt,type,g=1)=>EV.push({t:+(SB[id].a+lt).toFixed(3),type,g});
@@ -364,7 +365,7 @@ window.seek=function(t){bgfx(t);
  S.forEach((x,i)=>{const on=t>=x.a&&t<x.b;x.el.style.display=on?'block':'none';if(on){const lt=t-x.a;let tf='',bl=0,o=1;
    if(i>0&&lt<.42){const r=trIn(i,prog(lt,0,.42));tf=r[0];bl=r[1]}
    if(i<S.length-1&&t>x.b-.26){const p=prog(t,x.b-.26,.26);const r=trOut(i,p);tf=r[0];bl=r[1];o=1-p*p}
-   x.el.style.opacity=o;x.el.style.transform=tf;x.el.style.filter=bl>.5?`blur(${bl.toFixed(1)}px)`:'none';x.upd(lt,t)}});
+   x.el.style.opacity=o;x.el.style.transform=tf;x.el.style.filter=bl>.5?`blur(${bl.toFixed(1)}px)`:'none';if(x.upd)x.upd(lt,t)}});
  caps(t)};
 window.SC=S.map(s=>({id:s.id,a:s.a,b:s.b}));window.EVJ=EV;
 seek(0);

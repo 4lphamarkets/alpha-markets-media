@@ -35,7 +35,7 @@ Aviso: la semana analizada fue de pánico (Nvidia −48 %, 7 caídas seguidas): 
 | Educativo atemporal sin gancho de hoy | −15 |
 | Autopromoción / marca | −30 |
 | Menos de 2 fuentes fiables | descartada |
-**Decisión:** ≥ 70 → vídeo · 55-69 → historia o carrusel · < 55 → descartar. De los candidatos ≥ 60 se eligen los 2 vídeos del día con **máx. 1 por tema** (+ reglas de variedad de `RUTINA_DIARIA.md`). Si ninguno llega a 60, mejor 1 vídeo bueno que 2 flojos.
+**Decisión:** ≥ 70 → vídeo · 55-69 → historia o carrusel · < 55 → descartar. De los candidatos ≥ 60 se eligen los 2 vídeos del día (3 hasta el 22-11-2026; `--n` lo cambia) con **máx. 1 por tema** (+ reglas de variedad de `RUTINA_DIARIA.md`). Si ninguno llega a 60, mejor 1-2 vídeos buenos que 3 flojos.
 Un `patron_actual` (patrón histórico aplicado al precio de HOY, como la media móvil de Bitcoin) cuenta como noticia; un tema atemporal sin hoy no.
 
 ## 4. Qué NO subir

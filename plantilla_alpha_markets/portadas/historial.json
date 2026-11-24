@@ -48,35 +48,19 @@
   "paleta": "negro / rojo / oro"
  },
  {
-  "fecha": "2026-11-23T09:29:35",
-  "slug": "2026_11_23_wall_street",
-  "arquetipo": "cuenta_atras",
-  "concepto": "Hora de apertura 15:30 como bloque amarillo gigante con Nasdaq -10% y pregunta rebote o trampa",
-  "tipografia": "Anton + Montserrat",
-  "paleta": "negro / amarillo / rojo"
- },
- {
-  "fecha": "2026-11-23T09:29:35",
-  "slug": "2026_11_23_wall_street",
-  "arquetipo": "marcador",
-  "concepto": "Tablero split-flap con el cierre del viernes de S&P 500, Nasdaq, Dow y VIX",
-  "tipografia": "mono Consolas + Anton",
-  "paleta": "gris pizarra / ámbar / rojo"
- },
- {
-  "fecha": "2026-11-23T09:34:35",
-  "slug": "2026_11_23_oro",
+  "fecha": "2026-11-21T14:32:52",
+  "slug": "nvidia_sangrado",
   "arquetipo": "foto_epica",
-  "concepto": "Monedas gigantes de oro y plata con brillo sobre globo verde y titular ORO REBOTA",
+  "concepto": "Foto del CEO en círculo y logo de NVIDIA como moneda gigante sobre globo verde con titular NVIDIA SANGRA",
   "tipografia": "Montserrat Black Italic",
-  "paleta": "negro / menta / oro"
+  "paleta": "negro / menta"
  },
  {
-  "fecha": "2026-11-23T09:34:35",
-  "slug": "2026_11_23_oro",
+  "fecha": "2026-11-21T14:32:52",
+  "slug": "nvidia_sangrado",
   "arquetipo": "dos_cifras",
-  "concepto": "Dos tarjetas enfrentadas: récord de enero 5.586 $ frente a hoy 3.625 $ con pregunta ya hizo suelo",
-  "tipografia": "Anton + Montserrat",
-  "paleta": "negro / oro / menta"
+  "concepto": "Logo de NVIDIA sobre sangre goteando y dos tarjetas enfrentadas -33 % acción vs +103 % ingresos con titular en pregunta",
+  "tipografia": "Anton",
+  "paleta": "negro / rojo sangre / verde nvidia"
  }
 ]
