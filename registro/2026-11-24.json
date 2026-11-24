@@ -1,0 +1,37 @@
+{
+ "fecha": "2026-11-24",
+ "tanda": "mañana",
+ "historias": [
+  {
+   "hora": "10:00",
+   "slug": "h01_nvidia_huang",
+   "titular": "NVIDIA +31% EN UN DÍA",
+   "tema": "nvidia/huang"
+  },
+  {
+   "hora": "11:00",
+   "slug": "h02_btc_noviembre",
+   "titular": "BITCOIN PEOR MES",
+   "tema": "bitcoin"
+  },
+  {
+   "hora": "12:00",
+   "slug": "h03_crowdstrike_zscaler",
+   "titular": "CROWDSTRIKE COMPRA ZSCALER",
+   "tema": "ciberseguridad/M&A"
+  },
+  {
+   "hora": "13:00",
+   "slug": "h04_wall_street_rebote",
+   "titular": "WALL STREET REBOTE FUERTE",
+   "tema": "bolsa EEUU"
+  },
+  {
+   "hora": "14:00",
+   "slug": "h05_eth_etf",
+   "titular": "ETHEREUM ETF DIVIDIDOS",
+   "tema": "ethereum/ETF"
+  }
+ ],
+ "notas": "Solo historias (vídeos pausados). Conflictos entre fuentes anotados en el pie (ETH ETF -306M vs -314M). Dec. hike odds y XRP/ETH precios no usados por cifras discrepantes."
+}
