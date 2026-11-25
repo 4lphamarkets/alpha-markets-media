@@ -1,70 +1,91 @@
-# RUTINA DIARIA ALPHA MARKETS · noticias → historias de Instagram + 1 vídeo por tanda (v24)
+# RUTINA DIARIA v26 — ALPHA MARKETS (desde el 26-11-2026)
 
-Carpeta protegida (NO BORRAR). La ejecuta la tarea programada de lunes a viernes a las **05:55 (Europe/Madrid)** (antes 08:30; cambiado el 23-11-2026). **Objetivo de Antonio: cuando se siente al ordenador a las 08:30, el vídeo de la mañana ya está hecho y en su Escritorio.** Cálculo del margen (23-11): arranque real hasta ~40 min tarde sobre la hora programada; noticias + 5 historias (mañana) ≈ 10 min; instalar el modelo de transcripción ≈ 5 min; cada vídeo de 40 s ≈ 20 min (guion, audio, transcripción, montaje, render, portadas, Escritorio) → ≈ 40 min; colchón para fallos ≈ 20 min. Total ≈ 2 h 15 min como máximo, normalmente ~1 h 30. Para que llegue al Escritorio, **el ordenador de Antonio debe estar encendido con la app de Claude abierta** a esa hora; si no responde, los archivos quedan en el chat y se notifica.
-Antonio no está delante: no se hacen preguntas; se decide, se hace y se explica al final. Si algo bloquea, se notifica y se sigue con lo demás.
+Una sola tarea programada ("RELOJ ALPHA MARKETS") se despierta cada hora en punto (Madrid) y ejecuta SOLO el hueco que toca según la tabla de abajo. Todo es autónomo: **se publica sin pedir permiso**. Si algo falla, se anota en el registro y se sigue con el siguiente hueco (nunca se publica algo roto o con datos antiguos).
 
-## 0. Cuántas noticias
-- **DOS TANDAS AL DÍA (cambio de Antonio, 23-11-2026; vigente desde el martes 24-11):** las 10 historias diarias se dividen en **5 por la mañana + 5 por la tarde**, y cada tanda busca sus propias noticias en su momento del día (así la tarde recoge lo que ha pasado desde la mañana: solo lo MÁS relevante e importante y las noticias de última hora).
-  - **Tanda de la MAÑANA** (la ejecuta la tarea de las 05:55, L-V): **5 noticias**, historias programadas **10:00, 11:00, 12:00, 13:00 y 14:00**.
-  - **Tanda de la TARDE** (la ejecuta otra tarea programada que arranca a las **14:00**, L-V; ver sección 7): **5 noticias**, historias programadas **15:00, 16:00, 17:00, 18:00 y 19:00** y 2 vídeos a las 20:00 y 21:00. Termina antes de las historias fijas de las 21:30.
-- Sábado y domingo: las tareas están pausadas (decisión de Antonio); si se reactivan, 5 noticias el día entero (10:00-14:00).
-- Bolsa de EE. UU. cerrada (fin de semana o festivo): noticias de cripto y de empresas/macro de EE. UU. que sigan siendo noticia, sin inventar cotizaciones.
-- «Buenas noticias» = buenas por interesantes, relevantes y bien contrastadas (no solo alcistas). Mezclar subidas, bajadas, regulación, adopción y empresas.
+Zona horaria: Europe/Madrid. Metricool: blogId 8199629. Instagram @4lphamarkets + YouTube.
 
-## 1. Buscar (en cada tanda: al empezar la tarea)
-- Fuentes: Investing.com, CoinMarketCap, Cointelegraph, The Block, CoinDesk, Reuters, CNBC, y cualquier buscador/medio fiable (WebSearch y WebFetch; el shell no tiene internet).
-- Noticias de las últimas 24-36 h. Cada cifra con **al menos una fuente fiable**; si dos fuentes difieren, usar la más primaria y decirlo en el pie. **Nunca inventar** cifras, citas ni fechas.
-- Mirar `registro/` (últimos 3 días, y **la tanda de la mañana de hoy** si eres la tarde) para **no repetir** noticias ya publicadas, salvo que haya novedad clara.
-- **Variedad (prioridad de Antonio):** no todo debe ser Bitcoin. Puede haber más de 2 de Bitcoin (incluidas las de ETF o empresas que compran BTC) **solo si van bien espaciadas**: al menos **2 horas libres entre dos de Bitcoin** (p. ej. 10:00, 13:00 y 19:00), nunca seguidas. Aun así, que Bitcoin no sea más de ~3 de las 10 del día (**máximo 1-2 por tanda**, y si la última de la mañana fue de Bitcoin, la primera de la tarde no); lo demás, variedad. El resto, repartido entre: Ethereum, altcoins (Solana, Hyperliquid, XRP, BNB…), DeFi/perps, stablecoins, regulación y países, bancos centrales/macro, bolsa de EE. UU. (índices, Nvidia, Tesla, Apple…), IA y empresas (Anthropic, OpenAI…), materias primas (oro, plata, petróleo). Si el día va muy sesgado a un tema, buscar activamente otros.
-- **Complementar, no solapar, las historias fijas de las 21:30:** cada noche ya se publican «Cripto hoy» (precios BTC, HYPE, ETH, SOL, BNB, ZEC + Fear & Greed) y «Wall Street hoy» (S&P 500, Nasdaq, AAPL, AMZN, NVDA, INTC, AMD, ANT; solo L-V). Por tanto, **no hacer historias que sean solo un resumen de precios o variaciones de esos mismos activos**; sí noticias que expliquen el *porqué* o temas que esas historias no cubren. Si una noticia trata de uno de esos activos, debe aportar algo nuevo (dato, evento, causa), no solo el precio.
-- Elegir las N noticias y **ordenarlas**: nunca dos seguidas del mismo activo o tema (bitcoin, ETF, Anthropic…): intercalar. Las que dependen del precio de mercado van antes en el día.
+## 0. Al despertar (siempre, ≤2 min)
+1. Hora y día de la semana de Madrid: `TZ=Europe/Madrid date`. Si la hora no está en la tabla, no hay nada que hacer: termina.
+2. Clonar el repo (`GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 https://github.com/4lphamarkets/alpha-markets-media`) y leer `registro/AAAA-MM-DD.json` de hoy (qué se ha hecho ya: noticias usadas, huecos hechos, vídeos). **Si el hueco ya consta como hecho, no repetirlo** (otra ejecución pudo adelantarse).
+3. ¿Hoy hay bolsa de EEUU? Consultar la lista de festivos NYSE (sección 6). Si NO hay bolsa (festivo o fin de semana) → **modo 100 % cripto** (todas las noticias, historias y vídeos son de cripto; no se hace la historia de precios de Wall Street). Si hay bolsa → cripto + acciones EEUU.
+4. Leer las reglas del canal: `LEEME.md`, `ESTILO_ANALISTA.md`, `FILTRO_NOTICIAS.md`, `FLUJO_DE_TRABAJO.md`, `PLAYBOOK_COMPETENCIA.md` (solo las que necesite el hueco).
+5. **Nunca tocar** las carpetas `plantilla-historias` ni `plantilla_alpha_markets` (no borrarlas ni vaciarlas). Trabajar en carpetas nuevas y borrar solo los temporales propios.
 
-## 2. Escribir las historias (JSON)
-Formato: ver `historias/generador_noticias/ejemplo_20-11-2026.json` (lista de objetos). Campos:
-- `slug` (`h01_tema`), `t1` (blanco, 1-2 palabras, MAYÚSCULAS), `t2` (verde cursiva, el golpe, corto), `sub` (línea bajo el titular, admite `<b>…</b>` en menta).
-- `rows`: **exactamente 4 filas** `{ic: up|dn|sq|neu, n: nombre, s: subtítulo, p: valor, c: cambio, cc: v|r}`; `ic` up=verde, dn=rojo, neu=punto verde, sq=cuadrado rojo. Textos cortos y en MAYÚSCULAS; si una fila queda apretada, bajar `nfs`/`pfs`. Rojo solo para caídas/riesgo; verde para subidas.
-- `block`: `{type: line|bars|text, title, ... , res}`. `line` = `pts:[[etiqueta,"texto",valor,color]…]`; `bars` = `items:[[etiqueta,valor,"texto",color]…]`; `text` = `big` (frase con `<span style='color:#34F5B0'>`), `fs`. `res` = frase final con `<b>` en menta.
-- `pie`: «Fuentes: … · fecha». `logo`: ver abajo. La fecha de la cabecera se pone sola (hoy, hora de Madrid).
-- Datos exactos y con su unidad. Sin consejos de inversión; tono claro y fácil de entender.
+## 1. Mapa de huecos — LUNES a VIERNES
+| Hora (Madrid) | Qué hacer | Se publica a |
+|---|---|---|
+| 06:00 | Vídeo A (el más importante de la noche/mañana temprana) | 09:00 |
+| 09:00 | Historia 1 (noticia fresca) **y después** Vídeo B | historia 09:30 · vídeo 12:00 |
+| 10:00 | Historia 2 | 10:30 |
+| 11:00 | Historia 3 (una de las dos de la mañana es la **gráfica BTC 15 MIN**, al azar) | 11:30 |
+| 12:00 | Historia 4 | 12:30 |
+| 13:00 | Historia 5 | 13:30 |
+| 14:00 | Vídeo C (noticia de la apertura de Wall Street / mañana) | 15:30 |
+| 15:00 | Historia 6 | 16:00 |
+| 16:00 | Historia 7 **y después** Vídeo D | historia 17:00 · vídeo 18:30 |
+| 17:00 | Historia 8 (una de las de la tarde es la **gráfica BTC 15 MIN**, al azar) | 18:00 |
+| 18:00 | Historia 9 | 19:00 |
+| 19:00 | Historia 10 | 20:00 |
+| 21:00 | Historias de precios: leer precios ~21:20 y publicar **"Cripto hoy" a las 21:30** y **"Wall Street hoy" a las 21:31** | 21:30 / 21:31 |
 
-### Logos (`logo`: texto o lista de máximo 2)
-Si se habla de… → bitcoin `btc` · ethereum `eth` · Anthropic `ant` · Hyperliquid `hl` · Solana `icon:SOL` · BNB `icon:BNB` · S&P 500 `icon:SPX` · HYPE `icon:HYPE` · EE. UU. `🇺🇸` · China `🇨🇳` · Rusia `🇷🇺` · UE `🇪🇺` · Japón `🇯🇵` · ballena `🐋` · Fed/bancos `🏦` · SEC/justicia `⚖️` · Congreso/regulación `🏛️` · empresa cotizada `badge:NVDA` (ticker) · oro/plata y otros: emoji que encaje (🥇, 🥈). Con 2 logos se muestran más pequeños apilados (activo + país, por ejemplo `["btc","🇺🇸"]`).
+Notas L-V:
+- Si en un hueco de historia la mejor noticia es de última hora y crítica (hackeo grande, ETF, caída/subida >5 %, decisión de la SEC/Fed, quiebra, etc.), **priorizarla**: publicarla a +5 min en vez de la hora prevista, y la noticia que iba a tocar pasa al hueco siguiente si sigue vigente.
+- Las historias del hueco 09:00…13:00 (mañana) y 15:00…19:00 (tarde): la tarde busca noticias que hayan pasado por la mañana o en la apertura de Wall Street, y **jamás repite** una noticia ya publicada (consultar el registro del día).
+- Los vídeos A, B, C y D duran **máximo 40 s**, con las reglas y estilo de la plantilla (`montar.py`, `entrega.py`, `qa_video.py`). Cada vídeo sale de una de las noticias ya vistas ese día (las más importantes).
+- Entre semana también se puede añadir algún vídeo atemporal de la cola (carpeta de vídeos atemporales del Escritorio) si hay hueco y sin pasar de 5 vídeos al día; así se acaba la carpeta.
 
-## 3. Generar y revisar
-```bash
-cd /home/claude/alpha-markets-media/plantilla_alpha_markets/historias/generador_noticias
-python3 make_stories.py /ruta/noticias.json /tmp/historias     # crea .png y .jpg 1080x1920
-```
-Mirar **todas** con `Read` (o una hoja de contacto): sin solapes, sin texto cortado, cifras y signos correctos. Corregir el JSON y regenerar si hace falta.
+## 2. Mapa de huecos — SÁBADO y DOMINGO
+| Hora (Madrid) | Qué hacer | Se publica a |
+|---|---|---|
+| 09:00 | Historia 1 | 10:00 |
+| 11:00 | Vídeo nuevo del día (la noticia cripto más importante) | 12:00 |
+| 13:00 | Historia 2 | 14:00 |
+| 17:00 | Historia 3 | 18:00 |
+| 21:00 | Leer precios ~21:40 y publicar historia **"Cripto hoy" a las 22:00** | 22:00 |
+Además (ya están programados en Metricool, no hay que hacer nada salvo comprobar que han salido): vídeos atemporales de la cola a las 16:00 y 20:00. **Máximo 3 vídeos al día en fin de semana.**
+Fin de semana = modo 100 % cripto. Si hay una noticia crítica, priorizarla igual.
+Las horas de ejecución de fin de semana: el reloj se despierta cada hora, pero en fin de semana solo actúa en 09:00, 11:00, 13:00, 17:00 y 21:00; en el resto termina sin hacer nada.
 
-## 4. Programar en Instagram (Metricool, sin pedir OK)
-1. `add_repo` con `access: push` de `4lphamarkets/alpha-markets-media`; clonar con `GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1`.
-2. Copiar los `.jpg` a `stories/AAAA-MM-DD-<slug>.jpg`, `git add`, commit y `git push origin main` (el aviso «push negotiation failed» es normal).
-3. Por cada historia `createScheduledPost`: blogId `8199629`, red `instagram`, `instagramData.type = "STORY"`, `text` vacío, `media` = `https://raw.githubusercontent.com/4lphamarkets/alpha-markets-media/main/stories/<archivo>.jpg`, `autoPublish: true`, zona **Europe/Madrid**.
-4. Horas: **una por hora**. Tanda de la mañana: 10:00, 11:00, 12:00, 13:00, 14:00. Tanda de la tarde: 16:00, 17:00, 18:00, 19:00, 20:00. Si al terminar ya pasó una hora de esa lista, usar la siguiente hora libre del hueco (nunca solapar con otra historia ni pasar de las 21:00); nunca fechas pasadas.
-5. Comprobar con `getScheduledPosts` que están todas y que `media` ya apunta a `static.metricool.com`; entonces `git rm` de los JPG de `stories/`, commit y push. **Nunca tocar** `plantilla-historias/` ni `plantilla_alpha_markets/`.
-6. Guardar el registro en el repo y subirlo: la tanda de la mañana en `registro/AAAA-MM-DD.json` y la de la tarde en `registro/AAAA-MM-DD-tarde.json` (títulos y temas publicados), para que cada tarea no pise lo de la otra.
-7. **ENVIAR LAS HISTORIAS A ANTONIO PARA VERLAS (orden de Antonio, 23-11-2026):** al generarlas y revisarlas (paso 3), mandar los JPG con `SendUserFile` (`display: attach`, `status: proactive`, en orden de publicación, caption «Las 5 historias de la mañana (o de la tarde), solo para verlas») además de programarlas. **No se dejan en el Escritorio**: solo los vídeos van ahí. Guardar los JPG en una carpeta temporal (p. ej. `/tmp/historias`) hasta enviarlos, porque se borran de `stories/` tras comprobar Metricool.
+## 3. Cómo se hace una HISTORIA de noticia (just-in-time)
+1. **Buscar la noticia más fresca** (últimos 30-60 min) justo antes: WebSearch (modo `extended` si lo normal sale flojo). Solo dos nichos: **cripto** y **acciones/índices de EEUU**. Relevantes, con atención real, verificadas en 2 fuentes si es posible. Descartar las ya publicadas hoy (registro) y las de más de 12 h (salvo que sigan siendo el tema del día).
+2. Preparar el JSON y generar la imagen 1080×1920 con `historias/generador_noticias/make_stories.py` (ver su cabecera y `ejemplo_20-11-2026.json`). Mirar la imagen antes de publicar (Read): texto sin cortes, cifras correctas.
+3. Subir la imagen al repo temporal con **nombre único** (`tmp/AAAA-MM-DD_HHMM_hN.png`, `git pull --rebase` antes del push; si hay conflicto, reintentar), programar en Metricool como STORY de Instagram con la URL `https://raw.githubusercontent.com/4lphamarkets/alpha-markets-media/main/tmp/...` a la hora de publicación; esperar a que Metricool copie el medio a `static.metricool.com`, y después `git rm` del temporal y push.
+4. Si la hora de publicación ya ha pasado o faltan <3 min, publicar con la hora actual +3 min.
+5. Anotar en `registro/AAAA-MM-DD.json` (añadir sin pisar: leer, fusionar, escribir): hueco, titular, fuentes, hora de publicación, id de Metricool.
 
-## 5. VÍDEOS · v25 (25-11-2026, orden de Antonio: SIN PEDIR OK, se publican solos)
-**2 vídeos por tanda, con las 2 noticias más relevantes de las 5 historias de esa tanda.** NO se pide confirmación: se montan y se programan directamente en Metricool (Reel de Instagram + Short de YouTube, blogId 8199629, Europe/Madrid).
-- **MAÑANA:** vídeos a las **10:30** y **12:30** (entre las historias de 10:00-14:00).
-- **TARDE:** vídeos a las **20:00** y **21:00**.
-- Elección: las 2 historias de la tanda con más gancho/cifras verificadas (`scripts/filtro_noticias.py --n 2` o criterio propio); temas distintos entre sí (no 2 de Bitcoin).
-- Guion ≈ 90-100 palabras con cierre fijo «Sígueme para no perderte nada de los mercados financieros, esto es... Alfa Markets!!», `[en tono juguetón]` al inicio, datos con fuente; «esto no es consejo financiero» en la descripción.
-- Audio: ElevenLabs voz `43h7ymOnaaYdWr3dRbsS`, modelo `eleven_v4`, `generations_count: 1`, nunca reintentar. `estimate_only` primero (≤2.000 créditos: generar directo; si no, no generar y notificar). Se descarga con `creative_get_generations` (full_res_url) y curl. Si el audio pasa de ~40 s, acelerarlo con `ffmpeg -filter:a atempo=1.04` (máx. 40 s de vídeo; `qa_video.py` falla > 41 s).
-- Montaje (modo analista): `pip install sherpa-onnx`; modelo Whisper en `~/.alpha_markets/sherpa-onnx-whisper-small` (descarga 640 MB de GitHub releases `asr-models/sherpa-onnx-whisper-small.tar.bz2`, tarda ~5 min; hacerlo en segundo plano al empezar). Copiar `plantilla_alpha_markets` a una carpeta de trabajo por vídeo (p. ej. `/tmp/v/<n>/p`), `scripts/transcribir.py tmp/voz.wav`, escribir `tmp/guion_analista.json`, `scripts/montar.py revisar analista …` (mirar `out/hoja_contacto.jpg`: nada cortado; en `vs` usar cifras cortas sin «$» ni espacios antes de «%»), `scripts/montar.py video analista … --workers 1`. **Renderizar un vídeo cada vez** (2 CPU / 8 GB: dos renders a la vez fallan). Un render tarda ~20-25 min: empezar el montaje del primero en cuanto esté el audio.
-- Entrega: `entrega.json` (ver `entrega_ejemplo.json`; portada 1 = `foto_epica` copiando `portadas/estilos/foto_epica.html` a `portadas/disenos/<slug>_a.html` y añadiendo `#brand .marca-logo{margin:0 auto}`; portada 2 = concepto nuevo del `CATALOGO.md` que pase el historial; `fecha_sede` corta para que quepa en la píldora) y `python scripts/entrega.py out/video_final.mp4 entrega.json`. Mirar las 2 portadas con Read.
-- Publicación: subir MP4 + 2 portadas a `videos_tmp/` del repo (público, almacén temporal), `git push origin HEAD:main`; `createScheduledPost` Instagram REEL (`videoThumbnailUrl` = portada 1, texto = descripción + hashtags) y YouTube Short (`videoThumbnailUrl` = portada 2, `youtubeData` {title, type short, privacy public, tags, category NEWS_POLITICS, madeForKids false}, texto con `#Shorts`). Comprobar con `getScheduledPosts` que `media` apunta a `static.metricool.com`; entonces `git rm videos_tmp/*` y push. Si la hora ya pasó, programar a los 5 min (nunca fecha pasada) y avisar.
-- Copia en el Escritorio de Antonio (opcional, sin bloquear): `SendUserFile` de los 4 archivos y `device_commit_files` a `C:\Users\orden\Desktop\<slug>\` (`get_device_info` da la ruta; el Escritorio está conectado).
-- Anotar en el registro de la tanda: slug, puntuación, créditos, hora y estado.
+## 4. Historia "BITCOIN 15 MIN" (una al azar por la mañana y otra por la tarde)
+Es el hueco de historia normal, pero con gráfica en lugar de noticia. Elegir al azar (dado en el primer hueco del bloque) cuál de las historias de la mañana (09-13) y de la tarde (15-19) lo es; anotar la elección en el registro para que la ejecución siguiente no la repita.
+1. Con el navegador integrado, abrir `https://coinmarketcap.com/` y ejecutar con `javascript_tool` el script de la sección 6 de `plantilla-historias/PROCEDIMIENTO.md` (devuelve `{capturado, pts}` con ~289 puntos de 5 min). Guardarlo como `/tmp/chart.json`.
+2. `python3 plantilla-historias/btc15m_story.py /tmp/chart.json /tmp/btc15m.png HH:MM 6 [ref=HH:MM]` — compara el precio de una hora anterior (por defecto, hace 6 h; elegir una `ref` con sentido, p. ej. la hora de apertura de Wall Street 15:30 o las 09:00) con el de ahora.
+3. Mirar la imagen y publicarla como una historia más (paso 3 de la sección 3). Si el script imprime `ERROR`, hacer una historia de noticia normal en su lugar.
 
-## 6. Cierre de la tanda de la mañana
-Resumen corto: historias programadas (hora y tema), los 2 vídeos elegidos y su estado, créditos ElevenLabs gastados, y cualquier fallo. Si se puede, enviar también una notificación push.
+## 5. Cómo se hace un VÍDEO
+Seguir `FLUJO_DE_TRABAJO.md` con `montar.py` / `entrega.py` / `qa_video.py` (plantilla v24): guion ≤40 s con el estilo del analista, voz ElevenLabs Jaime (`43h7ymOnaaYdWr3dRbsS`, modelo `eleven_v4`).
+- ElevenLabs: **una sola generación** por audio (`generations_count` 1), **nunca reintentar** (cada reintento cuesta créditos); ≈600 créditos por audio. Antes de generar comprobar `account_get_usage`: si quedan **<4.000 créditos no generar** (hacer en su lugar una historia más y anotar el motivo); pedir OK solo si el audio costaría >2.000 créditos.
+- Subir el vídeo automáticamente (sin pedir permiso) a Metricool como REEL de Instagram + Short de YouTube a la hora de publicación indicada en la tabla.
+- Entregar la carpeta del vídeo en el Escritorio: `SendUserFile` + `device_commit_files` a `C:\Users\orden\Desktop\<slug>\` (carpeta por vídeo).
+- Vídeos de la cola atemporal: no se generan; ya están programados en Metricool. Si se quiere usar uno entre semana, reprogramarlo con `updateScheduledPost` (necesita el `info` completo original; el `id` cambia, el `uuid` no).
+- Dos vídeos del mismo día jamás deben ser de la misma noticia.
 
-## 7. TANDA DE LA TARDE (tarea programada a las 15:00, L-V) · desde el 24-11-2026
-Tarea independiente de la de la mañana: **5 historias + 1 vídeo (sección 5, tarde: se sube solo a las 16:00 sin pedir OK)**. Para llegar a las 16:00 arranca a las 14:00 (Europe/Madrid): primero la noticia y el vídeo si hay riesgo de no llegar; la 1.ª historia también sale a las 16:00.
-1. `add_repo` (push) del repo, un solo clon superficial, `register_repo_root`. Leer esta rutina (secciones 0-4) y seguirla sin preguntar.
-2. Buscar **5 noticias nuevas** (cripto y bolsa de EE. UU., lo ocurrido desde la mañana: apertura de Wall Street a las 15:30, datos macro, movimientos de cripto, anuncios de empresas). Leer antes `registro/AAAA-MM-DD.json` (la mañana de hoy) y los 3 días anteriores para **no repetir nada** y mantener la variedad (Bitcoin como máximo 1-2 en la tarde).
-3. Generar las 5 historias (secciones 2 y 3), programarlas a las **15:00, 16:00, 17:00, 18:00 y 19:00** (sección 4) y guardar `registro/AAAA-MM-DD-tarde.json`. Si son más de las 16:00 cuando termina, usar las siguientes horas libres hasta las 20:00 y, si no caben las 5, programar las que quepan y avisar.
-4. Enviar a Antonio los 5 JPG con `SendUserFile` (solo para verlos) y cerrar con 2-3 líneas y notificación push. No tocar las tareas de las 21:30 ni las carpetas de plantillas.
+## 6. Historias de precios (cierre del día)
+Generador: `plantilla-historias/build_story.py` (ver `plantilla-historias/PROCEDIMIENTO.md`).
+- **Cripto hoy:** BTC, ETH, HYPE, SOL, BNB, LIT (Lighter) + Fear & Greed abajo del todo. Datos de coinmarketcap.com (navegador integrado).
+- **Wall Street hoy:** S&P 500, Nasdaq, Anthropic (ANT), SpaceX (SPCX), Amazon, Google (GOOGL), Apple, Nvidia, Microsoft (MSFT). Datos de investing.com (navegador integrado). Sin Fear & Greed.
+- L-V a las 21:00 se leen precios ~21:20 y se publican **Cripto hoy a las 21:30** y **Wall Street hoy a las 21:31** (seguidas). Wall Street solo si hay bolsa ese día.
+- Sáb/Dom: solo **Cripto hoy a las 22:00**.
+- Si los datos tienen >45 min o no cuadran, `build_story.py` falla: reintentar la lectura una vez; si sigue mal, no publicar ese precio y anotarlo.
+- Festivos NYSE 2026 (cierre total): 26-11 (Thanksgiving), 25-12 (Navidad). Media sesión: 27-11 (cierra 19:00 Madrid) y 24-12 (cierra 19:00 Madrid). 2027: 1-1, 18-1, 15-2, 26-3 (Viernes Santo), 31-5, 18-6 (Juneteenth observado), 5-7 (Día de la Independencia observado), 6-9, 25-11, 24-12 (Navidad observada). En fecha dudosa, consultar `https://www.nyse.com/trade/hours-calendars` con WebSearch.
+- Regla del dueño: **festivo en EEUU = 100 % cripto**; cuando la bolsa vuelve a abrir, se vuelve a cripto + acciones.
+
+## 7. Concurrencia y seguridad
+- Varias ejecuciones pueden coincidir (p. ej. 09:00 termina vídeo cuando llega 10:00): nombres de archivo únicos con fecha y hora, `git pull --rebase` antes de cada push, el registro se fusiona (nunca se sobrescribe a ciegas), y antes de empezar un hueco se comprueba en el registro que no está hecho.
+- Si una ejecución empieza con >20 min de retraso sobre su hora, publica con la hora actual +3 min y lo anota.
+- Si Metricool rechaza una publicación por cupo o error, anotarlo en el registro y avisar en el resumen final del día (21:xx).
+- Nunca publicar noticias sin fecha clara, rumores sin verificar, consejos de inversión ni promesas de rentabilidad. Tono informativo; estilo según `ESTILO_ANALISTA.md`.
+- No pedir permiso para publicar. Sí detenerse y anotar si se pide algo irreversible fuera de este flujo (compras, pagos, cambios de cuenta).
+
+## 8. Registro diario (`registro/AAAA-MM-DD.json`)
+Estructura mínima: `{"fecha": "...", "modo": "cripto+bolsa|cripto", "huecos": {"06:00": {"estado": "ok|error|omitido", "detalle": "..."}}, "noticias": [{"titular": "...", "hora_pub": "...", "tipo": "historia|video|btc15m"}], "btc15m": {"manana": "11:00", "tarde": "17:00"}}`. Hacer `git pull --rebase` antes y push después.
+
+## 9. Resumen final
+A las 21:00 L-V (tras publicar los precios) dejar al dueño un resumen de 5 líneas en el chat: qué salió bien, qué falló, créditos ElevenLabs restantes y cola Metricool de mañana.

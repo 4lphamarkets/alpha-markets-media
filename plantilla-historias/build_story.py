@@ -7,9 +7,9 @@ Uso:
     python3 build_story.py --selftest
 
 data.json (precio y variación % CON SIGNO tal como los muestra la web):
-    cripto: BTC, HYPE, ETH, SOL, BNB, ZEC -> {"price": 62546.1, "change": -0.29}
+    cripto: BTC, ETH, HYPE, SOL, BNB, LIT -> {"price": 62546.1, "change": -0.29}
             FNG -> número entero 0-100 (Fear & Greed)
-    bolsa : SPX, NDX, AAPL, AMZN, NVDA, INTC, AMD, ANT -> {"price": ..., "change": ...}
+    bolsa : SPX, NDX, ANT, SPCX, AMZN, GOOGL, AAPL, NVDA, MSFT -> {"price": ..., "change": ...}
     "capturado": "2026-11-20T21:20:05+01:00"  (opcional: hora real de lectura; si falta se usa la hora
                  de modificación de data.json. En ambos casos se rechazan datos de más de 45 min)
     opcional por activo: "change_text": "-0.29%"  (se comprueba que el signo coincide)
@@ -40,23 +40,24 @@ F_INTER = os.path.join(HERE, "fonts", "InterAlpha-Bold.ttf")
 MESES = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"]
 
 # clave -> (ticker, subtítulo, mín, máx precio razonable, máx |variación| %)
-CRIPTO = [
+CRIPTO = [  # v26 (26-11-2026): BTC, ETH, HYPE, SOL, BNB, LIT (Lighter) + Fear & Greed
     ("BTC", "BTC", "BITCOIN", 1e3, 1e7, 60),
-    ("HYPE", "HYPE", "HYPERLIQUID", 0.1, 1e4, 60),
     ("ETH", "ETH", "ETHEREUM", 50, 1e5, 60),
+    ("HYPE", "HYPE", "HYPERLIQUID", 0.1, 1e4, 60),
     ("SOL", "SOL", "SOLANA", 1, 1e4, 60),
     ("BNB", "BNB", "BNB", 10, 1e5, 60),
-    ("ZEC", "ZEC", "ZCASH", 1, 1e5, 60),
+    ("LIT", "LIT", "LIGHTER", 0.01, 1e3, 80),
 ]
-BOLSA = [
+BOLSA = [  # v26: S&P 500, Nasdaq, Anthropic, SpaceX, Amazon, Google, Apple, Nvidia, Microsoft (sin Fear & Greed)
     ("SPX", "S&P 500", "ÍNDICE", 1e3, 5e4, 15),
     ("NDX", "NASDAQ", "COMPOSITE", 1e3, 1e5, 15),
-    ("AAPL", "AAPL", "APPLE", 1, 5e3, 40),
-    ("AMZN", "AMZN", "AMAZON", 1, 5e3, 40),
-    ("NVDA", "NVDA", "NVIDIA", 1, 5e3, 40),
-    ("INTC", "INTC", "INTEL", 1, 5e3, 40),
-    ("AMD", "AMD", "ADV. MICRO DEVICES", 1, 5e3, 40),
     ("ANT", "ANT", "ANTHROPIC", 1, 1e5, 80),
+    ("SPCX", "SPCX", "SPACEX", 1, 1e5, 80),
+    ("AMZN", "AMZN", "AMAZON", 1, 5e3, 40),
+    ("GOOGL", "GOOGL", "GOOGLE", 1, 5e3, 40),
+    ("AAPL", "AAPL", "APPLE", 1, 5e3, 40),
+    ("NVDA", "NVDA", "NVIDIA", 1, 5e3, 40),
+    ("MSFT", "MSFT", "MICROSOFT", 1, 5e3, 40),
 ]
 INDICES = {"SPX", "NDX"}  # sin símbolo $
 
@@ -143,6 +144,10 @@ BADGES = {  # clave: (color, texto, color texto)
     "INTC": ((0, 113, 197), "i", WHITE),
     "AMD": ((20, 22, 24), "AMD", WHITE),
     "ANT": ((217, 119, 87), "A", WHITE),
+    "SPCX": ((18, 20, 24), "X", WHITE),
+    "GOOGL": ((66, 133, 244), "G", WHITE),
+    "MSFT": ((0, 120, 212), "M", WHITE),
+    "LIT": ((38, 38, 44), "L", (52, 245, 176)),
 }
 
 
@@ -457,7 +462,7 @@ def build(modo, data_path, out_path, hora, fecha_iso=None):
         h, gap, y0 = 124, 12, 574
     else:
         draw_title(img, "WALL STREET", "HOY")
-        h, gap, y0 = 140, 14, 574
+        h, gap, y0 = 124, 12, 574  # 9 filas
     for i, (key, ticker, sub, p, c) in enumerate(rows):
         draw_card(img, y0 + i * (h + gap), h, key, ticker, sub, p, c)
     if modo == "cripto":
@@ -483,12 +488,13 @@ def selftest():
     cripto = {"capturado": now, "FNG": 12,
               "BTC": {"price": 62546.1, "change": -0.29}, "HYPE": {"price": 67.73, "change": -1.03},
               "ETH": {"price": 1795.2, "change": -0.71}, "SOL": {"price": 75.1, "change": 1.22},
-              "BNB": {"price": 580.97, "change": 0.14}, "ZEC": {"price": 412.5, "change": 3.4}}
+              "BNB": {"price": 580.97, "change": 0.14}, "LIT": {"price": 3.05, "change": 3.4}}
     bolsa = {"capturado": now,
              "SPX": {"price": 7416.59, "change": -1.92}, "NDX": {"price": 24980.1, "change": -2.3},
-             "AAPL": {"price": 268.4, "change": 0.45}, "AMZN": {"price": 231.7, "change": -1.1},
-             "NVDA": {"price": 192.3, "change": 2.35}, "INTC": {"price": 31.85, "change": -0.6},
-             "AMD": {"price": 258.2, "change": 1.7}, "ANT": {"price": 512.4, "change": 4.2}}
+             "ANT": {"price": 95.05, "change": 4.2}, "SPCX": {"price": 210.4, "change": -1.8},
+             "AMZN": {"price": 231.7, "change": -1.1}, "GOOGL": {"price": 301.2, "change": 0.9},
+             "AAPL": {"price": 268.4, "change": 0.45}, "NVDA": {"price": 192.3, "change": 2.35},
+             "MSFT": {"price": 481.6, "change": -0.35}}
     with tempfile.TemporaryDirectory() as td:
         for modo, dat in (("cripto", cripto), ("bolsa", bolsa)):
             jp = os.path.join(td, f"{modo}.json")
