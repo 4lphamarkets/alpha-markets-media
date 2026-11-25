@@ -1,0 +1,13 @@
+{
+ "fecha": "2026-11-25",
+ "tanda": "tarde",
+ "historias": [
+  {"hora": "16:00", "slug": "h01_wall_street_cae", "titular": "WALL STREET SE HUNDE", "tema": "bolsa EEUU (apertura: Nasdaq -3,75%, S&P -2,5%, Dow -1,73%)"},
+  {"hora": "17:00", "slug": "h02_hyperliquid_cae", "titular": "HYPERLIQUID LIDERA LA CAÍDA", "tema": "altcoins/HYPE"},
+  {"hora": "18:00", "slug": "h03_pce_fed", "titular": "INFLACIÓN PCE 3,8%", "tema": "macro/Fed (97% subida dic)"},
+  {"hora": "19:00", "slug": "h04_etf_bitcoin", "titular": "ETF BITCOIN SIN FRENO", "tema": "bitcoin ETF (salidas noviembre ≈4,71B)"},
+  {"hora": "20:00", "slug": "h05_nvidia_anthropic", "titular": "NVIDIA CAE 9%", "tema": "chips/IA (NVDA, ANT bajo OPV)"}
+ ],
+ "notas": "Tanda hecha desde sesión de chat (add_repo/clon manuales) a las ~15:56. Cifras de bolsa de Fox Business a las 9:45 ET (apertura, no cierre); PCE 3,8% a/a y 0,3% m/m, FedWatch 97%/63% solo de Fox. ETF: salidas nov ≈4,71B y lunes 23 ≈570M solo de KuCoin Daily Report (aprox.); semanas de 1,28B y 1,07B de The Block/SoSoValue. Cortos de liquidación HYPE = total − largos (cálculo propio). Aranceles a 16 socios y Dell/Workday descartados (una sola fuente).",
+ "videos": []
+}
