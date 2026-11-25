@@ -1,0 +1,27 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<!-- Portada B · "pantalla_partida_vertical": arriba precio de hoy (rojo), abajo precio realizado (verde), banda con la distancia. Anton + Montserrat. -->
+<link rel="stylesheet" href="portadas/kit.css"><script src="portadas/kit.js"></script>
+<style>
+body{background:#050507}
+#p{background:#050507}
+#top{position:absolute;left:0;right:0;top:0;height:960px;background:linear-gradient(180deg,#3a0610 0%,#1a0409 70%,#050507 100%)}
+#bot{position:absolute;left:0;right:0;top:960px;height:960px;background:linear-gradient(0deg,#06301f 0%,#04180f 70%,#050507 100%)}
+#brand{position:absolute;left:0;right:0;top:262px;text-align:center;z-index:5}
+.lab{position:absolute;left:0;right:0;text-align:center;font-family:Mont;font-weight:900;font-style:italic;font-size:58px;letter-spacing:.14em;color:#fff;white-space:nowrap}
+.num{position:absolute;left:0;right:0;text-align:center;font-family:Anton;line-height:1;white-space:nowrap;text-shadow:0 10px 0 rgba(0,0,0,.55)}
+#l1{top:470px}#n1{top:540px;font-size:270px;color:#FF4A5C;text-shadow:0 0 50px rgba(255,74,92,.55),0 10px 0 rgba(0,0,0,.55)}
+#c1{position:absolute;left:0;right:0;top:830px;text-align:center;font-family:Mont;font-weight:900;font-size:64px;color:#FF4A5C}
+#l2{top:1090px;color:#34F5B0}#n2{top:1160px;font-size:270px;color:#34F5B0;text-shadow:0 0 50px rgba(52,245,176,.55),0 10px 0 rgba(0,0,0,.55)}
+#band{position:absolute;left:60px;right:60px;top:905px;height:110px;z-index:6;border-radius:26px;background:#F5C542;display:flex;align-items:center;justify-content:center;gap:24px;font-family:Mont;font-weight:900;font-style:italic;font-size:60px;color:#0b0a06;box-shadow:0 0 60px rgba(245,197,66,.55),0 10px 0 #7a5a08}
+#q{position:absolute;left:0;right:0;top:1440px;text-align:center;font-family:Mont;font-weight:900;font-style:italic;font-size:76px;color:#fff;white-space:nowrap}
+#q i{color:#34F5B0;font-style:italic}
+#brand .marca-logo{margin:0 auto}</style></head><body><div id="p">
+<div id="top"></div><div id="bot"></div>
+<div id="brand"></div>
+<div class="lab" id="l1">BITCOIN HOY</div><div class="num" id="n1">$59.850</div><div id="c1">−2,3 % EN 24 H</div>
+<div id="band">⬇ SOLO 12 % POR ENCIMA ⬇</div>
+<div class="lab" id="l2">PRECIO REALIZADO</div><div class="num" id="n2">$53.250</div>
+<div id="q">¿Es <i>el suelo</i>?</div>
+</div>
+<script>document.getElementById('brand').innerHTML=marca('',44);window.fit=()=>{ajustar('#n1',960,270,120);ajustar('#n2',960,270,120)}</script>
+</body></html>
