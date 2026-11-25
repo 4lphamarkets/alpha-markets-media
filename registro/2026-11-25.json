@@ -2,11 +2,52 @@
  "fecha": "2026-11-25",
  "tanda": "mañana",
  "historias": [
-  {"hora": "10:00", "slug": "h01_dow_50k", "titular": "DOW JONES SUPERA 50.000", "tema": "bolsa EEUU"},
-  {"hora": "11:00", "slug": "h02_btc_realizado", "titular": "BITCOIN BAJO 60K", "tema": "bitcoin (precio realizado 21Shares)"},
-  {"hora": "12:00", "slug": "h03_sanofi_insmed", "titular": "SANOFI COMPRA INSMED", "tema": "farma/M&A"},
-  {"hora": "13:00", "slug": "h04_oro_cae", "titular": "ORO CAE 2,7%", "tema": "materias primas/macro"},
-  {"hora": "14:00", "slug": "h05_stablecoins", "titular": "STABLECOINS SE ENCOGEN", "tema": "stablecoins/ETF flujos"}
+  {
+   "hora": "10:00",
+   "slug": "h01_dow_50k",
+   "titular": "DOW JONES SUPERA 50.000",
+   "tema": "bolsa EEUU"
+  },
+  {
+   "hora": "11:00",
+   "slug": "h02_btc_realizado",
+   "titular": "BITCOIN BAJO 60K",
+   "tema": "bitcoin (precio realizado 21Shares)"
+  },
+  {
+   "hora": "12:00",
+   "slug": "h03_sanofi_insmed",
+   "titular": "SANOFI COMPRA INSMED",
+   "tema": "farma/M&A"
+  },
+  {
+   "hora": "13:00",
+   "slug": "h04_oro_cae",
+   "titular": "ORO CAE 2,7%",
+   "tema": "materias primas/macro"
+  },
+  {
+   "hora": "14:00",
+   "slug": "h05_stablecoins",
+   "titular": "STABLECOINS SE ENCOGEN",
+   "tema": "stablecoins/ETF flujos"
+  }
  ],
- "notas": "Solo historias (vídeos pausados por orden de Antonio, aunque la RUTINA_DIARIA.md del repo dice reactivados el 25-11: se siguió el prompt de la tarea). CoinDesk/Cointelegraph/The Block/Investing no cargaron (permiso WebFetch), así que la parte cripto es más escasa. Sanofi-Insmed solo con Vista Partners (una fuente). Oro: Yahoo $3,554.00 vs Vista $3,552.30. BTC ≈$59,850 (Why It Moved) vs ~$60,424 (ticker crypto.news). ≈12% sobre precio realizado = cálculo propio. Tesla/SpaceX (comités, single source) y Anthropic bajo OPV (ya cubierto ayer) no usados. add_repo/register_repo_root no disponibles; el repo ya estaba clonado."
+ "notas": "Solo historias (vídeos pausados por orden de Antonio, aunque la RUTINA_DIARIA.md del repo dice reactivados el 25-11: se siguió el prompt de la tarea). CoinDesk/Cointelegraph/The Block/Investing no cargaron (permiso WebFetch), así que la parte cripto es más escasa. Sanofi-Insmed solo con Vista Partners (una fuente). Oro: Yahoo $3,554.00 vs Vista $3,552.30. BTC ≈$59,850 (Why It Moved) vs ~$60,424 (ticker crypto.news). ≈12% sobre precio realizado = cálculo propio. Tesla/SpaceX (comités, single source) y Anthropic bajo OPV (ya cubierto ayer) no usados. add_repo/register_repo_root no disponibles; el repo ya estaba clonado. Vídeos pedidos por Antonio el 25-11 (sin OK): publicados a las 10:30 y 12:30; audio acelerado x1,04 para <=41 s.",
+ "videos": [
+  {
+   "hora": "10:30",
+   "slug": "2026_11_25_dow_50000_nasdaq",
+   "creditos": 566,
+   "modo": "analista",
+   "estado": "programado IG Reel + YT Short"
+  },
+  {
+   "hora": "12:30",
+   "slug": "2026_11_25_bitcoin_precio_realizado",
+   "creditos": 581,
+   "modo": "analista",
+   "estado": "programado IG Reel + YT Short"
+  }
+ ]
 }

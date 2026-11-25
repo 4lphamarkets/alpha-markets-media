@@ -1,27 +1,27 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8">
-<!-- Portada B · "pantalla_partida_vertical": arriba precio de hoy (rojo), abajo precio realizado (verde), banda con la distancia. Anton + Montserrat. -->
+<!-- Portada B · "grafica_suelo": gráfico SVG de una línea que cae hacia una raya verde discontinua (precio realizado 53.250) con flecha y cifras. Todo en un solo SVG. -->
 <link rel="stylesheet" href="portadas/kit.css"><script src="portadas/kit.js"></script>
-<style>
-body{background:#050507}
-#p{background:#050507}
-#top{position:absolute;left:0;right:0;top:0;height:960px;background:linear-gradient(180deg,#3a0610 0%,#1a0409 70%,#050507 100%)}
-#bot{position:absolute;left:0;right:0;top:960px;height:960px;background:linear-gradient(0deg,#06301f 0%,#04180f 70%,#050507 100%)}
-#brand{position:absolute;left:0;right:0;top:262px;text-align:center;z-index:5}
-.lab{position:absolute;left:0;right:0;text-align:center;font-family:Mont;font-weight:900;font-style:italic;font-size:58px;letter-spacing:.14em;color:#fff;white-space:nowrap}
-.num{position:absolute;left:0;right:0;text-align:center;font-family:Anton;line-height:1;white-space:nowrap;text-shadow:0 10px 0 rgba(0,0,0,.55)}
-#l1{top:470px}#n1{top:540px;font-size:270px;color:#FF4A5C;text-shadow:0 0 50px rgba(255,74,92,.55),0 10px 0 rgba(0,0,0,.55)}
-#c1{position:absolute;left:0;right:0;top:830px;text-align:center;font-family:Mont;font-weight:900;font-size:64px;color:#FF4A5C}
-#l2{top:1090px;color:#34F5B0}#n2{top:1160px;font-size:270px;color:#34F5B0;text-shadow:0 0 50px rgba(52,245,176,.55),0 10px 0 rgba(0,0,0,.55)}
-#band{position:absolute;left:60px;right:60px;top:905px;height:110px;z-index:6;border-radius:26px;background:#F5C542;display:flex;align-items:center;justify-content:center;gap:24px;font-family:Mont;font-weight:900;font-style:italic;font-size:60px;color:#0b0a06;box-shadow:0 0 60px rgba(245,197,66,.55),0 10px 0 #7a5a08}
-#q{position:absolute;left:0;right:0;top:1440px;text-align:center;font-family:Mont;font-weight:900;font-style:italic;font-size:76px;color:#fff;white-space:nowrap}
-#q i{color:#34F5B0;font-style:italic}
-#brand .marca-logo{margin:0 auto}</style></head><body><div id="p">
-<div id="top"></div><div id="bot"></div>
-<div id="brand"></div>
-<div class="lab" id="l1">BITCOIN HOY</div><div class="num" id="n1">$59.850</div><div id="c1">−2,3 % EN 24 H</div>
-<div id="band">⬇ SOLO 12 % POR ENCIMA ⬇</div>
-<div class="lab" id="l2">PRECIO REALIZADO</div><div class="num" id="n2">$53.250</div>
-<div id="q">¿Es <i>el suelo</i>?</div>
-</div>
-<script>document.getElementById('brand').innerHTML=marca('',44);window.fit=()=>{ajustar('#n1',960,270,120);ajustar('#n2',960,270,120)}</script>
+<style>body{background:#06080d;margin:0}svg{display:block}text{font-family:Montserrat,Mont,sans-serif;font-weight:900}.an{font-family:Anton,Impact,sans-serif;font-weight:400}</style></head><body>
+<svg id="s" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="fondo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c1018"/><stop offset="1" stop-color="#04120c"/></linearGradient>
+<linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF4A5C" stop-opacity=".35"/><stop offset="1" stop-color="#FF4A5C" stop-opacity="0"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<marker id="pt" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#F5C542"/></marker>
+</defs>
+<rect width="1080" height="1920" fill="url(#fondo)"/>
+<g stroke="#ffffff" stroke-opacity=".07" stroke-width="2"><line x1="60" y1="620" x2="1020" y2="620"/><line x1="60" y1="820" x2="1020" y2="820"/><line x1="60" y1="1020" x2="1020" y2="1020"/><line x1="60" y1="1220" x2="1020" y2="1220"/><line x1="60" y1="1420" x2="1020" y2="1420"/></g>
+<polygon points="80,640 220,700 330,690 470,820 600,800 730,900 850,930 1000,980 1000,1420 80,1420" fill="url(#area)"/>
+<polyline points="80,640 220,700 330,690 470,820 600,800 730,900 850,930 1000,980" fill="none" stroke="#FF4A5C" stroke-width="12" stroke-linejoin="round" stroke-linecap="round" filter="url(#glow)"/>
+<circle cx="1000" cy="980" r="22" fill="#FF4A5C" filter="url(#glow)"/>
+<line x1="60" y1="1235" x2="1020" y2="1235" stroke="#34F5B0" stroke-opacity=".35" stroke-width="20"/><line x1="60" y1="1235" x2="1020" y2="1235" stroke="#34F5B0" stroke-width="8" stroke-dasharray="26 18"/>
+<line x1="1000" y1="1030" x2="1000" y2="1180" stroke="#F5C542" stroke-width="10"/><polygon points="975,1170 1025,1170 1000,1222" fill="#F5C542"/>
+<text x="960" y="1135" text-anchor="end" font-size="56" fill="#F5C542">−12 %</text>
+<text id="t1" x="540" y="470" text-anchor="middle" font-size="96" fill="#ffffff">BITCOIN</text>
+<text id="t2" x="540" y="580" text-anchor="middle" font-size="82" fill="#FF4A5C">BAJO 60.000 $</text>
+<text x="80" y="1305" font-size="44" fill="#34F5B0">PRECIO REALIZADO</text>
+<text class="an" x="80" y="1510" font-size="190" fill="#34F5B0" filter="url(#glow)">53.250 $</text>
+<text x="540" y="1640" text-anchor="middle" font-size="58" fill="#ffffff">¿Hay suelo <tspan fill="#F5C542">más abajo</tspan>?</text>
+<image href="img/logo_alpha_wordmark.png" x="330" y="240" width="420" height="125" preserveAspectRatio="xMidYMid meet"/>
+</svg>
 </body></html>
