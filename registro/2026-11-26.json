@@ -62,6 +62,10 @@
   "extra_20:00_binance": {
    "estado": "ok",
    "detalle": "Historia EXTRA pedida por Antonio (ver un diseño nuevo publicado): diseño v30 'alerta' en colores de marca. Hacker de Binance (hackeo 29-oct ~6.340M$) mueve 35,5M$ en ETH el 26-nov; ~1.900M$ sin congelar. IG STORY 20:00 id 443515466."
+  },
+  "21:00": {
+   "estado": "ok",
+   "detalle": "Thanksgiving: solo 'Cripto hoy' (sin Wall Street). Precios CMC leídos 21:08 (BTC 60.642 +1,26%, F&G 10). IG STORY 21:30 id 443590171."
   }
  },
  "noticias": [
