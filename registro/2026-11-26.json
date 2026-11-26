@@ -46,6 +46,10 @@
   "16:00": {
    "estado": "ok",
    "detalle": "Historia 7 = BTC 15 MIN (sorteo tarde) IG STORY 17:00 id 443260679 (BTC 60.450->60.242, -0,34%). Vídeo D (Strategy -20% bajo coste medio) modo dinámico, IG Reel id 443280149 + YT Short id 443280181 programados 18:30. Audio 604 créditos (~93.500 restantes aprox.). Carpeta Escritorio 2026_11_26_strategy_bitcoin_bajo_coste OK; archivos y portadas enviados por chat. Audio 44 s (>40 s, montado con --max 45)."
+  },
+  "17:00": {
+   "estado": "ok",
+   "detalle": "Historia 8 (estilo cartel) IA vs criptografía: aviso de Scott Aaronson sobre avances sin publicar en labs de IA (sin pruebas públicas). IG STORY 18:00 id 443335145. BTC15m de la tarde ya hecho a las 16:00."
   }
  },
  "noticias": [
@@ -155,6 +159,16 @@
     "CoinMarketCap"
    ],
    "modo": "dinamico"
+  },
+  {
+   "titular": "Scott Aaronson avisa: laboratorios de IA podrían tener avances criptográficos sin publicar; sin verificar; BTC ~60,9K",
+   "hora_pub": "18:00",
+   "tipo": "historia",
+   "estilo": "cartel",
+   "fuentes": [
+    "Cointelegraph 26-11",
+    "Explainx"
+   ]
   }
  ],
  "btc15m": {
