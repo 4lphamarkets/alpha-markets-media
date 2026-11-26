@@ -55,3 +55,14 @@ Escena con `"mood":"red"` = viñeta roja latiendo (noticia mala); `"green"` = vi
 4. `python scripts/montar.py video dinamico tmp/guion_dinamico.json` (añade `--max 45` si el audio ya está hecho y pasa de 40 s).
 5. `entrega.py` como siempre (2 portadas, descripción) y publicación según `RUTINA_DIARIA.md`.
 Zona de piezas: y 330-1350; subtítulos y≈1450-1560; cabecera y≈196-290. Render ≈ 4-6 min.
+
+## Portadas (v28) — los mismos 10 diseños que las historias
+La portada «foto_epica» (globo verde + moneda + titular) está **retirada** (pasada de moda). Cada vídeo lleva 2 portadas con **dos diseños radicalmente distintos** entre sí y distintos de los de los últimos 4 vídeos (el historial lo controla solo).
+En `entrega.json`, sin `portada.disenos`:
+```json
+"portada": {"t1":"BITCOIN","t2":"7.000M $ EN JUEGO","tag":"MAÑANA 09:00","sub":"Vencen <b>opciones</b> por 7.000M$",
+            "rows":[{"n":"PUT/CALL","s":"HOY","p":"0,89","c":"","cc":"r"},{"n":"OCTUBRE","s":"ANTES","p":"0,55","c":"","cc":"v"}],
+            "dir":"down", "estilos":["gigante","periodico"]}   // dir y estilos opcionales; máx. 2 filas; titular corto (la portada es una miniatura)
+```
+Estilos: alerta · gigante · terminal · periodico · chat · cartel · grafica · stickers · versus · lockscreen. Con `cc:"r"` salen en rojo, con `cc:"v"` en verde; `dir:"down"` pone la gráfica bajista. Elegir a mano `estilos` cuando la noticia lo pida (crash → `alerta`; cifra única → `gigante`; dos cifras → `versus`; ley/política → `periodico`). Mirar siempre las 2 portadas (Read) antes de entregar.
+Las portadas con HTML propio (`portada.disenos`) siguen funcionando, pero no se usan salvo petición expresa.

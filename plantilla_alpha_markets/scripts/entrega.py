@@ -125,7 +125,7 @@ for L in lista:
         logos.append({'src': src, 'color': L.get('color') or color_dominante(im), 'modo': L.get('modo', 'moneda')})
     print('logo   :', os.path.relpath(ruta, D), logos[-1]['color'], logos[-1]['modo'])
 
-data = {'titulo': P['titulo'], 'etiqueta': P.get('etiqueta', ''), 'cifra': P.get('cifra', ''), 'pie': P.get('pie', ''),
+data = {'titulo': P.get('titulo', []), 'etiqueta': P.get('etiqueta', ''), 'cifra': P.get('cifra', ''), 'pie': P.get('pie', ''),
         'cifra_etiqueta': P.get('cifra_etiqueta', ''), 'cifra_nombre': P.get('cifra_nombre', ''), 'semilla': slug,
         'icono_svg': icono(P.get('icono')), 'icono_color': P.get('icono_color', '#34F5B0'),
         'persona': persona, 'logos': logos, 'union': P.get('union', 'VS'),
@@ -152,6 +152,28 @@ if P.get('estilo') in ('v8', 'clasico'):
     data2 = dict(data, **{k: P2[k] for k in ('titulo', 'cifra', 'cifra_etiqueta', 'cifra_nombre', 'pie', 'tono') if k in P2}); data2['duelo'] = P2.get('duelo')
     jpg2 = render_portada(os.path.join(A, 'portada_impacto.html'), data2, os.path.join(out, f'{slug}_portada_2.jpg'), 'sinfondo')
     portadas = (jpg1, jpg2)
+elif not P.get('disenos'):
+    # v28 (26-11-2026, orden de Antonio): PORTADAS con los 10 diseños radicalmente distintos de las historias (historias/estilos/).
+    # La antigua "foto_epica" (BITCOIN BLOQUEADO con globo y moneda) está retirada: pasada de moda.
+    # portada en entrega.json: {"t1":"BITCOIN","t2":"BLOQUEADO 20 AÑOS","tag":"RESERVA EEUU","sub":"...","rows":[{"n":"BTC","s":"GOBIERNO","p":"306.795","c":"","cc":"v"}], "estilos":["gigante","periodico"] (opcional)}
+    # (si falta t1/t2 se usa portada.titulo; máx. 2 filas; cada portada del vídeo usa un diseño DISTINTO y no se repiten los de los últimos 4 vídeos)
+    sys.path.insert(0, os.path.join(D, 'historias', 'estilos')); import make_story_estilos as ms
+    tit = [re.sub(r'[*]', '', t) for t in (P.get('titulo') or [])]
+    base = {'t1': P.get('t1') or (tit[0] if tit else ''), 't2': P.get('t2') or ' '.join(tit[1:]), 'tag': P.get('tag') or P.get('etiqueta', ''),
+            'sub': P.get('sub', ''), 'fuente': P.get('fuente', ''), 'rows': (P.get('rows') or ([{'n': P.get('cifra_nombre', ''), 's': P.get('cifra_etiqueta', ''), 'p': P.get('cifra', ''), 'c': '', 'cc': 'r' if P.get('tono') == 'rojo' else 'v'}] if P.get('cifra') else []))[:2]}
+    usados = {e.get('arquetipo') for e in __import__('portadas_historial').cargar()[-8:]}
+    libres = [e for e in ms.ORDEN if 'est_' + e not in usados] or list(ms.ORDEN)
+    elegidos = [e for e in (P.get('estilos') or []) if e in ms.FN][:2]
+    if len(elegidos) < 2:
+        k = sum(map(ord, slug)) % len(libres); elegidos = elegidos + [e for e in (libres[k:] + libres[:k]) if e not in elegidos]
+        if len(elegidos) > 2: elegidos = [elegidos[0], elegidos[len(elegidos) // 2 if len(elegidos) > 3 else 1]] if not P.get('estilos') else elegidos[:2]
+    portadas = []
+    for i, est in enumerate(elegidos[:2]):
+        png = os.path.join(D, 'tmp', f'portada_est_{i}.png'); ms.render(base, png, est)
+        jpg = os.path.join(out, f'{slug}_portada_{i + 1}.jpg'); Image.open(png).convert('RGB').save(jpg, 'JPEG', quality=95, subsampling=0, optimize=True); os.remove(png); portadas.append(jpg)
+        print('portada', i + 1, '→ diseño', est)
+    portadas = tuple(portadas)
+    guardar_historial([{'html': 'historias/estilos/make_story_estilos.py', 'arquetipo': 'est_' + e, 'concepto': f'Portada diseño {e}: ' + base['t1'] + ' ' + base['t2'], 'tipografia': e, 'paleta': e} for e in elegidos[:2]], slug) if False else __import__('portadas_historial').guardar_historial_simple([{'arquetipo': 'est_' + e, 'concepto': f'Portada diseño {e}: ' + base['t1'] + ' ' + base['t2']} for e in elegidos[:2]], slug)
 else:
     # v10: DOS portadas DISEÑADAS DESDE CERO para este vídeo (portada.disenos en entrega.json), validadas contra el historial.
     disenos = validar_disenos(P.get('disenos'), slug)

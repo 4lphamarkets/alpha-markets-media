@@ -118,3 +118,14 @@ def guardar_historial(disenos, slug):
 
 if __name__ == '__main__':
     sys.exit(mostrar())
+
+
+def guardar_historial_simple(items, slug):
+    """v28: anota en el historial las portadas hechas con los diseños de historias/estilos (sin HTML propio)."""
+    ahora = datetime.datetime.now().isoformat(timespec='seconds')
+    nuevas = [{'fecha': ahora, 'slug': slug, 'arquetipo': d['arquetipo'], 'concepto': d.get('concepto', ''), 'tipografia': '', 'paleta': ''} for d in items]
+    H = [e for e in cargar() if e.get('slug') != slug] + nuevas
+    for h in HIST:
+        try:
+            os.makedirs(os.path.dirname(h), exist_ok=True); json.dump(H, open(h, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+        except OSError as e: print('AVISO: no se pudo guardar el historial en', h, e)

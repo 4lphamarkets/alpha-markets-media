@@ -1,6 +1,6 @@
 # RUTINA DIARIA v27 — ALPHA MARKETS (desde el 26-11-2026)
 
-> **v27 (26-11-2026, orden de Antonio):** (1) los vídeos se montan SIEMPRE con el **MODO DINÁMICO** (`ESTILO_DINAMICO.md`, `montar.py … dinamico`): animado todo el rato, stickers/monedas/imán/gráficas/ruletas que ilustran lo que se dice, y **en noticias de caída: pantalla roja + sirena + glitch (`crash`)**. El modo «analista» queda prohibido. (2) Las historias de noticia usan `historias/estilos/make_story_estilos.py` con **10 diseños radicalmente distintos**: cada una distinta de la anterior (ver §3).
+> **v27 (26-11-2026, orden de Antonio):** (1) los vídeos se montan SIEMPRE con el **MODO DINÁMICO** (`ESTILO_DINAMICO.md`, `montar.py … dinamico`): animado todo el rato, stickers/monedas/imán/gráficas/ruletas que ilustran lo que se dice, y **en noticias de caída: pantalla roja + sirena + glitch (`crash`)**. El modo «analista» queda prohibido. (2) Las **portadas** de los vídeos usan los mismos 10 diseños (sin `foto_epica`; ver `ESTILO_DINAMICO.md` §Portadas). (3) Las historias de noticia usan `historias/estilos/make_story_estilos.py` con **10 diseños radicalmente distintos**: cada una distinta de la anterior (ver §3).
 
 Una sola tarea programada ("RELOJ ALPHA MARKETS") se despierta cada hora en punto (Madrid) y ejecuta SOLO el hueco que toca según la tabla de abajo. Todo es autónomo: **se publica sin pedir permiso**. Si algo falla, se anota en el registro y se sigue con el siguiente hueco (nunca se publica algo roto o con datos antiguos).
 

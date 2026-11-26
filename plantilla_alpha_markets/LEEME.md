@@ -1,4 +1,6 @@
-# Plantilla ALPHA MARKETS v24 (vídeos verticales 9:16)
+# Plantilla ALPHA MARKETS v25 (vídeos verticales 9:16)
+
+> **v25 (26-11-2026) — LEER PRIMERO:** los vídeos se montan SIEMPRE en **MODO DINÁMICO** (`ESTILO_DINAMICO.md`, `python scripts/montar.py video dinamico tmp/guion_dinamico.json`): animado todo el rato, stickers/monedas/imán/velas/ruletas que ilustran lo que se dice, crash = pantalla roja + sirena + glitch. El modo analista queda archivado. **Portadas y historias** usan los **10 diseños radicalmente distintos** de `historias/estilos/make_story_estilos.py` (alerta, gigante, terminal, periódico, chat, cartel, gráfica, stickers, versus, lockscreen); la antigua portada «foto_epica» (globo + moneda) está RETIRADA. `entrega.py` sin `portada.disenos` genera las 2 portadas con 2 diseños distintos (formato en la cabecera del bloque v28 de `scripts/entrega.py` y en `ESTILO_DINAMICO.md` §Portadas).
 
 **Empieza aquí.** Esta página es el resumen; el detalle técnico completo (portadas, sonidos, insertos, motor de dinamismo, historial de versiones) está en `REFERENCIA_TECNICA.md` (el antiguo LEEME de la v22, con las contradicciones corregidas).
 

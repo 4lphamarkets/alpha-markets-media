@@ -1,4 +1,6 @@
-# FLUJO DE TRABAJO ALPHA MARKETS (v23)
+# FLUJO DE TRABAJO ALPHA MARKETS (v25)
+
+> 🆕 **v25: el montaje es SIEMPRE `montar.py … dinamico` (ver `ESTILO_DINAMICO.md`) y las portadas usan los 10 diseños de `historias/estilos/` (sin `foto_epica`). Donde este documento hable del modo analista/clásico o de portadas `foto_epica`/`disenos`, manda lo de v25.**
 
 > 🆕 **v23: MONTAJE CON UN COMANDO.** `python scripts/montar.py revisar|video analista|clasico tmp/guion_*.json` hace prep → validar → build → (hoja de contacto) → render → insertos → efectos → mezcla −16 LUFS → control de calidad. Antes de renderizar se mira `out/hoja_contacto.jpg` (4 s) y `scripts/validar.py` avisa de errores de guion; el audio se transcribe con `scripts/transcribir.py`. Detalle en `LEEME.md`.
 
