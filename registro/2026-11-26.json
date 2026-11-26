@@ -26,6 +26,10 @@
   "13:00": {
    "estado": "ok",
    "detalle": "Historia 5 (aranceles USTR Sección 301 + Nasdaq -3,31% apertura 25-nov, BTC ~57.965) IG STORY 13:30 id 443022256."
+  },
+  "14:00": {
+   "estado": "ok",
+   "detalle": "Vídeo C (opciones BTC 7.000M$ vence vie 27-11 09:00 Madrid) programado 15:30: IG Reel id 443098677 + YT Short id 443098705. Audio 618 créditos (~94.700 restantes aprox.). Carpeta en Escritorio OK; archivos enviados por chat."
   }
  },
  "noticias": [
@@ -95,6 +99,17 @@
     "Reuters (citado)",
     "Cointelegraph titular"
    ]
+  },
+  {
+   "titular": "7.000M$ en opciones BTC caducan vie 27-11 09:00 Madrid (-35% vs oct 10.800M$); put/call 0,55->0,89; puts 60K/58K",
+   "hora_pub": "15:30",
+   "tipo": "video",
+   "slug": "2026_11_26_opciones_bitcoin_vencimiento",
+   "fuentes": [
+    "CoinDesk 26-11",
+    "CryptoSlate"
+   ],
+   "modo": "analista"
   }
  ],
  "btc15m": {
