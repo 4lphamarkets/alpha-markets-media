@@ -18,6 +18,10 @@
   "11:00": {
    "estado": "ok",
    "detalle": "Historia 3 (noticia PCE/Fed) IG STORY 11:30 id 442887442. BTC15m de la mañana ya hecho a las 10:00."
+  },
+  "12:00": {
+   "estado": "ok",
+   "detalle": "Historia 4 (stablecoins -10,7B, mayor caída 18 días desde Terra; 21Shares) IG STORY 12:30 id 442952143."
   }
  },
  "noticias": [
@@ -67,6 +71,15 @@
     "Cointelegraph 25-26/11",
     "CME FedWatch",
     "KuCoin"
+   ]
+  },
+  {
+   "titular": "Stablecoins: suministro -10,7B en 18 días (mayor desde Terra), -15% en exchanges; 21Shares precio realizado BTC 53.250",
+   "hora_pub": "12:30",
+   "tipo": "historia",
+   "fuentes": [
+    "crypto.news 26-11",
+    "21Shares"
    ]
   }
  ],
