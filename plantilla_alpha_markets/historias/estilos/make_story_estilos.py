@@ -7,7 +7,7 @@ uso: python3 historias/estilos/make_story_estilos.py datos.json salida.png [--es
   --estilo auto (por defecto): elige el diseño por el nº de hueco del día (--hueco K, 1-10) usando ORDEN, que alterna estilos
                  de familias opuestas (oscuro/claro, texto/gráfico, tipografía serif/mono/display) → NUNCA dos parecidos seguidos.
   --lista: imprime los diseños.
-Estilos: alerta, gigante, terminal, periodico, chat, cartel, grafica, stickers, versus, lockscreen."""
+Estilos v30 (los únicos activos): noticia, alerta, velas, poster, gigante, tweet."""
 import json, os, re, sys, html, base64, pathlib
 ROOT = pathlib.Path(__file__).resolve().parents[2]          # plantilla_alpha_markets
 E = html.escape
@@ -339,6 +339,157 @@ def render(d, out, estilo):
         pg.goto('file://' + str(p)); pg.wait_for_timeout(300); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(200)
         pg.screenshot(path=out, type='png'); b.close()
     p.unlink(missing_ok=True)
+
+
+# =====================================================================================
+# v30 (26-11-2026, orden de Antonio): SOLO 6 DISEÑOS, todos con la IDENTIDAD DE MARCA (fondo verde oscuro, menta, cabecera logo+fecha);
+# rojo/verde solo para lo que sube o baja. noticia + velas = los 2 modelos de Antonio (gráficas, cualquier activo cripto o bolsa);
+# alerta + poster + gigante + tweet = los 4 más llamativos de los 13 anteriores, rehechos en colores de marca.
+# =====================================================================================
+BR = '../../../plantilla-historias/assets/'
+MESES = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC']
+def fecha_txt(d):
+    if d.get('fecha'): return d['fecha']
+    import datetime as dt
+    try:
+        from zoneinfo import ZoneInfo; n = dt.datetime.now(ZoneInfo('Europe/Madrid'))
+    except Exception: n = dt.datetime.now()
+    return f"{n.day} {MESES[n.month-1]} {n.year}"
+def fitw(t, maxw, maxfs, k=0.8):
+    t = re.sub('<[^>]+>', '', t); return int(min(maxfs, maxw / (max(1, len(t)) * k)))
+def num(s):
+    m = re.search(r'-?\d+(?:[.,]\d+)?', str(s or '')); 
+    if not m: return None
+    v = float(m.group(0).replace(',', '.'));  return -abs(v) if '-' in str(s) or '−' in str(s) else v
+CAL = '<svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#34F5B0" stroke-width="4"><rect x="4" y="8" width="36" height="32" rx="6"/><path d="M4 18h36M13 3v9M22 3v9M31 3v9"/></svg>'
+BCSS = f"""body{{background:#06150f url({BR}fondo_historia.png) center/cover;font-family:Mont;color:#fff}}
+.blogo{{position:absolute;left:58px;top:62px;width:460px}}
+.bdate{{position:absolute;left:590px;top:86px;width:422px;height:88px;border-radius:30px;background:rgba(0,0,0,.47);border:2px solid rgba(52,245,176,.2);display:flex;align-items:center;gap:20px;padding-left:34px;font-weight:800;font-size:44px;letter-spacing:.01em}}
+.bcard{{border-radius:34px;border:2px solid rgba(52,245,176,.55);background:linear-gradient(rgba(9,46,36,.9),rgba(3,22,16,.94));box-shadow:0 0 30px rgba(52,245,176,.18)}}
+.g2{{background:linear-gradient(#8bffd0,#0fb872);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic;font-weight:900;text-transform:uppercase;filter:drop-shadow(0 0 26px rgba(52,245,176,.5))}}
+.bsub{{font-weight:800;line-height:1.25;color:#cfeee2}}.bsub b{{color:#04130d;background:#34F5B0;padding:0 12px;border-radius:8px}}
+.bsrc{{position:absolute;left:50px;right:50px;font-style:italic;font-size:25px;font-weight:600;color:#9fc5b6;text-align:center}}"""
+def bhead(d): return f'<style>{BCSS}</style><img class=blogo src={BR}logo_alpha_wordmark.png><div class=bdate>{CAL}<span>{fecha_txt(d)}</span></div>'
+def rcol(cc): return '#FF5454' if cc == 'r' else '#28F096'
+def arrow(cc, s=96):
+    c = rcol(cc); pts = '30,38 70,38 50,66' if cc == 'r' else '30,62 70,62 50,34'
+    return f'<svg width="{s}" height="{s}" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="rgba(0,0,0,.35)" stroke="{c}" stroke-width="4"/><polygon points="{pts}" fill="{c}"/></svg>'
+
+# ---------- A. NOTICIA (modelo 1 de Antonio): titular + filas de precios + gráfica de barras con oso/toro ----------
+def noticia(d):
+    t1, t2 = head(d); R = rows(d, 4); good = up(d)
+    logos = d.get('logos') or []
+    if isinstance(logos, str): logos = [logos]
+    bad = ''
+    for i, l in enumerate(logos[:2]):
+        import os
+        fp = ROOT.parent / 'plantilla-historias' / 'assets' / 'icons' / f'{l.upper()}.png'
+        inner = f'<img src="{BR}icons/{l.upper()}.png" style="width:120px;height:120px">' if fp.exists() else f'<span style="font-size:{fitw(l,150,50,.85)}px">{E(l)}</span>'
+        st = 'border:5px solid #34F5B0;background:rgba(0,0,0,.25)' if i == 0 else 'background:#D07A5E;box-shadow:0 0 40px rgba(208,122,94,.5)'
+        bad += f'<div style="width:210px;height:210px;border-radius:50%;{st};display:flex;align-items:center;justify-content:center;font-weight:900;font-style:italic;margin-bottom:22px">{inner}</div>'
+    maxw = 740 if logos else 960
+    fs1 = fitw(t1, maxw, 200); fs2 = fitw(t2, maxw, 210)
+    rws = ''
+    for x in R:
+        p = E(x.get('p') or ''); c = E(x.get('c') or '')
+        right = (f'<div style="font-size:58px;font-weight:900">{p}</div>' if p else '') + f'<div style="font-size:58px;font-weight:900;color:{rcol(x.get("cc"))};min-width:260px;text-align:right">{c}</div>'
+        rws += f'<div class="bcard" style="height:128px;margin-bottom:16px;display:flex;align-items:center;padding:0 34px;gap:26px;border-color:rgba(52,245,176,.35)">{arrow(x.get("cc"))}<div style="width:3px;height:84px;background:rgba(52,245,176,.35)"></div><div style="flex:1"><div style="font-size:46px;font-weight:900;text-transform:uppercase">{E(x["n"])}</div><div style="font-size:27px;font-weight:700;color:#9fd8c2;text-transform:uppercase">{E(x.get("s",""))}</div></div><div style="display:flex;gap:30px;align-items:center">{right}</div></div>'
+    vals = [(x['n'], num(x.get('c'))) for x in R if num(x.get('c')) is not None]
+    graf = ''
+    if len(vals) >= 2:
+        mx = max(abs(v) for _, v in vals) or 1; bw = min(130, 540 // len(vals) - 14)
+        bars = ''.join(f'<div style="width:{bw}px;text-align:center"><div style="font-size:26px;font-weight:800;color:{rcol("r" if v<0 else "v")};margin-bottom:6px">{v:+g}%</div><div style="height:{max(14,int(abs(v)/mx*150))}px;border-radius:12px 12px 0 0;background:{rcol("r" if v<0 else "v")};box-shadow:0 0 24px {rcol("r" if v<0 else "v")}88"></div></div>' for _, v in vals)
+        labs = ''.join(f'<div style="width:{bw}px;text-align:center;font-size:21px;font-weight:700;color:#9fd8c2;text-transform:uppercase">{E(n)}</div>' for n, _ in vals)
+        graf = f'''<div class=bcard style="position:absolute;left:44px;right:44px;top:1370px;height:440px;overflow:hidden">
+<img src={BR}oso.png style="position:absolute;left:0;bottom:60px;height:230px;opacity:.55;mix-blend-mode:screen"><img src={BR}toro.png style="position:absolute;right:0;bottom:60px;height:230px;opacity:.55;mix-blend-mode:screen">
+<div style="text-align:center;font-size:40px;font-weight:900;margin-top:22px;text-transform:uppercase">{E(d.get("grafico") or ("Subidas" if good else "Caídas"))} (%)</div>
+<div style="position:absolute;left:0;right:0;top:116px;display:flex;justify-content:center;gap:14px;align-items:flex-end;height:190px">{bars}</div>
+<div style="position:absolute;left:0;right:0;top:308px;border-top:2px solid rgba(255,255,255,.25);display:flex;justify-content:center;gap:14px;padding-top:6px">{labs}</div>
+<div style="position:absolute;left:0;right:0;bottom:20px;text-align:center;font-size:30px;font-weight:800">{d.get("nota","")}</div></div>'''
+    return f"""{bhead(d)}<style>.badges{{position:absolute;right:46px;top:215px}}</style>
+<div style="position:absolute;left:50px;top:205px;font-weight:900;text-transform:uppercase;font-size:{fs1}px;line-height:1.02;text-shadow:0 8px 24px rgba(0,0,0,.7)">{t1}</div>
+<div class=g2 style="position:absolute;left:50px;top:{205+int(fs1*1.0)}px;font-size:{fs2}px;line-height:1.05;white-space:nowrap">{t2}</div>
+<div class=badges>{bad}</div>
+<div class=bsub style="position:absolute;left:50px;width:{maxw}px;top:{205+int(fs1*1.0)+int(fs2*1.12)+14}px;font-size:32px;letter-spacing:.05em;text-transform:uppercase">{sub(d)}</div>
+<div style="position:absolute;left:44px;right:44px;top:{770 if len(R)>=4 else 800}px">{rws}</div>{graf}
+<div class=bsrc style="top:1830px">{fuente(d)}</div>"""
+
+# ---------- B. ALERTA (marca): última hora con bandas de peligro, titular y filas ----------
+def alerta(d):
+    t1, t2 = head(d); R = rows(d, 4); good = up(d)
+    ac = '#28F096' if good else '#FF3B48'
+    items = ''.join(f'<div class="bcard" style="height:132px;margin-bottom:18px;display:flex;align-items:center;padding:0 30px;gap:22px;border-color:{rcol(x.get("cc"))}88">{arrow(x.get("cc"),84)}<div style="flex:1"><div style="font-size:42px;font-weight:900;text-transform:uppercase">{E(x["n"])}</div><div style="font-size:24px;font-weight:700;color:#9fd8c2;text-transform:uppercase">{E(x.get("s",""))}</div></div><div style="font-size:60px;font-weight:900;color:{rcol(x.get("cc"))}">{E(x.get("p") or x.get("c",""))}</div></div>' for x in R)
+    return f"""{bhead(d)}<style>.hz{{position:absolute;left:0;right:0;height:46px;background:repeating-linear-gradient(-45deg,{ac} 0 38px,#0a1410 38px 76px)}}</style>
+<div style="position:absolute;left:50%;top:360px;width:900px;height:900px;margin-left:-450px;background:radial-gradient({ac}44,transparent 65%)"></div>
+<div class=hz style="top:206px"></div><div class=hz style="bottom:84px"></div>
+<div style="position:absolute;left:50px;top:290px;background:{ac};color:#fff;font-weight:900;font-size:46px;padding:12px 34px;border-radius:14px;letter-spacing:.08em;box-shadow:0 0 44px {ac}">● {E(d.get('tag') or 'ÚLTIMA HORA')}</div>
+<div style="position:absolute;left:50px;top:400px;font-weight:900;text-transform:uppercase;font-size:{fitw(t1,780,210)}px;line-height:1;text-shadow:0 8px 28px rgba(0,0,0,.7);white-space:nowrap">{t1}</div>
+<div class=g2 style="position:absolute;left:50px;top:{400+fitw(t1,780,210)+6}px;font-size:{fitw(t2,960,200)}px;line-height:1.05;white-space:nowrap">{t2}</div>
+<div class=bsub style="position:absolute;left:54px;right:54px;top:930px;font-size:42px">{sub(d)}</div>
+<div style="position:absolute;left:44px;right:44px;top:1090px">{items}</div>
+<div class=bsrc style="bottom:150px">{fuente(d)}</div>"""
+
+# ---------- C. POSTER (marca): icono gigante con rayos, titular debajo ----------
+def poster(d):
+    t1, t2 = head(d); good = up(d); ac = '#28F096' if good else '#FF4D5A'
+    chips = ''.join(f'<div class="bcard" style="padding:14px 26px;text-align:center;border-radius:24px"><small style="display:block;font-size:20px;color:#9fd8c2;font-weight:800;text-transform:uppercase">{E(x["n"])}</small><b style="font-size:56px;font-weight:900;color:{rcol(x.get("cc"))}">{E(x.get("p") or x.get("c",""))}</b></div>' for x in rows(d, 3))
+    rays = ''.join(f'<i style="transform:rotate({k*15}deg)"></i>' for k in range(24))
+    return f"""{bhead(d)}<style>.rays{{position:absolute;left:50%;top:640px;width:0;height:0}}.rays i{{position:absolute;left:-14px;top:-1000px;width:28px;height:1000px;background:linear-gradient({ac}40,transparent);transform-origin:50% 100%}}</style>
+<div style="position:absolute;left:190px;top:240px;width:700px;height:700px;border-radius:50%;background:radial-gradient({ac}66,transparent 65%)"></div><div class=rays>{rays}</div>
+{sticker(d,190,260,700,0,0,6) or sticker({'icono':['bolt']},190,260,700,0,0,6)}
+<div style="position:absolute;left:40px;right:40px;top:1000px;text-align:center;font-weight:900;text-transform:uppercase;font-size:{fitw(t1,1000,200)}px;line-height:1;text-shadow:0 8px 28px rgba(0,0,0,.7)">{t1}</div>
+<div class=g2 style="position:absolute;left:40px;right:40px;top:{1000+fitw(t1,1000,200)+6}px;text-align:center;font-size:{fitw(t2,1000,170)}px;line-height:1.05;white-space:nowrap">{t2}</div>
+<div class=bsub style="position:absolute;left:70px;right:70px;top:1470px;text-align:center;font-size:38px">{sub(d)}</div>
+<div style="position:absolute;left:40px;right:40px;top:1590px;display:flex;gap:18px;justify-content:center">{chips}</div>
+<div class=bsrc style="bottom:96px">{fuente(d)}</div>"""
+
+# ---------- D. GIGANTE (marca): una cifra enorme en rojo/verde sobre el fondo de marca ----------
+def gigante(d):
+    t1, t2 = head(d); c, p, r0 = big(d); good = up(d); ac = '#28F096' if good else '#FF4D5A'
+    txt = re.sub(r'<[^>]+>', '', c or p); fs = 400 if len(txt) <= 5 else 310 if len(txt) <= 7 else 230
+    chips = ''.join(f'<div class="bcard" style="flex:1;padding:18px 10px;text-align:center;border-radius:26px"><small style="display:block;font-size:22px;color:#9fd8c2;font-weight:800;text-transform:uppercase">{E(x["n"])}</small><b style="font-size:58px;font-weight:900;color:{rcol(x.get("cc"))}">{E(x.get("p") or x.get("c",""))}</b></div>' for x in rows(d, 4)[1:4])
+    return f"""{bhead(d)}
+<div style="position:absolute;left:50px;top:230px;border:3px solid #34F5B0;color:#34F5B0;font-weight:900;font-size:40px;letter-spacing:.18em;padding:8px 26px;border-radius:14px;text-transform:uppercase">{E(d.get('tag') or 'HOY')}</div>
+<div style="position:absolute;left:0;right:0;top:440px;text-align:center;font-family:Anton;font-size:{fs}px;line-height:1;color:{ac};transform:rotate(-4deg);text-shadow:0 0 70px {ac}99">{E(txt)}</div>
+<div style="position:absolute;left:50px;right:50px;top:{440+fs+40}px;font-weight:900;text-transform:uppercase;font-size:{fitw(t1,960,150)}px;line-height:1;text-shadow:0 8px 28px rgba(0,0,0,.7)">{t1}</div>
+<div class=g2 style="position:absolute;left:50px;right:50px;top:{440+fs+40+fitw(t1,960,150)+6}px;font-size:{fitw(t2,960,150)}px;line-height:1.05;white-space:nowrap">{t2}</div>
+<div class=bsub style="position:absolute;left:54px;right:54px;top:1400px;font-size:38px">{sub(d)}</div>
+<div style="position:absolute;left:44px;right:44px;top:1560px;display:flex;gap:16px">{chips}</div>
+<div class=bsrc style="bottom:150px">{fuente(d)}</div>"""
+
+# ---------- E. TWEET (marca): publicación de X sobre el fondo verde de marca ----------
+def tweet(d):
+    t1, t2 = head(d); rs = rows(d, 3); ics = icons_of(d) or ['bolt']
+    met = ''.join(f'<div class=m><b style="color:{rcol(x.get("cc"))}">{E(x.get("p") or x.get("c",""))}</b><span>{E(x["n"])}</span></div>' for x in rs)
+    return f"""{bhead(d)}<style>.card{{position:absolute;left:50px;right:50px;top:300px;background:#fff;border-radius:40px;padding:46px 46px 40px;box-shadow:0 0 0 4px rgba(52,245,176,.7),0 30px 90px rgba(0,0,0,.5);color:#0F1419;font-family:Inter,Mont}}
+.u{{display:flex;gap:22px;align-items:center}}.u img{{width:104px;height:104px;border-radius:50%}}.u b{{font-size:42px;display:block}}.u b i{{display:inline-block;width:38px;height:38px;border-radius:50%;background:#1D9BF0;color:#fff;font-style:normal;font-size:26px;text-align:center;line-height:38px;vertical-align:middle;margin-left:10px}}.u span{{font-size:28px;color:#536471}}
+.x{{margin-left:auto;font-size:60px;font-weight:900}}.tx{{font-size:{fitw(t1+' '+t2,880,96,.5)}px;font-weight:800;line-height:1.12;margin-top:34px}}.tx em{{font-style:normal;color:#0fa968}}
+.sub{{font-size:38px;line-height:1.3;color:#344;margin-top:22px}}.sub b{{background:#c9f7e3;padding:0 8px;border-radius:8px}}
+.hero{{height:640px;margin-top:30px;border-radius:30px;background:radial-gradient(circle at 50% 40%,#0d4a38,#04130d);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}}
+.mt{{display:flex;justify-content:space-around;margin-top:30px;padding-top:26px;border-top:2px solid #E1E8ED}}.m{{text-align:center}}.m b{{font-family:Anton;font-size:58px;display:block}}.m span{{font-size:22px;color:#536471;font-weight:800;text-transform:uppercase}}</style>
+<div style="position:absolute;left:0;right:0;top:205px;text-align:center;font-weight:900;font-size:32px;letter-spacing:.2em;color:#34F5B0">{E(d.get('tag') or 'EN TENDENCIA')}</div>
+<div class=card><div class=u><img src={AV}><div><b>4LPHA MARKETS<i>✓</i></b><span>@4lphamarkets · ahora</span></div><div class=x>𝕏</div></div>
+<div class=tx>{t1} <em>{t2}</em></div><div class=sub>{sub(d)}</div><div class=hero>{icon(ics[0],460,-6)}</div><div class=mt>{met}</div></div>
+<div class=bsrc style="bottom:170px">{fuente(d)}</div>"""
+
+FN.update(noticia=noticia, alerta=alerta, poster=poster, gigante=gigante, tweet=tweet)
+ESTILOS = ['noticia', 'alerta', 'velas', 'poster', 'gigante', 'tweet']
+ORDEN = ['noticia', 'alerta', 'velas', 'poster', 'gigante', 'tweet']       # hueco K -> ORDEN[(K-1)%6]; 10 huecos => 7-10 repiten (nunca dos seguidas)
+HERO = {'alerta': [(790, 280, 230, 10)], 'gigante': [(800, 215, 200, 12)]}
+def render_velas(d, out):
+    import sys as _s
+    _s.path.insert(0, str(ROOT.parent / 'plantilla-historias'))
+    import btc15m_story as B
+    import datetime as dt
+    try:
+        from zoneinfo import ZoneInfo; hh = dt.datetime.now(ZoneInfo('Europe/Madrid')).strftime('%H:%M')
+    except Exception: hh = dt.datetime.now().strftime('%H:%M')
+    B.build(d['chart'], out, d.get('hora') or hh, float(d.get('horas', 6)), d.get('ref'), d.get('activo', 'BITCOIN').upper(), d.get('simbolo', 'BTC').upper(),
+            d.get('fuente_datos', 'CoinMarketCap'), float(d.get('pmin', 1e3)), float(d.get('pmax', 1e7)))
+_render_html = render
+def render(d, out, estilo):
+    if estilo == 'velas': return render_velas(d, out)
+    return _render_html(d, out, estilo)
 
 if __name__ == '__main__':
     a = [x for x in sys.argv[1:]]

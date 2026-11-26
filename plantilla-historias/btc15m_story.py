@@ -43,7 +43,7 @@ def tz():
 
 
 def money(p):
-    return f"${p:,.0f}" if p >= 1000 else f"${p:,.2f}"
+    return f"${p:,.0f}" if p >= 1000 else f"${p:,.2f}" if p >= 1 else f"${p:,.4f}"
 
 
 def pct(c):
@@ -51,7 +51,7 @@ def pct(c):
     return "0.00%" if r == 0 else f"{r:+.2f}%"
 
 
-def load_points(path):
+def load_points(path, pmin=1e3, pmax=1e7, asset="BTC"):
     try:
         raw = json.load(open(path, encoding="utf-8"))
     except Exception as e:
@@ -78,8 +78,8 @@ def load_points(path):
     if (now - last_t).total_seconds() / 60 > 30:
         raise StoryError(f"el último punto de precio tiene {(now - last_t).total_seconds() / 60:.0f} min: datos antiguos")
     for _, p in pts:
-        if not (math.isfinite(p) and 1e3 <= p <= 1e7):
-            raise StoryError(f"precio {p} fuera de rango razonable para BTC")
+        if not (math.isfinite(p) and pmin <= p <= pmax):
+            raise StoryError(f"precio {p} fuera de rango razonable para {asset}")
     return pts
 
 
@@ -125,11 +125,11 @@ def stat(img, x0, y0, x1, y1, titulo, valor, color=WHITE, sub=None):
         d.text((cx, y1 - 26), sub, font=font(F_INTER, 22), fill=GREY, anchor="mm")
 
 
-def build(chart_path, out_path, hora, horas=6.0, ref=None):
+def build(chart_path, out_path, hora, horas=6.0, ref=None, activo="BITCOIN", sim="BTC", fuente="CoinMarketCap", pmin=1e3, pmax=1e7):
     now = madrid_now()
     if not 3 <= horas <= 12:
         raise StoryError("horas debe estar entre 3 y 12")
-    pts = load_points(chart_path)
+    pts = load_points(chart_path, pmin, pmax, sim)
     cs = candles15(pts, horas)
     if len(cs) < int(horas * 4 * 0.7):
         raise StoryError(f"solo {len(cs)} velas de 15 min: datos incompletos")
@@ -164,13 +164,13 @@ def build(chart_path, out_path, hora, horas=6.0, ref=None):
     img = Image.open(fondo).convert("RGBA")
     fecha = now.date()
     draw_header(img, f"{fecha.day} {bs.MESES[fecha.month - 1]} {fecha.year}")
-    draw_title(img, "BITCOIN", "15 MIN")
+    draw_title(img, activo, "15 MIN")
 
     # ── tarjeta de la gráfica ──
     cx0, cy0, cx1, cy1 = 36, 574, 1044, 1236
     card(img, cx0, cy0, cx1, cy1)
     d = ImageDraw.Draw(img)
-    d.text((72, cy0 + 40), "BTC · VELAS DE 15 MIN", font=font(F_INTER, 28), fill=WHITE, anchor="lm")
+    d.text((72, cy0 + 40), f"{sim} · VELAS DE 15 MIN", font=font(F_INTER, 28), fill=WHITE, anchor="lm")
     d.text((1008, cy0 + 40), f"ÚLTIMAS {horas:g} H", font=font(F_INTER, 26), fill=GREY, anchor="rm")
     px0, px1 = 84, 900
     py0, py1 = cy0 + 96, cy1 - 70
@@ -251,17 +251,17 @@ def build(chart_path, out_path, hora, horas=6.0, ref=None):
     card(img, 36, fy0, 1044, fy1, outline=colnow + (170,))
     d = ImageDraw.Draw(img)
     verbo = "SUBE" if chg > 0.005 else "BAJA" if chg < -0.005 else "SE MANTIENE"
-    frase = f"BTC {verbo} {abs(round(chg, 2)):.2f} % DESDE LAS {ref_txt}" if verbo != "SE MANTIENE" else f"BTC SE MANTIENE DESDE LAS {ref_txt}"
+    frase = f"{sim} {verbo} {abs(round(chg, 2)):.2f} % DESDE LAS {ref_txt}" if verbo != "SE MANTIENE" else f"{sim} SE MANTIENE DESDE LAS {ref_txt}"
     size = 54
     while size > 30 and text_w(d, frase, font(F_BLACK_IT, size)) > 940:
         size -= 2
     d.text((W / 2, (fy0 + fy1) / 2), frase, font=font(F_BLACK_IT, size), fill=colnow, anchor="mm")
-    draw_footer(img, f"Datos consultados: CoinMarketCap · {hora}h Madrid", 1866)
+    draw_footer(img, f"Datos consultados: {fuente} · {hora}h Madrid", 1866)
     out = img.convert("RGB")
     if out.size != (W, H):
         raise StoryError("la imagen final no mide 1080x1920")
     out.save(out_path, "PNG", optimize=True)
-    print(f"OK {out_path} · BTC {money(p_ref)} a las {ref_txt} → {money(p_now)} ahora ({pct(chg)}) · máx {money(hi)} mín {money(lo)}"
+    print(f"OK {out_path} · {sim} {money(p_ref)} a las {ref_txt} → {money(p_now)} ahora ({pct(chg)}) · máx {money(hi)} mín {money(lo)}"
           + (f" · 24h {pct(c24)}" if c24 is not None else ""))
 
 
