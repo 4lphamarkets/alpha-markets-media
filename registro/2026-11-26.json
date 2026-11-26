@@ -54,6 +54,10 @@
   "18:00": {
    "estado": "ok",
    "detalle": "Historia 9 (estilo lockscreen) altcoins: NEAR +11,6%, LTC +7,3%, XMR -10,6% mientras BTC ~60K. IG STORY 19:00 id 443403913."
+  },
+  "19:00": {
+   "estado": "ok",
+   "detalle": "Historia 10 (estilo periodico; versus descartado por no encajar) Ucrania aprueba ley cripto (271 votos, vigor 1-jul-2027, 5% activos ya poseídos hasta 2028). IG STORY 20:00 id 443472057. Fix: sello periodico movido (top 735px) para no tapar el subtítulo."
   }
  },
  "noticias": [
@@ -181,6 +185,16 @@
    "estilo": "lockscreen",
    "fuentes": [
     "CryptoTicker (CoinGecko 16:25 UTC)"
+   ]
+  },
+  {
+   "titular": "Ucrania: la Rada aprueba en lectura final la ley cripto (271 a favor, 8 en contra), vigor 1-jul-2027",
+   "hora_pub": "20:00",
+   "tipo": "historia",
+   "estilo": "periodico",
+   "fuentes": [
+    "Interfax-Ukraine 25-11",
+    "CoinCodex 26-11"
    ]
   }
  ],
