@@ -5,9 +5,9 @@ uso: python scripts/build.py                (modo clásico: template.html)
 v23: error claro si falta el timeline, comprueba que no queden {{marcadores}} sin sustituir y que el JSON no cierre el <script>."""
 import json, os, re, sys
 args = [a for a in sys.argv[1:] if not a.startswith('--')]
-MODO = args[0] if args and args[0] in ('analista', 'clasico') else ''
-rest = [a for a in args if a not in ('analista', 'clasico')]
-TPL = 'template_analista.html' if MODO == 'analista' else 'template.html'
+MODO = args[0] if args and args[0] in ('analista', 'clasico', 'dinamico') else ''
+rest = [a for a in args if a not in ('analista', 'clasico', 'dinamico')]
+TPL = {'analista': 'template_analista.html', 'dinamico': 'template_dinamico.html'}.get(MODO, 'template.html')
 A = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 TLP = os.path.abspath(rest[0]) if rest else os.path.join(A, 'tmp', 'timeline.json')
 if not os.path.exists(TLP):

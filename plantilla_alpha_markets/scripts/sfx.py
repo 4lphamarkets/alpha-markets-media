@@ -22,6 +22,13 @@ import numpy as np
 
 argv = [a for a in sys.argv[1:] if not a.startswith('--')]
 FACTOR, TODOS = 0.5, '--todos' in sys.argv
+CADA, HUECO = 1.6, .45   # v25: --cada S (1 efecto como mucho cada S s) · --hueco S (separación mínima); el modo dinámico usa 0.85 / 0.3
+for _n in ('--cada', '--hueco'):
+    if _n in sys.argv:
+        _i = sys.argv.index(_n); _v = float(sys.argv[_i + 1]); sys.argv.pop(_i + 1); sys.argv.remove(_n)
+        if _n == '--cada': CADA = _v
+        else: HUECO = _v
+argv = [a for a in sys.argv[1:] if not a.startswith('--')]
 for i, a in enumerate(sys.argv):
     if a == '--factor': FACTOR = float(sys.argv[i + 1]); argv.remove(sys.argv[i + 1])
 EV, OUT, DUR = argv[0], argv[1], float(argv[2])
@@ -112,13 +119,13 @@ def thin(ev):
     # 2) hueco mínimo entre efectos (las transiciones siempre entran)
     out = []
     for e in ev:
-        if out and float(e['t']) - float(out[-1]['t']) < .45 and e['type'] != 'trans':
+        if out and float(e['t']) - float(out[-1]['t']) < HUECO and e['type'] != 'trans':
             if PRIO.get(e['type'], 2) > PRIO.get(out[-1]['type'], 2) and out[-1]['type'] != 'trans': out[-1] = e
             continue
         out.append(e)
     # 3) presupuesto: la mitad de lo pedido (pero sin bajar de ~1 cada 2,2 s) y nunca más de 1 cada 1,6 s
     #    → un vídeo de 30 s queda en unos 14-19 efectos
-    tope = max(4, min(max(math.ceil(pedidos * FACTOR), math.ceil(DUR / 2.2)), math.ceil(DUR / 1.6)))
+    tope = max(4, min(max(math.ceil(pedidos * FACTOR), math.ceil(DUR / 2.2)), math.ceil(DUR / CADA)))
     if len(out) > tope:
         orden = sorted(range(len(out)), key=lambda i: (-PRIO.get(out[i]['type'], 2), -float(out[i].get('g', 1)), i))
         keep = set(orden[:tope]); out = [e for i, e in enumerate(out) if i in keep]

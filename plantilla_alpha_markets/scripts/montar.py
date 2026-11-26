@@ -25,11 +25,12 @@ def flag(n):
 
 workers = opt('--workers'); salida = opt('--salida', os.path.join('out', 'video_final.mp4'))
 sin_hoja, sin_prep = flag('--sin-hoja'), flag('--sin-prep')
+maxdur = opt('--max')   # duración máxima en s para el control de calidad (por defecto 40; p. ej. --max 45 para rehacer un vídeo con audio ya generado)
 a = sys.argv[1:]
-if len(a) < 2 or a[0] not in ('revisar', 'video') or a[1] not in ('analista', 'clasico'): sys.exit(__doc__)
+if len(a) < 2 or a[0] not in ('revisar', 'video') or a[1] not in ('analista', 'clasico', 'dinamico'): sys.exit(__doc__)
 accion, modo = a[0], a[1]
 guion = os.path.abspath(a[2]) if len(a) > 2 else None
-PREP = 'prep_analista.py' if modo == 'analista' else 'prep_clasico.py'
+PREP = {'analista': 'prep_analista.py', 'dinamico': 'prep_dinamico.py'}.get(modo, 'prep_clasico.py')
 pasos = []
 T0 = time.time()
 
@@ -84,9 +85,9 @@ else:
     else: print('\n(insertos.json vacío: sin insertos; recuerda que cada vídeo lleva 1-2 momentos dibujados, ver LEEME)')
     fin = json.load(open(os.path.join(D, 'tmp', 'timeline.json'), encoding='utf-8-sig'))['end']
     paso('Eventos de sonido', ['node', os.path.join('scripts', 'render.js'), 'events'])
-    paso('Efectos de sonido', [PY, os.path.join(SC, 'sfx.py'), os.path.join('tmp', 'events.json'), os.path.join('tmp', 'sfx.wav'), str(fin)])
+    paso('Efectos de sonido', [PY, os.path.join(SC, 'sfx.py'), os.path.join('tmp', 'events.json'), os.path.join('tmp', 'sfx.wav'), str(fin), *(['--factor', '0.9', '--cada', '0.85', '--hueco', '0.3'] if modo == 'dinamico' else [])])
     paso('Mezcla final (voz + efectos, -16 LUFS)', [PY, os.path.join(SC, 'final.py'), salida])
-    paso('Control de calidad', [PY, os.path.join(SC, 'qa_video.py'), salida, '--esperada', str(fin)])
+    paso('Control de calidad', [PY, os.path.join(SC, 'qa_video.py'), salida, '--esperada', str(fin), *(['--max', maxdur] if maxdur else [])])
 print(f'\n✔ TERMINADO en {time.time() - T0:.0f} s')
 for t, dt in pasos: print(f'   {dt:6.1f} s  {t}')
 if accion == 'video': print(f'\nSiguiente paso: escribir entrega.json y  python scripts/entrega.py {salida}')

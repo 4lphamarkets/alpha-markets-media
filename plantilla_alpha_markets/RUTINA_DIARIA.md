@@ -1,4 +1,6 @@
-# RUTINA DIARIA v26.1 — ALPHA MARKETS (desde el 26-11-2026)
+# RUTINA DIARIA v27 — ALPHA MARKETS (desde el 26-11-2026)
+
+> **v27 (26-11-2026, orden de Antonio):** (1) los vídeos se montan SIEMPRE con el **MODO DINÁMICO** (`ESTILO_DINAMICO.md`, `montar.py … dinamico`): animado todo el rato, stickers/monedas/imán/gráficas/ruletas que ilustran lo que se dice, y **en noticias de caída: pantalla roja + sirena + glitch (`crash`)**. El modo «analista» queda prohibido. (2) Las historias de noticia usan `historias/estilos/make_story_estilos.py` con **10 diseños radicalmente distintos**: cada una distinta de la anterior (ver §3).
 
 Una sola tarea programada ("RELOJ ALPHA MARKETS") se despierta cada hora en punto (Madrid) y ejecuta SOLO el hueco que toca según la tabla de abajo. Todo es autónomo: **se publica sin pedir permiso**. Si algo falla, se anota en el registro y se sigue con el siguiente hueco (nunca se publica algo roto o con datos antiguos).
 
@@ -31,7 +33,7 @@ Zona horaria: Europe/Madrid. Metricool: blogId 8199629. Instagram @4lphamarkets 
 Notas L-V:
 - Si en un hueco de historia la mejor noticia es de última hora y crítica (hackeo grande, ETF, caída/subida >5 %, decisión de la SEC/Fed, quiebra, etc.), **priorizarla**: publicarla a +5 min en vez de la hora prevista, y la noticia que iba a tocar pasa al hueco siguiente si sigue vigente.
 - Las historias del hueco 09:00…13:00 (mañana) y 15:00…19:00 (tarde): la tarde busca noticias que hayan pasado por la mañana o en la apertura de Wall Street, y **jamás repite** una noticia ya publicada (consultar el registro del día).
-- Los vídeos A, B, C y D duran **máximo 40 s**, con las reglas y estilo de la plantilla (`montar.py`, `entrega.py`, `qa_video.py`). Cada vídeo sale de una de las noticias ya vistas ese día (las más importantes).
+- Los vídeos A, B, C y D duran **máximo 40 s**, con las reglas y el **estilo dinámico** de la plantilla (`montar.py … dinamico`, `entrega.py`, `qa_video.py`): ilustrar con imagen/animación TODO lo que se nombra, nunca >3 s con la pantalla quieta, gráfica/ruleta si hay BTC/ETH/bolsa, `crash` si es una caída. Cada vídeo sale de una de las noticias ya vistas ese día (las más importantes).
 - Entre semana también se puede añadir algún vídeo atemporal de la cola (carpeta de vídeos atemporales del Escritorio) si hay hueco y sin pasar de 5 vídeos al día; así se acaba la carpeta.
 
 ## 2. Mapa de huecos — SÁBADO y DOMINGO
@@ -46,12 +48,14 @@ Además (ya están programados en Metricool, no hay que hacer nada salvo comprob
 Fin de semana = modo 100 % cripto. Si hay una noticia crítica, priorizarla igual.
 Las horas de ejecución de fin de semana: el reloj se despierta cada hora, pero en fin de semana solo actúa en 09:00, 11:00, 13:00, 17:00 y 21:00; en el resto termina sin hacer nada.
 
-## 3. Cómo se hace una HISTORIA de noticia (just-in-time)
+## 3. Cómo se hace una HISTORIA de noticia (just-in-time) — v27: CADA UNA, UN DISEÑO RADICALMENTE DISTINTO
 1. **Buscar la noticia más fresca** (últimos 30-60 min) justo antes: WebSearch (modo `extended` si lo normal sale flojo). Solo dos nichos: **cripto** y **acciones/índices de EEUU**. Relevantes, con atención real, verificadas en 2 fuentes si es posible. Descartar las ya publicadas hoy (registro) y las de más de 12 h (salvo que sigan siendo el tema del día).
-2. Preparar el JSON y generar la imagen 1080×1920 con `historias/generador_noticias/make_stories.py` (ver su cabecera y `ejemplo_20-11-2026.json`). Mirar la imagen antes de publicar (Read): texto sin cortes, cifras correctas.
+2. Escribir el JSON de UNA historia (campos en la cabecera de `historias/estilos/make_story_estilos.py`: `t1`, `t2`, `sub`, `rows` 2-4 filas, `tag`, `fuente`) y generar la imagen 1080×1920:
+   `python3 historias/estilos/make_story_estilos.py datos.json historia.png --hueco K` donde **K = nº de historia del día (1-10)**: el script elige el diseño de la lista `ORDEN` (alerta → periódico → terminal → stickers → gráfica → gigante → chat → cartel → lockscreen → versus), pensada para que **dos historias seguidas no se parezcan en nada** (oscuro/claro, serif/mono/display, texto/gráfica). Con `--estilo <nombre>` se fuerza uno (p. ej. `alerta` si es una noticia crítica de caída). **Prohibido repetir el mismo diseño en el mismo día** y prohibido el antiguo generador `make_stories.py` de tarjetas (todas iguales).
+   Mirar la imagen (Read) antes de publicar: texto sin cortes, sin solapes, cifras correctas.
 3. Subir la imagen al repo temporal con **nombre único** (`tmp/AAAA-MM-DD_HHMM_hN.png`, `git pull --rebase` antes del push; si hay conflicto, reintentar), programar en Metricool como STORY de Instagram con la URL `https://raw.githubusercontent.com/4lphamarkets/alpha-markets-media/main/tmp/...` a la hora de publicación; esperar a que Metricool copie el medio a `static.metricool.com`, y después `git rm` del temporal y push.
 4. Si la hora de publicación ya ha pasado o faltan <3 min, publicar con la hora actual +3 min.
-5. Anotar en `registro/AAAA-MM-DD.json` (añadir sin pisar: leer, fusionar, escribir): hueco, titular, fuentes, hora de publicación, id de Metricool.
+5. Anotar en `registro/AAAA-MM-DD.json` (añadir sin pisar: leer, fusionar, escribir): hueco, **estilo usado**, titular, fuentes, hora de publicación, id de Metricool.
 
 ## 4. Historia "BITCOIN 15 MIN" (una al azar por la mañana y otra por la tarde)
 Es el hueco de historia normal, pero con gráfica en lugar de noticia. Elegir al azar (dado en el primer hueco del bloque) cuál de las historias de la mañana (09-13) y de la tarde (15-19) lo es; anotar la elección en el registro para que la ejecución siguiente no la repita.
@@ -60,7 +64,7 @@ Es el hueco de historia normal, pero con gráfica en lugar de noticia. Elegir al
 3. Mirar la imagen y publicarla como una historia más (paso 3 de la sección 3). Si el script imprime `ERROR`, hacer una historia de noticia normal en su lugar.
 
 ## 5. Cómo se hace un VÍDEO
-Seguir `FLUJO_DE_TRABAJO.md` con `montar.py` / `entrega.py` / `qa_video.py` (plantilla v24): guion ≤40 s con el estilo del analista, voz ElevenLabs Jaime (`43h7ymOnaaYdWr3dRbsS`, modelo `eleven_v4`).
+Seguir `FLUJO_DE_TRABAJO.md` con `montar.py … dinamico` / `entrega.py` / `qa_video.py` (plantilla v25, **modo dinámico**: leer `ESTILO_DINAMICO.md` antes de escribir el guion de montaje): guion ≤40 s con el estilo del analista, voz ElevenLabs Jaime (`43h7ymOnaaYdWr3dRbsS`, modelo `eleven_v4`).
 - ElevenLabs: **una sola generación** por audio (`generations_count` 1), **nunca reintentar** (cada reintento cuesta créditos); ≈600 créditos por audio. Antes de generar comprobar `account_get_usage`: si quedan **<4.000 créditos no generar** (hacer en su lugar una historia más y anotar el motivo); pedir OK solo si el audio costaría >2.000 créditos.
 - Subir el vídeo automáticamente (sin pedir permiso) a Metricool como REEL de Instagram + Short de YouTube a la hora de publicación indicada en la tabla.
 - **Regla del dueño (26-11-2026): con CADA vídeo nuevo, enviar siempre al chat las 2 portadas (`SendUserFile` de `<slug>_portada_1.jpg` y `<slug>_portada_2.jpg`), esté o no accesible el Escritorio**, para que pueda cambiarla sin pedirla. Mandar también el vídeo y la descripción.

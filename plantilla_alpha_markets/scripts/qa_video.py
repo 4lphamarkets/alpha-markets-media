@@ -11,6 +11,9 @@ for _s in (sys.stdout, sys.stderr):
 esperada = None
 if '--esperada' in sys.argv:
     i = sys.argv.index('--esperada'); esperada = float(sys.argv[i + 1]); del sys.argv[i:i + 2]
+MAXD = 41
+if '--max' in sys.argv:
+    i = sys.argv.index('--max'); MAXD = float(sys.argv[i + 1]) + 1; del sys.argv[i:i + 2]
 args = [a for a in sys.argv[1:] if not a.startswith('--')]
 if not args: sys.exit(__doc__)
 vid = args[0]
@@ -49,7 +52,7 @@ if esperada is not None:
     if abs(dur - esperada) > 0.15: E.append(f'dura {dur:.2f} s pero el timeline dice {esperada:.2f} s (faltan o sobran fotogramas)')
     else: OK.append(f'duración {dur:.1f} s')
 else: OK.append(f'duración {dur:.1f} s')
-if dur > 41: E.append(f'duración {dur:.1f} s: el máximo es 40 s (regla v24)')
+if dur > MAXD: E.append(f'duración {dur:.1f} s: el máximo es 40 s (regla v24)')
 elif dur < 20: W.append(f'duración {dur:.0f} s muy corta (máx. 40 s)')
 mb = os.path.getsize(vid) / 1e6
 if mb > 250: W.append(f'{mb:.0f} MB: puede ser demasiado para Metricool/Instagram; revisa el CRF')

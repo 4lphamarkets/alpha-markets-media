@@ -1,0 +1,27 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<!-- Portada B · "pizarra": pizarra de tiza verde con BTC dibujado a tiza, candado y 20 AÑOS. Zona segura y 240-1680. -->
+<link rel="stylesheet" href="portadas/kit.css"><script src="portadas/kit.js"></script>
+<style>
+html,body{margin:0}
+body{background:#0c1a14}
+#p{position:relative;width:1080px;height:1920px;background:radial-gradient(circle at 50% 40%,#2a5a45,#163628 60%,#0a1a12);overflow:hidden}
+.frame{position:absolute;left:40px;right:40px;top:250px;bottom:240px;border:18px solid #8a5a2b;border-radius:18px;box-shadow:inset 0 0 120px rgba(0,0,0,.55),0 20px 60px #000a}
+.chalk{font-family:Marker,'Permanent Marker',cursive;color:#f4f4ec;text-shadow:0 0 6px rgba(255,255,255,.5)}
+.t1{position:absolute;left:0;right:0;top:340px;text-align:center;font-size:84px;line-height:1;white-space:nowrap}
+.big{position:absolute;left:0;right:0;top:470px;text-align:center;font-size:220px;line-height:1;color:#ffe27a;white-space:nowrap}
+.sm{position:absolute;left:0;right:0;top:740px;text-align:center;font-size:70px;color:#f4f4ec;white-space:nowrap;padding-right:140px}
+.cross{position:absolute;left:120px;right:120px;top:960px;height:10px;background:#ff6b6b;transform:rotate(-3deg);border-radius:6px}
+.yr{position:absolute;left:0;right:0;top:1040px;text-align:center;font-size:190px;color:#ff6b6b;transform:rotate(-4deg);white-space:nowrap}
+.q{position:absolute;left:0;right:0;top:1380px;text-align:center;font-size:62px;color:#9be7c4;white-space:nowrap}
+#brand{position:absolute;left:0;right:0;top:140px;display:flex;justify-content:center}
+.coin{position:absolute;right:80px;top:690px;width:190px;height:190px;transform:rotate(14deg)}
+</style></head><body><div id="p">
+<div id="brand"></div><div class="frame"></div>
+<div class="chalk t1">EEUU quiere ENCERRAR</div>
+<div class="chalk big">306.795</div><div class="chalk sm">bitcoin del Gobierno</div>
+<svg class="coin" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#f4f4ec" stroke-width="5" stroke-dasharray="14 6"/><text x="50" y="68" text-anchor="middle" font-family="Marker" font-size="62" fill="#f7b24a">₿</text></svg>
+<div class="cross"></div><div class="chalk yr">20 AÑOS</div>
+<div class="chalk q">¿ley histórica o promesa?</div>
+</div>
+<script>document.getElementById('brand').innerHTML=marca('',44)</script>
+</body></html>

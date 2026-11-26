@@ -110,5 +110,21 @@
   "concepto": "Reloj digital gigante 09:00 con borde cian, píldora roja MAÑANA VIERNES y cifra 7.000M $ EN BITCOIN",
   "tipografia": "Anton + Montserrat",
   "paleta": "azul noche / cian / rojo / amarillo"
+ },
+ {
+  "fecha": "2026-11-26T15:31:58",
+  "slug": "2026_11_26_reserva_bitcoin_ley_20_anos_v2",
+  "arquetipo": "foto_epica",
+  "concepto": "Logo de Bitcoin como moneda gigante sobre globo verde con titular BITCOIN BLOQUEADO y píldora 20 AÑOS · H.R. 8957",
+  "tipografia": "Montserrat Black Italic",
+  "paleta": "negro / menta / naranja"
+ },
+ {
+  "fecha": "2026-11-26T15:31:58",
+  "slug": "2026_11_26_reserva_bitcoin_ley_20_anos_v2",
+  "arquetipo": "pizarra",
+  "concepto": "Pizarra de tiza con 306.795 bitcoin del Gobierno tachado por una línea roja y 20 AÑOS a tiza",
+  "tipografia": "Permanent Marker",
+  "paleta": "verde pizarra / tiza / rojo / dorado"
  }
 ]

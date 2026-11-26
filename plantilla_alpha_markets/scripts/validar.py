@@ -126,6 +126,20 @@ def timeline(ruta, modo):
         if 'follow' not in tipos_ult: aviso('la última escena no lleva "follow" (tarjeta @4lphamarkets con botón Seguir)')
         if 'disc' not in tipos_ult and not any('consejo financiero' in str(c.get('text', '')).lower() for s in S for c in s.get('comps', [])):
             aviso('falta el descargo «esto no es consejo financiero» (componente "disc" en la última escena)')
+    elif modo == 'dinamico':
+        TIPOS = {'card','stamp','odo','coin','rain','candles','gauge','icon','magnet','vs','bars','dots','ticker','follow','disc','logo','headline','pill','stat'}
+        for s in S:
+            cs = s.get('comps') or []
+            for c in cs:
+                if c.get('type') not in TIPOS: err(f'escena {s["id"]}: componente desconocido "{c.get("type")}" (válidos: {sorted(TIPOS)})')
+                if c.get('type') == 'icon' and c.get('name') not in ('magnet','siren','rocket','fire','skull','bomb','shield','lock','clock','scales','warning','up','down','bank','oil','gold','bolt','eye','doc','boom','money','trophy','question'): err(f'escena {s["id"]}: icono desconocido "{c.get("name")}"')
+            vis = sorted(float(c.get('at', 0)) for c in cs if c.get('type') not in ('rain',))
+            dur = s['b'] - s['a']
+            if len(cs) < 2: aviso(f'escena {s["id"]}: solo {len(cs)} pieza(s); el estilo dinámico pide 2-4 por escena')
+            marcas = [0.0] + vis + [dur]
+            for a_, b_ in zip(marcas, marcas[1:]):
+                if b_ - a_ > 3.6: aviso(f'escena {s["id"]}: {b_ - a_:.1f} s sin pieza nueva entre {a_:.1f} y {b_:.1f} s (máx. ~3 s); añade un sticker/sello/flash')
+        if not any(c.get('type') in ('candles', 'odo', 'gauge') for s in S for c in s.get('comps', [])): aviso('ningún vídeo dinámico sin gráfica/ruleta: con BTC/ETH/bolsa añade candles u odo')
     else:
         html = open(os.path.join(D, 'template.html'), encoding='utf-8').read()
         have = set(re.findall(r'<section class="scene" id="([^"]+)"', html))

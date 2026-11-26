@@ -1,0 +1,376 @@
+{
+ "audio": "tmp/voz.mp3",
+ "tag": "RESERVA BTC EEUU",
+ "scenes": [
+  {
+   "id": "s1",
+   "a": 0,
+   "tag": "RESERVA BTC EEUU",
+   "comps": [
+    {
+     "type": "rain",
+     "sym": "btc",
+     "n": 30,
+     "at": 0.4,
+     "spread": 3
+    },
+    {
+     "type": "coin",
+     "sym": "btc",
+     "size": 430,
+     "y": 330,
+     "at": 0.05,
+     "enter": "zoom",
+     "mode": "spin"
+    },
+    {
+     "type": "odo",
+     "value": "306.795",
+     "suffix": " BTC",
+     "size": 175,
+     "y": 830,
+     "at": 0.6,
+     "color": "#fff"
+    },
+    {
+     "type": "icon",
+     "name": "lock",
+     "size": 300,
+     "x": 800,
+     "y": 380,
+     "at": 4.3,
+     "enter": "slam"
+    },
+    {
+     "type": "stamp",
+     "text": "20 AÑOS",
+     "tone": "gold",
+     "size": 170,
+     "y": 1110,
+     "at": 4.6,
+     "rot": -5
+    }
+   ],
+   "fx": [
+    {
+     "at": 4.7,
+     "type": "zoom",
+     "dur": 0.5,
+     "amt": 0.06
+    }
+   ],
+   "segs": [
+    [
+     0.2,
+     6.9,
+     "Más de *306.000 bitcoin* en manos del Gobierno de EEUU y una ley quiere *encerrarlos 20 años*"
+    ]
+   ]
+  },
+  {
+   "id": "s2",
+   "a": 7.2,
+   "tag": "H.R. 8957",
+   "comps": [
+    {
+     "type": "icon",
+     "name": "doc",
+     "size": 440,
+     "y": 330,
+     "at": 0.1,
+     "enter": "left",
+     "anim": "wiggle"
+    },
+    {
+     "type": "headline",
+     "text": "PROHÍBE VENDER",
+     "size": 130,
+     "y": 830,
+     "at": 1.3
+    },
+    {
+     "type": "stamp",
+     "text": "NI SUBASTAR NI GASTAR",
+     "tone": "red",
+     "size": 96,
+     "y": 1080,
+     "at": 3.4,
+     "rot": -3
+    },
+    {
+     "type": "ticker",
+     "text": "PROHIBIDO VENDER",
+     "y": 1300,
+     "at": 5.6
+    }
+   ],
+   "segs": [
+    [
+     7.3,
+     14.3,
+     "El proyecto *H.R. 8957* prohíbe *vender, subastar o gastar* esas monedas durante *dos décadas*"
+    ]
+   ]
+  },
+  {
+   "id": "s3",
+   "a": 14.5,
+   "tag": "VALOR",
+   "comps": [
+    {
+     "type": "rain",
+     "sym": "usd",
+     "n": 18,
+     "at": 0.2,
+     "spread": 3,
+     "floor": 1300
+    },
+    {
+     "type": "odo",
+     "value": "18.000",
+     "prefix": "+$",
+     "suffix": "M",
+     "size": 200,
+     "y": 320,
+     "at": 0.1,
+     "color": "#34F5B0",
+     "label": "MILLONES DE DÓLARES EN BITCOIN"
+    },
+    {
+     "type": "candles",
+     "trend": "up",
+     "style": "area",
+     "h": 540,
+     "y": 700,
+     "at": 0.6,
+     "dur": 3.6,
+     "title": "BTC · RESERVA DE EEUU",
+     "w": 920,
+     "price0": 60000,
+     "price1": 66000
+    },
+    {
+     "type": "icon",
+     "name": "bank",
+     "size": 270,
+     "x": 880,
+     "y": 520,
+     "at": 3.0,
+     "enter": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "at": 3.7,
+     "type": "pump",
+     "dur": 1.2
+    }
+   ],
+   "segs": [
+    [
+     14.5,
+     19.4,
+     "Valen más de *18.000 millones de dólares* y ya espera el voto del *pleno de la Cámara*"
+    ]
+   ]
+  },
+  {
+   "id": "s4",
+   "a": 19.7,
+   "tag": "CONGRESO · RELOJ",
+   "comps": [
+    {
+     "type": "icon",
+     "name": "clock",
+     "size": 380,
+     "x": 300,
+     "y": 330,
+     "at": 0.1,
+     "enter": "spin"
+    },
+    {
+     "type": "odo",
+     "value": "5",
+     "suffix": " SEMANAS",
+     "size": 170,
+     "x": 720,
+     "y": 400,
+     "at": 0.5,
+     "color": "#FFC93C"
+    },
+    {
+     "type": "vs",
+     "a": {
+      "label": "CONGRESO",
+      "value": "5 sem.",
+      "sub": "y con vacaciones",
+      "tone": "g"
+     },
+     "b": {
+      "label": "POLYMARKET",
+      "value": "<5 %",
+      "sub": "antes de 2027",
+      "tone": "r"
+     },
+     "y": 850,
+     "at": 3.8,
+     "size": 84
+    },
+    {
+     "type": "ticker",
+     "text": "POCO TIEMPO",
+     "y": 1330,
+     "at": 5.2
+    }
+   ],
+   "fx": [
+    {
+     "at": 6.3,
+     "type": "shake",
+     "dur": 0.6,
+     "amp": 16
+    },
+    {
+     "at": 6.3,
+     "type": "flash",
+     "color": "#FF3B48"
+    }
+   ],
+   "segs": [
+    [
+     19.8,
+     28.9,
+     "Pero quedan solo *cinco semanas de Congreso*, con vacaciones por medio, y Polymarket da menos de un #5 %# a una reserva nacional antes de 2027"
+    ]
+   ]
+  },
+  {
+   "id": "s5",
+   "a": 29.15,
+   "tag": "DECRETO",
+   "mood": "red",
+   "comps": [
+    {
+     "type": "icon",
+     "name": "warning",
+     "size": 420,
+     "y": 330,
+     "at": 0.1,
+     "enter": "down"
+    },
+    {
+     "type": "stamp",
+     "text": "POR DECRETO",
+     "tone": "gold",
+     "size": 140,
+     "y": 850,
+     "at": 1.2,
+     "rot": -4
+    },
+    {
+     "type": "card",
+     "text": "El próximo presidente *podría cambiarla*",
+     "size": 62,
+     "y": 1090,
+     "at": 3.2,
+     "tone": "red"
+    },
+    {
+     "type": "ticker",
+     "text": "ÚLTIMA HORA · RESERVA POR DECRETO",
+     "y": 1370,
+     "at": 3.8
+    }
+   ],
+   "segs": [
+    [
+     29.2,
+     34.3,
+     "Si no sale, la reserva sigue *por decreto* y el próximo presidente *podría cambiarla*"
+    ]
+   ]
+  },
+  {
+   "id": "s6",
+   "a": 34.6,
+   "tag": "¿HISTÓRICA?",
+   "comps": [
+    {
+     "type": "rain",
+     "sym": "btc",
+     "dir": "up",
+     "n": 22,
+     "at": 0.1,
+     "spread": 2
+    },
+    {
+     "type": "icon",
+     "name": "question",
+     "size": 480,
+     "y": 350,
+     "at": 0.15,
+     "enter": "slam",
+     "anim": "wiggle"
+    },
+    {
+     "type": "stamp",
+     "text": "¿PROMESA EN EL AIRE?",
+     "tone": "white",
+     "size": 86,
+     "y": 960,
+     "at": 1.5,
+     "rot": -3
+    }
+   ],
+   "fx": [
+    {
+     "at": 0.2,
+     "type": "flash",
+     "color": "#34F5B0"
+    }
+   ],
+   "segs": [
+    [
+     34.6,
+     37.1,
+     "¿Reserva *histórica* o *promesa en el aire*?"
+    ]
+   ]
+  },
+  {
+   "id": "s7",
+   "a": 37.4,
+   "tag": "4LPHA MARKETS",
+   "tagTone": "g",
+   "comps": [
+    {
+     "type": "coin",
+     "sym": "btc",
+     "size": 320,
+     "y": 340,
+     "at": 0.1,
+     "mode": "float",
+     "enter": "pop"
+    },
+    {
+     "type": "follow",
+     "y": 760,
+     "at": 0.6,
+     "tapAt": 3.4
+    },
+    {
+     "type": "disc",
+     "y": 990,
+     "at": 1.2
+    }
+   ],
+   "segs": [
+    [
+     37.4,
+     42.8,
+     "Sígueme para no perderte nada de los *mercados financieros*, esto es... *4LPHA MARKETS*"
+    ]
+   ]
+  }
+ ]
+}
