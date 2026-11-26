@@ -44,8 +44,8 @@
    "detalle": "Vídeo C (opciones BTC) rehecho en modo dinámico v25 (voz nueva Jaime 509 créditos). Programado 17:00: IG Reel id 443254469 (portada gigante) + YT Short id 443254717 (portada versus). PENDIENTE (Antonio): borrar a mano los posts antiguos IG 443098677 / YT 443098705. Vídeo B reprogramado 15:50 con portadas cartel (IG) y terminal (YT)."
   },
   "16:00": {
-   "estado": "parcial",
-   "detalle": "Historia 7 = BTC 15 MIN (sorteo tarde: 16:00) IG STORY 17:00 id 443260679. BTC 60.450 (09:00) -> 60.242 (-0,34%). Vídeo D: en curso/ver nota."
+   "estado": "ok",
+   "detalle": "Historia 7 = BTC 15 MIN (sorteo tarde) IG STORY 17:00 id 443260679 (BTC 60.450->60.242, -0,34%). Vídeo D (Strategy -20% bajo coste medio) modo dinámico, IG Reel id 443280149 + YT Short id 443280181 programados 18:30. Audio 604 créditos (~93.500 restantes aprox.). Carpeta Escritorio 2026_11_26_strategy_bitcoin_bajo_coste OK; archivos y portadas enviados por chat. Audio 44 s (>40 s, montado con --max 45)."
   }
  },
  "noticias": [
@@ -142,6 +142,19 @@
    "hora_pub": "17:00",
    "tipo": "btc15m",
    "estilo": "btc15m"
+  },
+  {
+   "titular": "Strategy: 849.327 BTC a 75.451$ de media, BTC ~60K (-20%), ~13.000M$ pérdida latente; sin margin call, primer put sept-2027; reserva 4.790M$; deuda+preferentes ~20.000M$ (datos a 1-nov)",
+   "hora_pub": "18:30",
+   "tipo": "video",
+   "slug": "2026_11_26_strategy_bitcoin_bajo_coste",
+   "fuentes": [
+    "The Defiant/KuCoin",
+    "247WallSt",
+    "Ted Pillows",
+    "CoinMarketCap"
+   ],
+   "modo": "dinamico"
   }
  ],
  "btc15m": {
