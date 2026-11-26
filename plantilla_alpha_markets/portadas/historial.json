@@ -126,5 +126,37 @@
   "concepto": "Pizarra de tiza con 306.795 bitcoin del Gobierno tachado por una línea roja y 20 AÑOS a tiza",
   "tipografia": "Permanent Marker",
   "paleta": "verde pizarra / tiza / rojo / dorado"
+ },
+ {
+  "fecha": "2026-11-26T15:39:19",
+  "slug": "2026_11_26_opciones_bitcoin_vencimiento_nuevo",
+  "arquetipo": "est_grafica",
+  "concepto": "Portada diseño grafica: BITCOIN 7.000M $ EN JUEGO",
+  "tipografia": "",
+  "paleta": ""
+ },
+ {
+  "fecha": "2026-11-26T15:39:19",
+  "slug": "2026_11_26_opciones_bitcoin_vencimiento_nuevo",
+  "arquetipo": "est_versus",
+  "concepto": "Portada diseño versus: BITCOIN 7.000M $ EN JUEGO",
+  "tipografia": "",
+  "paleta": ""
+ },
+ {
+  "fecha": "2026-11-26T15:42:24",
+  "slug": "2026_11_26_reserva_bitcoin_ley_20_anos_v3",
+  "arquetipo": "est_cartel",
+  "concepto": "Cartel diagonal negro/rosa BTC INTOCABLE 20 AÑOS",
+  "tipografia": "",
+  "paleta": ""
+ },
+ {
+  "fecha": "2026-11-26T15:42:24",
+  "slug": "2026_11_26_reserva_bitcoin_ley_20_anos_v3",
+  "arquetipo": "est_terminal",
+  "concepto": "Terminal ámbar BTC INTOCABLE",
+  "tipografia": "",
+  "paleta": ""
  }
 ]
