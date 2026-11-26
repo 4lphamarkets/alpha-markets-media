@@ -66,3 +66,10 @@ En `entrega.json`, sin `portada.disenos`:
 ```
 Estilos: alerta · gigante · terminal · periodico · chat · cartel · grafica · stickers · versus · lockscreen. Con `cc:"r"` salen en rojo, con `cc:"v"` en verde; `dir:"down"` pone la gráfica bajista. Elegir a mano `estilos` cuando la noticia lo pida (crash → `alerta`; cifra única → `gigante`; dos cifras → `versus`; ley/política → `periodico`). Mirar siempre las 2 portadas (Read) antes de entregar.
 Las portadas con HTML propio (`portada.disenos`) siguen funcionando, pero no se usan salvo petición expresa.
+
+
+## v29 (26-11-2026): historias y portadas con IMAGEN y 14 diseños
+Antonio: «las historias siguen siendo iguales todas». Los 10 diseños cambiaban de maqueta pero eran solo texto sobre color. Ahora:
+- Cada historia/portada lleva **pegatinas SVG grandes que ilustran la noticia** (`icono` en el JSON: bank, doc, lock, bomb, skull, siren, warning, rocket, up, down, shield, magnet, clock, scales, money, oil, gold, bolt, eye, trophy, question, fire, boom; y `logo` btc/eth/sol = moneda). En portadas: `portada.iconos` (lista) y `portada.logo` en `entrega.json`.
+- 4 diseños nuevos centrados en la imagen: **poster** (icono gigante con rayos), **tweet** (publicación de X con el icono como foto), **ticket** (recibo con sello) y **tv** (informativo con rótulo y cinta). Total 14: alerta, gigante, terminal, periodico, chat, cartel, grafica, stickers, versus, lockscreen, poster, tweet, ticket, tv.
+- `ORDEN` alterna familias (oscuro/claro, texto/imagen/gráfica) para que dos seguidas no se parezcan. Con `"sin_icono": true` se desactivan las pegatinas en los 10 diseños clásicos.

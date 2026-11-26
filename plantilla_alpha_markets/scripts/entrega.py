@@ -161,6 +161,9 @@ elif not P.get('disenos'):
     tit = [re.sub(r'[*]', '', t) for t in (P.get('titulo') or [])]
     base = {'t1': P.get('t1') or (tit[0] if tit else ''), 't2': P.get('t2') or ' '.join(tit[1:]), 'tag': P.get('tag') or P.get('etiqueta', ''),
             'sub': P.get('sub', ''), 'fuente': P.get('fuente', ''), 'rows': (P.get('rows') or ([{'n': P.get('cifra_nombre', ''), 's': P.get('cifra_etiqueta', ''), 'p': P.get('cifra', ''), 'c': '', 'cc': 'r' if P.get('tono') == 'rojo' else 'v'}] if P.get('cifra') else []))[:2]}
+    if P.get('iconos'): base['icono'] = P['iconos']          # v29: pegatinas que ilustran la portada (lock bank bomb magnet rocket fire shield doc ...)
+    if P.get('logo'): base['logo'] = P['logo']                # btc|eth|sol (moneda)
+    if P.get('dir'): base['dir'] = P['dir']
     usados = {e.get('arquetipo') for e in __import__('portadas_historial').cargar()[-8:]}
     libres = [e for e in ms.ORDEN if 'est_' + e not in usados] or list(ms.ORDEN)
     elegidos = [e for e in (P.get('estilos') or []) if e in ms.FN][:2]

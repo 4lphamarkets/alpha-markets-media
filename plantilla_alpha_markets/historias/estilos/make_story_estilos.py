@@ -3,7 +3,7 @@
 uso: python3 historias/estilos/make_story_estilos.py datos.json salida.png [--estilo N|nombre|auto] [--hueco K]
   datos.json = UNA historia: {"t1":"BITCOIN","t2":"BAJO 62K","sub":"Primera vez desde <b>JULIO</b> · 20 NOV",
                 "rows":[{"n":"PRECIO","s":"BTC · HOY","p":"$61,974","c":"-1.93%","cc":"r"}, ...],   # 2-6 filas (cc: r rojo / v verde)
-                "tag":"ÚLTIMA HORA" (opcional), "logo":"btc|eth|ant|hl|sol|none" (opcional), "fuente":"CoinDesk · Cointelegraph"}
+                "tag":"ÚLTIMA HORA" (opcional), "logo":"btc|eth|sol|none" (opcional), "icono":"lock" o ["lock","bank"] (opcional: pegatina que ilustra la noticia; ver ICONOS), "fuente":"CoinDesk · Cointelegraph"}
   --estilo auto (por defecto): elige el diseño por el nº de hueco del día (--hueco K, 1-10) usando ORDEN, que alterna estilos
                  de familias opuestas (oscuro/claro, texto/gráfico, tipografía serif/mono/display) → NUNCA dos parecidos seguidos.
   --lista: imprime los diseños.
@@ -11,9 +11,9 @@ Estilos: alerta, gigante, terminal, periodico, chat, cartel, grafica, stickers, 
 import json, os, re, sys, html, base64, pathlib
 ROOT = pathlib.Path(__file__).resolve().parents[2]          # plantilla_alpha_markets
 E = html.escape
-ESTILOS = ['alerta', 'gigante', 'terminal', 'periodico', 'chat', 'cartel', 'grafica', 'stickers', 'versus', 'lockscreen']
+ESTILOS = ['alerta', 'gigante', 'terminal', 'periodico', 'chat', 'cartel', 'grafica', 'stickers', 'versus', 'lockscreen', 'poster', 'tweet', 'ticket', 'tv']
 # orden de rotación: cada par consecutivo cambia de familia (oscuro→claro→mono→serif→…); el hueco K usa ORDEN[(K-1) % 10]
-ORDEN = ['alerta', 'periodico', 'terminal', 'stickers', 'grafica', 'gigante', 'chat', 'cartel', 'lockscreen', 'versus']
+ORDEN = ['alerta', 'tweet', 'terminal', 'stickers', 'poster', 'periodico', 'grafica', 'ticket', 'chat', 'cartel', 'tv', 'gigante', 'lockscreen', 'versus']
 
 FONTS = """@font-face{font-family:Mont;src:url(../../fonts/montserrat-latin-wght-normal.woff2);font-weight:100 900}
 @font-face{font-family:Mont;src:url(../../fonts/montserrat-latin-wght-italic.woff2);font-weight:100 900;font-style:italic}
@@ -209,10 +209,127 @@ def lockscreen(d):
 <div class=glow></div><div class=date>{E(d.get('tag') or 'Mercados')} · hoy</div><div class=time>9:41</div>
 <div class=hl><small>● NOTICIA</small><h1>{t1}<br><em>{t2}</em></h1><p>{sub(d)}</p></div><div class=nts>{notes}</div><div class=bt>{fuente(d)}</div>"""
 
-FN = dict(alerta=alerta, gigante=gigante, terminal=terminal, periodico=periodico, chat=chat, cartel=cartel, grafica=grafica, stickers=stickers, versus=versus, lockscreen=lockscreen)
+
+# ---------- ICONOS (v28): pegatinas SVG que ilustran la noticia (las mismas 23 del modo dinámico) ----------
+_tpl = (ROOT / 'template_dinamico.html').read_text(encoding='utf-8')
+ICONS = {m.group(1): m.group(2) for m in re.finditer(r"^ (\w+):\{svg:`(.*?)`", _tpl, re.M)}
+ICONOS = sorted(ICONS)
+def icon(name, size, rot=0, extra=''):
+    """pegatina SVG con contorno blanco (como en el vídeo). name: magnet siren rocket fire skull bomb shield lock clock scales warning up down bank oil gold bolt eye doc boom money trophy question"""
+    svg = ICONS.get(name)
+    if not svg: return ''
+    return (f'<div style="width:{size}px;height:{size}px;transform:rotate({rot}deg);{extra}'
+            f'filter:drop-shadow(0 0 0 #fff) drop-shadow(6px 0 0 #fff) drop-shadow(-6px 0 0 #fff) drop-shadow(0 6px 0 #fff) drop-shadow(0 -6px 0 #fff) drop-shadow(0 18px 22px rgba(0,0,0,.45))">'
+            f'<svg viewBox="0 0 100 100" width="{size}" height="{size}" style="overflow:visible">{svg}</svg></div>')
+def icons_of(d):
+    ic = d.get('icono') or []
+    return [ic] if isinstance(ic, str) else list(ic)
+def sticker(d, x, y, size, rot=0, i=0, z=20):
+    """posición absoluta (x,y = esquina sup. izq.); i = qué icono de la lista; si no hay icono pero hay logo -> moneda"""
+    ics = icons_of(d)
+    if i < len(ics):
+        inner = icon(ics[i], size, rot)
+    elif i == 0 and d.get('logo') in ('btc', 'eth', 'sol'):
+        inner = f'<div style="transform:rotate({rot}deg);filter:drop-shadow(0 0 0 #fff) drop-shadow(6px 0 0 #fff) drop-shadow(-6px 0 0 #fff) drop-shadow(0 6px 0 #fff) drop-shadow(0 -6px 0 #fff) drop-shadow(0 18px 22px rgba(0,0,0,.45))">{coin(d["logo"], size)}</div>'
+    else: return ''
+    return f'<div style="position:absolute;left:{x}px;top:{y}px;z-index:{z}">{inner}</div>'
+
+# colocación de las pegatinas en cada diseño (huecos libres): lista de (x, y, tamaño, rotación)
+HERO = {
+ 'alerta':     [(700, 1440, 300, 10), (60, 1480, 190, -12)],
+ 'gigante':    [(690, 1420, 320, 12), (60, 1470, 200, -10)],
+ 'terminal':   [(700, 1210, 300, 8), (80, 1320, 200, -10)],
+ 'periodico':  [(680, 1380, 320, 8), (60, 1420, 200, -10)],
+ 'chat':       [(640, 1380, 340, 10), (60, 1420, 200, -8)],
+ 'cartel':     [(860, 1690, 160, 10)],
+ 'grafica':    [(660, 500, 330, 10), (60, 1500, 190, -10)],
+ 'stickers':   [(680, 620, 330, 12), (80, 1620, 200, -10)],
+ 'versus':     [(850, 1160, 200, 10), (870, 1660, 170, -10)],
+ 'lockscreen': [(700, 1480, 300, 10), (70, 1500, 190, -10)],
+}
+
+def _fit(t, base, mc): return int(base*min(1, mc/max(1, len(t))))
+
+# ---------- 11. POSTER: icono gigante con rayos, titular debajo ----------
+def poster(d):
+    t1, t2 = head(d); c, p, r0 = big(d); good = up(d)
+    a1, a2 = ('#0b3d2e', '#04130d') if good else ('#4a0a12', '#12030a'); ac = '#34F5B0' if good else '#FF4D5A'
+    chips = ''.join(f'<div class=ch><small>{E(x["n"])}</small><b style="color:{col(x.get("cc"))}">{E(x.get("p") or x.get("c",""))}</b></div>' for x in rows(d, 3))
+    rays = ''.join(f'<i style="transform:rotate({k*15}deg)"></i>' for k in range(24))
+    return f"""<style>body{{background:radial-gradient(circle at 50% 28%,{a1},{a2} 70%);font-family:Mont;color:#fff}}
+.rays{{position:absolute;left:50%;top:640px;width:0;height:0}}.rays i{{position:absolute;left:-14px;top:-1100px;width:28px;height:1100px;background:linear-gradient({ac}33,transparent);transform-origin:50% 100%}}
+.glow{{position:absolute;left:190px;top:240px;width:700px;height:700px;border-radius:50%;background:radial-gradient({ac}55,transparent 65%)}}
+.logo{{position:absolute;left:50%;transform:translateX(-50%);top:240px;height:70px;z-index:5}}
+.h1{{position:absolute;left:40px;right:40px;top:1060px;text-align:center;font-family:Anton;font-size:{_fit(t1,200,9)}px;line-height:.95;text-transform:uppercase}}
+.h2{{position:absolute;left:40px;right:40px;top:{1060+_fit(t1,200,9)}px;text-align:center;font-family:Anton;font-size:{_fit(t2,150,12)}px;line-height:1;text-transform:uppercase;color:{ac}}}
+.sub{{position:absolute;left:70px;right:70px;top:1470px;text-align:center;font-weight:800;font-size:38px;line-height:1.25}}.sub b{{background:{ac};color:#000;padding:0 10px;border-radius:8px}}
+.chs{{position:absolute;left:40px;right:40px;top:1570px;display:flex;gap:18px;justify-content:center}}.ch{{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.2);border-radius:22px;padding:14px 24px;text-align:center}}.ch small{{display:block;font-size:20px;opacity:.7;font-weight:800}}.ch b{{font-family:Anton;font-size:46px}}
+.src{{position:absolute;left:0;right:0;bottom:130px;text-align:center;font-size:24px;opacity:.55;font-weight:700}}</style>
+<div class=glow></div><div class=rays>{rays}</div><img class=logo src={LOGO}>
+{sticker(d,190,330,700,0,0,6) or sticker({'icono':['bolt']},190,330,700,0,0,6)}
+<div class=h1>{t1}</div><div class=h2>{t2}</div><div class=sub>{sub(d)}</div><div class=chs>{chips}</div><div class=src>{fuente(d)}</div>"""
+
+# ---------- 12. TWEET: tarjeta de publicación en X, clara ----------
+def tweet(d):
+    t1, t2 = head(d); rs = rows(d, 3)
+    met = ''.join(f'<div class=m><b style="color:{col(x.get("cc"))}">{E(x.get("p") or x.get("c",""))}</b><span>{E(x["n"])}</span></div>' for x in rs)
+    return f"""<style>body{{background:#E8EEF3;font-family:Inter,Mont;color:#0F1419}}
+.tag{{position:absolute;left:0;right:0;top:250px;text-align:center;font-family:Mont;font-weight:900;font-size:34px;letter-spacing:.2em;color:#536471}}
+.card{{position:absolute;left:50px;right:50px;top:340px;background:#fff;border-radius:40px;padding:46px 46px 40px;box-shadow:0 30px 80px rgba(0,0,0,.18)}}
+.u{{display:flex;gap:22px;align-items:center}}.u img{{width:104px;height:104px;border-radius:50%}}.u b{{font-size:42px;display:block}}.u b i{{display:inline-block;width:38px;height:38px;border-radius:50%;background:#1D9BF0;color:#fff;font-style:normal;font-size:26px;text-align:center;line-height:38px;vertical-align:middle;margin-left:8px}}.u span{{font-size:30px;color:#536471}}
+.x{{margin-left:auto;font-size:60px;font-weight:900}}
+.tx{{font-size:{_fit(t1+t2,76,22)}px;font-weight:800;line-height:1.12;margin-top:34px}}.tx em{{font-style:normal;color:#1D9BF0}}
+.sub{{font-size:38px;line-height:1.3;color:#344;margin-top:22px}}.sub b{{background:#DCEBFA;padding:0 8px;border-radius:8px}}
+.hero{{height:470px;margin-top:30px;border-radius:30px;background:linear-gradient(135deg,#0F1D2D,#1d3b5a);position:relative;overflow:hidden}}
+.mt{{display:flex;justify-content:space-around;margin-top:30px;padding-top:26px;border-top:2px solid #E1E8ED}}.m{{text-align:center}}.m b{{font-family:Anton;font-size:58px;display:block}}.m span{{font-size:22px;color:#536471;font-weight:800}}
+.src{{position:absolute;left:0;right:0;bottom:190px;text-align:center;font-size:26px;color:#536471;font-weight:700;font-family:Mont}}</style>
+<div class=tag>{E(d.get('tag') or 'EN TENDENCIA')}</div>
+<div class=card><div class=u><img src={AV}><div><b>4LPHA MARKETS<i>✓</i></b><span>@4lphamarkets · ahora</span></div><div class=x>𝕏</div></div>
+<div class=tx>{t1} <em>{t2}</em></div><div class=sub>{sub(d)}</div>
+<div class=hero><div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)">{sticker(d,-190,-190,380,-6,0,1).replace('position:absolute;left:-190px;top:-190px','position:relative;left:0;top:0') or ''}</div></div>
+<div class=mt>{met}</div></div><div class=src>{fuente(d)}</div>"""
+
+# ---------- 13. TICKET: recibo/ticket de compra con sello gigante ----------
+def ticket(d):
+    t1, t2 = head(d); good = up(d); ac = '#0E9F6E' if good else '#E5333F'
+    lines = ''.join(f'<div class=ln><span>{E(x["n"])}<small>{E(x.get("s",""))}</small></span><b style="color:{col(x.get("cc")) if x.get("cc")=="r" else "#0E9F6E"}">{E(x.get("p") or x.get("c",""))}</b></div>' for x in rows(d, 4))
+    return f"""<style>body{{background:repeating-linear-gradient(45deg,#FF7A1A,#FF7A1A 40px,#FF8A33 40px,#FF8A33 80px);font-family:'Courier New',monospace;color:#111}}
+.t{{position:absolute;left:90px;right:90px;top:260px;background:#FBFAF4;padding:56px 50px 90px;box-shadow:0 30px 70px rgba(0,0,0,.35);transform:rotate(-1.5deg);
+ -webkit-mask:radial-gradient(circle 16px at 16px 100%,#0000 98%,#000) 0 0/32px 100% repeat-x;mask:linear-gradient(#000,#000)}}
+.hd{{text-align:center;font-family:Mont;font-weight:900;font-size:34px;letter-spacing:.18em;border-bottom:4px dashed #111;padding-bottom:20px}}
+.h1{{font-family:Anton;font-size:{_fit(t1,150,9)}px;line-height:1;text-transform:uppercase;text-align:center;margin-top:30px}}.h2{{font-family:Anton;font-size:{_fit(t2,110,12)}px;line-height:1;text-transform:uppercase;text-align:center;color:{ac}}}
+.sub{{font-size:34px;text-align:center;margin:26px 0;line-height:1.3;font-weight:700}}.sub b{{background:#111;color:#FBFAF4;padding:0 8px}}
+.ln{{display:flex;justify-content:space-between;align-items:flex-end;font-size:36px;font-weight:700;border-bottom:3px dashed #999;padding:16px 0}}.ln small{{display:block;font-size:22px;color:#777}}.ln b{{font-size:56px}}
+.bar{{height:90px;margin-top:34px;background:repeating-linear-gradient(90deg,#111 0 4px,#fff 4px 10px,#111 10px 12px,#fff 12px 20px)}}
+.src{{text-align:center;font-size:24px;margin-top:14px;color:#555}}
+.logo{{position:absolute;left:50%;transform:translateX(-50%);top:1500px;height:64px;background:#111;border-radius:16px;padding:8px 18px}}</style>
+<div class=t><div class=hd>★ ALPHA MARKETS ★</div><div class=h1>{t1}</div><div class=h2>{t2}</div><div class=sub>{sub(d)}</div>{lines}<div class=bar></div><div class=src>{fuente(d)}</div></div>
+{sticker(d,660,1290,340,14,0,30)}{sticker(d,60,1430,220,-12,1,30)}<img class=logo src={LOGO}>"""
+
+# ---------- 14. TV: informativo con gran imagen arriba, rótulo rojo y cinta ----------
+def tv(d):
+    t1, t2 = head(d); good = up(d); ac = '#34F5B0' if good else '#FF3B48'
+    tk = ' ● '.join(E(x['n'] + ' ' + (x.get('p') or x.get('c', ''))) for x in rows(d, 4)) or E(fuente(d))
+    return f"""<style>body{{background:#071B3A;font-family:Mont;color:#fff;overflow:hidden}}
+.bg{{position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,#1a4d9c,#071B3A 70%)}}.grid{{position:absolute;inset:0;background:repeating-linear-gradient(0deg,#ffffff0d 0 2px,transparent 2px 60px),repeating-linear-gradient(90deg,#ffffff0d 0 2px,transparent 2px 60px)}}
+.live{{position:absolute;left:50px;top:250px;background:#E5101F;font-weight:900;font-size:40px;padding:10px 28px;border-radius:10px;letter-spacing:.08em}}.live:before{{content:'';display:inline-block;width:18px;height:18px;border-radius:50%;background:#fff;margin-right:14px}}
+.logo{{position:absolute;right:50px;top:246px;height:72px}}
+.lt{{position:absolute;left:0;right:0;top:1060px}}.lt .a{{background:{ac};color:#000;font-family:Anton;font-size:{_fit(t1,150,11)}px;line-height:1.05;padding:12px 50px;text-transform:uppercase;width:fit-content;max-width:1000px;transform:skewX(-6deg);margin-left:30px}}
+.lt .b{{background:#fff;color:#071B3A;font-family:Anton;font-size:{_fit(t2,118,14)}px;line-height:1.05;padding:10px 50px;text-transform:uppercase;margin:0 30px 0 0;width:fit-content;max-width:1000px;transform:skewX(-6deg);margin-left:60px}}
+.sub{{position:absolute;left:60px;right:60px;top:1470px;font-weight:800;font-size:40px;line-height:1.3}}.sub b{{color:{ac}}}
+.tk{{position:absolute;left:0;right:0;bottom:200px;background:#000;border-top:6px solid {ac};padding:20px 0;overflow:hidden;white-space:nowrap;font-weight:900;font-size:36px;letter-spacing:.04em}}.tk span{{display:inline-block;padding-left:40px}}</style>
+<div class=bg></div><div class=grid></div><div class=live>{E(d.get('tag') or 'EN DIRECTO')}</div><img class=logo src={LOGO}>
+{sticker(d,210,390,660,-4,0,6) or sticker({'icono':['eye']},210,390,660,-4,0,6)}
+<div class=lt><div class=a>{t1}</div><div class=b>{t2}</div></div><div class=sub>{sub(d)}</div><div class=tk><span>{tk} ● {tk}</span></div>"""
+
+FN = dict(alerta=alerta, gigante=gigante, terminal=terminal, periodico=periodico, chat=chat, cartel=cartel, grafica=grafica, stickers=stickers, versus=versus, lockscreen=lockscreen, poster=poster, tweet=tweet, ticket=ticket, tv=tv)
 
 def render(d, out, estilo):
-    page = f'<!doctype html><html><head><meta charset="utf-8"><style>{FONTS}</style></head><body>{FN[estilo](d)}</body></html>'
+    over = ''
+    if estilo in HERO and not d.get('sin_icono'):
+        for i, (x, y, sz, rot) in enumerate(HERO[estilo]):
+            over += sticker(d, x, y, sz, rot, i)
+    page = f'<!doctype html><html><head><meta charset="utf-8"><style>{FONTS}</style></head><body>{FN[estilo](d)}{over}</body></html>'
     p = ROOT / 'historias' / 'estilos' / f'_tmp_{estilo}.html'
     p.write_text(page, encoding='utf-8')
     from playwright.sync_api import sync_playwright
