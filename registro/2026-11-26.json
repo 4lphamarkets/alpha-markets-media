@@ -14,6 +14,10 @@
   "10:00": {
    "estado": "ok",
    "detalle": "Historia 2 = BTC 15 MIN (sorteo mañana: 10:00) programada 10:30 IG STORY id 442828348. BTC 60.450 (09:00) -> 60.769 (+0,53%)."
+  },
+  "11:00": {
+   "estado": "ok",
+   "detalle": "Historia 3 (noticia PCE/Fed) IG STORY 11:30 id 442887442. BTC15m de la mañana ya hecho a las 10:00."
   }
  },
  "noticias": [
@@ -54,6 +58,16 @@
    "titular": "BTC 15 MIN: +0,53% desde las 09:00",
    "hora_pub": "10:30",
    "tipo": "btc15m"
+  },
+  {
+   "titular": "PCE subyacente oct 3,3% (prev 3,2%), PCE 3,8%; subida de tipos en dic 94,4% (CME); BTC ~60,6K",
+   "hora_pub": "11:30",
+   "tipo": "historia",
+   "fuentes": [
+    "Cointelegraph 25-26/11",
+    "CME FedWatch",
+    "KuCoin"
+   ]
   }
  ],
  "btc15m": {
