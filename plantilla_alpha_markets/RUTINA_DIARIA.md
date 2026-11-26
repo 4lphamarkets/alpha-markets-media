@@ -1,4 +1,4 @@
-# RUTINA DIARIA v26 — ALPHA MARKETS (desde el 26-11-2026)
+# RUTINA DIARIA v26.1 — ALPHA MARKETS (desde el 26-11-2026)
 
 Una sola tarea programada ("RELOJ ALPHA MARKETS") se despierta cada hora en punto (Madrid) y ejecuta SOLO el hueco que toca según la tabla de abajo. Todo es autónomo: **se publica sin pedir permiso**. Si algo falla, se anota en el registro y se sigue con el siguiente hueco (nunca se publica algo roto o con datos antiguos).
 
@@ -63,6 +63,7 @@ Es el hueco de historia normal, pero con gráfica en lugar de noticia. Elegir al
 Seguir `FLUJO_DE_TRABAJO.md` con `montar.py` / `entrega.py` / `qa_video.py` (plantilla v24): guion ≤40 s con el estilo del analista, voz ElevenLabs Jaime (`43h7ymOnaaYdWr3dRbsS`, modelo `eleven_v4`).
 - ElevenLabs: **una sola generación** por audio (`generations_count` 1), **nunca reintentar** (cada reintento cuesta créditos); ≈600 créditos por audio. Antes de generar comprobar `account_get_usage`: si quedan **<4.000 créditos no generar** (hacer en su lugar una historia más y anotar el motivo); pedir OK solo si el audio costaría >2.000 créditos.
 - Subir el vídeo automáticamente (sin pedir permiso) a Metricool como REEL de Instagram + Short de YouTube a la hora de publicación indicada en la tabla.
+- **Regla del dueño (26-11-2026): con CADA vídeo nuevo, enviar siempre al chat las 2 portadas (`SendUserFile` de `<slug>_portada_1.jpg` y `<slug>_portada_2.jpg`), esté o no accesible el Escritorio**, para que pueda cambiarla sin pedirla. Mandar también el vídeo y la descripción.
 - Entregar la carpeta del vídeo en el Escritorio: `SendUserFile` + `device_commit_files` a `C:\Users\orden\Desktop\<slug>\` (carpeta por vídeo).
 - Vídeos de la cola atemporal: no se generan; ya están programados en Metricool. Si se quiere usar uno entre semana, reprogramarlo con `updateScheduledPost` (necesita el `info` completo original; el `id` cambia, el `uuid` no).
 - Dos vídeos del mismo día jamás deben ser de la misma noticia.
