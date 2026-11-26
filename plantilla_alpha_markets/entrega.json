@@ -1,23 +1,16 @@
 {
-  "slug": "2026-11-23-oro",
-  "titulo_seo": "Oro: cae 9,5% en una semana y rebota un 3% hoy, ¿ya hizo suelo?",
-  "descripcion": "El oro se hunde un 9,5% en una semana y hoy rebota un 3%: ¿ya hizo suelo? 🥇\n\nEntre el 13 y el 20 de noviembre el futuro del oro perdió un 9,5% y el viernes cerró en 3.515 dólares la onza, su cierre diario más bajo en más de un año. La plata cayó cerca de un 15% en la semana.\n\nEste lunes el futuro de diciembre sube un 3,1% hasta 3.625 dólares y la plata un 3,7% hasta 42,56 dólares, mientras la caída de la tecnología en bolsa devuelve la demanda de refugio. Aun así, el oro sigue un 35% por debajo del máximo de 5.586 dólares que tocó el futuro en enero. Los analistas miran la zona de 3.630 a 3.650 dólares como la resistencia más cercana.\n\n¿Tú crees que el oro ya hizo suelo? Te leo en comentarios 👇\n\nFuentes: Yahoo Finance/CryptoTicker, Investing, KuCoin.\n\n👉 Sígueme en @4lphamarkets para no perderte nada de los mercados financieros.\n\n⚠️ Esto no es consejo financiero.",
-  "hashtags": ["oro", "plata", "gold", "materiaprimas", "inversiones", "mercadosfinancieros", "finanzas", "bolsa", "activorefugio", "noticiasfinancieras", "trading", "4lphamarkets"],
-  "palabras_clave": ["oro cae 9,5%", "precio del oro hoy", "oro rebota", "plata precio", "oro activo refugio", "futuro oro 3.625", "resistencia oro"],
-  "portada": {
-    "titulo": ["ORO", "*REBOTA*"],
-    "etiqueta": "ORO",
-    "fecha_sede": "23 NOV 2026 · FUTURO DIC",
-    "logos": [{"archivo": "oro", "color": "#F5C542"}, {"archivo": "plata", "color": "#CDD6DB"}],
-    "skyline": false,
-    "semilla": "oro-2026-11-23",
-    "disenos": [
-      {"html": "portadas/estilos/foto_epica.html", "arquetipo": "foto_epica",
-       "concepto": "Monedas gigantes de oro y plata con brillo sobre globo verde y titular ORO REBOTA",
-       "tipografia": "Montserrat Black Italic", "paleta": "negro / menta / oro"},
-      {"html": "portadas/disenos/oro_rebote_b.html", "arquetipo": "dos_cifras",
-       "concepto": "Dos tarjetas enfrentadas: récord de enero 5.586 $ frente a hoy 3.625 $ con pregunta ya hizo suelo",
-       "tipografia": "Anton + Montserrat", "paleta": "negro / oro / menta"}
-    ]
-  }
+ "slug": "2026_11_26_opciones_bitcoin_vencimiento",
+ "titulo_seo": "7.000 millones en opciones de Bitcoin caducan mañana a las 9:00",
+ "descripcion": "7.000 millones de dólares en opciones de Bitcoin caducan mañana a las 9:00 (Madrid) ⏰\n\nEl vencimiento mensual de Deribit del viernes 27 de noviembre es un 35 % menor que el de octubre (10.800 millones). Pero la apuesta ha cambiado: en octubre el ratio put/call era 0,55 (mercado apostando a la subida); hoy es 0,89 para este vencimiento, con más protección ante una caída. Hay puts muy grandes en 60.000 y 58.000 dólares, y la volatilidad implícita ha subido (DVOL 55 frente a 38).\n\n¿Imán o trampa para el precio? Te leo en comentarios 👇\n\n👉 Sígueme en @4lphamarkets para no perderte nada de los mercados financieros.\n\nFuentes: CoinDesk, CryptoSlate (26-11-2026).\n⚠️ Esto no es consejo financiero.",
+ "hashtags": ["bitcoin", "opciones", "deribit", "criptomonedas", "btc", "noticiascripto", "volatilidad", "mercadosfinancieros", "inversiones", "finanzas", "trading", "4lphamarkets"],
+ "portada": {
+  "titulo": ["OPCIONES", "*7.000M $*"],
+  "etiqueta": "BITCOIN",
+  "fecha_sede": "27 NOV · 09:00 MADRID",
+  "logos": [{"archivo": "bitcoin", "color": "#F7931A"}],
+  "disenos": [
+   {"html": "portadas/estilos/foto_epica.html", "arquetipo": "foto_epica", "concepto": "Logo de Bitcoin como moneda gigante sobre globo verde con titular OPCIONES 7.000M $ y píldora 27 NOV · 09:00 MADRID", "tipografia": "Montserrat Black Italic", "paleta": "negro / menta / naranja"},
+   {"html": "portadas/disenos/2026_11_26_opciones_bitcoin_b.html", "arquetipo": "cuenta_atras", "concepto": "Reloj digital gigante 09:00 con borde cian, píldora roja MAÑANA VIERNES y cifra 7.000M $ EN BITCOIN", "tipografia": "Anton + Montserrat", "paleta": "azul noche / cian / rojo / amarillo"}
+  ]
+ }
 }
