@@ -114,7 +114,7 @@ def periodico(d):
 .h{{position:absolute;left:50px;right:50px;top:470px;font-size:{F(max(t1,t2,key=len),200,9)}px;white-space:nowrap;line-height:.92;font-weight:900;letter-spacing:-.03em;text-transform:uppercase}}.h em{{font-style:italic;color:#b3141f}}
 .sub{{position:absolute;left:54px;right:54px;top:960px;font-size:42px;line-height:1.3;font-style:italic;border-top:4px solid #16120a;padding-top:20px}}.sub b{{background:#16120a;color:#ECE4D0;padding:0 8px;font-style:normal}}
 .cols{{position:absolute;left:54px;right:54px;top:1160px;border-top:2px solid #16120a}}.ro{{display:flex;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.4);font-size:36px}}.ro b{{font-family:Georgia;font-weight:900;min-width:300px}}.ro span{{flex:1;font-family:Inter;font-size:22px;opacity:.7;text-transform:uppercase;font-weight:700}}.ro i{{font-style:normal;font-weight:900;font-size:40px}}
-.stamp{{position:absolute;right:70px;top:880px;transform:rotate(9deg);border:7px solid #b3141f;color:#b3141f;font-family:Anton;font-size:60px;padding:6px 22px;opacity:.88}}
+.stamp{{position:absolute;right:70px;top:735px;transform:rotate(9deg);border:7px solid #b3141f;color:#b3141f;font-family:Anton;font-size:60px;padding:6px 22px;opacity:.88}}
 .src{{position:absolute;left:54px;right:54px;bottom:200px;font-family:Inter;font-size:24px;font-weight:700;opacity:.7}}</style>
 <div class=paper></div>
 <div class=mast><h4>EL DIARIO 4LPHA</h4><p><span>Edición especial</span><span>{E(d.get('tag') or 'Mercados')}</span><span>@4lphamarkets</span></p></div>
