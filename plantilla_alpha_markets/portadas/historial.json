@@ -78,5 +78,21 @@
   "concepto": "Cinta de peligro amarilla y negra con cifra gigante -4.940 millones $ en rojo y titular SALIDAS RÉCORD EN UN SOLO MES",
   "tipografia": "Anton + Montserrat",
   "paleta": "negro / rojo / amarillo alerta"
+ },
+ {
+  "fecha": "2026-11-26T09:13:46",
+  "slug": "2026_11_26_reserva_bitcoin_ley_20_anos",
+  "arquetipo": "foto_epica",
+  "concepto": "Logo de Bitcoin como moneda gigante sobre globo verde con titular BITCOIN BLOQUEADO y píldora 26 NOV 2026 · RESERVA EEUU",
+  "tipografia": "Montserrat Black Italic",
+  "paleta": "negro / menta / naranja"
+ },
+ {
+  "fecha": "2026-11-26T09:13:46",
+  "slug": "2026_11_26_reserva_bitcoin_ley_20_anos",
+  "arquetipo": "documento_filtrado",
+  "concepto": "Folio oficial H.R. 8957 con líneas tachadas, 306.795 BTC y sello rojo NO SE VENDE 20 AÑOS",
+  "tipografia": "Courier + Anton",
+  "paleta": "papel crema / rojo / oscuro"
  }
 ]
