@@ -1,0 +1,4 @@
+file '/home/claude/alpha-markets-media/plantilla_alpha_markets/tmp/part0.mp4'
+file '/home/claude/alpha-markets-media/plantilla_alpha_markets/tmp/part1.mp4'
+file '/home/claude/alpha-markets-media/plantilla_alpha_markets/tmp/part2.mp4'
+file '/home/claude/alpha-markets-media/plantilla_alpha_markets/tmp/part3.mp4'

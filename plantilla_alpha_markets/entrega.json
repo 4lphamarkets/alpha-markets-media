@@ -1,14 +1,11 @@
 {
- "slug": "2026_11_26_reserva_bitcoin_ley_20_anos_v2",
- "titulo_seo": "Reserva de Bitcoin de EEUU: 306.795 BTC bloqueados 20 años",
- "descripcion": "EEUU quiere encerrar su bitcoin 20 años 🔒\n\nEl proyecto H.R. 8957 prohíbe vender, subastar o gastar los bitcoin del Gobierno durante dos décadas: más de 306.000 BTC, unos 18.700 millones de dólares según Arkham. Ya espera el voto del pleno de la Cámara y después tendría que pasar por el Senado.\n\nEl problema es el calendario: quedan unas cinco semanas de Congreso y Polymarket da menos de un 5% a una reserva nacional antes de 2027. Si no sale, la reserva sigue por decreto y el próximo presidente podría cambiarla. ¿Reserva histórica o promesa en el aire? Te leo en comentarios 👇\n\n👉 Sígueme en @4lphamarkets para no perderte nada de los mercados financieros.\n\nFuentes: CoinDesk, Arkham, Polymarket. Contenido informativo, esto no es consejo financiero.",
- "hashtags": ["bitcoin", "reservabitcoin", "criptomonedas", "noticiascripto", "btc", "trump", "congreso", "polymarket", "mercadosfinancieros", "inversiones", "finanzas", "4lphamarkets"],
+ "slug": "2026_11_26_strategy_bitcoin_bajo_coste",
+ "titulo_seo": "Strategy pierde 13.000M$ con Bitcoin: ¿hasta cuándo aguanta?",
+ "descripcion": "Strategy compró 849.327 bitcoin a 75.451 $ de media… y hoy BTC ronda los 60.000 $ 📉\n\nSon casi un 20% por debajo de su precio medio de compra y unos 13.000 millones de dólares en pérdidas latentes (cálculo con BTC a 60.200 $ y las tenencias de su última comunicación, a 1 de noviembre).\n\n¿Pánico? De momento no: según sus cuentas, sus bitcoin no están pignorados, no hay llamadas de margen y el primer plazo para que los tenedores le exijan dinero llega el 15 de septiembre de 2027. Además mantiene unos 4.790 millones en reserva en dólares para los dividendos de sus preferentes. Pero con casi 20.000 millones entre deuda y acciones preferentes, la clave es cuánto tiempo aguanta. ¿Tú qué crees? Te leo en comentarios 👇\n\n👉 Sígueme en @4lphamarkets para no perderte nada de los mercados financieros.\n\nFuentes: The Defiant / KuCoin, 247WallSt, CoinMarketCap, Ted Pillows. Contenido informativo, esto no es consejo financiero.",
+ "hashtags": ["bitcoin","strategy","microstrategy","saylor","criptomonedas","noticiascripto","btc","mstr","mercadosfinancieros","inversiones","finanzas","4lphamarkets"],
  "portada": {
-  "titulo": ["BITCOIN", "*BLOQUEADO*"], "etiqueta": "RESERVA EEUU", "fecha_sede": "20 AÑOS · H.R. 8957",
-  "logos": [{"archivo": "bitcoin", "color": "#F7931A"}],
-  "disenos": [
-   {"html": "portadas/estilos/foto_epica.html", "arquetipo": "foto_epica", "concepto": "Logo de Bitcoin como moneda gigante sobre globo verde con titular BITCOIN BLOQUEADO y píldora 20 AÑOS · H.R. 8957", "tipografia": "Montserrat Black Italic", "paleta": "negro / menta / naranja"},
-   {"html": "portadas/disenos/2026_11_26_reserva_bitcoin_v2_b.html", "arquetipo": "pizarra", "concepto": "Pizarra de tiza con 306.795 bitcoin del Gobierno tachado por una línea roja y 20 AÑOS a tiza", "tipografia": "Permanent Marker", "paleta": "verde pizarra / tiza / rojo / dorado"}
-  ]
+  "t1":"STRATEGY","t2":"-20 % EN BITCOIN","tag":"PÉRDIDA LATENTE","sub":"Compró a <b>75.451 $</b> · hoy BTC ~60.000 $",
+  "rows":[{"n":"COSTE MEDIO","s":"STRATEGY","p":"75.451 $","c":"","cc":"v"},{"n":"BTC HOY","s":"~","p":"60.000 $","c":"","cc":"r"}],
+  "dir":"down","estilos":["alerta","periodico"]
  }
 }

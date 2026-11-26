@@ -174,5 +174,21 @@
   "concepto": "Portada diseño versus: BITCOIN 7.000M$",
   "tipografia": "",
   "paleta": ""
+ },
+ {
+  "fecha": "2026-11-26T16:20:26",
+  "slug": "2026_11_26_strategy_bitcoin_bajo_coste",
+  "arquetipo": "est_alerta",
+  "concepto": "Portada diseño alerta: STRATEGY -20 % EN BITCOIN",
+  "tipografia": "",
+  "paleta": ""
+ },
+ {
+  "fecha": "2026-11-26T16:20:26",
+  "slug": "2026_11_26_strategy_bitcoin_bajo_coste",
+  "arquetipo": "est_periodico",
+  "concepto": "Portada diseño periodico: STRATEGY -20 % EN BITCOIN",
+  "tipografia": "",
+  "paleta": ""
  }
 ]

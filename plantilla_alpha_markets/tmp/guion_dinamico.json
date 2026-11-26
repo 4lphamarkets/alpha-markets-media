@@ -1,0 +1,456 @@
+{
+ "audio": "tmp/voz.mp3",
+ "tag": "STRATEGY EN PÉRDIDAS",
+ "scenes": [
+  {
+   "id": "s1",
+   "a": 0,
+   "tag": "STRATEGY",
+   "mood": "red",
+   "comps": [
+    {
+     "type": "rain",
+     "sym": "btc",
+     "n": 28,
+     "at": 0.4,
+     "spread": 3
+    },
+    {
+     "type": "coin",
+     "sym": "btc",
+     "size": 420,
+     "y": 330,
+     "at": 0.05,
+     "enter": "zoom",
+     "mode": "spin"
+    },
+    {
+     "type": "odo",
+     "value": "849.327",
+     "suffix": " BTC",
+     "size": 165,
+     "y": 830,
+     "at": 0.5,
+     "color": "#fff"
+    },
+    {
+     "type": "stamp",
+     "text": "75.451 $ DE MEDIA",
+     "tone": "gold",
+     "size": 110,
+     "y": 1080,
+     "at": 4.5,
+     "rot": -4
+    },
+    {
+     "type": "icon",
+     "name": "money",
+     "size": 260,
+     "x": 820,
+     "y": 340,
+     "at": 2.4,
+     "enter": "pop",
+     "anim": "bob"
+    },
+    {
+     "type": "icon",
+     "name": "up",
+     "size": 260,
+     "x": 280,
+     "y": 340,
+     "at": 6.0,
+     "enter": "slam"
+    }
+   ],
+   "fx": [
+    {
+     "at": 4.5,
+     "type": "zoom",
+     "dur": 0.5,
+     "amt": 0.06
+    }
+   ],
+   "segs": [
+    [
+     0.1,
+     4.3,
+     "Strategy compró *849.327 bitcoins*"
+    ],
+    [
+     4.4,
+     8.0,
+     "a ^75.451 dólares^ de media"
+    ]
+   ]
+  },
+  {
+   "id": "s2",
+   "a": 8.2,
+   "tag": "¿Y HOY?",
+   "mood": "red",
+   "comps": [
+    {
+     "type": "icon",
+     "name": "question",
+     "size": 330,
+     "y": 330,
+     "at": 0.1,
+     "enter": "slam",
+     "anim": "wiggle"
+    },
+    {
+     "type": "candles",
+     "trend": "down",
+     "style": "candles",
+     "title": "BTC HOY",
+     "price0": 75451,
+     "price1": 60200,
+     "y": 700,
+     "w": 900,
+     "h": 560,
+     "at": 0.9,
+     "dur": 1.6,
+     "big": "60.000 $"
+    }
+   ],
+   "fx": [
+    {
+     "at": 1.0,
+     "type": "flash",
+     "color": "#ff3b3b"
+    }
+   ],
+   "segs": [
+    [
+     8.3,
+     9.0,
+     "¿Y *hoy*?"
+    ],
+    [
+     9.2,
+     11.2,
+     "Bitcoin ronda los #60.000#"
+    ]
+   ]
+  },
+  {
+   "id": "s3",
+   "a": 11.4,
+   "tag": "-20 %",
+   "mood": "red",
+   "comps": [
+    {
+     "type": "icon",
+     "name": "down",
+     "size": 330,
+     "x": 800,
+     "y": 340,
+     "at": 0.1,
+     "enter": "slam"
+    },
+    {
+     "type": "stamp",
+     "text": "-20 %",
+     "tone": "red",
+     "size": 230,
+     "y": 560,
+     "at": 0.4,
+     "rot": -5
+    },
+    {
+     "type": "odo",
+     "value": "13.000",
+     "prefix": "-",
+     "suffix": "M $",
+     "size": 170,
+     "y": 930,
+     "at": 2.4,
+     "color": "#ff4d4d",
+     "label": "PÉRDIDA LATENTE",
+     "dur": 2.2
+    },
+    {
+     "type": "rain",
+     "sym": "usd",
+     "n": 22,
+     "at": 2.2,
+     "spread": 3,
+     "dir": "down"
+    }
+   ],
+   "fx": [
+    {
+     "at": 0.4,
+     "type": "shake",
+     "dur": 0.5,
+     "amp": 14
+    }
+   ],
+   "segs": [
+    [
+     11.5,
+     13.4,
+     "Un #veinte por ciento# por debajo"
+    ],
+    [
+     13.6,
+     16.9,
+     "Unos #13.000 millones# en pérdidas latentes"
+    ]
+   ]
+  },
+  {
+   "id": "s4",
+   "a": 17.1,
+   "tag": "¿PÁNICO?",
+   "comps": [
+    {
+     "type": "icon",
+     "name": "question",
+     "size": 340,
+     "y": 330,
+     "at": 0.1,
+     "enter": "slam",
+     "anim": "wiggle"
+    },
+    {
+     "type": "stamp",
+     "text": "DE MOMENTO, NO",
+     "tone": "green",
+     "size": 120,
+     "y": 720,
+     "at": 1.2,
+     "rot": -3
+    },
+    {
+     "type": "icon",
+     "name": "lock",
+     "size": 300,
+     "x": 800,
+     "y": 860,
+     "at": 3.8,
+     "enter": "slam"
+    },
+    {
+     "type": "stamp",
+     "text": "SIN MARGIN CALL",
+     "tone": "white",
+     "size": 100,
+     "y": 1090,
+     "at": 4.8,
+     "rot": 3
+    },
+    {
+     "type": "icon",
+     "name": "clock",
+     "size": 260,
+     "x": 300,
+     "y": 880,
+     "at": 7.0,
+     "enter": "pop",
+     "anim": "pulse"
+    },
+    {
+     "type": "stamp",
+     "text": "SEPT. 2027",
+     "tone": "gold",
+     "size": 100,
+     "y": 1240,
+     "at": 7.6,
+     "rot": -3
+    }
+   ],
+   "fx": [
+    {
+     "at": 1.2,
+     "type": "flash",
+     "color": "#34F5B0"
+    }
+   ],
+   "segs": [
+    [
+     17.2,
+     18.8,
+     "¿*Pánico*? De momento, no"
+    ],
+    [
+     19.0,
+     22.2,
+     "Sus bitcoins *no están pignorados*"
+    ],
+    [
+     22.3,
+     24.0,
+     "no hay *margin call*"
+    ],
+    [
+     24.1,
+     26.8,
+     "y el primer plazo llega en *septiembre de 2027*"
+    ]
+   ]
+  },
+  {
+   "id": "s5",
+   "a": 27.0,
+   "tag": "4.790M $",
+   "mood": "green",
+   "comps": [
+    {
+     "type": "coin",
+     "sym": "usd",
+     "size": 330,
+     "y": 330,
+     "at": 0.1,
+     "enter": "pop",
+     "mode": "float"
+    },
+    {
+     "type": "rain",
+     "sym": "usd",
+     "n": 26,
+     "at": 0.3,
+     "spread": 3
+    },
+    {
+     "type": "odo",
+     "value": "4.790",
+     "suffix": "M $",
+     "size": 190,
+     "y": 800,
+     "at": 0.6,
+     "color": "#34F5B0",
+     "label": "RESERVA EN DÓLARES",
+     "dur": 2.2
+    },
+    {
+     "type": "icon",
+     "name": "bank",
+     "size": 260,
+     "y": 1080,
+     "at": 3.2,
+     "enter": "up"
+    }
+   ],
+   "segs": [
+    [
+     27.1,
+     29.6,
+     "Además guarda *4.790 millones* en dólares"
+    ],
+    [
+     29.7,
+     32.4,
+     "para los *dividendos* de sus preferentes"
+    ]
+   ]
+  },
+  {
+   "id": "s6",
+   "a": 32.6,
+   "tag": "DEUDA",
+   "mood": "gold",
+   "comps": [
+    {
+     "type": "icon",
+     "name": "scales",
+     "size": 330,
+     "y": 330,
+     "at": 0.1,
+     "enter": "slam",
+     "anim": "wiggle"
+    },
+    {
+     "type": "odo",
+     "value": "20.000",
+     "suffix": "M $",
+     "size": 190,
+     "y": 780,
+     "at": 0.5,
+     "color": "#FFD34D",
+     "label": "DEUDA + PREFERENTES",
+     "dur": 2.0
+    },
+    {
+     "type": "icon",
+     "name": "clock",
+     "size": 300,
+     "y": 1060,
+     "at": 3.6,
+     "enter": "pop",
+     "anim": "pulse"
+    }
+   ],
+   "fx": [
+    {
+     "at": 0.5,
+     "type": "zoom",
+     "dur": 0.5,
+     "amt": 0.06
+    }
+   ],
+   "segs": [
+    [
+     32.7,
+     35.8,
+     "Pero con casi *20.000 millones* en deuda y preferentes"
+    ],
+    [
+     36.0,
+     38.3,
+     "la clave es *cuánto aguanta*"
+    ]
+   ]
+  },
+  {
+   "id": "s7",
+   "a": 38.6,
+   "tag": "4LPHA MARKETS",
+   "tagTone": "g",
+   "comps": [
+    {
+     "type": "coin",
+     "sym": "btc",
+     "size": 320,
+     "y": 340,
+     "at": 0.1,
+     "mode": "float",
+     "enter": "pop"
+    },
+    {
+     "type": "follow",
+     "y": 760,
+     "at": 0.6,
+     "tapAt": 3.6
+    },
+    {
+     "type": "disc",
+     "y": 990,
+     "at": 1.2
+    },
+    {
+     "type": "rain",
+     "sym": "btc",
+     "n": 18,
+     "at": 2.2,
+     "spread": 3,
+     "dir": "up"
+    }
+   ],
+   "segs": [
+    [
+     38.7,
+     44.2,
+     "Sígueme para no perderte nada de los *mercados financieros*, esto es... *4LPHA MARKETS*"
+    ]
+   ],
+   "fx": [
+    {
+     "at": 3.0,
+     "type": "flash",
+     "color": "#34F5B0"
+    }
+   ]
+  }
+ ]
+}
