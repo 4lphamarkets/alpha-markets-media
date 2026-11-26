@@ -42,6 +42,10 @@
   "extra_rehacer_C": {
    "estado": "ok",
    "detalle": "Vídeo C (opciones BTC) rehecho en modo dinámico v25 (voz nueva Jaime 509 créditos). Programado 17:00: IG Reel id 443254469 (portada gigante) + YT Short id 443254717 (portada versus). PENDIENTE (Antonio): borrar a mano los posts antiguos IG 443098677 / YT 443098705. Vídeo B reprogramado 15:50 con portadas cartel (IG) y terminal (YT)."
+  },
+  "16:00": {
+   "estado": "parcial",
+   "detalle": "Historia 7 = BTC 15 MIN (sorteo tarde: 16:00) IG STORY 17:00 id 443260679. BTC 60.450 (09:00) -> 60.242 (-0,34%). Vídeo D: en curso/ver nota."
   }
  },
  "noticias": [
@@ -132,9 +136,16 @@
     "Ted Pillows",
     "CoinGlass"
    ]
+  },
+  {
+   "titular": "BTC 15 MIN: -0,34% desde las 09:00",
+   "hora_pub": "17:00",
+   "tipo": "btc15m",
+   "estilo": "btc15m"
   }
  ],
  "btc15m": {
-  "manana": "10:00"
+  "manana": "10:00",
+  "tarde": "16:00"
  }
 }
