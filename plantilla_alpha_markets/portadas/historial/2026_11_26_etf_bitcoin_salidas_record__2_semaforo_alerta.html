@@ -1,0 +1,33 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<!-- Portada B · "ticket": recibo de caja blanco sobre fondo azul noche con las salidas de los ETF de Bitcoin. Monoespaciada + Anton. Zona segura y 240-1680. -->
+<link rel="stylesheet" href="portadas/kit.css"><script src="portadas/kit.js"></script>
+<style>
+body{background:#0a1630}
+#p{background:linear-gradient(160deg,#10224d 0%,#0a1630 55%,#050b1a 100%)}
+#brand{position:absolute;left:0;right:0;top:250px;text-align:center;z-index:6}
+#tk{position:absolute;left:130px;right:130px;top:380px;height:1180px;background:#f6f4ee;color:#111;font-family:'Courier New',monospace;font-weight:700;padding:60px 56px;box-shadow:0 30px 80px rgba(0,0,0,.65);transform:rotate(-2deg);
+ -webkit-mask:radial-gradient(circle 22px at 22px 100%,#0000 98%,#000) -22px 0/44px 100% repeat-x;}
+#tk h1{font-family:Anton;font-weight:400;font-size:84px;text-align:center;margin:0 0 6px;letter-spacing:.04em}
+#tk .s{text-align:center;font-size:30px;letter-spacing:.12em;margin-bottom:26px}
+.l{display:flex;justify-content:space-between;font-size:40px;margin:16px 0;white-space:nowrap}
+.d{border-top:6px dashed #111;margin:26px 0}
+.big{font-family:Anton;font-weight:400;font-size:150px;line-height:1;text-align:center;color:#d6283b;margin:14px 0 0;white-space:nowrap}
+.tot{display:flex;justify-content:space-between;font-size:52px;font-weight:900;margin-top:10px}
+.sello{position:absolute;right:50px;bottom:120px;transform:rotate(-14deg);border:10px solid #d6283b;color:#d6283b;border-radius:18px;padding:6px 28px;font-family:Anton;font-weight:400;font-size:90px;letter-spacing:.06em;background:rgba(246,244,238,.85)}
+#q{position:absolute;left:110px;right:110px;top:1620px;height:100px;border-radius:24px;background:#34F5B0;color:#06120d;display:flex;align-items:center;justify-content:center;font-family:Mont;font-weight:900;font-style:italic;font-size:50px;white-space:nowrap}
+</style></head><body><div id="p">
+<div id="brand"></div>
+<div id="tk">
+ <h1>ETF BITCOIN</h1><div class="s">RECIBO · NOVIEMBRE 2026</div><div class="d"></div>
+ <div class="l"><span>SALIDAS NETAS</span><span>6 SESIONES</span></div>
+ <div class="l"><span>RÉCORD JUNIO</span><span>−4.510 M$</span></div>
+ <div class="d"></div>
+ <div class="big" id="n">−4.940 M$</div>
+ <div class="d"></div>
+ <div class="tot"><span>TOTAL</span><span>RÉCORD</span></div>
+ <div class="sello">PEOR MES</div>
+</div>
+<div id="q">¿REBOTE O MÁS VENTAS?</div>
+</div>
+<script>document.getElementById('brand').innerHTML=marca('',44);window.fit=()=>{ajustar('#n',900,150,80)}</script>
+</body></html>

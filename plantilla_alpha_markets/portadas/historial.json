@@ -62,5 +62,21 @@
   "concepto": "Logo de NVIDIA sobre sangre goteando y dos tarjetas enfrentadas -33 % acción vs +103 % ingresos con titular en pregunta",
   "tipografia": "Anton",
   "paleta": "negro / rojo sangre / verde nvidia"
+ },
+ {
+  "fecha": "2026-11-26T06:13:38",
+  "slug": "2026_11_26_etf_bitcoin_salidas_record",
+  "arquetipo": "foto_epica",
+  "concepto": "Logo de Bitcoin como moneda gigante sobre globo verde con titular SALIDAS RÉCORD y píldora 26 NOV 2026 · ETF BITCOIN",
+  "tipografia": "Montserrat Black Italic",
+  "paleta": "negro / menta"
+ },
+ {
+  "fecha": "2026-11-26T06:13:38",
+  "slug": "2026_11_26_etf_bitcoin_salidas_record",
+  "arquetipo": "semaforo_alerta",
+  "concepto": "Cinta de peligro amarilla y negra con cifra gigante -4.940 millones $ en rojo y titular SALIDAS RÉCORD EN UN SOLO MES",
+  "tipografia": "Anton + Montserrat",
+  "paleta": "negro / rojo / amarillo alerta"
  }
 ]
