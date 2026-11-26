@@ -64,7 +64,7 @@ En `entrega.json`, sin `portada.disenos`:
             "rows":[{"n":"PUT/CALL","s":"HOY","p":"0,89","c":"","cc":"r"},{"n":"OCTUBRE","s":"ANTES","p":"0,55","c":"","cc":"v"}],
             "dir":"down", "estilos":["gigante","periodico"]}   // dir y estilos opcionales; máx. 2 filas; titular corto (la portada es una miniatura)
 ```
-Estilos: alerta · gigante · terminal · periodico · chat · cartel · grafica · stickers · versus · lockscreen. Con `cc:"r"` salen en rojo, con `cc:"v"` en verde; `dir:"down"` pone la gráfica bajista. Elegir a mano `estilos` cuando la noticia lo pida (crash → `alerta`; cifra única → `gigante`; dos cifras → `versus`; ley/política → `periodico`). Mirar siempre las 2 portadas (Read) antes de entregar.
+Estilos: alerta · gigante · terminal · periodico · chat · grafica · stickers · versus · lockscreen. Con `cc:"r"` salen en rojo, con `cc:"v"` en verde; `dir:"down"` pone la gráfica bajista. Elegir a mano `estilos` cuando la noticia lo pida (crash → `alerta`; cifra única → `gigante`; dos cifras → `versus`; ley/política → `periodico`). Mirar siempre las 2 portadas (Read) antes de entregar.
 Las portadas con HTML propio (`portada.disenos`) siguen funcionando, pero no se usan salvo petición expresa.
 
 

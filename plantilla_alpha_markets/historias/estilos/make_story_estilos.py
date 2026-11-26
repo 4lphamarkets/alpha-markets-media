@@ -11,9 +11,9 @@ Estilos: alerta, gigante, terminal, periodico, chat, cartel, grafica, stickers, 
 import json, os, re, sys, html, base64, pathlib
 ROOT = pathlib.Path(__file__).resolve().parents[2]          # plantilla_alpha_markets
 E = html.escape
-ESTILOS = ['alerta', 'gigante', 'terminal', 'periodico', 'chat', 'cartel', 'grafica', 'stickers', 'versus', 'lockscreen', 'poster', 'tweet', 'ticket', 'tv']
-# orden de rotación: cada par consecutivo cambia de familia (oscuro→claro→mono→serif→…); el hueco K usa ORDEN[(K-1) % 10]
-ORDEN = ['alerta', 'tweet', 'terminal', 'stickers', 'poster', 'periodico', 'grafica', 'ticket', 'chat', 'cartel', 'tv', 'gigante', 'lockscreen', 'versus']
+ESTILOS = ['alerta', 'gigante', 'terminal', 'periodico', 'chat', 'grafica', 'stickers', 'versus', 'lockscreen', 'poster', 'tweet', 'ticket', 'tv']
+# orden de rotación: cada par consecutivo cambia de familia (oscuro→claro→mono→serif→…); el hueco K usa ORDEN[(K-1) % len(ORDEN)]  (cartel ELIMINADO 26-11-2026: «no se entiende bien», orden de Antonio)
+ORDEN = ['alerta', 'tweet', 'terminal', 'stickers', 'poster', 'periodico', 'grafica', 'ticket', 'chat', 'tv', 'gigante', 'lockscreen', 'versus']
 
 FONTS = """@font-face{font-family:Mont;src:url(../../fonts/montserrat-latin-wght-normal.woff2);font-weight:100 900}
 @font-face{font-family:Mont;src:url(../../fonts/montserrat-latin-wght-italic.woff2);font-weight:100 900;font-style:italic}
@@ -322,7 +322,7 @@ def tv(d):
 {sticker(d,210,390,660,-4,0,6) or sticker({'icono':['eye']},210,390,660,-4,0,6)}
 <div class=lt><div class=a>{t1}</div><div class=b>{t2}</div></div><div class=sub>{sub(d)}</div><div class=tk><span>{tk} ● {tk}</span></div>"""
 
-FN = dict(alerta=alerta, gigante=gigante, terminal=terminal, periodico=periodico, chat=chat, cartel=cartel, grafica=grafica, stickers=stickers, versus=versus, lockscreen=lockscreen, poster=poster, tweet=tweet, ticket=ticket, tv=tv)
+FN = dict(alerta=alerta, gigante=gigante, terminal=terminal, periodico=periodico, chat=chat, grafica=grafica, stickers=stickers, versus=versus, lockscreen=lockscreen, poster=poster, tweet=tweet, ticket=ticket, tv=tv)
 
 def render(d, out, estilo):
     over = ''
