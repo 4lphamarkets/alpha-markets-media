@@ -50,6 +50,10 @@
   "17:00": {
    "estado": "ok",
    "detalle": "Historia 8 (estilo cartel) IA vs criptografía: aviso de Scott Aaronson sobre avances sin publicar en labs de IA (sin pruebas públicas). IG STORY 18:00 id 443335145. BTC15m de la tarde ya hecho a las 16:00."
+  },
+  "18:00": {
+   "estado": "ok",
+   "detalle": "Historia 9 (estilo lockscreen) altcoins: NEAR +11,6%, LTC +7,3%, XMR -10,6% mientras BTC ~60K. IG STORY 19:00 id 443403913."
   }
  },
  "noticias": [
@@ -168,6 +172,15 @@
    "fuentes": [
     "Cointelegraph 26-11",
     "Explainx"
+   ]
+  },
+  {
+   "titular": "Altcoins se encienden con BTC en 60K: NEAR +11,6% (3,07$), LTC +7,3%, XMR -10,6%; sin causa confirmada",
+   "hora_pub": "19:00",
+   "tipo": "historia",
+   "estilo": "lockscreen",
+   "fuentes": [
+    "CryptoTicker (CoinGecko 16:25 UTC)"
    ]
   }
  ],
