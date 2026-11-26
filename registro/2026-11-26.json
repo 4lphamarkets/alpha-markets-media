@@ -58,6 +58,10 @@
   "19:00": {
    "estado": "ok",
    "detalle": "Historia 10 (estilo periodico; versus descartado por no encajar) Ucrania aprueba ley cripto (271 votos, vigor 1-jul-2027, 5% activos ya poseídos hasta 2028). IG STORY 20:00 id 443472057. Fix: sello periodico movido (top 735px) para no tapar el subtítulo."
+  },
+  "extra_20:00_binance": {
+   "estado": "ok",
+   "detalle": "Historia EXTRA pedida por Antonio (ver un diseño nuevo publicado): diseño v30 'alerta' en colores de marca. Hacker de Binance (hackeo 29-oct ~6.340M$) mueve 35,5M$ en ETH el 26-nov; ~1.900M$ sin congelar. IG STORY 20:00 id 443515466."
   }
  },
  "noticias": [
@@ -195,6 +199,16 @@
    "fuentes": [
     "Interfax-Ukraine 25-11",
     "CoinCodex 26-11"
+   ]
+  },
+  {
+   "titular": "Hacker de Binance mueve 35,5M$ en ETH; ~1.900M$ siguen sin congelar (hackeo 29-oct ~6.340M$)",
+   "hora_pub": "20:00",
+   "tipo": "historia",
+   "estilo": "alerta",
+   "fuentes": [
+    "Crypto.news 26-11 (Onchain Lens)",
+    "Cointelegraph 24-11"
    ]
   }
  ],
