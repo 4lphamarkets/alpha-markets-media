@@ -8,8 +8,8 @@
    "detalle": "Vídeo A programado para 09:00 (IG Reel id 442663769 + YT Short id 442663780). Audio 579 créditos (quedaban ~96.500 antes). Carpeta Escritorio PENDIENTE: acceso a C:\\Users\\orden\\Desktop esperando aprobación en el PC (tarea desatendida); archivos enviados por chat."
   },
   "09:00": {
-   "estado": "parcial",
-   "detalle": "Historia 1 programada 09:30 (IG story id 442776371). Vídeo B pendiente."
+   "estado": "ok",
+   "detalle": "Historia 1 IG 09:30 (id 442776371). Vídeo B (ley H.R. 8957, reserva BTC EEUU) programado 12:00: IG Reel id 442783682 + YT Short id 442783694. Audio 682 créditos. Carpeta Escritorio PENDIENTE (acceso a Desktop esperando aprobación en el PC); archivos enviados por chat."
   }
  },
  "noticias": [
@@ -33,6 +33,18 @@
     "KuCoin Daily 26-11",
     "Crypto.news"
    ]
+  },
+  {
+   "titular": "Ley H.R. 8957: reserva de bitcoin de EEUU bloquea 306.795 BTC 20 años; Polymarket <5% antes de 2027",
+   "hora_pub": "12:00",
+   "tipo": "video",
+   "slug": "2026_11_26_reserva_bitcoin_ley_20_anos",
+   "fuentes": [
+    "CoinDesk 26-11",
+    "Arkham",
+    "Polymarket"
+   ],
+   "modo": "analista"
   }
  ],
  "btc15m": {}
