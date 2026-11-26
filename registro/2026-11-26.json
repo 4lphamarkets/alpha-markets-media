@@ -22,6 +22,10 @@
   "12:00": {
    "estado": "ok",
    "detalle": "Historia 4 (stablecoins -10,7B, mayor caída 18 días desde Terra; 21Shares) IG STORY 12:30 id 442952143."
+  },
+  "13:00": {
+   "estado": "ok",
+   "detalle": "Historia 5 (aranceles USTR Sección 301 + Nasdaq -3,31% apertura 25-nov, BTC ~57.965) IG STORY 13:30 id 443022256."
   }
  },
  "noticias": [
@@ -80,6 +84,16 @@
    "fuentes": [
     "crypto.news 26-11",
     "21Shares"
+   ]
+  },
+  {
+   "titular": "Aranceles USTR (Vietnam 35%, India 25%, China 20%, UE 15%): Nasdaq -3,31% apertura, S&P -1,95%, BTC ~57.965 pre-apertura; ETF BTC 6 sesiones de salidas 2.600M$",
+   "hora_pub": "13:30",
+   "tipo": "historia",
+   "fuentes": [
+    "Crypto.news 25-11",
+    "Reuters (citado)",
+    "Cointelegraph titular"
    ]
   }
  ],
