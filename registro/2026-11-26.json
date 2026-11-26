@@ -30,6 +30,10 @@
   "14:00": {
    "estado": "ok",
    "detalle": "Vídeo C (opciones BTC 7.000M$ vence vie 27-11 09:00 Madrid) programado 15:30: IG Reel id 443098677 + YT Short id 443098705. Audio 618 créditos (~94.700 restantes aprox.). Carpeta en Escritorio OK; archivos enviados por chat."
+  },
+  "15:00": {
+   "estado": "ok",
+   "detalle": "Historia 6 (rebote BTC por cierre de cortos: liq. cortos 144M$, OI 24,8B$, taker spot -660M$ Talos) IG STORY 16:00 id 443173916."
   }
  },
  "noticias": [
@@ -110,6 +114,16 @@
     "CryptoSlate"
    ],
    "modo": "analista"
+  },
+  {
+   "titular": "Rebote de BTC sobre 60K lo mueven los cortos: liq. cortos 144M$, interés abierto 23,6B->24,8B, taker spot neto -660M$ (Talos); resistencia 63-65K, soporte 55-57K",
+   "hora_pub": "16:00",
+   "tipo": "historia",
+   "fuentes": [
+    "Talos (vía Coincu)",
+    "Ted Pillows",
+    "CoinGlass"
+   ]
   }
  ],
  "btc15m": {
