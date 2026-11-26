@@ -10,6 +10,10 @@
   "09:00": {
    "estado": "ok",
    "detalle": "Historia 1 IG 09:30 (id 442776371). Vídeo B (ley H.R. 8957, reserva BTC EEUU) programado 12:00: IG Reel id 442783682 + YT Short id 442783694. Audio 682 créditos. Carpeta Escritorio PENDIENTE (acceso a Desktop esperando aprobación en el PC); archivos enviados por chat."
+  },
+  "10:00": {
+   "estado": "ok",
+   "detalle": "Historia 2 = BTC 15 MIN (sorteo mañana: 10:00) programada 10:30 IG STORY id 442828348. BTC 60.450 (09:00) -> 60.769 (+0,53%)."
   }
  },
  "noticias": [
@@ -45,7 +49,14 @@
     "Polymarket"
    ],
    "modo": "analista"
+  },
+  {
+   "titular": "BTC 15 MIN: +0,53% desde las 09:00",
+   "hora_pub": "10:30",
+   "tipo": "btc15m"
   }
  ],
- "btc15m": {}
+ "btc15m": {
+  "manana": "10:00"
+ }
 }
