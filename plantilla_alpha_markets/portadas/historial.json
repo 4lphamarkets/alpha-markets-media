@@ -158,5 +158,21 @@
   "concepto": "Terminal ámbar BTC INTOCABLE",
   "tipografia": "",
   "paleta": ""
+ },
+ {
+  "fecha": "2026-11-26T15:52:06",
+  "slug": "2026_11_26_opciones_bitcoin_vencimiento_v2",
+  "arquetipo": "est_gigante",
+  "concepto": "Portada diseño gigante: BITCOIN 7.000M$",
+  "tipografia": "",
+  "paleta": ""
+ },
+ {
+  "fecha": "2026-11-26T15:52:06",
+  "slug": "2026_11_26_opciones_bitcoin_vencimiento_v2",
+  "arquetipo": "est_versus",
+  "concepto": "Portada diseño versus: BITCOIN 7.000M$",
+  "tipografia": "",
+  "paleta": ""
  }
 ]
