@@ -1,0 +1,18 @@
+{
+ "fecha": "2026-11-27",
+ "modo": "cripto+bolsa",
+ "nota_modo": "Día tras Thanksgiving: NYSE abierto media sesión (cierra 19:00 Madrid)",
+ "huecos": {
+  "06:00": {
+   "estado": "ok",
+   "detalle": "Vídeo A (BTC -20% en noviembre, >5.000M$ salidas ETF, BTC ~61.000, mín. año 55.130; fuentes COINOTAG 27-11 + FXStreet/TMGM + Hokanews/Coin Bureau) programado 09:00: IG Reel id 443941199 + YT Short id 443941212. Audio 568 créditos (~92.900 restantes aprox.). Carpeta Escritorio 2026_11_27_etf_bitcoin_noviembre OK; archivos enviados por chat. Nota: cifra ETF de Morningstar/otros descartada por mezclar datos de 2025."
+  }
+ },
+ "noticias": [
+  {
+   "titular": "Bitcoin -20% en noviembre; >5.000M$ salen de ETF",
+   "hora_pub": "09:00",
+   "tipo": "video"
+  }
+ ]
+}
