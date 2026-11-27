@@ -18,6 +18,10 @@
   "extra_19:15": {
    "estado": "ok",
    "detalle": "Orden de Antonio: historia BTC 15 MIN (velas) con la caída de las 15:30 (61.353 -> mín 59.008 a las 16:05) y rebote; ahora 59.826 (-2,49%). IG STORY 19:21 id 444709430. Tarea reloj estuvo pausada 11:04-19:13 por dispositivo ausente (PC/Claude cerrado)."
+  },
+  "21:00": {
+   "estado": "ok",
+   "detalle": "Precios leídos 21:01 (CMC/Investing; bolsa media sesión ya cerrada). Cripto hoy IG STORY 21:30 id 444809861 (BTC 59.847 -1,32%, F&G 9). Wall Street hoy IG STORY 21:31 id 444809880 (SPX +1,6%, NDX +2,31%, ANT +10,98%). Créditos ElevenLabs ~92.380 aprox. Cola de mañana (sábado): no revisada."
   }
  },
  "noticias": [
