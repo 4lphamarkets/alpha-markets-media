@@ -1,10 +1,10 @@
 {
-  "slug": "2026_11_27_etf_bitcoin_noviembre",
-  "titulo_seo": "Bitcoin pierde un 20% en noviembre: ETF salen en masa",
-  "descripcion": "Bitcoin se deja un 20% en noviembre y los ETF han salido corriendo 🚨\n\nMás de 5.000 millones de dólares han salido de los ETF este mes, con bitcoin cerca de 61.000 $, a solo 5.000 $ de su mínimo del año (55.130 $, tocado la semana pasada).\n\nLos gráficos marcan los 60.000 $ como suelo; si se rompe, el siguiente es ese mínimo. Si rebota, la primera barrera está en 62.000 $.\n\n¿Compras en estas caídas o esperas? Te leo en comentarios 👇\n\n👉 Sígueme en @4lphamarkets para no perderte nada de los mercados financieros.\n\n⚠️ Esto no es consejo financiero.",
-  "hashtags": ["bitcoin", "etf", "criptomonedas", "btc", "noticiascripto", "mercadosfinancieros", "inversiones", "finanzas", "trading", "caidabitcoin", "4lphamarkets"],
-  "palabras_clave": ["bitcoin noviembre", "ETF bitcoin salidas", "soporte 60000"],
-  "portada": {"t1":"BITCOIN","t2":"-20% EN NOVIEMBRE","tag":"ETF HUYEN","sub":"Más de <b>5.000M$</b> salen de los ETF",
-    "rows":[{"n":"BTC","s":"AHORA","p":"61.000$","c":"-20%","cc":"r"},{"n":"MÍNIMO","s":"AÑO","p":"55.130$","c":"","cc":"r"}],
-    "dir":"down","iconos":["down","siren"],"logo":"btc","estilos":["alerta","gigante"]}
+  "slug": "2026_11_27_bitcoin_clave_publica_cuantico",
+  "titulo_seo": "7,12 millones de bitcoin con la clave pública expuesta: ¿riesgo cuántico?",
+  "descripcion": "7,12 millones de bitcoin enseñan su clave pública 🔑\n\nSegún Glassnode, el 35,4% de todos los bitcoin existentes tiene la clave pública visible; en mayo eran 6,04 millones. En teoría, un ordenador cuántico lo bastante potente podría sacar la clave privada a partir de la pública. Hoy ese ordenador no existe y nadie pone fecha.\n\nLa recomendación habitual: mover las monedas a una dirección nueva. Y ya hay propuestas en borrador, como BIP 360.\n\n¿Te preocupa el riesgo cuántico para bitcoin? Te leo en comentarios 👇\n\n👉 Sígueme en @4lphamarkets para no perderte nada de los mercados financieros.\n\n⚠️ Esto no es consejo financiero.",
+  "hashtags": ["bitcoin", "criptomonedas", "btc", "cuantica", "glassnode", "noticiascripto", "mercadosfinancieros", "inversiones", "finanzas", "bip360", "4lphamarkets"],
+  "palabras_clave": ["bitcoin cuántico", "clave pública bitcoin", "Glassnode", "BIP 360"],
+  "portada": {"t1":"BITCOIN","t2":"7,12M BTC EXPUESTOS","tag":"RIESGO CUÁNTICO","sub":"El <b>35,4%</b> del suministro, según Glassnode",
+    "rows":[{"n":"EXPUESTOS","s":"HOY","p":"7,12M","c":"","cc":"r"},{"n":"EN MAYO","s":"ANTES","p":"6,04M","c":"","cc":"v"}],
+    "dir":"down","iconos":["bolt","lock"],"logo":"btc","estilos":["poster","tweet"]}
 }

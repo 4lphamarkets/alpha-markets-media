@@ -1,348 +1,338 @@
 {
  "audio": "tmp/voz.mp3",
- "tag": "ETF CAEN",
+ "tag": "RIESGO CUÁNTICO",
  "scenes": [
   {
    "id": "s1",
    "a": 0,
-   "tag": "BTC -20% EN NOVIEMBRE",
-   "mood": "red",
+   "tag": "RIESGO CUÁNTICO",
    "comps": [
+    {
+     "type": "rain",
+     "sym": "btc",
+     "n": 28,
+     "at": 0.4,
+     "spread": 3
+    },
     {
      "type": "coin",
      "sym": "btc",
-     "size": 400,
+     "size": 420,
      "y": 330,
      "at": 0.05,
      "enter": "zoom",
      "mode": "spin"
     },
     {
-     "type": "candles",
-     "trend": "crash",
-     "style": "candles",
-     "h": 420,
-     "w": 920,
-     "y": 760,
-     "at": 0.4,
-     "dur": 2.2,
-     "title": "BTC · NOVIEMBRE",
-     "price0": 76000,
-     "price1": 61000
+     "type": "odo",
+     "value": "7,12",
+     "suffix": " M BTC",
+     "size": 170,
+     "y": 830,
+     "at": 0.6,
+     "color": "#fff",
+     "label": "CON CLAVE PÚBLICA VISIBLE"
+    },
+    {
+     "type": "icon",
+     "name": "eye",
+     "size": 280,
+     "x": 820,
+     "y": 380,
+     "at": 3.2,
+     "enter": "slam"
     },
     {
      "type": "stamp",
-     "text": "-20 %",
-     "tone": "red",
-     "size": 200,
-     "y": 1230,
-     "at": 1.6,
+     "text": "35,4% DEL TOTAL",
+     "tone": "gold",
+     "size": 120,
+     "y": 1120,
+     "at": 5.0,
      "rot": -5
+    },
+    {
+     "type": "ticker",
+     "text": "DATO GLASSNODE",
+     "y": 1300,
+     "at": 7.0
     }
    ],
    "fx": [
     {
-     "at": 1.6,
-     "type": "crash",
-     "dur": 1.6,
-     "text": "-20 %"
+     "at": 5.1,
+     "type": "zoom",
+     "dur": 0.5,
+     "amt": 0.06
     }
    ],
    "segs": [
     [
      0.2,
-     2.85,
-     "Bitcoin se deja un #veinte por ciento# en noviembre"
+     8.8,
+     "*7,12 millones* de bitcoin enseñan su *clave pública*. Es el *35,4%* de todos los que existen, según *Glassnode*"
     ]
    ]
   },
   {
    "id": "s2",
-   "a": 2.9,
-   "tag": "ETF",
-   "mood": "red",
+   "a": 9.1,
+   "tag": "¿POR QUÉ IMPORTA?",
    "comps": [
     {
      "type": "icon",
      "name": "question",
-     "size": 400,
-     "y": 330,
-     "at": 0.1,
-     "enter": "slam",
-     "anim": "wiggle"
-    },
-    {
-     "type": "icon",
-     "name": "siren",
-     "size": 300,
-     "x": 850,
+     "size": 520,
      "y": 420,
-     "at": 1.2,
+     "at": 0.05,
      "enter": "pop",
-     "anim": "shake"
-    },
+     "anim": "wiggle"
+    }
+   ],
+   "fx": [
     {
-     "type": "headline",
-     "text": "LOS ETF",
-     "size": 170,
-     "y": 850,
-     "at": 1.7
+     "at": 0.1,
+     "type": "flash"
     }
    ],
    "segs": [
     [
-     3.0,
-     4.5,
-     "¿Y quién ha salido corriendo?"
-    ],
-    [
-     4.6,
-     5.5,
-     "Los *ETF*"
+     9.17,
+     10.02,
+     "¿Por qué *importa*?"
     ]
    ]
   },
   {
    "id": "s3",
-   "a": 5.7,
-   "tag": "SALIDAS DE ETF",
+   "a": 10.2,
+   "tag": "AMENAZA CUÁNTICA",
    "mood": "red",
    "comps": [
     {
-     "type": "rain",
-     "sym": "usd",
-     "n": 20,
-     "at": 0.2,
-     "spread": 3,
-     "floor": 1300
+     "type": "icon",
+     "name": "bolt",
+     "size": 400,
+     "y": 330,
+     "at": 0.1,
+     "enter": "slam",
+     "anim": "pulse"
     },
     {
-     "type": "odo",
-     "value": "5.000",
-     "prefix": "-$",
-     "suffix": "M",
-     "size": 210,
-     "y": 330,
-     "at": 0.2,
-     "color": "#FF3B48",
-     "label": "MILLONES FUERA DE LOS ETF"
+     "type": "headline",
+     "text": "ORDENADOR CUÁNTICO",
+     "size": 120,
+     "y": 820,
+     "at": 1.8
     },
     {
      "type": "icon",
-     "name": "down",
-     "size": 320,
-     "y": 720,
-     "at": 1.8,
+     "name": "lock",
+     "size": 300,
+     "x": 820,
+     "y": 420,
+     "at": 4.4,
      "enter": "drop"
     },
     {
      "type": "stamp",
-     "text": "ESTE MES",
+     "text": "CLAVE EN RIESGO",
      "tone": "red",
-     "size": 120,
-     "y": 1110,
-     "at": 3.0,
+     "size": 90,
+     "y": 1120,
+     "at": 6.0,
      "rot": -4
+    }
+   ],
+   "fx": [
+    {
+     "at": 4.6,
+     "type": "glitch",
+     "dur": 0.6
     }
    ],
    "segs": [
     [
-     5.8,
-     9.7,
-     "Más de *cinco mil millones* de dólares se han ido de ellos este mes"
+     10.29,
+     18.1,
+     "Un *ordenador cuántico* lo bastante potente podría, en teoría, sacar la *clave privada* de la pública y *mover esas monedas*"
     ]
    ]
   },
   {
    "id": "s4",
-   "a": 10.1,
-   "tag": "BTC 61.000 $",
+   "a": 18.3,
+   "tag": "SIN FECHA",
    "comps": [
     {
-     "type": "coin",
-     "sym": "btc",
-     "size": 300,
+     "type": "icon",
+     "name": "clock",
+     "size": 420,
      "y": 330,
      "at": 0.1,
      "enter": "pop",
-     "mode": "float"
-    },
-    {
-     "type": "odo",
-     "value": "61.000",
-     "prefix": "$",
-     "size": 190,
-     "y": 700,
-     "at": 0.5,
-     "color": "#fff",
-     "label": "BITCOIN AHORA"
-    },
-    {
-     "type": "candles",
-     "trend": "chop",
-     "style": "line",
-     "h": 380,
-     "w": 920,
-     "y": 960,
-     "at": 3.0,
-     "dur": 3.0,
-     "title": "BTC · MÍNIMO 55.130 $",
-     "price0": 55130,
-     "price1": 61000
+     "anim": "wiggle"
     },
     {
      "type": "stamp",
-     "text": "MÍNIMO 55.130 $",
+     "text": "HOY NO EXISTE",
      "tone": "gold",
-     "size": 100,
-     "y": 1370,
-     "at": 5.8,
-     "rot": -3
+     "size": 130,
+     "y": 900,
+     "at": 1.0,
+     "rot": -5
+    },
+    {
+     "type": "ticker",
+     "text": "NADIE PONE FECHA",
+     "y": 1300,
+     "at": 1.8
     }
    ],
    "segs": [
     [
-     10.2,
-     13.3,
-     "Bitcoin cotiza cerca de *sesenta y un mil*"
-    ],
-    [
-     13.4,
-     15.6,
-     "a solo cinco mil de su #mínimo del año#"
-    ],
-    [
-     15.7,
-     18.9,
-     "^55.130 dólares^, que tocó la semana pasada"
+     18.37,
+     21.42,
+     "Hoy ese ordenador *no existe* y *nadie pone fecha*"
     ]
    ]
   },
   {
    "id": "s5",
-   "a": 19.19,
-   "tag": "SOPORTE 60.000 $",
+   "a": 21.55,
+   "tag": "LA EXPOSICIÓN SUBE",
    "comps": [
     {
-     "type": "icon",
-     "name": "shield",
-     "size": 420,
-     "y": 330,
+     "type": "vs",
+     "y": 340,
      "at": 0.1,
-     "enter": "zoom",
-     "anim": "pulse"
+     "a": {
+      "label": "MAYO",
+      "value": "6,04M",
+      "sub": "BTC expuestos",
+      "tone": "g"
+     },
+     "b": {
+      "label": "HOY",
+      "value": "7,12M",
+      "sub": "BTC expuestos",
+      "tone": "r"
+     }
     },
     {
-     "type": "stamp",
-     "text": "SUELO 60.000 $",
-     "tone": "gold",
-     "size": 120,
-     "y": 850,
-     "at": 1.0,
-     "rot": -4
-    },
-    {
-     "type": "ticker",
-     "text": "SOPORTE CLAVE",
-     "y": 1150,
-     "at": 1.6
-    }
-   ],
-   "segs": [
-    [
-     19.29,
-     21.79,
-     "Los gráficos marcan los *sesenta mil* como suelo"
-    ]
-   ]
-  },
-  {
-   "id": "s6",
-   "a": 22.05,
-   "tag": "SI SE ROMPE",
-   "mood": "red",
-   "comps": [
-    {
      "type": "icon",
-     "name": "down",
-     "size": 380,
-     "y": 330,
-     "at": 0.1,
-     "enter": "slam",
+     "name": "up",
+     "size": 320,
+     "y": 900,
+     "at": 1.6,
+     "enter": "pop",
      "anim": "bob"
-    },
-    {
-     "type": "odo",
-     "value": "55.130",
-     "prefix": "$",
-     "size": 190,
-     "y": 800,
-     "at": 0.6,
-     "color": "#FF3B48",
-     "label": "SIGUIENTE SUELO"
     }
    ],
    "fx": [
     {
-     "at": 0.2,
-     "type": "shake",
-     "dur": 0.5,
-     "amp": 14
-    }
-   ],
-   "segs": [
-    [
-     22.15,
-     24.45,
-     "Si se rompe, el siguiente es ese #mínimo#"
-    ]
-   ]
-  },
-  {
-   "id": "s7",
-   "a": 24.69,
-   "tag": "SI REBOTA",
-   "mood": "green",
-   "comps": [
-    {
-     "type": "icon",
-     "name": "rocket",
-     "size": 380,
-     "y": 330,
-     "at": 0.1,
-     "enter": "up",
-     "anim": "rise"
-    },
-    {
-     "type": "odo",
-     "value": "62.000",
-     "prefix": "$",
-     "size": 190,
-     "y": 800,
-     "at": 0.6,
-     "color": "#34F5B0",
-     "label": "PRIMERA BARRERA"
-    }
-   ],
-   "fx": [
-    {
-     "at": 0.3,
+     "at": 1.7,
      "type": "pump",
      "dur": 1.0
     }
    ],
    "segs": [
     [
-     24.79,
-     27.89,
-     "Y si rebota, la primera barrera está en *sesenta y dos mil*"
+     21.63,
+     24.96,
+     "Pero en *mayo* eran *6 millones*: la exposición *sube*"
+    ]
+   ]
+  },
+  {
+   "id": "s6",
+   "a": 25.15,
+   "tag": "LA SOLUCIÓN",
+   "mood": "green",
+   "comps": [
+    {
+     "type": "magnet",
+     "sym": "btc",
+     "n": 10,
+     "h": 420,
+     "y": 330,
+     "at": 0.1
+    },
+    {
+     "type": "candles",
+     "trend": "chop",
+     "style": "area",
+     "h": 400,
+     "w": 920,
+     "y": 740,
+     "at": 0.8,
+     "dur": 2.4,
+     "title": "BTC / USD",
+     "price0": 60000,
+     "price1": 61800
+    },
+    {
+     "type": "stamp",
+     "text": "DIRECCIÓN NUEVA",
+     "tone": "green",
+     "size": 90,
+     "y": 1230,
+     "at": 1.8,
+     "rot": -3
+    }
+   ],
+   "segs": [
+    [
+     25.25,
+     28.76,
+     "La solución más simple: *mover las monedas* a una *dirección nueva*"
+    ]
+   ]
+  },
+  {
+   "id": "s7",
+   "a": 28.85,
+   "tag": "BIP 360",
+   "comps": [
+    {
+     "type": "icon",
+     "name": "doc",
+     "size": 420,
+     "y": 330,
+     "at": 0.1,
+     "enter": "pop",
+     "anim": "bob"
+    },
+    {
+     "type": "headline",
+     "text": "BIP 360",
+     "size": 200,
+     "y": 820,
+     "at": 1.0
+    },
+    {
+     "type": "stamp",
+     "text": "EN BORRADOR",
+     "tone": "white",
+     "size": 110,
+     "y": 1120,
+     "at": 2.0,
+     "rot": -4
+    }
+   ],
+   "segs": [
+    [
+     28.93,
+     32.48,
+     "Y ya hay *propuestas* en borrador, como *BIP 360*"
     ]
    ]
   },
   {
    "id": "s8",
-   "a": 28.35,
+   "a": 32.6,
    "tag": "4LPHA MARKETS",
+   "tagTone": "g",
    "comps": [
     {
      "type": "coin",
@@ -357,29 +347,19 @@
      "type": "follow",
      "y": 760,
      "at": 0.6,
-     "tapAt": 3.0
+     "tapAt": 3.4
     },
     {
      "type": "disc",
      "y": 990,
      "at": 1.2
-    },
-    {
-     "type": "icon",
-     "name": "rocket",
-     "size": 260,
-     "x": 880,
-     "y": 420,
-     "at": 3.8,
-     "enter": "pop",
-     "anim": "wiggle"
     }
    ],
    "segs": [
     [
-     28.45,
-     33.55,
-     "Sígueme para no perderte nada de los *mercados financieros*, esto es... *ALFA MARKETS*!!"
+     32.75,
+     37.98,
+     "Sígueme para no perderte nada de los *mercados financieros*, esto es... *4LPHA MARKETS*"
     ]
    ]
   }
