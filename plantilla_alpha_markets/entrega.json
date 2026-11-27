@@ -1,11 +1,10 @@
 {
- "slug": "2026_11_26_strategy_bitcoin_bajo_coste",
- "titulo_seo": "Strategy pierde 13.000M$ con Bitcoin: ¿hasta cuándo aguanta?",
- "descripcion": "Strategy compró 849.327 bitcoin a 75.451 $ de media… y hoy BTC ronda los 60.000 $ 📉\n\nSon casi un 20% por debajo de su precio medio de compra y unos 13.000 millones de dólares en pérdidas latentes (cálculo con BTC a 60.200 $ y las tenencias de su última comunicación, a 1 de noviembre).\n\n¿Pánico? De momento no: según sus cuentas, sus bitcoin no están pignorados, no hay llamadas de margen y el primer plazo para que los tenedores le exijan dinero llega el 15 de septiembre de 2027. Además mantiene unos 4.790 millones en reserva en dólares para los dividendos de sus preferentes. Pero con casi 20.000 millones entre deuda y acciones preferentes, la clave es cuánto tiempo aguanta. ¿Tú qué crees? Te leo en comentarios 👇\n\n👉 Sígueme en @4lphamarkets para no perderte nada de los mercados financieros.\n\nFuentes: The Defiant / KuCoin, 247WallSt, CoinMarketCap, Ted Pillows. Contenido informativo, esto no es consejo financiero.",
- "hashtags": ["bitcoin","strategy","microstrategy","saylor","criptomonedas","noticiascripto","btc","mstr","mercadosfinancieros","inversiones","finanzas","4lphamarkets"],
- "portada": {
-  "t1":"STRATEGY","t2":"-20 % EN BITCOIN","tag":"PÉRDIDA LATENTE","sub":"Compró a <b>75.451 $</b> · hoy BTC ~60.000 $",
-  "rows":[{"n":"COSTE MEDIO","s":"STRATEGY","p":"75.451 $","c":"","cc":"v"},{"n":"BTC HOY","s":"~","p":"60.000 $","c":"","cc":"r"}],
-  "dir":"down","estilos":["alerta","periodico"]
- }
+  "slug": "2026_11_27_etf_bitcoin_noviembre",
+  "titulo_seo": "Bitcoin pierde un 20% en noviembre: ETF salen en masa",
+  "descripcion": "Bitcoin se deja un 20% en noviembre y los ETF han salido corriendo 🚨\n\nMás de 5.000 millones de dólares han salido de los ETF este mes, con bitcoin cerca de 61.000 $, a solo 5.000 $ de su mínimo del año (55.130 $, tocado la semana pasada).\n\nLos gráficos marcan los 60.000 $ como suelo; si se rompe, el siguiente es ese mínimo. Si rebota, la primera barrera está en 62.000 $.\n\n¿Compras en estas caídas o esperas? Te leo en comentarios 👇\n\n👉 Sígueme en @4lphamarkets para no perderte nada de los mercados financieros.\n\n⚠️ Esto no es consejo financiero.",
+  "hashtags": ["bitcoin", "etf", "criptomonedas", "btc", "noticiascripto", "mercadosfinancieros", "inversiones", "finanzas", "trading", "caidabitcoin", "4lphamarkets"],
+  "palabras_clave": ["bitcoin noviembre", "ETF bitcoin salidas", "soporte 60000"],
+  "portada": {"t1":"BITCOIN","t2":"-20% EN NOVIEMBRE","tag":"ETF HUYEN","sub":"Más de <b>5.000M$</b> salen de los ETF",
+    "rows":[{"n":"BTC","s":"AHORA","p":"61.000$","c":"-20%","cc":"r"},{"n":"MÍNIMO","s":"AÑO","p":"55.130$","c":"","cc":"r"}],
+    "dir":"down","iconos":["down","siren"],"logo":"btc","estilos":["alerta","gigante"]}
 }

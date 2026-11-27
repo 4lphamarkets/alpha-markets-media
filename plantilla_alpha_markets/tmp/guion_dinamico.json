@@ -1,186 +1,290 @@
 {
  "audio": "tmp/voz.mp3",
- "tag": "STRATEGY EN PÉRDIDAS",
+ "tag": "ETF CAEN",
  "scenes": [
   {
    "id": "s1",
    "a": 0,
-   "tag": "STRATEGY",
+   "tag": "BTC -20% EN NOVIEMBRE",
    "mood": "red",
    "comps": [
     {
-     "type": "rain",
-     "sym": "btc",
-     "n": 28,
-     "at": 0.4,
-     "spread": 3
-    },
-    {
      "type": "coin",
      "sym": "btc",
-     "size": 420,
+     "size": 400,
      "y": 330,
      "at": 0.05,
      "enter": "zoom",
      "mode": "spin"
     },
     {
-     "type": "odo",
-     "value": "849.327",
-     "suffix": " BTC",
-     "size": 165,
-     "y": 830,
-     "at": 0.5,
-     "color": "#fff"
+     "type": "candles",
+     "trend": "crash",
+     "style": "candles",
+     "h": 420,
+     "w": 920,
+     "y": 760,
+     "at": 0.4,
+     "dur": 2.2,
+     "title": "BTC · NOVIEMBRE",
+     "price0": 76000,
+     "price1": 61000
     },
     {
      "type": "stamp",
-     "text": "75.451 $ DE MEDIA",
-     "tone": "gold",
-     "size": 110,
-     "y": 1080,
-     "at": 4.5,
-     "rot": -4
-    },
-    {
-     "type": "icon",
-     "name": "money",
-     "size": 260,
-     "x": 820,
-     "y": 340,
-     "at": 2.4,
-     "enter": "pop",
-     "anim": "bob"
-    },
-    {
-     "type": "icon",
-     "name": "up",
-     "size": 260,
-     "x": 280,
-     "y": 340,
-     "at": 6.0,
-     "enter": "slam"
+     "text": "-20 %",
+     "tone": "red",
+     "size": 200,
+     "y": 1230,
+     "at": 1.6,
+     "rot": -5
     }
    ],
    "fx": [
     {
-     "at": 4.5,
-     "type": "zoom",
-     "dur": 0.5,
-     "amt": 0.06
+     "at": 1.6,
+     "type": "crash",
+     "dur": 1.6,
+     "text": "-20 %"
     }
    ],
    "segs": [
     [
-     0.1,
-     4.3,
-     "Strategy compró *849.327 bitcoins*"
-    ],
-    [
-     4.4,
-     8.0,
-     "a ^75.451 dólares^ de media"
+     0.2,
+     2.85,
+     "Bitcoin se deja un #veinte por ciento# en noviembre"
     ]
    ]
   },
   {
    "id": "s2",
-   "a": 8.2,
-   "tag": "¿Y HOY?",
+   "a": 2.9,
+   "tag": "ETF",
    "mood": "red",
    "comps": [
     {
      "type": "icon",
      "name": "question",
-     "size": 330,
+     "size": 400,
      "y": 330,
      "at": 0.1,
      "enter": "slam",
      "anim": "wiggle"
     },
     {
-     "type": "candles",
-     "trend": "down",
-     "style": "candles",
-     "title": "BTC HOY",
-     "price0": 75451,
-     "price1": 60200,
-     "y": 700,
-     "w": 900,
-     "h": 560,
-     "at": 0.9,
-     "dur": 1.6,
-     "big": "60.000 $"
-    }
-   ],
-   "fx": [
+     "type": "icon",
+     "name": "siren",
+     "size": 300,
+     "x": 850,
+     "y": 420,
+     "at": 1.2,
+     "enter": "pop",
+     "anim": "shake"
+    },
     {
-     "at": 1.0,
-     "type": "flash",
-     "color": "#ff3b3b"
+     "type": "headline",
+     "text": "LOS ETF",
+     "size": 170,
+     "y": 850,
+     "at": 1.7
     }
    ],
    "segs": [
     [
-     8.3,
-     9.0,
-     "¿Y *hoy*?"
+     3.0,
+     4.5,
+     "¿Y quién ha salido corriendo?"
     ],
     [
-     9.2,
-     11.2,
-     "Bitcoin ronda los #60.000#"
+     4.6,
+     5.5,
+     "Los *ETF*"
     ]
    ]
   },
   {
    "id": "s3",
-   "a": 11.4,
-   "tag": "-20 %",
+   "a": 5.7,
+   "tag": "SALIDAS DE ETF",
+   "mood": "red",
+   "comps": [
+    {
+     "type": "rain",
+     "sym": "usd",
+     "n": 20,
+     "at": 0.2,
+     "spread": 3,
+     "floor": 1300
+    },
+    {
+     "type": "odo",
+     "value": "5.000",
+     "prefix": "-$",
+     "suffix": "M",
+     "size": 210,
+     "y": 330,
+     "at": 0.2,
+     "color": "#FF3B48",
+     "label": "MILLONES FUERA DE LOS ETF"
+    },
+    {
+     "type": "icon",
+     "name": "down",
+     "size": 320,
+     "y": 720,
+     "at": 1.8,
+     "enter": "drop"
+    },
+    {
+     "type": "stamp",
+     "text": "ESTE MES",
+     "tone": "red",
+     "size": 120,
+     "y": 1110,
+     "at": 3.0,
+     "rot": -4
+    }
+   ],
+   "segs": [
+    [
+     5.8,
+     9.7,
+     "Más de *cinco mil millones* de dólares se han ido de ellos este mes"
+    ]
+   ]
+  },
+  {
+   "id": "s4",
+   "a": 10.1,
+   "tag": "BTC 61.000 $",
+   "comps": [
+    {
+     "type": "coin",
+     "sym": "btc",
+     "size": 300,
+     "y": 330,
+     "at": 0.1,
+     "enter": "pop",
+     "mode": "float"
+    },
+    {
+     "type": "odo",
+     "value": "61.000",
+     "prefix": "$",
+     "size": 190,
+     "y": 700,
+     "at": 0.5,
+     "color": "#fff",
+     "label": "BITCOIN AHORA"
+    },
+    {
+     "type": "candles",
+     "trend": "chop",
+     "style": "line",
+     "h": 380,
+     "w": 920,
+     "y": 960,
+     "at": 3.0,
+     "dur": 3.0,
+     "title": "BTC · MÍNIMO 55.130 $",
+     "price0": 55130,
+     "price1": 61000
+    },
+    {
+     "type": "stamp",
+     "text": "MÍNIMO 55.130 $",
+     "tone": "gold",
+     "size": 100,
+     "y": 1370,
+     "at": 5.8,
+     "rot": -3
+    }
+   ],
+   "segs": [
+    [
+     10.2,
+     13.3,
+     "Bitcoin cotiza cerca de *sesenta y un mil*"
+    ],
+    [
+     13.4,
+     15.6,
+     "a solo cinco mil de su #mínimo del año#"
+    ],
+    [
+     15.7,
+     18.9,
+     "^55.130 dólares^, que tocó la semana pasada"
+    ]
+   ]
+  },
+  {
+   "id": "s5",
+   "a": 19.19,
+   "tag": "SOPORTE 60.000 $",
+   "comps": [
+    {
+     "type": "icon",
+     "name": "shield",
+     "size": 420,
+     "y": 330,
+     "at": 0.1,
+     "enter": "zoom",
+     "anim": "pulse"
+    },
+    {
+     "type": "stamp",
+     "text": "SUELO 60.000 $",
+     "tone": "gold",
+     "size": 120,
+     "y": 850,
+     "at": 1.0,
+     "rot": -4
+    },
+    {
+     "type": "ticker",
+     "text": "SOPORTE CLAVE",
+     "y": 1150,
+     "at": 1.6
+    }
+   ],
+   "segs": [
+    [
+     19.29,
+     21.79,
+     "Los gráficos marcan los *sesenta mil* como suelo"
+    ]
+   ]
+  },
+  {
+   "id": "s6",
+   "a": 22.05,
+   "tag": "SI SE ROMPE",
    "mood": "red",
    "comps": [
     {
      "type": "icon",
      "name": "down",
-     "size": 330,
-     "x": 800,
-     "y": 340,
+     "size": 380,
+     "y": 330,
      "at": 0.1,
-     "enter": "slam"
-    },
-    {
-     "type": "stamp",
-     "text": "-20 %",
-     "tone": "red",
-     "size": 230,
-     "y": 560,
-     "at": 0.4,
-     "rot": -5
+     "enter": "slam",
+     "anim": "bob"
     },
     {
      "type": "odo",
-     "value": "13.000",
-     "prefix": "-",
-     "suffix": "M $",
-     "size": 170,
-     "y": 930,
-     "at": 2.4,
-     "color": "#ff4d4d",
-     "label": "PÉRDIDA LATENTE",
-     "dur": 2.2
-    },
-    {
-     "type": "rain",
-     "sym": "usd",
-     "n": 22,
-     "at": 2.2,
-     "spread": 3,
-     "dir": "down"
+     "value": "55.130",
+     "prefix": "$",
+     "size": 190,
+     "y": 800,
+     "at": 0.6,
+     "color": "#FF3B48",
+     "label": "SIGUIENTE SUELO"
     }
    ],
    "fx": [
     {
-     "at": 0.4,
+     "at": 0.2,
      "type": "shake",
      "dur": 0.5,
      "amp": 14
@@ -188,225 +292,57 @@
    ],
    "segs": [
     [
-     11.5,
-     13.4,
-     "Un #veinte por ciento# por debajo"
-    ],
-    [
-     13.6,
-     16.9,
-     "Unos #13.000 millones# en pérdidas latentes"
-    ]
-   ]
-  },
-  {
-   "id": "s4",
-   "a": 17.1,
-   "tag": "¿PÁNICO?",
-   "comps": [
-    {
-     "type": "icon",
-     "name": "question",
-     "size": 340,
-     "y": 330,
-     "at": 0.1,
-     "enter": "slam",
-     "anim": "wiggle"
-    },
-    {
-     "type": "stamp",
-     "text": "DE MOMENTO, NO",
-     "tone": "green",
-     "size": 120,
-     "y": 720,
-     "at": 1.2,
-     "rot": -3
-    },
-    {
-     "type": "icon",
-     "name": "lock",
-     "size": 300,
-     "x": 800,
-     "y": 860,
-     "at": 3.8,
-     "enter": "slam"
-    },
-    {
-     "type": "stamp",
-     "text": "SIN MARGIN CALL",
-     "tone": "white",
-     "size": 100,
-     "y": 1090,
-     "at": 4.8,
-     "rot": 3
-    },
-    {
-     "type": "icon",
-     "name": "clock",
-     "size": 260,
-     "x": 300,
-     "y": 880,
-     "at": 7.0,
-     "enter": "pop",
-     "anim": "pulse"
-    },
-    {
-     "type": "stamp",
-     "text": "SEPT. 2027",
-     "tone": "gold",
-     "size": 100,
-     "y": 1240,
-     "at": 7.6,
-     "rot": -3
-    }
-   ],
-   "fx": [
-    {
-     "at": 1.2,
-     "type": "flash",
-     "color": "#34F5B0"
-    }
-   ],
-   "segs": [
-    [
-     17.2,
-     18.8,
-     "¿*Pánico*? De momento, no"
-    ],
-    [
-     19.0,
-     22.2,
-     "Sus bitcoins *no están pignorados*"
-    ],
-    [
-     22.3,
-     24.0,
-     "no hay *margin call*"
-    ],
-    [
-     24.1,
-     26.8,
-     "y el primer plazo llega en *septiembre de 2027*"
-    ]
-   ]
-  },
-  {
-   "id": "s5",
-   "a": 27.0,
-   "tag": "4.790M $",
-   "mood": "green",
-   "comps": [
-    {
-     "type": "coin",
-     "sym": "usd",
-     "size": 330,
-     "y": 330,
-     "at": 0.1,
-     "enter": "pop",
-     "mode": "float"
-    },
-    {
-     "type": "rain",
-     "sym": "usd",
-     "n": 26,
-     "at": 0.3,
-     "spread": 3
-    },
-    {
-     "type": "odo",
-     "value": "4.790",
-     "suffix": "M $",
-     "size": 190,
-     "y": 800,
-     "at": 0.6,
-     "color": "#34F5B0",
-     "label": "RESERVA EN DÓLARES",
-     "dur": 2.2
-    },
-    {
-     "type": "icon",
-     "name": "bank",
-     "size": 260,
-     "y": 1080,
-     "at": 3.2,
-     "enter": "up"
-    }
-   ],
-   "segs": [
-    [
-     27.1,
-     29.6,
-     "Además guarda *4.790 millones* en dólares"
-    ],
-    [
-     29.7,
-     32.4,
-     "para los *dividendos* de sus preferentes"
-    ]
-   ]
-  },
-  {
-   "id": "s6",
-   "a": 32.6,
-   "tag": "DEUDA",
-   "mood": "gold",
-   "comps": [
-    {
-     "type": "icon",
-     "name": "scales",
-     "size": 330,
-     "y": 330,
-     "at": 0.1,
-     "enter": "slam",
-     "anim": "wiggle"
-    },
-    {
-     "type": "odo",
-     "value": "20.000",
-     "suffix": "M $",
-     "size": 190,
-     "y": 780,
-     "at": 0.5,
-     "color": "#FFD34D",
-     "label": "DEUDA + PREFERENTES",
-     "dur": 2.0
-    },
-    {
-     "type": "icon",
-     "name": "clock",
-     "size": 300,
-     "y": 1060,
-     "at": 3.6,
-     "enter": "pop",
-     "anim": "pulse"
-    }
-   ],
-   "fx": [
-    {
-     "at": 0.5,
-     "type": "zoom",
-     "dur": 0.5,
-     "amt": 0.06
-    }
-   ],
-   "segs": [
-    [
-     32.7,
-     35.8,
-     "Pero con casi *20.000 millones* en deuda y preferentes"
-    ],
-    [
-     36.0,
-     38.3,
-     "la clave es *cuánto aguanta*"
+     22.15,
+     24.45,
+     "Si se rompe, el siguiente es ese #mínimo#"
     ]
    ]
   },
   {
    "id": "s7",
-   "a": 38.6,
+   "a": 24.69,
+   "tag": "SI REBOTA",
+   "mood": "green",
+   "comps": [
+    {
+     "type": "icon",
+     "name": "rocket",
+     "size": 380,
+     "y": 330,
+     "at": 0.1,
+     "enter": "up",
+     "anim": "rise"
+    },
+    {
+     "type": "odo",
+     "value": "62.000",
+     "prefix": "$",
+     "size": 190,
+     "y": 800,
+     "at": 0.6,
+     "color": "#34F5B0",
+     "label": "PRIMERA BARRERA"
+    }
+   ],
+   "fx": [
+    {
+     "at": 0.3,
+     "type": "pump",
+     "dur": 1.0
+    }
+   ],
+   "segs": [
+    [
+     24.79,
+     27.89,
+     "Y si rebota, la primera barrera está en *sesenta y dos mil*"
+    ]
+   ]
+  },
+  {
+   "id": "s8",
+   "a": 28.35,
    "tag": "4LPHA MARKETS",
-   "tagTone": "g",
    "comps": [
     {
      "type": "coin",
@@ -421,7 +357,7 @@
      "type": "follow",
      "y": 760,
      "at": 0.6,
-     "tapAt": 3.6
+     "tapAt": 3.0
     },
     {
      "type": "disc",
@@ -429,27 +365,22 @@
      "at": 1.2
     },
     {
-     "type": "rain",
-     "sym": "btc",
-     "n": 18,
-     "at": 2.2,
-     "spread": 3,
-     "dir": "up"
+     "type": "icon",
+     "name": "rocket",
+     "size": 260,
+     "x": 880,
+     "y": 420,
+     "at": 3.8,
+     "enter": "pop",
+     "anim": "wiggle"
     }
    ],
    "segs": [
     [
-     38.7,
-     44.2,
-     "Sígueme para no perderte nada de los *mercados financieros*, esto es... *4LPHA MARKETS*"
+     28.45,
+     33.55,
+     "Sígueme para no perderte nada de los *mercados financieros*, esto es... *ALFA MARKETS*!!"
     ]
-   ],
-   "fx": [
-    {
-     "at": 3.0,
-     "type": "flash",
-     "color": "#34F5B0"
-    }
    ]
   }
  ]

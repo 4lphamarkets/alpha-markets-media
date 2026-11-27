@@ -190,5 +190,21 @@
   "concepto": "Portada diseño periodico: STRATEGY -20 % EN BITCOIN",
   "tipografia": "",
   "paleta": ""
+ },
+ {
+  "fecha": "2026-11-27T06:14:31",
+  "slug": "2026_11_27_etf_bitcoin_noviembre",
+  "arquetipo": "est_alerta",
+  "concepto": "Portada diseño alerta: BITCOIN -20% EN NOVIEMBRE",
+  "tipografia": "",
+  "paleta": ""
+ },
+ {
+  "fecha": "2026-11-27T06:14:31",
+  "slug": "2026_11_27_etf_bitcoin_noviembre",
+  "arquetipo": "est_gigante",
+  "concepto": "Portada diseño gigante: BITCOIN -20% EN NOVIEMBRE",
+  "tipografia": "",
+  "paleta": ""
  }
 ]
