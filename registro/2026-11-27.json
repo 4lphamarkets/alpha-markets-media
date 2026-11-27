@@ -8,8 +8,8 @@
    "detalle": "Vídeo A (BTC -20% en noviembre, >5.000M$ salidas ETF, BTC ~61.000, mín. año 55.130; fuentes COINOTAG 27-11 + FXStreet/TMGM + Hokanews/Coin Bureau) programado 09:00: IG Reel id 443941199 + YT Short id 443941212. Audio 568 créditos (~92.900 restantes aprox.). Carpeta Escritorio 2026_11_27_etf_bitcoin_noviembre OK; archivos enviados por chat. Nota: cifra ETF de Morningstar/otros descartada por mezclar datos de 2025."
   },
   "09:00": {
-   "estado": "parcial",
-   "detalle": "Historia 1 (estilo noticia) BTC rebota 61.768 (+1,99%), ETH +2,72%, oro +2,7%, miedo extremo 12; fuentes CryptoTicker/KuCoin + CMC. IG STORY 09:30 id 444041815. Vídeo B: en curso."
+   "estado": "ok",
+   "detalle": "Historia 1 (estilo noticia) BTC rebota 61.768 (+1,99%), ETH +2,72%, oro +2,7%, miedo extremo 12; fuentes CryptoTicker/KuCoin + CMC; IG STORY 09:30 id 444041815. Vídeo B (Glassnode: 7,12M BTC / 35,4% con clave pública expuesta, riesgo cuántico; dato Glassnode del 10-11 reforzado por varias coberturas) programado 12:00: IG Reel id 444050666 + YT Short id 444050677. Audio 574 créditos (~92.380 restantes aprox.). Carpeta Escritorio 2026_11_27_bitcoin_clave_publica_cuantico OK; archivos y portadas enviados por chat. Duración 39,2 s."
   }
  },
  "noticias": [
@@ -22,6 +22,11 @@
    "titular": "BTC rebota 61K, miedo extremo 12, oro +2,7%",
    "hora_pub": "09:30",
    "tipo": "historia"
+  },
+  {
+   "titular": "7,12M BTC con clave pública expuesta (Glassnode, riesgo cuántico)",
+   "hora_pub": "12:00",
+   "tipo": "video"
   }
  ]
 }
