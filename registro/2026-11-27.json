@@ -14,6 +14,10 @@
   "10:00": {
    "estado": "ok",
    "detalle": "Historia 2 = BTC 15 MIN (velas; ref 09:00 $61,594 -> $61,725 +0.21%, máx 62,086 mín 61,305; CMC 10:06). IG STORY 10:30 id 444093228."
+  },
+  "extra_19:15": {
+   "estado": "ok",
+   "detalle": "Orden de Antonio: historia BTC 15 MIN (velas) con la caída de las 15:30 (61.353 -> mín 59.008 a las 16:05) y rebote; ahora 59.826 (-2,49%). IG STORY 19:21 id 444709430. Tarea reloj estuvo pausada 11:04-19:13 por dispositivo ausente (PC/Claude cerrado)."
   }
  },
  "noticias": [
@@ -35,6 +39,11 @@
   {
    "titular": "BTC 15 MIN +0.21% desde 09:00",
    "hora_pub": "10:30",
+   "tipo": "btc15m"
+  },
+  {
+   "titular": "BTC 15 MIN caída 15:30 y rebote (-2.49%)",
+   "hora_pub": "19:21",
    "tipo": "btc15m"
   }
  ],
