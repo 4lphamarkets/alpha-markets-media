@@ -10,6 +10,10 @@
   "09:00": {
    "estado": "ok",
    "detalle": "Historia 1 (estilo noticia) BTC rebota 61.768 (+1,99%), ETH +2,72%, oro +2,7%, miedo extremo 12; fuentes CryptoTicker/KuCoin + CMC; IG STORY 09:30 id 444041815. Vídeo B (Glassnode: 7,12M BTC / 35,4% con clave pública expuesta, riesgo cuántico; dato Glassnode del 10-11 reforzado por varias coberturas) programado 12:00: IG Reel id 444050666 + YT Short id 444050677. Audio 574 créditos (~92.380 restantes aprox.). Carpeta Escritorio 2026_11_27_bitcoin_clave_publica_cuantico OK; archivos y portadas enviados por chat. Duración 39,2 s."
+  },
+  "10:00": {
+   "estado": "ok",
+   "detalle": "Historia 2 = BTC 15 MIN (velas; ref 09:00 $61,594 -> $61,725 +0.21%, máx 62,086 mín 61,305; CMC 10:06). IG STORY 10:30 id 444093228."
   }
  },
  "noticias": [
@@ -27,6 +31,16 @@
    "titular": "7,12M BTC con clave pública expuesta (Glassnode, riesgo cuántico)",
    "hora_pub": "12:00",
    "tipo": "video"
+  },
+  {
+   "titular": "BTC 15 MIN +0.21% desde 09:00",
+   "hora_pub": "10:30",
+   "tipo": "btc15m"
   }
- ]
+ ],
+ "btc15m": {
+  "manana": "10:00",
+  "tarde": null,
+  "nota": "tarde pendiente de sorteo (hueco 15-19)"
+ }
 }
