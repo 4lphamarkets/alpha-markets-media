@@ -10,6 +10,10 @@
   "11:00": {
    "estado": "ok",
    "detalle": "Vídeo nuevo: Binance reabre retiradas tras el mayor hackeo cripto (6.300M$, hace 4 semanas; USDC en pausa en algunas redes; BTC<60K, F&G 10). Fuentes: titulares coincidentes Benzinga, CryptoBriefing, Globe and Mail, CoinReporter 27-11, Pakistan Today 28-11. Modo dinámico, 33,4 s. Programado 12:00: IG Reel + YT Short id 445304753. Audio 523 créditos (~91.800 restantes aprox.). Carpeta Escritorio 2026_11_28_binance_hackeo_6300_millones (ver nota si falló)."
+  },
+  "13:00": {
+   "estado": "ok",
+   "detalle": "Historia 2 (estilo alerta) WLFI se hunde 50% a mínimos, USD1 tocó 0,94$, Justin Sun acusa de fraude y pide delistings; fuentes CoinDesk 28-11, crypto.news, The Crypto Desk 28-11. IG STORY 14:00 id 445379782."
   }
  },
  "noticias": [
@@ -22,6 +26,11 @@
    "titular": "Binance reabre retiradas tras hackeo de 6.300M$",
    "hora_pub": "12:00",
    "tipo": "video"
+  },
+  {
+   "titular": "WLFI -50% a mínimos, USD1 pierde la paridad, Justin Sun acusa",
+   "hora_pub": "14:00",
+   "tipo": "historia"
   }
  ]
 }
