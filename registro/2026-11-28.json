@@ -14,6 +14,10 @@
   "13:00": {
    "estado": "ok",
    "detalle": "Historia 2 (estilo alerta) WLFI se hunde 50% a mínimos, USD1 tocó 0,94$, Justin Sun acusa de fraude y pide delistings; fuentes CoinDesk 28-11, crypto.news, The Crypto Desk 28-11. IG STORY 14:00 id 445379782."
+  },
+  "17:00": {
+   "estado": "ok",
+   "detalle": "Historia 3 (estilo velas, BITCOIN 15 MIN): BTC 59.205 a las 12:00 -> 59.476 ahora (+0,46%), max 59.476 min 58.906, 24h -0,82%; datos CMC 17:05 Madrid. IG STORY 18:00 id 445570828."
   }
  },
  "noticias": [
@@ -31,6 +35,14 @@
    "titular": "WLFI -50% a mínimos, USD1 pierde la paridad, Justin Sun acusa",
    "hora_pub": "14:00",
    "tipo": "historia"
+  },
+  {
+   "titular": "BITCOIN 15 MIN: BTC +0,46% desde las 12:00",
+   "hora_pub": "18:00",
+   "tipo": "btc15m"
   }
- ]
+ ],
+ "btc15m": {
+  "tarde": "17:00"
+ }
 }
