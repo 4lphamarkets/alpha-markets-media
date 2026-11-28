@@ -222,5 +222,21 @@
   "concepto": "Portada diseño tweet: BITCOIN 7,12M BTC EXPUESTOS",
   "tipografia": "",
   "paleta": ""
+ },
+ {
+  "fecha": "2026-11-28T11:14:04",
+  "slug": "2026_11_28_binance_hackeo_6300_millones",
+  "arquetipo": "est_alerta",
+  "concepto": "Portada diseño alerta: BINANCE 6.300M $ ROBADOS",
+  "tipografia": "",
+  "paleta": ""
+ },
+ {
+  "fecha": "2026-11-28T11:14:04",
+  "slug": "2026_11_28_binance_hackeo_6300_millones",
+  "arquetipo": "est_gigante",
+  "concepto": "Portada diseño gigante: BINANCE 6.300M $ ROBADOS",
+  "tipografia": "",
+  "paleta": ""
  }
 ]

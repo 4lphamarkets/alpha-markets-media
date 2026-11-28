@@ -1,172 +1,306 @@
 {
  "audio": "tmp/voz.mp3",
- "tag": "RIESGO CUÁNTICO",
+ "tag": "HACKEO BINANCE",
  "scenes": [
   {
    "id": "s1",
    "a": 0,
-   "tag": "RIESGO CUÁNTICO",
+   "tag": "HACKEO BINANCE",
+   "mood": "red",
    "comps": [
     {
-     "type": "rain",
-     "sym": "btc",
-     "n": 28,
-     "at": 0.4,
-     "spread": 3
-    },
-    {
-     "type": "coin",
-     "sym": "btc",
-     "size": 420,
+     "type": "logo",
+     "src": "img/logos/binance.svg",
+     "size": 380,
      "y": 330,
      "at": 0.05,
-     "enter": "zoom",
-     "mode": "spin"
+     "enter": "zoom"
     },
     {
      "type": "odo",
-     "value": "7,12",
-     "suffix": " M BTC",
-     "size": 170,
-     "y": 830,
-     "at": 0.6,
-     "color": "#fff",
-     "label": "CON CLAVE PÚBLICA VISIBLE"
+     "value": "6.300",
+     "prefix": "$",
+     "suffix": "M",
+     "size": 190,
+     "y": 800,
+     "at": 0.7,
+     "color": "#ff4d5a",
+     "label": "ROBADOS"
     },
     {
      "type": "icon",
-     "name": "eye",
-     "size": 280,
-     "x": 820,
-     "y": 380,
-     "at": 3.2,
-     "enter": "slam"
+     "name": "skull",
+     "size": 260,
+     "x": 830,
+     "y": 420,
+     "at": 2.4,
+     "enter": "slam",
+     "anim": "shake"
     },
     {
-     "type": "stamp",
-     "text": "35,4% DEL TOTAL",
-     "tone": "gold",
-     "size": 120,
-     "y": 1120,
-     "at": 5.0,
-     "rot": -5
-    },
-    {
-     "type": "ticker",
-     "text": "DATO GLASSNODE",
-     "y": 1300,
-     "at": 7.0
+     "type": "rain",
+     "sym": "usd",
+     "n": 24,
+     "dir": "down",
+     "at": 2.0,
+     "spread": 3
     }
    ],
    "fx": [
     {
-     "at": 5.1,
-     "type": "zoom",
-     "dur": 0.5,
-     "amt": 0.06
+     "at": 3.9,
+     "type": "crash",
+     "dur": 1.6,
+     "text": "HACKEO"
     }
    ],
    "segs": [
     [
      0.2,
-     8.8,
-     "*7,12 millones* de bitcoin enseñan su *clave pública*. Es el *35,4%* de todos los que existen, según *Glassnode*"
+     5.1,
+     "¿Y si te digo que *Binance* perdió #6.300 millones# en un solo *ataque*?"
     ]
    ]
   },
   {
    "id": "s2",
-   "a": 9.1,
-   "tag": "¿POR QUÉ IMPORTA?",
-   "comps": [
-    {
-     "type": "icon",
-     "name": "question",
-     "size": 520,
-     "y": 420,
-     "at": 0.05,
-     "enter": "pop",
-     "anim": "wiggle"
-    }
-   ],
-   "fx": [
-    {
-     "at": 0.1,
-     "type": "flash"
-    }
-   ],
-   "segs": [
-    [
-     9.17,
-     10.02,
-     "¿Por qué *importa*?"
-    ]
-   ]
-  },
-  {
-   "id": "s3",
-   "a": 10.2,
-   "tag": "AMENAZA CUÁNTICA",
+   "a": 5.3,
+   "tag": "RÉCORD",
    "mood": "red",
    "comps": [
     {
      "type": "icon",
-     "name": "bolt",
-     "size": 400,
-     "y": 330,
+     "name": "bomb",
+     "size": 420,
+     "y": 340,
      "at": 0.1,
      "enter": "slam",
      "anim": "pulse"
     },
     {
-     "type": "headline",
-     "text": "ORDENADOR CUÁNTICO",
-     "size": 120,
-     "y": 820,
-     "at": 1.8
+     "type": "stamp",
+     "text": "MAYOR ROBO CRIPTO",
+     "tone": "red",
+     "size": 110,
+     "y": 900,
+     "at": 0.6,
+     "rot": -4
+    }
+   ],
+   "fx": [
+    {
+     "at": 0.6,
+     "type": "shake",
+     "dur": 0.5,
+     "amp": 14
+    }
+   ],
+   "segs": [
+    [
+     5.4,
+     7.7,
+     "Es el #mayor robo# de la historia *cripto*"
+    ]
+   ]
+  },
+  {
+   "id": "s3",
+   "a": 7.85,
+   "tag": "4 SEMANAS",
+   "mood": "red",
+   "comps": [
+    {
+     "type": "icon",
+     "name": "clock",
+     "size": 380,
+     "y": 340,
+     "at": 0.1,
+     "enter": "pop",
+     "anim": "wiggle"
     },
     {
      "type": "icon",
      "name": "lock",
      "size": 300,
      "x": 820,
-     "y": 420,
-     "at": 4.4,
-     "enter": "drop"
+     "y": 760,
+     "at": 1.8,
+     "enter": "slam"
     },
     {
      "type": "stamp",
-     "text": "CLAVE EN RIESGO",
-     "tone": "red",
-     "size": 90,
-     "y": 1120,
-     "at": 6.0,
-     "rot": -4
+     "text": "RETIRADAS CONGELADAS",
+     "tone": "white",
+     "size": 84,
+     "y": 1100,
+     "at": 2.2,
+     "rot": 3
     }
    ],
    "fx": [
     {
-     "at": 4.6,
+     "at": 2.0,
+     "type": "zoom",
+     "dur": 0.4,
+     "amt": 0.06
+    }
+   ],
+   "segs": [
+    [
+     7.95,
+     11.5,
+     "Hace *cuatro semanas*, y el exchange #congeló# las *retiradas*"
+    ]
+   ]
+  },
+  {
+   "id": "s4",
+   "a": 11.65,
+   "tag": "REABIERTO",
+   "mood": "green",
+   "comps": [
+    {
+     "type": "icon",
+     "name": "shield",
+     "size": 400,
+     "y": 330,
+     "at": 0.1,
+     "enter": "pop",
+     "anim": "bob"
+    },
+    {
+     "type": "logo",
+     "src": "img/logos/binance.svg",
+     "size": 260,
+     "x": 780,
+     "y": 900,
+     "at": 1.0,
+     "enter": "pop"
+    },
+    {
+     "type": "bars",
+     "at": 1.2,
+     "y": 1000
+    }
+   ],
+   "fx": [
+    {
+     "at": 0.2,
+     "type": "flash",
+     "color": "#34F5B0"
+    }
+   ],
+   "segs": [
+    [
+     11.75,
+     15.0,
+     "Ahora las ha *reabierto* en casi *todas* las redes"
+    ]
+   ]
+  },
+  {
+   "id": "s5",
+   "a": 15.1,
+   "tag": "USDC EN PAUSA",
+   "mood": "red",
+   "comps": [
+    {
+     "type": "coin",
+     "sym": "usd",
+     "size": 380,
+     "y": 340,
+     "at": 0.1,
+     "enter": "zoom",
+     "mode": "spin"
+    },
+    {
+     "type": "icon",
+     "name": "warning",
+     "size": 300,
+     "x": 820,
+     "y": 760,
+     "at": 1.3,
+     "enter": "slam",
+     "anim": "wiggle"
+    },
+    {
+     "type": "stamp",
+     "text": "USDC PAUSADO",
+     "tone": "gold",
+     "size": 120,
+     "y": 1100,
+     "at": 1.9,
+     "rot": -4
+    }
+   ],
+   "segs": [
+    [
+     15.2,
+     18.4,
+     "Eso sí: las retiradas de *USDC* siguen en #pausa#"
+    ]
+   ]
+  },
+  {
+   "id": "s6",
+   "a": 18.45,
+   "tag": "MIEDO EXTREMO",
+   "mood": "red",
+   "comps": [
+    {
+     "type": "candles",
+     "trend": "crash",
+     "style": "candles",
+     "title": "BITCOIN",
+     "price0": 61000,
+     "price1": 59700,
+     "n": 30,
+     "dur": 3.2,
+     "h": 500,
+     "y": 330,
+     "at": 0.1
+    },
+    {
+     "type": "gauge",
+     "from": 30,
+     "to": 10,
+     "label": "MIEDO EXTREMO",
+     "y": 790,
+     "at": 2.4
+    },
+    {
+     "type": "coin",
+     "sym": "btc",
+     "size": 240,
+     "x": 820,
+     "y": 330,
+     "at": 0.2,
+     "mode": "spin"
+    }
+   ],
+   "fx": [
+    {
+     "at": 1.8,
      "type": "glitch",
      "dur": 0.6
     }
    ],
    "segs": [
     [
-     10.29,
-     18.1,
-     "Un *ordenador cuántico* lo bastante potente podría, en teoría, sacar la *clave privada* de la pública y *mover esas monedas*"
+     18.55,
+     23.3,
+     "Con *Bitcoin* bajo #60.000 dólares# y el miedo en *10*"
     ]
    ]
   },
   {
-   "id": "s4",
-   "a": 18.3,
-   "tag": "SIN FECHA",
+   "id": "s7",
+   "a": 23.4,
+   "tag": "CONFIANZA",
    "comps": [
     {
      "type": "icon",
-     "name": "clock",
+     "name": "scales",
      "size": 420,
      "y": 330,
      "at": 0.1,
@@ -174,163 +308,35 @@
      "anim": "wiggle"
     },
     {
-     "type": "stamp",
-     "text": "HOY NO EXISTE",
-     "tone": "gold",
-     "size": 130,
-     "y": 900,
-     "at": 1.0,
-     "rot": -5
-    },
-    {
-     "type": "ticker",
-     "text": "NADIE PONE FECHA",
-     "y": 1300,
-     "at": 1.8
-    }
-   ],
-   "segs": [
-    [
-     18.37,
-     21.42,
-     "Hoy ese ordenador *no existe* y *nadie pone fecha*"
-    ]
-   ]
-  },
-  {
-   "id": "s5",
-   "a": 21.55,
-   "tag": "LA EXPOSICIÓN SUBE",
-   "comps": [
-    {
-     "type": "vs",
-     "y": 340,
-     "at": 0.1,
-     "a": {
-      "label": "MAYO",
-      "value": "6,04M",
-      "sub": "BTC expuestos",
-      "tone": "g"
-     },
-     "b": {
-      "label": "HOY",
-      "value": "7,12M",
-      "sub": "BTC expuestos",
-      "tone": "r"
-     }
-    },
-    {
      "type": "icon",
-     "name": "up",
-     "size": 320,
-     "y": 900,
-     "at": 1.6,
-     "enter": "pop",
-     "anim": "bob"
-    }
-   ],
-   "fx": [
-    {
-     "at": 1.7,
-     "type": "pump",
-     "dur": 1.0
-    }
-   ],
-   "segs": [
-    [
-     21.63,
-     24.96,
-     "Pero en *mayo* eran *6 millones*: la exposición *sube*"
-    ]
-   ]
-  },
-  {
-   "id": "s6",
-   "a": 25.15,
-   "tag": "LA SOLUCIÓN",
-   "mood": "green",
-   "comps": [
-    {
-     "type": "magnet",
-     "sym": "btc",
-     "n": 10,
-     "h": 420,
-     "y": 330,
-     "at": 0.1
-    },
-    {
-     "type": "candles",
-     "trend": "chop",
-     "style": "area",
-     "h": 400,
-     "w": 920,
-     "y": 740,
-     "at": 0.8,
-     "dur": 2.4,
-     "title": "BTC / USD",
-     "price0": 60000,
-     "price1": 61800
+     "name": "question",
+     "size": 260,
+     "x": 830,
+     "y": 760,
+     "at": 1.2,
+     "enter": "slam"
     },
     {
      "type": "stamp",
-     "text": "DIRECCIÓN NUEVA",
-     "tone": "green",
-     "size": 90,
-     "y": 1230,
-     "at": 1.8,
+     "text": "¿TUS CLAVES?",
+     "tone": "white",
+     "size": 110,
+     "y": 1100,
+     "at": 2.0,
      "rot": -3
     }
    ],
    "segs": [
     [
-     25.25,
-     28.76,
-     "La solución más simple: *mover las monedas* a una *dirección nueva*"
-    ]
-   ]
-  },
-  {
-   "id": "s7",
-   "a": 28.85,
-   "tag": "BIP 360",
-   "comps": [
-    {
-     "type": "icon",
-     "name": "doc",
-     "size": 420,
-     "y": 330,
-     "at": 0.1,
-     "enter": "pop",
-     "anim": "bob"
-    },
-    {
-     "type": "headline",
-     "text": "BIP 360",
-     "size": 200,
-     "y": 820,
-     "at": 1.0
-    },
-    {
-     "type": "stamp",
-     "text": "EN BORRADOR",
-     "tone": "white",
-     "size": 110,
-     "y": 1120,
-     "at": 2.0,
-     "rot": -4
-    }
-   ],
-   "segs": [
-    [
-     28.93,
-     32.48,
-     "Y ya hay *propuestas* en borrador, como *BIP 360*"
+     23.5,
+     26.8,
+     "La *confianza* en los exchanges nunca pesó *tanto*"
     ]
    ]
   },
   {
    "id": "s8",
-   "a": 32.6,
+   "a": 26.95,
    "tag": "4LPHA MARKETS",
    "tagTone": "g",
    "comps": [
@@ -353,12 +359,29 @@
      "type": "disc",
      "y": 990,
      "at": 1.2
+    },
+    {
+     "type": "rain",
+     "sym": "btc",
+     "n": 14,
+     "dir": "up",
+     "at": 2.6,
+     "spread": 2
+    },
+    {
+     "type": "stamp",
+     "text": "SÍGUEME",
+     "tone": "green",
+     "size": 100,
+     "y": 1190,
+     "at": 3.0,
+     "rot": -4
     }
    ],
    "segs": [
     [
-     32.75,
-     37.98,
+     27.0,
+     32.2,
      "Sígueme para no perderte nada de los *mercados financieros*, esto es... *4LPHA MARKETS*"
     ]
    ]

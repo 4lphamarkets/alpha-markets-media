@@ -1,10 +1,10 @@
 {
-  "slug": "2026_11_27_bitcoin_clave_publica_cuantico",
-  "titulo_seo": "7,12 millones de bitcoin con la clave pública expuesta: ¿riesgo cuántico?",
-  "descripcion": "7,12 millones de bitcoin enseñan su clave pública 🔑\n\nSegún Glassnode, el 35,4% de todos los bitcoin existentes tiene la clave pública visible; en mayo eran 6,04 millones. En teoría, un ordenador cuántico lo bastante potente podría sacar la clave privada a partir de la pública. Hoy ese ordenador no existe y nadie pone fecha.\n\nLa recomendación habitual: mover las monedas a una dirección nueva. Y ya hay propuestas en borrador, como BIP 360.\n\n¿Te preocupa el riesgo cuántico para bitcoin? Te leo en comentarios 👇\n\n👉 Sígueme en @4lphamarkets para no perderte nada de los mercados financieros.\n\n⚠️ Esto no es consejo financiero.",
-  "hashtags": ["bitcoin", "criptomonedas", "btc", "cuantica", "glassnode", "noticiascripto", "mercadosfinancieros", "inversiones", "finanzas", "bip360", "4lphamarkets"],
-  "palabras_clave": ["bitcoin cuántico", "clave pública bitcoin", "Glassnode", "BIP 360"],
-  "portada": {"t1":"BITCOIN","t2":"7,12M BTC EXPUESTOS","tag":"RIESGO CUÁNTICO","sub":"El <b>35,4%</b> del suministro, según Glassnode",
-    "rows":[{"n":"EXPUESTOS","s":"HOY","p":"7,12M","c":"","cc":"r"},{"n":"EN MAYO","s":"ANTES","p":"6,04M","c":"","cc":"v"}],
-    "dir":"down","iconos":["bolt","lock"],"logo":"btc","estilos":["poster","tweet"]}
+  "slug": "2026_11_28_binance_hackeo_6300_millones",
+  "titulo_seo": "Binance reabre retiradas tras el mayor hackeo cripto: 6.300 millones de dólares",
+  "descripcion": "Binance perdió 6.300 millones de dólares en un solo ataque 🚨\n\nEs el mayor robo de la historia cripto. Hace cuatro semanas el exchange congeló las retiradas y ahora las ha reabierto en casi todas las redes, aunque las de USDC siguen en pausa en algunas.\n\nTodo, con Bitcoin por debajo de 60.000 dólares y el Índice de Miedo y Codicia en 10 (miedo extremo). La confianza en los exchanges pesa más que nunca.\n\n¿Dejas tus monedas en un exchange o en tu propia wallet? Te leo en comentarios 👇\n\n👉 Sígueme en @4lphamarkets para no perderte nada de los mercados financieros.\n\n⚠️ Esto no es consejo financiero.",
+  "hashtags": ["binance", "bitcoin", "criptomonedas", "hackeo", "btc", "noticiascripto", "mercadosfinancieros", "inversiones", "finanzas", "cripto", "4lphamarkets"],
+  "palabras_clave": ["Binance hackeo", "Binance retiradas", "mayor robo cripto", "Bitcoin miedo extremo"],
+  "portada": {"t1":"BINANCE","t2":"6.300M $ ROBADOS","tag":"MAYOR HACKEO","sub":"Reabre retiradas tras el <b>mayor robo</b> cripto",
+    "rows":[{"n":"ROBADO","s":"HACE 4 SEMANAS","p":"6.300M$","c":"","cc":"r"},{"n":"USDC","s":"RETIRADAS","p":"EN PAUSA","c":"","cc":"r"}],
+    "dir":"down","iconos":["skull","lock"],"estilos":["alerta","gigante"]}
 }
