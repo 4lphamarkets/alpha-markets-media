@@ -1,0 +1,14 @@
+{
+ "fecha": "2026-11-28",
+ "modo": "cripto",
+ "nota_modo": "Sábado: 100% cripto",
+ "huecos": {
+  "09:00": {
+   "estado": "ok",
+   "detalle": "Historia 1 (estilo noticia) BTC bajo 60K: BTC 59.716 (-3,32%), ETH 1.655 (-4,65%), SOL 71,14 (-2,96%), F&G 10; liquidaciones largos y salidas ETF >5.000M$ en noviembre; fuentes CoinOtag 28-11 + CryptoTicker 28-11 + CMC 09:05. IG STORY 10:00 id 445230483."
+  }
+ },
+ "noticias": [
+  {"titular": "BTC bajo 60K, liquidaciones, miedo extremo 10", "hora_pub": "10:00", "tipo": "historia"}
+ ]
+}
