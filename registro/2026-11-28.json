@@ -18,6 +18,10 @@
   "17:00": {
    "estado": "ok",
    "detalle": "Historia 3 (estilo velas, BITCOIN 15 MIN): BTC 59.205 a las 12:00 -> 59.476 ahora (+0,46%), max 59.476 min 58.906, 24h -0,82%; datos CMC 17:05 Madrid. IG STORY 18:00 id 445570828."
+  },
+  "21:00": {
+   "estado": "ok",
+   "detalle": "Historia 'Cripto hoy' (datos CMC 21:06): BTC 59.322 -0,79%, ETH 1.646 -1,30%, HYPE 62,59 -2,07%, SOL 70,50 -2,02%, BNB 550,29 -0,54%, LIT 2,55 -1,70%, F&G 9. IG STORY 22:00 id 445772576."
   }
  },
  "noticias": [
@@ -40,6 +44,11 @@
    "titular": "BITCOIN 15 MIN: BTC +0,46% desde las 12:00",
    "hora_pub": "18:00",
    "tipo": "btc15m"
+  },
+  {
+   "titular": "Cripto hoy (precios)",
+   "hora_pub": "22:00",
+   "tipo": "historia"
   }
  ],
  "btc15m": {
