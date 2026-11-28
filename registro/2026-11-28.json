@@ -6,9 +6,22 @@
   "09:00": {
    "estado": "ok",
    "detalle": "Historia 1 (estilo noticia) BTC bajo 60K: BTC 59.716 (-3,32%), ETH 1.655 (-4,65%), SOL 71,14 (-2,96%), F&G 10; liquidaciones largos y salidas ETF >5.000M$ en noviembre; fuentes CoinOtag 28-11 + CryptoTicker 28-11 + CMC 09:05. IG STORY 10:00 id 445230483."
+  },
+  "11:00": {
+   "estado": "ok",
+   "detalle": "Vídeo nuevo: Binance reabre retiradas tras el mayor hackeo cripto (6.300M$, hace 4 semanas; USDC en pausa en algunas redes; BTC<60K, F&G 10). Fuentes: titulares coincidentes Benzinga, CryptoBriefing, Globe and Mail, CoinReporter 27-11, Pakistan Today 28-11. Modo dinámico, 33,4 s. Programado 12:00: IG Reel + YT Short id 445304753. Audio 523 créditos (~91.800 restantes aprox.). Carpeta Escritorio 2026_11_28_binance_hackeo_6300_millones (ver nota si falló)."
   }
  },
  "noticias": [
-  {"titular": "BTC bajo 60K, liquidaciones, miedo extremo 10", "hora_pub": "10:00", "tipo": "historia"}
+  {
+   "titular": "BTC bajo 60K, liquidaciones, miedo extremo 10",
+   "hora_pub": "10:00",
+   "tipo": "historia"
+  },
+  {
+   "titular": "Binance reabre retiradas tras hackeo de 6.300M$",
+   "hora_pub": "12:00",
+   "tipo": "video"
+  }
  ]
 }
